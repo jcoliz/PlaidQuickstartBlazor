@@ -80,7 +80,7 @@
           Description="Retrieve information about your latest ACH Transfer."
         />
     }
-    @if (context.products.Contains("transfer"))
+    @if (context.products.Contains("income_verification"))
     {
         <Endpoint
             Api="/income/verification/paystubs"

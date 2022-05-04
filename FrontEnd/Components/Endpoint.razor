@@ -63,7 +63,7 @@
 
         try
         {
-          var data = await Http.GetStringAsync($"api/fetch/{Api}");
+          var data = await Http.GetStringAsync($"fetch/{Api}");
 
           IList<string[]>? result = System.Text.Json.JsonSerializer.Deserialize<IList<string[]>>(data);
           if (result is not null)
