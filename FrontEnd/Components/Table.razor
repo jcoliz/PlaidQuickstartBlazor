@@ -1,0 +1,22 @@
+<table data-test-id="Table">
+    <tr>
+        @foreach(var th in Data!.First())
+        {
+            <th>@th</th>
+        }
+    </tr>
+    @foreach(var tr in Data!.Skip(1))
+    {
+        <tr>
+            @foreach(var td in tr)
+            {
+                <td>@td</td>
+            }
+        </tr>
+    }
+</table>
+
+@code {
+    [Parameter]
+    public IList<List<string>>? Data { get; set; }
+}

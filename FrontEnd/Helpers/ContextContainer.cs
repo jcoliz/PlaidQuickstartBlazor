@@ -46,6 +46,7 @@ public class ContextContainer
     }
     private string? _itemId;
 
+    public List<string> products { get; } = new List<string>();
 
     public event Action? OnChange;
 

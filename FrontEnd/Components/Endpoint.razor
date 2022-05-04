@@ -1,0 +1,72 @@
+<div data-test-id="Endpoint">
+
+      <div class="endpointContainer">
+        <Note>
+          POST
+        </Note>
+        <div class="endpointContents">
+          <div className={styles.endpointHeader}>
+            @if ( Name is not null)
+            {
+                <span class="endpointName">@Name</span>
+            }
+            <span class="schema">@Schema</span>
+          </div>
+          <div class="endpointDescription">@Description</div>
+        </div>
+        <div class="buttonsContainer">
+          <button type="button"
+            small
+            centered
+            wide
+            secondary
+            class="sendRequest"
+            @onclick="GetData"
+          >
+          @(isLoading ? "Loading..." : "Send request")
+          </button>
+        </div>
+      </div>
+      @if (TableData is not null)
+      {
+        <Table Data="@TableData" />
+      }
+      @if (ErrorValue is not null)
+      {
+          <Error>@ErrorValue</Error>
+      }
+</div>
+
+@code {
+    [Parameter]
+    public string? Api { get; set; }
+
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public string? Schema { get; set; }
+
+    [Parameter]
+    public string? Description { get; set; }
+
+    private bool isLoading { get; set; }
+
+    private string? ErrorValue { get; set; }
+
+    private List<List<string>>? TableData { get; set; }
+
+    private async Task GetData()
+    {
+        isLoading = true;
+        await Task.Delay(500);
+
+        TableData = new List<List<string>>() 
+        { 
+            new List<String>() { "A", "B", "C" },
+            new List<String>() { "1", "2", "3" }
+        };
+
+        isLoading = false;
+    }
+}

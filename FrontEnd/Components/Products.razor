@@ -1,3 +1,93 @@
+@inject Helpers.ContextContainer context
+
 <div data-test-id="Products">
     <h2>Products</h2>
+
+    @if (context.products.Contains("payment_initiation"))
+    {
+        <Endpoint
+            Api="payment"
+            Name="Payment"
+            Schema="/payment/get/"
+            Description="Retrieve information about your latest payment."
+        />        
+    }
+    <Endpoint
+        Api="auth"
+        Name="Auth"
+        Schema="/auth/get/"
+        Description="Retrieve account and routing numbers for checking and savings accounts."
+    />
+    <Endpoint
+        Api="transactions"
+        Name="Transactions"
+        Schema="/transactions/get/"
+        Description="Retrieve transactions for credit and depository accounts."
+    />
+    <Endpoint
+        Api="identity"
+        Name="Identity"
+        Schema="/identity/get/"
+        Description="Retrieve Identity information on file with the bank. Reduce
+        fraud by comparing user-submitted data to validate identity."
+    />
+    @if (context.products.Contains("assets"))
+    {
+        <Endpoint
+          Api="assets"
+          Name="Assets"
+          Schema="/assets_report/get/"
+          Description="Create and retrieve assets information an asset report"
+        />
+    }
+    <Endpoint
+        Api="balance"
+        Name="Balance"
+        Schema="/accounts/balance/get/"
+        Description="Check balances in real time to prevent non-sufficient funds
+        fees."
+    />
+    @if (context.products.Contains("investments"))
+    {
+        <Endpoint
+          Api="holdings"
+          Name="Investments"
+          Schema="/investments/holdings/get/"
+          Description="Retrieve investment holdings on file with the bank,
+        brokerage, or investment institution. Analyze over-exposure
+        to market segments."
+      />
+    }
+    <Endpoint
+        Api="investments_transactions"
+        Name="Investments Transactions"
+        Schema="/investments/transactions/get"
+        Description="Retrieve investment transactions on file with the bank,
+        brokerage, or investments institution."
+    />
+    <Endpoint
+        Api="liabilities"
+        Name="Liabilities"
+        Schema="/liabilities/get"
+        Description="Retrieve liabilities and various details about an Item with loan or credit accounts."
+    />
+    @if (context.products.Contains("transfer"))
+    {
+        <Endpoint
+          Api="transfer"
+          Name="Transfer"
+          Schema="/transfer/get/"
+          Description="Retrieve information about your latest ACH Transfer."
+        />
+    }
+    @if (context.products.Contains("transfer"))
+    {
+        <Endpoint
+            Api="/income/verification/paystubs"
+            Name="Income Paystubs"
+            Schema="/income/verification/paystubs"
+            Description="(Deprecated) Retrieve information from the paystubs used for income verification"
+          />
+    }
+
 </div>
