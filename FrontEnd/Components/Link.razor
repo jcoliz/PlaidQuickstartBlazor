@@ -1,0 +1,17 @@
+@inject Helpers.ContextContainer context
+
+<div data-test-id="Link">
+    <button type="button" large  @onclick="LaunchLink">
+      Launch Link
+    </button>
+</div>
+
+@code {
+    private void LaunchLink()
+    {
+        context.linkSuccess = true;
+        context.isItemAccess = true;
+        context.itemId = "Got-itemid";
+        context.accessToken = "your-accesstoken";
+    }
+}

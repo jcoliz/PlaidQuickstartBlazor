@@ -1,16 +1,26 @@
 ﻿@page "/"
-@using PlaidQuickstartBlazor.Components
+@using PlaidQuickstartBlazor.FrontEnd.Components
+@inject Helpers.ContextContainer context
 
 <div data-test-id="IndexPage">
     <Header />
-    @if (linkSuccess && isItemAccess)
+    @if (context.linkSuccess)
     {
-        <Products />
-        <Items />
+        <div>
+            <Products />
+            <Items />
+        </div>
     }
 </div>
 
 @code {
-    private bool linkSuccess { get; set; }
-    private bool isItemAccess { get; set; }
+    protected override void OnInitialized()
+    {
+        context.OnChange += StateHasChanged;
+    }
+
+     public void Dispose()
+    {
+        context.OnChange -= StateHasChanged;
+    }
 }
