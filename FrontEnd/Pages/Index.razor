@@ -1,9 +1,16 @@
 ﻿@page "/"
+@using PlaidQuickstartBlazor.Components
 
-<PageTitle>Index</PageTitle>
+<div data-test-id="IndexPage">
+    <Header />
+    @if (linkSuccess && isItemAccess)
+    {
+        <Products />
+        <Items />
+    }
+</div>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+    private bool linkSuccess { get; set; }
+    private bool isItemAccess { get; set; }
+}
