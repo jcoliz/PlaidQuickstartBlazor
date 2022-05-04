@@ -4,7 +4,7 @@ VisualStudioVersion = 16.0.0.0
 MinimumVisualStudioVersion = 16.0.0.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidQuickstartBlazor.Server", "Server\PlaidQuickstartBlazor.Server.csproj", "{27377404-671B-4E85-93F6-668C80FE19B3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidQuickstartBlazor.Client", "Client\PlaidQuickstartBlazor.Client.csproj", "{17778286-8991-4B4C-9B2C-503A3207C3E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidQuickstartBlazor.FrontEnd", "FrontEnd\PlaidQuickstartBlazor.FrontEnd.csproj", "{17778286-8991-4B4C-9B2C-503A3207C3E5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidQuickstartBlazor.Shared", "Shared\PlaidQuickstartBlazor.Shared.csproj", "{51782CDA-F843-4937-8C2A-B8F0D2A03743}"
 EndProject

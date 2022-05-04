@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\PlaidQuickstartBlazor.Client.csproj" />
+    <ProjectReference Include="..\FrontEnd\PlaidQuickstartBlazor.FrontEnd.csproj" />
     <ProjectReference Include="..\Shared\PlaidQuickstartBlazor.Shared.csproj" />
   </ItemGroup>
 
