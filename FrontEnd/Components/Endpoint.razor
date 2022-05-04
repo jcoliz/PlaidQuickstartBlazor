@@ -1,5 +1,6 @@
-<div data-test-id="Endpoint">
+@inject HttpClient Http
 
+<div data-test-id="Endpoint">
       <div class="endpointContainer">
         <Note>
           POST
@@ -54,18 +55,27 @@
 
     private string? ErrorValue { get; set; }
 
-    private List<List<string>>? TableData { get; set; }
+    private IList<string[]>? TableData { get; set; }
 
     private async Task GetData()
     {
         isLoading = true;
-        await Task.Delay(500);
 
-        TableData = new List<List<string>>() 
-        { 
-            new List<String>() { "A", "B", "C" },
-            new List<String>() { "1", "2", "3" }
-        };
+        try
+        {
+          var data = await Http.GetStringAsync($"api/fetch/{Api}");
+
+          IList<string[]>? result = System.Text.Json.JsonSerializer.Deserialize<IList<string[]>>(data);
+          if (result is not null)
+          {
+            TableData = result;
+          }            
+        }
+        catch (Exception ex)
+        {
+          ErrorValue = ex.Message;
+
+        }
 
         isLoading = false;
     }
