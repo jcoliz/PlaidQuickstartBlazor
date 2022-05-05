@@ -16,7 +16,10 @@ public class DataTableTest
 
         var actual = JsonSerializer.Deserialize<DataTable>(json);
 
-        Assert.AreEqual(dataTable, actual);
+        for(int i = 0; i < dataTable!.Rows!.Length; i++)
+            Assert.IsTrue(dataTable!.Rows![i].Cells!.SequenceEqual(actual!.Rows![i].Cells!),$"Row {i}");
+
+        Assert.IsTrue(dataTable!.Columns!.SequenceEqual(actual!.Columns!));
     }
 
     private DataTable SampleResult => new DataTable()
