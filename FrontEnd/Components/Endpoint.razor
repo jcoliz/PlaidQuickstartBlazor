@@ -64,11 +64,7 @@
 
         try
         {
-            var result = await Http.GetFromJsonAsync<DataTable>($"Fetch/{Api}");
-            if (result is not null)
-            {
-                TableData = result;
-            }            
+            TableData = await Http.GetFromJsonAsync<DataTable>($"Fetch/{Api}");
         }
         catch (Exception ex)
         {
