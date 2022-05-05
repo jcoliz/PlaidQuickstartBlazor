@@ -1,4 +1,4 @@
-.container {
+.pq-container {
   width: 100%;
   border: 1px solid #ededed;
   border-radius: 2px;
@@ -9,7 +9,7 @@
   margin: 0 0 2.4rem 0;
 }
 
-.header {
+.pq-header {
   width: 100%;
   border-bottom: 0px;
   height: 10.4rem;

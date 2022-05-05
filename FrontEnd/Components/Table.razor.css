@@ -1,8 +1,8 @@
 .dataTable {
-  width: 90%;
   margin-bottom: 2.4rem;
   border-spacing: 0px;
   font-size: 1.4rem;
+  width: 100%;
 }
 
 .headerRow {

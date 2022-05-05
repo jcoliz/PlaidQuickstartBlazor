@@ -4,7 +4,7 @@ $color-box-shadow: rgba(17, 17, 17, 0.08);
 $shadow-3: 0 $unit $unit 0 $color-box-shadow;
 $shadow-small: $shadow-3;
 
-.container {
+.pq-container {
     width: 100%;
     border: 1px solid $black200;
     border-radius: 2px;
@@ -15,7 +15,7 @@ $shadow-small: $shadow-3;
     margin: 0 0 3 * $unit 0;
   }
   
-  .header {
+.pq-header {
     width: 100%;
     border-bottom: 0px;
     height: 13 * $unit;
@@ -24,5 +24,5 @@ $shadow-small: $shadow-3;
     padding-left: 5 * $unit;
     margin-top: 0;
     margin-bottom: 0;
-  }
+}
   
