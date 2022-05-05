@@ -16,10 +16,7 @@ public class DataTableTest
 
         var actual = JsonSerializer.Deserialize<DataTable>(json);
 
-        for(int i = 0; i < dataTable!.Rows!.Length; i++)
-            Assert.IsTrue(dataTable!.Rows![i].Cells!.SequenceEqual(actual!.Rows![i].Cells!),$"Row {i}");
-
-        Assert.IsTrue(dataTable!.Columns!.SequenceEqual(actual!.Columns!));
+        Assert.IsTrue(DataTablesEqual(dataTable,actual!));
     }
 
     private DataTable SampleResult => new DataTable()
@@ -30,11 +27,34 @@ public class DataTableTest
 
         Rows = new[]
         {
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-            }
+            new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+            new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+            new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+            new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+        }
     };
 
+    private static bool DataTablesEqual(DataTable table1, DataTable table2)
+    {
+        if (table1.Rows.Length != table2.Rows.Length)
+            return false;
+
+        for (int i = 0; i < table1.Rows.Length; i++)
+            if (!table1.Rows[i].Cells.SequenceEqual(table2.Rows[i].Cells))
+                return false;
+
+        if (table1.Columns.Length != table2.Columns.Length)
+            return false;
+
+        for (int i = 0; i < table1.Columns!.Length; i++)
+        {
+            if (table1.Columns[i].Title != table2.Columns[i].Title)
+                return false;
+
+            if (table1.Columns[i].IsRight != table2.Columns[i].IsRight)
+                return false;
+        }
+
+        return true;
+    }
 }
