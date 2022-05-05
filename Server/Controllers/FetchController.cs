@@ -119,6 +119,62 @@ public class FetchController : ControllerBase
 
         return result;
     }
+
+    [HttpGet]
+    public async Task<DataTable> Accounts()
+    {
+        var request = new Going.Plaid.Accounts.AccountsGetRequest();
+
+        var response = await _client.AccountsGetAsync(request);
+
+        var result = new DataTable("Name", "Balance/r", "Subtype", "Mask")
+        {
+            Rows = response.Accounts
+                .Select(x =>
+                    new Row(
+                        x.Name,
+                        x.Balances?.Current?.ToString("C2") ?? string.Empty,
+                        x.Subtype?.ToString() ?? string.Empty,
+                        x.Mask ?? string.Empty
+                    )
+                )
+                .ToArray()
+        };
+
+        return result;
+    }
+
+    [HttpGet]
+    public async Task<ActionResult> Item()
+    {
+        var request = new Going.Plaid.Item.ItemGetRequest();
+        var response = await _client.ItemGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+
+        _client.AccessToken = null;
+        var intstrequest = new Going.Plaid.Institutions.InstitutionsGetByIdRequest() { InstitutionId = response.Item!.InstitutionId!, CountryCodes = new[] { CountryCode.Us } };
+        var instresponse = await _client.InstitutionsGetByIdAsync(intstrequest);
+
+        if (instresponse.Error is not null)
+            return StatusCode((int)instresponse.StatusCode, instresponse.Error.ErrorMessage);
+
+        var result = new DataTable("Institution Name", "Billed Products", "Available Products")
+        {
+            Rows = new[] 
+            {
+                new Row(
+                    instresponse.Institution.Name,
+                    string.Join(",",response.Item.BilledProducts.Select(x=>x.ToString())),
+                    string.Join(",",response.Item.AvailableProducts.Select(x=>x.ToString()))
+                )
+            }
+        };
+
+        return Ok(result);
+    }
+
     [HttpGet]
     public async Task<DataTable> Liabilities()
     {

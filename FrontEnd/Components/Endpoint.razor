@@ -17,7 +17,7 @@
         </div>
         <div class="buttonsContainer">
           <button type="button"
-            class="btn btn-primary btn-sm sendRequest"
+            class="btn btn-primary sendRequest"
             @onclick="GetData"
           >
             @(isLoading ? "Loading..." : "Send request")
@@ -58,7 +58,15 @@
 
         try
         {
-            TableData = await Http.GetFromJsonAsync<DataTable>($"Fetch/{Api}");
+            var response = await Http.GetAsync($"Fetch/{Api}");
+            if (response.IsSuccessStatusCode)
+            {
+                TableData = await response.Content.ReadFromJsonAsync<DataTable>();             
+            }
+            else
+            {
+                ErrorValue = await response.Content.ReadAsStringAsync();
+            }
         }
         catch (Exception ex)
         {

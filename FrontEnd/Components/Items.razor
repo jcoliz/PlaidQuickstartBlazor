@@ -1,3 +1,18 @@
+@inject Helpers.ContextContainer context
+
 <div data-test-id="Items">
-    <ProductTypesContainer ProductType="Items"></ProductTypesContainer>
+    <ProductTypesContainer ProductType="Item Management">
+        <Endpoint
+            Api="item"
+            Schema="/item/get/"
+            Description="Retrieve information about an Item, like the institution,
+        billed products, available products, and webhook
+        information."
+        />        
+        <Endpoint
+            Api="accounts"
+            Schema="/accounts/get/"
+            Description="Retrieve high-level information about all accounts associated with an item."
+        />
+    </ProductTypesContainer>
 </div>
