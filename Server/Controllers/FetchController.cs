@@ -39,7 +39,9 @@ public class FetchController : ControllerBase
     };
 
     [HttpGet]
-    public async Task<ActionResult> Auth()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Auth()
     {
         var request = new Going.Plaid.Auth.AuthGetRequest();
 
@@ -67,7 +69,9 @@ public class FetchController : ControllerBase
         return Ok(result);
     }
     [HttpGet]
-    public async Task<DataTable> Transactions()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Transactions()
     {
         var request = new Going.Plaid.Transactions.TransactionsGetRequest()
         {
@@ -80,6 +84,9 @@ public class FetchController : ControllerBase
         };
 
         var response = await _client.TransactionsGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
 
         var result = new DataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
         {
@@ -96,11 +103,13 @@ public class FetchController : ControllerBase
             .ToArray()
         };
 
-        return result;
+        return Ok(result);
     }
 
     [HttpGet]
-    public async Task<ActionResult> Identity()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Identity()
     {
         var request = new Going.Plaid.Identity.IdentityGetRequest();
 
@@ -129,7 +138,9 @@ public class FetchController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult> Holdings()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Holdings()
     {
         var request = new Going.Plaid.Investments.InvestmentsHoldingsGetRequest();
 
@@ -157,10 +168,12 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
-
     }
+
     [HttpGet]
-    public async Task<ActionResult> Investments_Transactions()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Investments_Transactions()
     {
         var request = new Going.Plaid.Investments.InvestmentsTransactionsGetRequest()
         {
@@ -195,12 +208,18 @@ public class FetchController : ControllerBase
 
         return Ok(result);
     }
+
     [HttpGet]
-    public async Task<DataTable> Balance()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Balance()
     {
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
 
         var response = await _client.AccountsBalanceGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
 
         var result = new DataTable("Name", "AccountId", "Balance/r")
         {
@@ -215,15 +234,20 @@ public class FetchController : ControllerBase
                 .ToArray()
         };
 
-        return result;
+        return Ok(result);
     }
 
     [HttpGet]
-    public async Task<DataTable> Accounts()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Accounts()
     {
         var request = new Going.Plaid.Accounts.AccountsGetRequest();
 
         var response = await _client.AccountsGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
 
         var result = new DataTable("Name", "Balance/r", "Subtype", "Mask")
         {
@@ -239,11 +263,13 @@ public class FetchController : ControllerBase
                 .ToArray()
         };
 
-        return result;
+        return Ok(result);
     }
 
     [HttpGet]
-    public async Task<ActionResult> Item()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Item()
     {
         var request = new Going.Plaid.Item.ItemGetRequest();
         var response = await _client.ItemGetAsync(request);
@@ -274,12 +300,16 @@ public class FetchController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<DataTable> Liabilities()
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Liabilities()
     {
-
         var request = new Going.Plaid.Liabilities.LiabilitiesGetRequest();
 
         var response = await _client.LiabilitiesGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
 
         Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
 
@@ -318,6 +348,6 @@ public class FetchController : ControllerBase
                 .ToArray()
         };
 
-        return result;
+        return Ok(result);
     }
 }
