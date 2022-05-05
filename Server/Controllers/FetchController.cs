@@ -58,6 +58,7 @@ public class FetchController : ControllerBase
             StartDate = DateOnly.FromDateTime( DateTime.Now - TimeSpan.FromDays(30) ),
             EndDate = DateOnly.FromDateTime(DateTime.Now)
         };
+
         var response = await _client.TransactionsGetAsync(request);
 
         var result = new DataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
@@ -100,6 +101,7 @@ public class FetchController : ControllerBase
     public async Task<DataTable> Balance()
     {
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
+
         var response = await _client.AccountsBalanceGetAsync(request);
 
         var result = new DataTable("Name", "AccountId", "Balance/r")
@@ -118,10 +120,50 @@ public class FetchController : ControllerBase
         return result;
     }
     [HttpGet]
-    public DataTable Liabilities()
+    public async Task<DataTable> Liabilities()
     {
-        _logger.LogInformation("Liabilities");
 
-        return SampleResult;
+        var request = new Going.Plaid.Liabilities.LiabilitiesGetRequest();
+
+        var response = await _client.LiabilitiesGetAsync(request);
+
+        Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
+
+        string AccountNameFor(string id) => AccountFor(id)?.Name ?? string.Empty;
+
+        var result = new DataTable("Type", "Account", "Balance/r")
+        {
+            Rows = response.Liabilities!.Credit!
+                .Select(x =>
+                    new Row(
+                        "Credit",
+                        AccountNameFor(x.AccountId ?? string.Empty),
+                        x.LastStatementBalance?.ToString("C2") ?? string.Empty
+                    )
+                )
+                .Concat(
+                    response.Liabilities!.Student!
+                        .Select(x=>
+                            new Row(
+                                "Student Loan",
+                                AccountNameFor(x.AccountId ?? string.Empty),
+                                AccountFor(x.AccountId)?.Balances?.Current?.ToString("C2") ?? string.Empty
+                            )
+                        )
+                )
+                .Concat(
+                    response.Liabilities!.Mortgage!
+                        .Select(x =>
+                            new Row(
+                                "Mortgage",
+                                AccountNameFor(x.AccountId ?? string.Empty),
+                                AccountFor(x.AccountId)?.Balances?.Current?.ToString("C2") ?? string.Empty
+                            )
+                        )
+                )
+                .ToArray()
+        };
+
+        return result;
     }
 }
