@@ -11,6 +11,17 @@ namespace PlaidQuickstartBlazor.Shared
         public Column[] Columns { get; set; } = new Column[0];
 
         public Row[] Rows { get; set; } = new Row[0];
+
+        public DataTable() { }
+
+        public DataTable(params string[] cols)
+        {
+            Columns = cols.Select(x => 
+            {
+                var split = x.Split("/");
+                return new Column() { Title = split[0], IsRight = split.Length > 1 && split[1] == "r" };
+            }).ToArray();
+        }
     };
 
     public class Column
@@ -23,5 +34,12 @@ namespace PlaidQuickstartBlazor.Shared
     public class Row
     {
         public string[] Cells { get; set; } = new string[0];
+
+        public Row() { }
+
+        public Row(params string[] cells) 
+        { 
+            Cells = cells;
+        }
     }
 }

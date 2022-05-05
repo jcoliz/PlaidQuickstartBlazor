@@ -21,6 +21,7 @@ public class FetchController : ControllerBase
         _logger = logger;
         _credentials = credentials.Value;
         _client = client;
+        _client.AccessToken = _credentials.AccessToken;
     }
 
     private DataTable SampleResult => new DataTable()
@@ -48,7 +49,6 @@ public class FetchController : ControllerBase
     [HttpGet]
     public async Task<DataTable> Transactions()
     {
-        _client.AccessToken = _credentials.AccessToken;
         var request = new Going.Plaid.Transactions.TransactionsGetRequest()
         {
             Options = new TransactionsGetRequestOptions()
@@ -60,32 +60,21 @@ public class FetchController : ControllerBase
         };
         var response = await _client.TransactionsGetAsync(request);
 
-        var result = new DataTable()
+        var result = new DataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
         {
-            Columns = new Column[]
-            {
-                new Column() { Title = "Name" },
-                new Column() { Title = "Amount", IsRight = true },
-                new Column() { Title = "Date", IsRight = true },
-                new Column() { Title = "Category" },
-                new Column() { Title = "Channel" },
-            },
             Rows = response.Transactions
             .Select(x =>
-                new Row()
-                {
-                    Cells = new string[]
-                    {
-                        x.Name,
-                        x.Amount.ToString("C2"),
-                        x.Date.ToShortDateString(),
-                        string.Join(':',x.Category ?? Enumerable.Empty<string>() ),
-                        x.PaymentChannel.ToString()
-                    }
-                }
+                new Row(
+                    x.Name,
+                    x.Amount.ToString("C2"),
+                    x.Date.ToShortDateString(),
+                    string.Join(':',x.Category ?? Enumerable.Empty<string>() ),
+                    x.PaymentChannel.ToString()
+                )
             )
             .ToArray()
         };
+
         return result;
     }
     [HttpGet]
@@ -103,38 +92,25 @@ public class FetchController : ControllerBase
         return SampleResult;
     }
     [HttpGet]
-    public async Task<DataTable> Investments_Transactions()
+    public DataTable Investments_Transactions()
     {
-
-
         return SampleResult;
     }
     [HttpGet]
     public async Task<DataTable> Balance()
     {
-        _client.AccessToken = _credentials.AccessToken;
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
         var response = await _client.AccountsBalanceGetAsync(request);
 
-        var result = new DataTable()
+        var result = new DataTable("Name", "AccountId", "Balance/r")
         {
-            Columns = new Column[]
-            {
-                new Column() { Title = "Name" },
-                new Column() { Title = "AccountId" },
-                new Column() { Title = "Balance", IsRight = true },
-            },
             Rows = response.Accounts
-                .Select(x => 
-                    new Row() 
-                    { 
-                        Cells = new string[] 
-                        { 
-                            x.Name, 
-                            x.AccountId, 
-                            x.Balances?.Current?.ToString("C2") ?? string.Empty 
-                        } 
-                    }
+                .Select(x =>
+                    new Row(
+                        x.Name,
+                        x.AccountId,
+                        x.Balances?.Current?.ToString("C2") ?? string.Empty
+                    )
                 )
                 .ToArray()
         };
