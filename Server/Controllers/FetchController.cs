@@ -40,11 +40,32 @@ public class FetchController : ControllerBase
     };
 
     [HttpGet]
-    public DataTable Auth()
+    public async Task<ActionResult> Auth()
     {
-        _logger.LogInformation("Auth");
+        var request = new Going.Plaid.Auth.AuthGetRequest();
 
-        return SampleResult;
+        var response = await _client.AuthGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+
+        Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
+
+        var result = new DataTable("Name", "Balance/r", "Account #", "Routing #")
+        {
+            Rows = response.Numbers.Ach
+                .Select(x =>
+                    new Row(
+                        AccountFor(x.AccountId)?.Name ?? String.Empty,
+                        AccountFor(x.AccountId)?.Balances?.Current?.ToString("C2") ?? string.Empty,
+                        x.Account,
+                        x.Routing
+                    )
+                )
+                .ToArray()
+        };
+
+        return Ok(result);
     }
     [HttpGet]
     public async Task<DataTable> Transactions()
@@ -78,13 +99,37 @@ public class FetchController : ControllerBase
 
         return result;
     }
-    [HttpGet]
-    public DataTable Identity()
-    {
-        _logger.LogInformation("Identity");
 
-        return SampleResult;
+    [HttpGet]
+    public async Task<ActionResult> Identity()
+    {
+        var request = new Going.Plaid.Identity.IdentityGetRequest();
+
+        var response = await _client.IdentityGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+
+        var result = new DataTable("Names", "Emails", "Phone Numbers", "Addresses");
+
+        var rows = new List<Row>();
+        foreach(var account in response.Accounts)
+        {
+            foreach(var owner in account.Owners)
+            {
+                rows.Add(new Row(
+                    string.Join(", ", owner.Names),
+                    string.Join(", ", owner.Emails.Select(x => x.Data)),
+                    string.Join(", ", owner.PhoneNumbers.Select(x => x.Data)),
+                    string.Join(", ", owner.Addresses.Select(x => x.Data.Street))
+                ));
+            }
+        }
+        result.Rows = rows.ToArray();
+
+        return Ok(result);
     }
+
     [HttpGet]
     public DataTable Holdings()
     {
