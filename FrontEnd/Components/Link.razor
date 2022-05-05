@@ -11,9 +11,9 @@
 @code {
     private async Task LaunchLink()
     {
+        context.credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
+
         context.linkSuccess = true;
         context.isItemAccess = true;
-
-        context.credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
     }
 }

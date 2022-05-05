@@ -90,3 +90,12 @@
         }
     </ProductTypesContainer>
 </div>
+
+@code {
+    protected override Task OnInitializedAsync()
+    {
+        StateHasChanged();
+
+        return base.OnInitializedAsync();
+    }
+}

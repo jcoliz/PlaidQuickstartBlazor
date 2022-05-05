@@ -129,16 +129,71 @@ public class FetchController : ControllerBase
     }
 
     [HttpGet]
-    public DataTable Holdings()
+    public async Task<ActionResult> Holdings()
     {
-        _logger.LogInformation("Holdings");
+        var request = new Going.Plaid.Investments.InvestmentsHoldingsGetRequest();
 
-        return SampleResult;
+        var response = await _client.InvestmentsHoldingsGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+
+        Security? SecurityFor(string? id) => response?.Securities.Where(x => x.SecurityId == id).SingleOrDefault();
+        Account? AccountFor(string? id) => response?.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
+
+        var result = new DataTable("Mask", "Name", "Quantity/r", "Close Price/r", "Value/r")
+        {
+            Rows = response.Holdings
+            .Select(x =>
+                new Row(
+                    AccountFor(x.AccountId)?.Mask ?? string.Empty,
+                    SecurityFor(x.SecurityId)?.Name ?? string.Empty,
+                    x.Quantity.ToString("0.000"),
+                    x.InstitutionPrice.ToString("C2"),
+                    x.InstitutionValue.ToString("C2")
+                )
+            )
+            .ToArray()
+        };
+
+        return Ok(result);
+
     }
     [HttpGet]
-    public DataTable Investments_Transactions()
+    public async Task<ActionResult> Investments_Transactions()
     {
-        return SampleResult;
+        var request = new Going.Plaid.Investments.InvestmentsTransactionsGetRequest()
+        {
+            Options = new InvestmentsTransactionsGetRequestOptions()
+            {
+                Count = 100
+            },
+            StartDate = DateOnly.FromDateTime( DateTime.Now - TimeSpan.FromDays(30) ),
+            EndDate = DateOnly.FromDateTime(DateTime.Now)
+        };
+
+        var response = await _client.InvestmentsTransactionsGetAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+
+        Security? SecurityFor(string? id) => response?.Securities.Where(x => x.SecurityId == id).SingleOrDefault();
+
+        var result = new DataTable("Name", "Amount/r", "Date/r", "Ticker")
+        {
+            Rows = response.InvestmentTransactions
+            .Select(x =>
+                new Row(
+                    x.Name,
+                    x.Amount.ToString("C2"),
+                    x.Date.ToShortDateString(),
+                    SecurityFor(x.SecurityId)?.TickerSymbol ?? string.Empty
+                )
+            )
+            .ToArray()
+        };
+
+        return Ok(result);
     }
     [HttpGet]
     public async Task<DataTable> Balance()
