@@ -1,5 +1,5 @@
 using Going.Plaid;
-using PlaidQuickstartBlazor.Server.Helpers;
+using PlaidQuickstartBlazor.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 

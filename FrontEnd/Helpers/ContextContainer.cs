@@ -1,3 +1,5 @@
+using PlaidQuickstartBlazor.Shared;
+
 namespace PlaidQuickstartBlazor.FrontEnd.Helpers;
 
 public class ContextContainer
@@ -24,29 +26,16 @@ public class ContextContainer
     }
     private bool _linkSuccess;
 
-    public string? accessToken
+    public PlaidCredentials? credentials
     {
-        get => _accessToken;
+        get => _credentials;
         set
         {
-            _accessToken = value;
+            _credentials = value;
             NotifyStateChanged();
         }
     }
-    private string? _accessToken;
-
-    public string? itemId
-    {
-        get => _itemId;
-        set
-        {
-            _itemId = value;
-            NotifyStateChanged();
-        }
-    }
-    private string? _itemId;
-
-    public List<string> products { get; } = new List<string>();
+    private PlaidCredentials? _credentials;
 
     public event Action? OnChange;
 

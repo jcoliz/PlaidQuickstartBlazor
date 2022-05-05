@@ -1,4 +1,6 @@
+@using PlaidQuickstartBlazor.Shared
 @inject Helpers.ContextContainer context
+@inject HttpClient Http
 
 <div data-test-id="Link">
     <button type="button" class="btn btn-primary" @onclick="LaunchLink">
@@ -7,11 +9,11 @@
 </div>
 
 @code {
-    private void LaunchLink()
+    private async Task LaunchLink()
     {
         context.linkSuccess = true;
         context.isItemAccess = true;
-        context.itemId = "Got-itemid";
-        context.accessToken = "your-accesstoken";
+
+        context.credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
     }
 }

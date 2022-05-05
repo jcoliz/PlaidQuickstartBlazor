@@ -2,7 +2,6 @@ using Going.Plaid;
 using Going.Plaid.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using PlaidQuickstartBlazor.Server.Helpers;
 using PlaidQuickstartBlazor.Shared;
 
 namespace PlaidQuickstartBlazor.Server.Controllers;
