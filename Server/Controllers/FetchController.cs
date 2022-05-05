@@ -110,22 +110,21 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
 
-        var result = new DataTable("Names", "Emails", "Phone Numbers", "Addresses");
-
-        var rows = new List<Row>();
-        foreach(var account in response.Accounts)
+        var result = new DataTable("Names", "Emails", "Phone Numbers", "Addresses")
         {
-            foreach(var owner in account.Owners)
-            {
-                rows.Add(new Row(
-                    string.Join(", ", owner.Names),
-                    string.Join(", ", owner.Emails.Select(x => x.Data)),
-                    string.Join(", ", owner.PhoneNumbers.Select(x => x.Data)),
-                    string.Join(", ", owner.Addresses.Select(x => x.Data.Street))
-                ));
-            }
-        }
-        result.Rows = rows.ToArray();
+            Rows = response.Accounts
+                .SelectMany(a => 
+                    a.Owners
+                        .Select(o => 
+                            new Row(
+                                string.Join(", ", o.Names),
+                                string.Join(", ", o.Emails.Select(x => x.Data)),
+                                string.Join(", ", o.PhoneNumbers.Select(x => x.Data)),
+                                string.Join(", ", o.Addresses.Select(x => x.Data.Street))
+                            )
+                        )
+                ).ToArray()
+        };
 
         return Ok(result);
     }

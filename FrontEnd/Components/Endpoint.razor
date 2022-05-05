@@ -1,37 +1,37 @@
 @using PlaidQuickstartBlazor.Shared
 @inject HttpClient Http
 
-      <div class="endpointContainer">
-        <Note>
-          POST
-        </Note>
-        <div class="endpointContents">
-          <div class="endpointHeader">
-            @if ( Name is not null )
-            {
-                <span class="endpointName">@Name</span>
-            }
-            <span class="schema">@Schema</span>
-          </div>
-          <div class="endpointDescription">@Description</div>
+<div class="endpointContainer">
+    <Note>
+        POST
+    </Note>
+    <div class="endpointContents">
+        <div class="endpointHeader">
+        @if ( Name is not null )
+        {
+            <span class="endpointName">@Name</span>
+        }
+        <span class="schema">@Schema</span>
         </div>
-        <div class="buttonsContainer">
-          <button type="button"
-            class="btn btn-primary sendRequest"
-            @onclick="GetData"
-          >
-            @(isLoading ? "Loading..." : "Send request")
-          </button>
-        </div>
-      </div>
-      @if (TableData is not null)
-      {
-        <Table Data="@TableData" />
-      }
-      @if (ErrorValue is not null)
-      {
-          <Error>@ErrorValue</Error>
-      }
+        <div class="endpointDescription">@Description</div>
+    </div>
+    <div class="buttonsContainer">
+        <button type="button"
+        class="btn btn-primary sendRequest"
+        @onclick="GetData"
+        >
+        @(isLoading ? "Loading..." : "Send request")
+        </button>
+    </div>
+</div>
+@if (TableData is not null)
+{
+    <Table Data="@TableData" />
+}
+@if (ErrorValue is not null)
+{
+    <Error>@ErrorValue</Error>
+}
 
 @code {
     [Parameter]
