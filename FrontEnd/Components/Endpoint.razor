@@ -1,3 +1,4 @@
+@using PlaidQuickstartBlazor.Shared
 @inject HttpClient Http
 
 <div data-test-id="Endpoint">
@@ -55,7 +56,7 @@
 
     private string? ErrorValue { get; set; }
 
-    private IList<string[]>? TableData { get; set; }
+    private DataTable? TableData { get; set; }
 
     private async Task GetData()
     {
@@ -63,18 +64,15 @@
 
         try
         {
-          var data = await Http.GetStringAsync($"fetch/{Api}");
-
-          IList<string[]>? result = System.Text.Json.JsonSerializer.Deserialize<IList<string[]>>(data);
-          if (result is not null)
-          {
-            TableData = result;
-          }            
+            var result = await Http.GetFromJsonAsync<DataTable>($"Fetch/{Api}");
+            if (result is not null)
+            {
+                TableData = result;
+            }            
         }
         catch (Exception ex)
         {
-          ErrorValue = ex.Message;
-
+            ErrorValue = ex.Message;
         }
 
         isLoading = false;

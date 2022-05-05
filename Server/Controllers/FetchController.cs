@@ -15,110 +15,68 @@ public class FetchController : ControllerBase
         _logger = logger;
     }
 
+    private DataTable SampleResult => new DataTable()
+    {
+        Columns = (new[] { "A", "B", "C", "D", "E" })
+            .Select(x => new Column() { Title = x })
+            .ToArray(),
+
+        Rows = new[]
+            {
+                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
+            }
+    };
+
     [HttpGet]
-    public IList<string[]> Auth()
+    public DataTable Auth()
     {
         _logger.LogInformation("Auth");
 
-        var result = new List<string[]>() 
-        { 
-            new[] { "A", "B", "C", "D", "E" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-        };
-
-        return result;
+        return SampleResult;
     }
     [HttpGet]
-    public IList<string[]> Transactions()
+    public DataTable Transactions()
     {
         _logger.LogInformation("Transactions");
 
-        var result = new List<string[]>()
-        {
-            new[] { "A", "B", "C", "D", "E" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-        };
-
-        return result;
+        return SampleResult;
     }
     [HttpGet]
-    public IList<string[]> Identity()
+    public DataTable Identity()
     {
         _logger.LogInformation("Identity");
 
-        var result = new List<string[]>()
-        {
-            new[] { "A", "B", "C", "D", "E" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-        };
-
-        return result;
+        return SampleResult;
     }
     [HttpGet]
-    public IList<string[]> Holdings()
+    public DataTable Holdings()
     {
         _logger.LogInformation("Holdings");
 
-        var result = new List<string[]>()
-        {
-            new[] { "A", "B", "C", "D", "E" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-        };
-
-        return result;
+        return SampleResult;
     }
     [HttpGet]
-    public IList<string[]> Investments_Transactions()
+    public DataTable Investments_Transactions()
     {
         _logger.LogInformation("Investments_Transactions");
 
-        var result = new List<string[]>()
-        {
-            new[] { "A", "B", "C", "D", "E" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-        };
-
-        return result;
+        return SampleResult;
     }
     [HttpGet]
-    public IList<string[]> Balance()
+    public DataTable Balance()
     {
         _logger.LogInformation("Balance");
 
-        var result = new List<string[]>()
-        {
-            new[] { "A", "B", "C", "D", "E" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-        };
-
-        return result;
+        return SampleResult;
     }
     [HttpGet]
-    public IList<string[]> Liabilities()
+    public DataTable Liabilities()
     {
         _logger.LogInformation("Liabilities");
 
-        var result = new List<string[]>()
-        {
-            new[] { "A", "B", "C", "D", "E" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-            new[] { "1", "2", "3", "4", "5" },
-        };
-
-        return result;
+        return SampleResult;
     }
-
 }

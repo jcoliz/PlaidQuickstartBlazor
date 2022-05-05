@@ -1,14 +1,16 @@
+@using PlaidQuickstartBlazor.Shared
+
 <table data-test-id="Table">
     <tr>
-        @foreach(var th in Data!.First())
+        @foreach(var th in Data!.Columns)
         {
-            <th>@th</th>
+            <th>@th.Title</th>
         }
     </tr>
-    @foreach(var tr in Data!.Skip(1))
+    @foreach(var tr in Data!.Rows)
     {
         <tr>
-            @foreach(var td in tr)
+            @foreach(var td in tr.Cells)
             {
                 <td>@td</td>
             }
@@ -18,5 +20,5 @@
 
 @code {
     [Parameter]
-    public IList<string[]>? Data { get; set; }
+    public DataTable? Data { get; set; }
 }
