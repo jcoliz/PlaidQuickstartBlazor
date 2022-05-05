@@ -1,0 +1,28 @@
+$black200: #ededed;
+$unit: 0.8rem;
+$color-box-shadow: rgba(17, 17, 17, 0.08);
+$shadow-3: 0 $unit $unit 0 $color-box-shadow;
+$shadow-small: $shadow-3;
+
+.container {
+    width: 100%;
+    border: 1px solid $black200;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: $shadow-small;
+    margin: 0 0 3 * $unit 0;
+  }
+  
+  .header {
+    width: 100%;
+    border-bottom: 0px;
+    height: 13 * $unit;
+    font-weight: 800;
+    padding-top: 5 * $unit;
+    padding-left: 5 * $unit;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  

@@ -1,4 +1,5 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 16.0.0.0
@@ -8,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidQuickstartBlazor.Front
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidQuickstartBlazor.Shared", "Shared\PlaidQuickstartBlazor.Shared.csproj", "{51782CDA-F843-4937-8C2A-B8F0D2A03743}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaidQuickstartBlazor.Shared.Tests.Unit", "Shared.Tests.Unit\PlaidQuickstartBlazor.Shared.Tests.Unit.csproj", "{F86D2E5B-59E6-47FC-AF90-914CC10DD197}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaidQuickstartBlazor.Shared.Tests.Unit", "Shared.Tests.Unit\PlaidQuickstartBlazor.Shared.Tests.Unit.csproj", "{F86D2E5B-59E6-47FC-AF90-914CC10DD197}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

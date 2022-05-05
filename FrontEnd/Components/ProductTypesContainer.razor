@@ -1,0 +1,12 @@
+﻿<div data-test-id="ProductTypesContainer" class="container">
+    <h4 class="header">@ProductType</h4>
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public string? ProductType { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}
