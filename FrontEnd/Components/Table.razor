@@ -1,21 +1,30 @@
 @using PlaidQuickstartBlazor.Shared
 
-<table data-test-id="Table">
-    <tr>
-        @foreach(var th in Data!.Columns)
-        {
-            <th>@th.Title</th>
-        }
-    </tr>
+<table data-test-id="Table" class="dataTable">
+    <thead class="header">
+        <tr>
+            @foreach(var th in Data!.Columns)
+            {
+                var right = th.IsRight ? "right" : string.Empty;
+                <th class="headerField @right">@th.Title</th>
+            }
+        </tr>
+    </thead>
+
+    <tbody class="body">
+
     @foreach(var tr in Data!.Rows)
     {
-        <tr>
+        var col = 0;
+        <tr class="dataRows">
             @foreach(var td in tr.Cells)
             {
-                <td>@td</td>
+                var right = Data!.Columns[col++].IsRight ? "right" : string.Empty;
+                <td class="dataField @right">@td</td>
             }
         </tr>
     }
+    </tbody>
 </table>
 
 @code {
