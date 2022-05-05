@@ -1,4 +1,5 @@
 using Going.Plaid;
+using Going.Plaid.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlaidQuickstartBlazor.Server.Helpers;
@@ -45,11 +46,47 @@ public class FetchController : ControllerBase
         return SampleResult;
     }
     [HttpGet]
-    public DataTable Transactions()
+    public async Task<DataTable> Transactions()
     {
-        _logger.LogInformation("Transactions");
+        _client.AccessToken = _credentials.AccessToken;
+        var request = new Going.Plaid.Transactions.TransactionsGetRequest()
+        {
+            Options = new TransactionsGetRequestOptions()
+            {
+                Count = 100
+            },
+            StartDate = DateOnly.FromDateTime( DateTime.Now - TimeSpan.FromDays(30) ),
+            EndDate = DateOnly.FromDateTime(DateTime.Now)
+        };
+        var response = await _client.TransactionsGetAsync(request);
 
-        return SampleResult;
+        var result = new DataTable()
+        {
+            Columns = new Column[]
+            {
+                new Column() { Title = "Name" },
+                new Column() { Title = "Amount", IsRight = true },
+                new Column() { Title = "Date", IsRight = true },
+                new Column() { Title = "Category" },
+                new Column() { Title = "Channel" },
+            },
+            Rows = response.Transactions
+            .Select(x =>
+                new Row()
+                {
+                    Cells = new string[]
+                    {
+                        x.Name,
+                        x.Amount.ToString("C2"),
+                        x.Date.ToShortDateString(),
+                        string.Join(':',x.Category ?? Enumerable.Empty<string>() ),
+                        x.PaymentChannel.ToString()
+                    }
+                }
+            )
+            .ToArray()
+        };
+        return result;
     }
     [HttpGet]
     public DataTable Identity()
@@ -66,17 +103,15 @@ public class FetchController : ControllerBase
         return SampleResult;
     }
     [HttpGet]
-    public DataTable Investments_Transactions()
+    public async Task<DataTable> Investments_Transactions()
     {
-        _logger.LogInformation("Investments_Transactions");
+
 
         return SampleResult;
     }
     [HttpGet]
     public async Task<DataTable> Balance()
     {
-        _logger.LogInformation("Balance");
-
         _client.AccessToken = _credentials.AccessToken;
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
         var response = await _client.AccountsBalanceGetAsync(request);
