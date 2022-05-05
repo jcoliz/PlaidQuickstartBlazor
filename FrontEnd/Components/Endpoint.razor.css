@@ -1,0 +1,53 @@
+.endpointContainer {
+  display: grid;
+  grid-template-columns: 15% 57% 28%;
+  width: 100%;
+  border-top: 1px solid #ededed;
+}
+
+.post {
+  margin: 1.6rem 0px 1.6rem 2.4rem;
+  font-size: 1.4rem;
+}
+
+.endpointContents {
+  margin: 2.4rem 3.2rem;
+}
+
+.endpointHeader {
+  margin-bottom: 0.8rem;
+}
+
+.endpointName {
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding-right: 0.8rem;
+}
+
+.schema {
+  font-size: 1.6rem;
+  font-family: Inconsolata, Consolas, Courier, monospace;
+  letter-spacing: -0.24px;
+}
+
+.endpointDescription {
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sendRequest {
+  margin: 1.6rem 1.6rem 0.8rem 2.4rem;
+  width: 70%;
+}
+
+.pdf {
+  margin: 0 1.6rem 0 2.4rem;
+  width: 70%;
+}
+
+/*# sourceMappingURL=Endpoint.razor.css.map */

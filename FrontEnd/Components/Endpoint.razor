@@ -7,8 +7,8 @@
           POST
         </Note>
         <div class="endpointContents">
-          <div className={styles.endpointHeader}>
-            @if ( Name is not null)
+          <div class="endpointHeader">
+            @if ( Name is not null )
             {
                 <span class="endpointName">@Name</span>
             }
@@ -18,14 +18,10 @@
         </div>
         <div class="buttonsContainer">
           <button type="button"
-            small
-            centered
-            wide
-            secondary
-            class="sendRequest"
+            class="btn btn-primary btn-sm sendRequest"
             @onclick="GetData"
           >
-          @(isLoading ? "Loading..." : "Send request")
+            @(isLoading ? "Loading..." : "Send request")
           </button>
         </div>
       </div>

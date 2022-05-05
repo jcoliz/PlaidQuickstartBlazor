@@ -1,0 +1,28 @@
+span {
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    font-family: Inconsolata, Consolas, Courier, monospace;
+    height: 3.2rem;
+    min-width: 7.2rem;
+    border: 0.1rem solid #949494;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    padding: 0 0.8rem 0 0.8rem; 
+}
+
+.info {
+    border: 1px solid #0a85ea; 
+}
+
+.post {
+    margin: 1.6rem 0px 1.6rem 2.4rem;
+    font-size: 1.4rem;
+  }
