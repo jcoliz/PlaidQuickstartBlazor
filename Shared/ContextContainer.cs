@@ -1,6 +1,4 @@
-using PlaidQuickstartBlazor.Shared;
-
-namespace PlaidQuickstartBlazor.FrontEnd.Helpers;
+namespace PlaidQuickstartBlazor.Shared;
 
 public class ContextContainer
 {
@@ -36,6 +34,8 @@ public class ContextContainer
         }
     }
     private PlaidCredentials? _credentials;
+
+    public bool RunningOnServer { get; set; }
 
     public event Action? OnChange;
 

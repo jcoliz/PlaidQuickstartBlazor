@@ -19,6 +19,7 @@ builder.Services.AddHttpClient();
 builder.Services.Configure<PlaidCredentials>(builder.Configuration.GetSection(PlaidOptions.SectionKey));
 builder.Services.Configure<PlaidOptions>(builder.Configuration.GetSection(PlaidOptions.SectionKey));
 builder.Services.AddSingleton<PlaidClient>();
+builder.Services.AddSingleton<ContextContainer>(new ContextContainer() { RunningOnServer = true });
 
 var app = builder.Build();
 
@@ -41,9 +42,14 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// https://andrewlock.net/enabling-prerendering-for-blazor-webassembly-apps/
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages();
+    endpoints.MapFallbackToPage("/_Host");
+});
 
-app.MapRazorPages();
+//app.MapRazorPages();
 app.MapControllers();
-app.MapFallbackToFile("index.html");
 
 app.Run();

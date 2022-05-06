@@ -1,4 +1,6 @@
-@inject Helpers.ContextContainer context
+@using PlaidQuickstartBlazor.Shared
+@using System.Runtime.InteropServices
+@inject ContextContainer context
 
 <div data-test-id="Header" class="grid">
     <h3 class="title">Plaid Quickstart</h3>
@@ -8,7 +10,7 @@
         <h4 class="subtitle">
             A sample end-to-end integration with Plaid
         </h4>
-        <p class="intropar">
+        <p>
             The Plaid flow begins when your user wants to connect their bank
             account to your app. Simulate this by clicking the button below to
             launch Link - the client-side component that your users will
@@ -16,9 +18,21 @@
             to access their accounts via the Plaid API.
         </p>
 
-        <div class="linkbutton">
-            <Link />
-        </div>
+        @if (context.RunningOnServer)
+        {
+            <div class="linkButton">
+                <button class="btn btn-primary" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Loading...
+                </button>
+            </div>
+        }
+        else
+        {
+            <div class="linkButton">
+                <Link />
+            </div>
+        }
     }
     else
     {
