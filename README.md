@@ -1,5 +1,8 @@
 # Plaid quickstart for .NET
 
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) 
+[![Build+Test](https://github.com/jcoliz/PlaidQuickstartBlazor/actions/workflows/buildtest.yml/badge.svg)](https://github.com/jcoliz/PlaidQuickstartBlazor/actions/workflows/buildtest.yml)
+
 This repository is a port of the official [Plaid quickstart](https://github.com/plaid/quickstart) project, using the [Going.Plaid](https://github.com/viceroypenguin/Going.Plaid) client libraries for C# .NET. Here, the quickstart is implemented as a Hosted Blazor WebAssembly.
 
 ![Plaid quickstart for .NET](/docs/images/QuickstartDotNet.png)
@@ -49,3 +52,12 @@ In Development or Production, use real-life credentials.
 
 The largest single remaining item is to implement the Link flow. If you launch with your own access token
 in the secrets.yaml, the app is functionally complete. Check out the [TODO List](/docs/TODO.md) for more details.
+
+## Code of conduct
+
+We as members, contributors, and leaders pledge to make participation in our
+community a harassment-free experience for everyone. We pledge to act and
+interact in ways that contribute to an open, welcoming, diverse, inclusive, 
+and healthy community.
+
+Please review the [Code of conduct](/code_of_conduct.md) for more details.
