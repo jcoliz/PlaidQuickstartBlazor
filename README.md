@@ -2,6 +2,8 @@
 
 This repository is a port of the official [Plaid quickstart](https://github.com/plaid/quickstart) project, using the [Going.Plaid](https://github.com/viceroypenguin/Going.Plaid) client libraries for C# .NET. Here, the quickstart is implemented as a Hosted Blazor WebAssembly.
 
+![Plaid quickstart for .NET](/docs/images/QuickstartDotNet.png)
+
 ## 1. Clone the repository
 
 ```Powershell
@@ -42,3 +44,8 @@ The quickstart will now be listening on `https://localhost:7267`
 In Sandbox, you can log in to any supported institution (except Capital One) using `user_good` as the username and `pass_good` as the password. If prompted to enter a 2-factor authentication code, enter `1234`.
 
 In Development or Production, use real-life credentials.
+
+## Current status
+
+The largest single remaining item is to implement the Link flow. If you launch with your own access token
+in the secrets.yaml, the app is functionally complete. Check out the [TODO List](/docs/TODO.md) for more details.
