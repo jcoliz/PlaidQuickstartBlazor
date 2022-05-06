@@ -16,12 +16,23 @@
         <div class="endpointDescription">@Description</div>
     </div>
     <div class="buttonsContainer">
-        <button type="button"
-        class="btn btn-primary sendRequest"
-        @onclick="GetData"
-        >
-        @(isLoading ? "Loading..." : "Send request")
-        </button>
+
+        @if (isLoading)
+        {
+            <button class="btn btn-primary sendRequest" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>
+        }
+        else
+        {
+            <button type="button"
+                class="btn btn-primary sendRequest"
+                @onclick="GetData"
+                >
+                Send request
+            </button>
+        }
     </div>
 </div>
 @if (TableData is not null)

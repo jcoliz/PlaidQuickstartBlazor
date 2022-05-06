@@ -30,31 +30,36 @@
         {
             Error = null;
 
-            // Step 1: Get link token from server
-            var link_token = await Http.GetFromJsonAsync<string>("link/CreateLinkToken");
-
-            // Step 2: Get public token from Link via JS interop
-            var result = await module!.InvokeAsync<string>("launch_link",link_token);
-
-            if (result is null)
-                throw new ApplicationException("Calling link failed");
-
-            var link_result = System.Text.Json.JsonSerializer.Deserialize<linkresult>(result);
-
-            if (link_result?.ok != true)
+            // First, let's see if we already HAVE credentials!
+            context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
+            if (context.Credentials?.AccessToken is null)
             {
-                var parse = System.Text.Json.JsonDocument.Parse(result);
-                var err = parse.RootElement.GetProperty("err");
-                var metadata = parse.RootElement.GetProperty("metadata");
-                throw new ApplicationException("Link failed");               
+                // Step 1: Get link token from server
+                var link_token = await Http.GetFromJsonAsync<string>("link/CreateLinkToken");
+
+                // Step 2: Get public token from Link via JS interop
+                var result = await module!.InvokeAsync<string>("launch_link",link_token);
+
+                if (result is null)
+                    throw new ApplicationException("Calling link failed");
+
+                var link_result = System.Text.Json.JsonSerializer.Deserialize<linkresult>(result);
+
+                if (link_result?.ok != true)
+                {
+                    var parse = System.Text.Json.JsonDocument.Parse(result);
+                    var err = parse.RootElement.GetProperty("err");
+                    var metadata = parse.RootElement.GetProperty("metadata");
+                    throw new ApplicationException("Link failed");               
+                }
+
+                // Step 3: Send public token back to server, which will populate credentials
+                var response = await Http.PostAsJsonAsync<linkresult>("link/ExchangePublicToken",link_result);
+                if (!response.IsSuccessStatusCode)
+                    throw new ApplicationException(await response.Content.ReadAsStringAsync());
+
+                context.Credentials = await response.Content.ReadFromJsonAsync<PlaidCredentials>();   
             }
-
-            // Step 3: Send public token back to server, which will populate credentials
-            var response = await Http.PostAsJsonAsync<linkresult>("link/ExchangePublicToken",link_result);
-            if (!response.IsSuccessStatusCode)
-                throw new ApplicationException(await response.Content.ReadAsStringAsync());
-
-            context.Credentials = await response.Content.ReadFromJsonAsync<PlaidCredentials>();
 
             context.LinkSuccess = true;
             context.IsItemAccess = true;
