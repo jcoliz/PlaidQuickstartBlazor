@@ -82,7 +82,7 @@
         @if (context.Credentials?.Products?.Contains("income_verification") ?? false)
         {
             <Endpoint
-                Api="/income/verification/paystubs"
+                Api="verification"
                 Name="Income Paystubs"
                 Schema="/income/verification/paystubs"
                 Description="(Deprecated) Retrieve information from the paystubs used for income verification"

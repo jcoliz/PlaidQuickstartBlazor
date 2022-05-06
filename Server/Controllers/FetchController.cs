@@ -351,6 +351,128 @@ public class FetchController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet]
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Payment()
+    {
+        var listrequest = new Going.Plaid.PaymentInitiation.PaymentInitiationPaymentListRequest();
+        var listresponse = await _client.PaymentInitiationPaymentListAsync(listrequest);
+
+        if (listresponse.Error is not null)
+            return Error(listresponse.Error);
+
+        var paymentid = listresponse.Payments.First().PaymentId;
+        var request = new Going.Plaid.PaymentInitiation.PaymentInitiationPaymentGetRequest() { PaymentId = paymentid };
+        var response = await _client.PaymentInitiationPaymentGetAsync(request);
+
+        if (response.Error is not null)
+            return Error(response.Error);
+
+        var result = new DataTable("Payment ID", "Amount/r", "Status", "Status Update", "Recipient ID")
+        {
+            Rows = new Row[]
+            {
+                new Row(
+                    paymentid,
+                    response.Amount?.Value.ToString("C2") ?? string.Empty,
+                    response.Status.ToString(),
+                    response.LastStatusUpdate.ToString("MM-dd"),
+                    response.RecipientId
+                )
+            }
+        };
+
+        return Ok(result);
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Assets()
+    {
+        var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
+
+        var response = await _client.AccountsBalanceGetAsync(request);
+
+        if (response.Error is not null)
+            return Error(response.Error);
+
+        var result = new DataTable("Account", "Transactions", "Balance/r", "Days Available")
+        {
+            Rows = response.Accounts
+                .Select(x =>
+                    new Row(
+                        x.Name,
+                        x.AccountId,
+                        x.Balances?.Current?.ToString("C2") ?? string.Empty
+                    )
+                )
+                .ToArray()
+        };
+
+        return Ok(result);
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Transfer()
+    {
+        var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
+
+        var response = await _client.AccountsBalanceGetAsync(request);
+
+        if (response.Error is not null)
+            return Error(response.Error);
+
+        var result = new DataTable("Transfer ID", "Amount/r", "Type", "ACH Class", "Network", "Status")
+        {
+            Rows = response.Accounts
+                .Select(x =>
+                    new Row(
+                        x.Name,
+                        x.AccountId,
+                        x.Balances?.Current?.ToString("C2") ?? string.Empty
+                    )
+                )
+                .ToArray()
+        };
+
+        return Ok(result);
+    }
+
+    [HttpGet]
+    [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Verification()
+    {
+        var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
+
+        var response = await _client.AccountsBalanceGetAsync(request);
+
+        if (response.Error is not null)
+            return Error(response.Error);
+
+        var result = new DataTable("Description", "Current Amount/r", "Currency")
+        {
+            Rows = response.Accounts
+                .Select(x =>
+                    new Row(
+                        x.Name,
+                        x.AccountId,
+                        x.Balances?.Current?.ToString("C2") ?? string.Empty
+                    )
+                )
+                .ToArray()
+        };
+
+        return Ok(result);
+    }
+
+
+
+
     ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
     {
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
