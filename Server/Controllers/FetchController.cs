@@ -3,6 +3,8 @@ using Going.Plaid.Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlaidQuickstartBlazor.Shared;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
 
 namespace PlaidQuickstartBlazor.Server.Controllers;
 
@@ -48,7 +50,7 @@ public class FetchController : ControllerBase
         var response = await _client.AuthGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
 
@@ -86,7 +88,7 @@ public class FetchController : ControllerBase
         var response = await _client.TransactionsGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         var result = new DataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
         {
@@ -116,7 +118,7 @@ public class FetchController : ControllerBase
         var response = await _client.IdentityGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         var result = new DataTable("Names", "Emails", "Phone Numbers", "Addresses")
         {
@@ -147,7 +149,7 @@ public class FetchController : ControllerBase
         var response = await _client.InvestmentsHoldingsGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         Security? SecurityFor(string? id) => response?.Securities.Where(x => x.SecurityId == id).SingleOrDefault();
         Account? AccountFor(string? id) => response?.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
@@ -188,7 +190,7 @@ public class FetchController : ControllerBase
         var response = await _client.InvestmentsTransactionsGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         Security? SecurityFor(string? id) => response?.Securities.Where(x => x.SecurityId == id).SingleOrDefault();
 
@@ -219,7 +221,7 @@ public class FetchController : ControllerBase
         var response = await _client.AccountsBalanceGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         var result = new DataTable("Name", "AccountId", "Balance/r")
         {
@@ -247,7 +249,7 @@ public class FetchController : ControllerBase
         var response = await _client.AccountsGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         var result = new DataTable("Name", "Balance/r", "Subtype", "Mask")
         {
@@ -281,8 +283,8 @@ public class FetchController : ControllerBase
         var intstrequest = new Going.Plaid.Institutions.InstitutionsGetByIdRequest() { InstitutionId = response.Item!.InstitutionId!, CountryCodes = new[] { CountryCode.Us } };
         var instresponse = await _client.InstitutionsGetByIdAsync(intstrequest);
 
-        if (instresponse.Error is not null)
-            return StatusCode((int)instresponse.StatusCode, instresponse.Error.ErrorMessage);
+        if (response.Error is not null)
+            return Error(response.Error);
 
         var result = new DataTable("Institution Name", "Billed Products", "Available Products")
         {
@@ -309,7 +311,7 @@ public class FetchController : ControllerBase
         var response = await _client.LiabilitiesGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
 
@@ -347,5 +349,11 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+    }
+
+    ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
+    {
+        _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
+        return StatusCode(StatusCodes.Status400BadRequest, error);
     }
 }
