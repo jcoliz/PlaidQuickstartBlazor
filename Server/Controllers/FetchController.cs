@@ -91,16 +91,16 @@ public class FetchController : ControllerBase
         var result = new DataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
         {
             Rows = response.Transactions
-            .Select(x =>
-                new Row(
-                    x.Name,
-                    x.Amount.ToString("C2"),
-                    x.Date.ToShortDateString(),
-                    string.Join(':',x.Category ?? Enumerable.Empty<string>() ),
-                    x.PaymentChannel.ToString()
+                .Select(x =>
+                    new Row(
+                        x.Name,
+                        x.Amount.ToString("C2"),
+                        x.Date.ToShortDateString(),
+                        string.Join(':',x.Category ?? Enumerable.Empty<string>() ),
+                        x.PaymentChannel.ToString()
+                    )
                 )
-            )
-            .ToArray()
+                .ToArray()
         };
 
         return Ok(result);
@@ -313,15 +313,13 @@ public class FetchController : ControllerBase
 
         Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
 
-        string AccountNameFor(string id) => AccountFor(id)?.Name ?? string.Empty;
-
         var result = new DataTable("Type", "Account", "Balance/r")
         {
             Rows = response.Liabilities!.Credit!
                 .Select(x =>
                     new Row(
                         "Credit",
-                        AccountNameFor(x.AccountId ?? string.Empty),
+                        AccountFor(x.AccountId)?.Name ?? string.Empty,
                         x.LastStatementBalance?.ToString("C2") ?? string.Empty
                     )
                 )
@@ -330,7 +328,7 @@ public class FetchController : ControllerBase
                         .Select(x=>
                             new Row(
                                 "Student Loan",
-                                AccountNameFor(x.AccountId ?? string.Empty),
+                                AccountFor(x.AccountId)?.Name ?? string.Empty,
                                 AccountFor(x.AccountId)?.Balances?.Current?.ToString("C2") ?? string.Empty
                             )
                         )
@@ -340,7 +338,7 @@ public class FetchController : ControllerBase
                         .Select(x =>
                             new Row(
                                 "Mortgage",
-                                AccountNameFor(x.AccountId ?? string.Empty),
+                                AccountFor(x.AccountId)?.Name ?? string.Empty,
                                 AccountFor(x.AccountId)?.Balances?.Current?.ToString("C2") ?? string.Empty
                             )
                         )
