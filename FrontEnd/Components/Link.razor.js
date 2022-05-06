@@ -1,56 +1,47 @@
-﻿export function launch_link(link_token) {
+﻿const linkPromise = (link_token) => {
+    return new Promise(resolve => {
 
-    var result = {
-        ok: false,
-        public_token: "**FAIL**"
-    };
-    /*
-    var handler = Plaid.create({
-        // Create a new link_token to initialize Link
-        token: link_token,
-        receivedRedirectUri: window.location.href,
-        onLoad: function () {
-            // Optional, called when Link loads
-        },
+        var result = {
+            ok: false,
+            public_token: "**FAIL**",
+            err: null,
+            metadata: null
+        };
 
-        onSuccess: function (public_token, metadata) {
-            // Send the public_token to your app server.
-            // The metadata object contains info about the institution the
-            // user selected and the account ID or IDs, if the
-            // Account Select view is enabled.
-            $.post('/link/exchange_public_token', {
-                public_token: public_token,
-            });
-        },
+        var handler = Plaid.create({
+            token: link_token,
+            onLoad: function () {
+                // Optional, called when Link loads
+            },
 
-        onExit: function (err, metadata) {
-            // The user exited the Link flow.
-            if (err != null) {
-                // The user encountered a Plaid API error prior to exiting.
+            onSuccess: function (public_token, metadata) {
+                result.ok = true;
+                result.public_token = public_token;
+                result.metadata = metadata;
+                resolve(result);
+            },
+
+            onExit: function (err, metadata) {
+                // The user exited the Link flow.
+                result.err = err;
+                result.metadata = metadata;
+                resolve(result);
+            },
+
+            onEvent: function (eventName, metadata) {
+                // Optionally capture Link flow events, streamed through
+                // this callback as your users connect an Item to Plaid.
             }
 
-            // metadata contains information about the institution
-            // that the user selected and the most recent API request IDs.
-            // Storing this information can be helpful for support.
-        },
+        });
 
-        onEvent: function (eventName, metadata) {
-            // Optionally capture Link flow events, streamed through
-            // this callback as your users connect an Item to Plaid.
-            // For example:
-            // eventName = "TRANSITION_VIEW"
-            // metadata  = {
-            //   link_session_id: "123-abc",
-            //   mfa_type:        "questions",
-            //   timestamp:       "2017-09-14T14:42:19.350Z",
-            //   view_name:       "MFA",
-            // }
+        handler.open();
+    })
+}
 
-        }
+export async function launch_link(link_token) {
 
-    });
+    var outcome = await linkPromise(link_token);
 
-    handler.open();
-    */
-    return JSON.stringify(result);
+    return JSON.stringify(outcome);
 }

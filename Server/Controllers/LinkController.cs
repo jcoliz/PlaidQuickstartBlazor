@@ -1,5 +1,6 @@
 ﻿using Going.Plaid;
 using Going.Plaid.Entity;
+using Going.Plaid.Item;
 using Going.Plaid.Link;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -21,7 +22,6 @@ public class LinkController : ControllerBase
         _logger = logger;
         _credentials = credentials.Value;
         _client = client;
-        _client.AccessToken = _credentials.AccessToken;
     }
 
     [HttpGet]
@@ -49,4 +49,31 @@ public class LinkController : ControllerBase
         return Ok(response.LinkToken);
     }
 
+    // TODO: Move to shared
+    // TODO: Gather the metadata and log it
+    public class linkresult
+    {
+        public bool ok { get; set; }
+        public string public_token { get; set; } = string.Empty;
+    };
+
+    [HttpPost]
+    [IgnoreAntiforgeryToken(Order = 1001)]
+    public async Task<IActionResult> ExchangePublicToken(linkresult link)
+    {
+        var request = new ItemPublicTokenExchangeRequest()
+        {
+            PublicToken = link.public_token
+        };
+
+        var response = await _client.ItemPublicTokenExchangeAsync(request);
+
+        if (response.Error is not null)
+            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+
+        _credentials.AccessToken = response.AccessToken;
+        _credentials.ItemId = response.ItemId;
+
+        return Ok(_credentials);
+    }
 }
