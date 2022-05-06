@@ -277,7 +277,7 @@ public class FetchController : ControllerBase
         var response = await _client.ItemGetAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+            return Error(response.Error);
 
         _client.AccessToken = null;
         var intstrequest = new Going.Plaid.Institutions.InstitutionsGetByIdRequest() { InstitutionId = response.Item!.InstitutionId!, CountryCodes = new[] { CountryCode.Us } };

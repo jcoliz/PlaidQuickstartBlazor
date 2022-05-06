@@ -5,6 +5,7 @@ using Going.Plaid.Link;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlaidQuickstartBlazor.Shared;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
 
 namespace PlaidQuickstartBlazor.Server.Controllers;
@@ -26,6 +27,7 @@ public class LinkController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(PlaidCredentials), StatusCodes.Status200OK)]
     public ActionResult Info()
     {
         _logger.LogInformation($"Info OK: {JsonSerializer.Serialize(_credentials)}");
@@ -34,6 +36,8 @@ public class LinkController : ControllerBase
     }
 
     [HttpGet]
+    [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateLinkToken()
     {
         var response = await _client.LinkTokenCreateAsync(
@@ -47,10 +51,7 @@ public class LinkController : ControllerBase
             });
 
         if (response.Error is not null)
-        {
-            _logger.LogError($"CreateLinkToken {response.StatusCode}: {JsonSerializer.Serialize(response.Error)}");
-            return StatusCode((int)response.StatusCode, response.Error);
-        }
+            return Error(response.Error);
 
         _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response.LinkToken)}");
 
@@ -59,6 +60,8 @@ public class LinkController : ControllerBase
 
     [HttpPost]
     [IgnoreAntiforgeryToken(Order = 1001)]
+    [ProducesResponseType(typeof(PlaidCredentials), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ExchangePublicToken(LinkResult link)
     {
         _logger.LogInformation($"ExchangePublicToken (): {JsonSerializer.Serialize(link)}");
@@ -71,10 +74,7 @@ public class LinkController : ControllerBase
         var response = await _client.ItemPublicTokenExchangeAsync(request);
 
         if (response.Error is not null)
-        {
-            _logger.LogError($"ExchangePublicToken {response.StatusCode}: {JsonSerializer.Serialize(response.Error)}");
-            return StatusCode((int)response.StatusCode, response.Error);
-        }
+            return Error(response.Error);
 
         _credentials.AccessToken = response.AccessToken;
         _credentials.ItemId = response.ItemId;
@@ -82,5 +82,11 @@ public class LinkController : ControllerBase
         _logger.LogInformation($"ExchangePublicToken OK: {JsonSerializer.Serialize(_credentials)}");
 
         return Ok(_credentials);
+    }
+
+    ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
+    {
+        _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
+        return StatusCode(StatusCodes.Status400BadRequest, error);
     }
 }
