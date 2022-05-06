@@ -3,7 +3,7 @@
 <div data-test-id="Header" class="grid">
     <h3 class="title">Plaid Quickstart</h3>
 
-    @if(!context.linkSuccess)
+    @if(!context.LinkSuccess)
     {
         <h4 class="subtitle">
             A sample end-to-end integration with Plaid
@@ -33,16 +33,16 @@
         <div class="itemAccessContainer">
             <p class="itemAccessRow">
                 <span class="idName">item_id</span>
-                <span class="tokenText">@context.credentials?.ItemId</span>
+                <span class="tokenText">@context.Credentials?.ItemId</span>
             </p>
 
             <p class="itemAccessRow">
                 <span class="idName">access_token</span>
-                <span class="tokenText">@context.credentials?.AccessToken</span>
+                <span class="tokenText">@context.Credentials?.AccessToken</span>
             </p>
         </div>
 
-        @if (context.isItemAccess)
+        @if (context.IsItemAccess)
         {
             <p class="requests">
               Now that you have an access_token, you can make all of the

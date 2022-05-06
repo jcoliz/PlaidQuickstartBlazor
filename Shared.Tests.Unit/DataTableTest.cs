@@ -19,11 +19,11 @@ public class DataTableTest
         Assert.IsTrue(DataTablesEqual(dataTable,actual!));
     }
 
-    private DataTable SampleResult => new DataTable()
+    private static DataTable SampleResult => new()
     {
         Columns = (new[] { "A", "B", "C", "D", "E" })
-        .Select(x => new Column() { Title = x })
-        .ToArray(),
+            .Select(x => new Column() { Title = x })
+            .ToArray(),
 
         Rows = new[]
         {

@@ -23,7 +23,7 @@ public class FetchController : ControllerBase
         _client.AccessToken = _credentials.AccessToken;
     }
 
-    private DataTable SampleResult => new DataTable()
+    private DataTable SampleResult => new()
     {
         Columns = (new[] { "A", "B", "C", "D", "E" })
             .Select(x => new Column() { Title = x })

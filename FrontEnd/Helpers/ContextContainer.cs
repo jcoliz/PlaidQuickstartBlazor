@@ -4,7 +4,7 @@ namespace PlaidQuickstartBlazor.FrontEnd.Helpers;
 
 public class ContextContainer
 {
-    public bool isItemAccess
+    public bool IsItemAccess
     {
         get => _isItemAccess;
         set
@@ -15,7 +15,7 @@ public class ContextContainer
     }
     private bool _isItemAccess;
 
-    public bool linkSuccess
+    public bool LinkSuccess
     {
         get => _linkSuccess;
         set
@@ -26,7 +26,7 @@ public class ContextContainer
     }
     private bool _linkSuccess;
 
-    public PlaidCredentials? credentials
+    public PlaidCredentials? Credentials
     {
         get => _credentials;
         set

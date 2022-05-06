@@ -8,9 +8,9 @@ namespace PlaidQuickstartBlazor.Shared
 {
     public class DataTable
     {
-        public Column[] Columns { get; set; } = new Column[0];
+        public Column[] Columns { get; set; } = Array.Empty<Column>();
 
-        public Row[] Rows { get; set; } = new Row[0];
+        public Row[] Rows { get; set; } = Array.Empty<Row>();
 
         public DataTable() { }
 
@@ -33,7 +33,7 @@ namespace PlaidQuickstartBlazor.Shared
 
     public class Row
     {
-        public string[] Cells { get; set; } = new string[0];
+        public string[] Cells { get; set; } = Array.Empty<string>();
 
         public Row() { }
 
