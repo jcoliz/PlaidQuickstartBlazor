@@ -1,6 +1,7 @@
 @using PlaidQuickstartBlazor.Shared
 @inject ContextContainer context
 @inject HttpClient Http
+@inject IJSRuntime JS
 
 <div data-test-id="Link">
     <button type="button" class="btn btn-primary" @onclick="LaunchLink">
@@ -9,11 +10,35 @@
 </div>
 
 @code {
+    private IJSObjectReference? module;
+
     private async Task LaunchLink()
     {
+        try
+        {
+            await module!.InvokeAsync<string>("hello");
+        }
+        catch (Exception ex)
+        {
+
+        }
+
         context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
 
         context.LinkSuccess = true;
         context.IsItemAccess = true;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        try
+        {
+            if (firstRender)
+                module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");            
+        }
+        catch (Exception ex)
+        {
+            
+        }
     }
 }

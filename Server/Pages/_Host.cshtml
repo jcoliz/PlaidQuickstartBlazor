@@ -1,4 +1,5 @@
 ﻿@page
+@using Microsoft.AspNetCore.Components.Web
 @using PlaidQuickstartBlazor.FrontEnd
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
@@ -13,6 +14,7 @@
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="PlaidQuickstartBlazor.FrontEnd.styles.css" rel="stylesheet" />
+    <component type="typeof(HeadOutlet)" render-mode="WebAssemblyPrerendered" />
 </head>
 
 <body>
