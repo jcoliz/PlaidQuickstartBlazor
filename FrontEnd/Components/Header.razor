@@ -18,6 +18,15 @@
             to access their accounts via the Plaid API.
         </p>
 
+        @*
+            This is the blocker if we are pre-rendering. We'll wait here until 
+            the frontend is fully loaded onto the client.
+
+            It would be straightforward to skip this entirely if the context
+            already has credentials by this time. However, doing that will expose
+            Endpoint components to being run on the server, which will entail
+            injecting a loopback HttpClient so it can fill those requests.
+        *@
         @if (context.RunningOnServer)
         {
             <div class="linkButton">
@@ -37,12 +46,10 @@
     else
     {
         <h4 class="subtitle">
-            Congrats! By linking an account, you have created an 
-            <a 
+            Congrats! By linking an account, you have created an <a 
             href="http://plaid.com/docs/quickstart/glossary/#item"
             target="_blank"
-            >Item</a>
-            .
+            >Item</a>.
         </h4>
         <div class="itemAccessContainer">
             <p class="itemAccessRow">

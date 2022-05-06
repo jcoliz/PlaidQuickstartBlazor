@@ -7,11 +7,11 @@
     </Note>
     <div class="endpointContents">
         <div class="endpointHeader">
-        @if ( Name is not null )
-        {
-            <span class="endpointName">@Name</span>
-        }
-        <span class="schema">@Schema</span>
+            @if ( Name is not null )
+            {
+                <span class="endpointName">@Name</span>
+            }
+            <span class="schema">@Schema</span>
         </div>
         <div class="endpointDescription">@Description</div>
     </div>
@@ -33,6 +33,7 @@
                 Send request
             </button>
         }
+
     </div>
 </div>
 @if (TableData is not null)
