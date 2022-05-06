@@ -1,10 +1,9 @@
 # Remaining Work TO DO
 
 * Add link update flow
-* Robust error logging
-* More detailed error handling in frontend
+* Pretty print errors
 * Stubs for back-end services I don't have access to
 * More unit tests
 * Integration tests
 * Functional tests
-* Consider disabling endpoint buttons while loading
+* Styles audit versus official quickstart. Why does mine look different?

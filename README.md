@@ -21,7 +21,7 @@ PS> cd .\Server\
 PS Server> cp .\secrets.example.yaml .\secrets.yaml
 ```
 
-Copy `secrets.example.yaml` to a new file called `secrets.yaml` and fill out the configuration  variables inside. At
+Copy `secrets.example.yaml` to a new file called `secrets.yaml`, then fill out the configuration variables inside. At
 minimum `ClientID` and `Secret` must be filled out. Get your Client ID and secrets from
 the [Plaid dashboard](https://dashboard.plaid.com/account/keys)
 
@@ -50,8 +50,8 @@ In Development or Production, use real-life credentials.
 
 ## Current status
 
-The largest single remaining item is to implement the Link flow. If you launch with your own access token
-in the secrets.yaml, the app is functionally complete. Check out the [TODO List](/docs/TODO.md) for more details.
+The quickstart is functionally complete. There still cleanups and improvements to be done. And tests to write!
+Check out the [TODO List](/docs/TODO.md) for more details.
 
 ## Code of conduct
 
