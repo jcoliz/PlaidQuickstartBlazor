@@ -10,23 +10,43 @@
 </div>
 
 @code {
+    class linkresult
+    {
+        public bool ok { get; set; }
+        public string public_token { get; set; }
+    };
+
     private IJSObjectReference? module;
 
     private async Task LaunchLink()
     {
         try
         {
-            await module!.InvokeAsync<string>("hello");
+            // Test that connection still generally working
+            await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
+
+            // Step 1: Get link token from server
+            var link_token = await Http.GetFromJsonAsync<string>("link/CreateLinkToken");
+
+            // Step 2: Get public token from Link via JS interop
+            var result = await module!.InvokeAsync<string>("launch_link",link_token);
+            var link_result = System.Text.Json.JsonSerializer.Deserialize<linkresult>(result);
+
+            if (link_result?.ok != true)
+                throw new ApplicationException("Link failed");
+
+            // Step 3: Send public token back to server, which will populate credentials
+            //context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/exchange_public_token");
+
+            context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
+
+            context.LinkSuccess = true;
+            context.IsItemAccess = true;
         }
         catch (Exception ex)
         {
-
+            // Notify failure
         }
-
-        context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
-
-        context.LinkSuccess = true;
-        context.IsItemAccess = true;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
@@ -34,7 +54,9 @@
         try
         {
             if (firstRender)
-                module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");            
+            {
+                module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
+            }
         }
         catch (Exception ex)
         {
