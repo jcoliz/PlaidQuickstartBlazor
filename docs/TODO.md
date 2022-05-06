@@ -1,6 +1,5 @@
 # Remaining Work TO DO
 
-* Finish Plaid Link flow
 * Add link update flow
 * Robust error logging
 * More detailed error handling in frontend

@@ -16,18 +16,13 @@
 @code {
     private string? Error { get; set; }
 
-    class linkresult
-    {
-        public bool ok { get; set; }
-        public string public_token { get; set; } = string.Empty;
-    };
-
     private IJSObjectReference? module;
 
     private async Task LaunchLink()
     {
         try
         {
+
             Error = null;
 
             // First, let's see if we already HAVE credentials!
@@ -43,18 +38,21 @@
                 if (result is null)
                     throw new ApplicationException("Calling link failed");
 
-                var link_result = System.Text.Json.JsonSerializer.Deserialize<linkresult>(result);
+                var link_result = System.Text.Json.JsonSerializer.Deserialize<LinkResult>(result);
 
-                if (link_result?.ok != true)
+                if (link_result is null)
+                    throw new ApplicationException("Failed to serialize link result");
+
+                if (link_result.ok != true)
                 {
-                    var parse = System.Text.Json.JsonDocument.Parse(result);
-                    var err = parse.RootElement.GetProperty("err");
-                    var metadata = parse.RootElement.GetProperty("metadata");
-                    throw new ApplicationException("Link failed");               
+                    if (link_result.error is not null)
+                        throw new ApplicationException($"{link_result.error.error_type} {link_result.error.error_code} {link_result.error.error_message} {link_result.error.display_message}");
+                    else
+                        throw new ApplicationException("Link failed, no error given");
                 }
 
                 // Step 3: Send public token back to server, which will populate credentials
-                var response = await Http.PostAsJsonAsync<linkresult>("link/ExchangePublicToken",link_result);
+                var response = await Http.PostAsJsonAsync<LinkResult>("link/ExchangePublicToken",link_result);
                 if (!response.IsSuccessStatusCode)
                     throw new ApplicationException(await response.Content.ReadAsStringAsync());
 

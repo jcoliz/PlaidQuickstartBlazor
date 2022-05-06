@@ -1,10 +1,11 @@
 ﻿const linkPromise = (link_token) => {
     return new Promise(resolve => {
 
+        // Needs to match C# Shared.LinkResult class
         var result = {
             ok: false,
             public_token: "**FAIL**",
-            err: null,
+            error: null,
             metadata: null
         };
 
@@ -21,9 +22,9 @@
                 resolve(result);
             },
 
-            onExit: function (err, metadata) {
+            onExit: function (error, metadata) {
                 // The user exited the Link flow.
-                result.err = err;
+                result.error = error;
                 result.metadata = metadata;
                 resolve(result);
             },

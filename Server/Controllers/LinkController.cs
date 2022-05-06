@@ -5,6 +5,7 @@ using Going.Plaid.Link;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlaidQuickstartBlazor.Shared;
+using System.Text.Json;
 
 namespace PlaidQuickstartBlazor.Server.Controllers;
 
@@ -27,6 +28,8 @@ public class LinkController : ControllerBase
     [HttpGet]
     public ActionResult Info()
     {
+        _logger.LogInformation($"Info OK: {JsonSerializer.Serialize(_credentials)}");
+
         return Ok(_credentials);
     }
 
@@ -44,23 +47,22 @@ public class LinkController : ControllerBase
             });
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+        {
+            _logger.LogError($"CreateLinkToken {response.StatusCode}: {JsonSerializer.Serialize(response.Error)}");
+            return StatusCode((int)response.StatusCode, response.Error);
+        }
+
+        _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response.LinkToken)}");
 
         return Ok(response.LinkToken);
     }
 
-    // TODO: Move to shared
-    // TODO: Gather the metadata and log it
-    public class linkresult
-    {
-        public bool ok { get; set; }
-        public string public_token { get; set; } = string.Empty;
-    };
-
     [HttpPost]
     [IgnoreAntiforgeryToken(Order = 1001)]
-    public async Task<IActionResult> ExchangePublicToken(linkresult link)
+    public async Task<IActionResult> ExchangePublicToken(LinkResult link)
     {
+        _logger.LogInformation($"ExchangePublicToken (): {JsonSerializer.Serialize(link)}");
+
         var request = new ItemPublicTokenExchangeRequest()
         {
             PublicToken = link.public_token
@@ -69,10 +71,15 @@ public class LinkController : ControllerBase
         var response = await _client.ItemPublicTokenExchangeAsync(request);
 
         if (response.Error is not null)
-            return StatusCode((int)response.StatusCode, response.Error.ErrorMessage);
+        {
+            _logger.LogError($"ExchangePublicToken {response.StatusCode}: {JsonSerializer.Serialize(response.Error)}");
+            return StatusCode((int)response.StatusCode, response.Error);
+        }
 
         _credentials.AccessToken = response.AccessToken;
         _credentials.ItemId = response.ItemId;
+
+        _logger.LogInformation($"ExchangePublicToken OK: {JsonSerializer.Serialize(_credentials)}");
 
         return Ok(_credentials);
     }
