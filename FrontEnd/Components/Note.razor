@@ -1,4 +1,4 @@
-<span data-test-id="Note" class="info post @((IsError == true)?"alert-danger":"")">@ChildContent</span>
+<span data-test-id="Note" class="info post @alert_danger">@ChildContent</span>
 
 @code {
     [Parameter]
@@ -6,4 +6,7 @@
 
     [Parameter]
     public bool? IsError { get; set; }
+
+    private string alert_danger => (IsError == true) ? "alert-danger": string.Empty;
+
 }

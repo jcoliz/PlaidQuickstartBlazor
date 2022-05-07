@@ -8,6 +8,12 @@ using System.Text.Json;
 
 namespace PlaidQuickstartBlazor.Server.Controllers;
 
+/// <summary>
+/// Retrieve data from Plaid service for logged-in user
+/// </summary>
+/// <remarks>
+/// Handles all of the traffic from the Endpoint component
+/// </remarks>
 [ApiController]
 [Route("[controller]/[action]")]
 [Produces("application/json")]

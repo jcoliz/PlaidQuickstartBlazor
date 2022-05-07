@@ -1,5 +1,11 @@
 namespace PlaidQuickstartBlazor.Shared;
 
+/// <summary>
+/// Client application global state
+/// </summary
+/// <remarks>
+/// Needed on server also, to support pre-rendering
+/// </remarks>
 public class ContextContainer
 {
     public bool IsItemAccess

@@ -10,6 +10,13 @@ using System.Text.Json;
 
 namespace PlaidQuickstartBlazor.Server.Controllers;
 
+/// <summary>
+/// Manage the login process to the Plaid service
+/// </summary>
+/// <seealso href="https://plaid.com/docs/link/"/>
+/// <remarks>
+/// Handles all of the traffic from the Link component
+/// </remarks>
 [ApiController]
 [Route("[controller]/[action]")]
 [Produces("application/json")]
@@ -71,6 +78,8 @@ public class LinkController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ExchangePublicToken(LinkResult link)
     {
+        // Yes, we send WAY more information than needed here. That's so we can log it!
+
         _logger.LogInformation($"ExchangePublicToken (): {JsonSerializer.Serialize(link)}");
 
         var request = new ItemPublicTokenExchangeRequest()

@@ -11,8 +11,8 @@ namespace PlaidQuickstartBlazor.Shared;
 /// </summary>
 public class PlaidError
 {
-    public string error_type { get; set; }
-    public string error_code { get; set; }
+    public string error_type { get; set; } = string.Empty;
+    public string error_code { get; set; } = string.Empty;
     public string error_message { get; set; } = string.Empty;
     public string? display_message { get; set; }
 }
