@@ -20,14 +20,24 @@ $red200: #ffd7dc;
     font-size: 1.4rem;
 }
 
+.errorContents {
+    margin: 3 * $unit 4 * $unit;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.learnMore {
+    margin: 2 * $unit;
+    margin-left: 3 * $unit;
+    width: 70%;
+}
 .code {
     margin: 2 * $unit 0px 2 * $unit 3 * $unit;
     font: $font-stack-monospace;
     font-size: 1.4rem;
-}
-
-.errorContents {
-    margin: 3 * $unit 4 * $unit;
 }
 
 .errorItem {
@@ -65,13 +75,4 @@ $red200: #ffd7dc;
     line-height: normal;
 }
 
-.buttonsContainer {
-    display: flex;
-    flex-direction: column;
-}
 
-.learnMore {
-    margin: 2 * $unit;
-    margin-left: 3 * $unit;
-    width: 70%;
-}

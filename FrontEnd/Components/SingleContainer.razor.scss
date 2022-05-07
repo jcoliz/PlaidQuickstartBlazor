@@ -1,0 +1,19 @@
+﻿$black200: #ededed;
+$unit: 0.8rem;
+$font-stack-monospace: Inconsolata, Consolas, Courier, monospace;
+
+.containerContainer {
+    display: grid;
+    grid-template-columns: 15% 57% 28%;
+    width: 100%;
+    border-top: 1px solid $black200;
+}
+
+.containerContents {
+    margin: 3 * $unit 4 * $unit;
+}
+
+.containerButtons {
+    display: flex;
+    flex-direction: column;
+}

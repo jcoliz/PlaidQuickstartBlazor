@@ -1,11 +1,13 @@
 @using PlaidQuickstartBlazor.Shared
 @inject HttpClient Http
 
-<div class="endpointContainer">
-    <Note>
-        POST
-    </Note>
-    <div class="endpointContents">
+<SingleContainer>
+    <Header>
+        <Note>
+            POST
+        </Note>
+    </Header>
+    <Contents>
         <div class="endpointHeader">
             @if ( Name is not null )
             {
@@ -14,9 +16,8 @@
             <span class="schema">@Schema</span>
         </div>
         <div class="endpointDescription">@Description</div>
-    </div>
-    <div class="buttonsContainer">
-
+    </Contents>
+    <Buttons>
         @if (isLoading)
         {
             <button class="btn btn-primary sendRequest" type="button" disabled>
@@ -33,9 +34,9 @@
                 Send request
             </button>
         }
+    </Buttons>
+</SingleContainer>
 
-    </div>
-</div>
 @if (TableData is not null)
 {
     <Table Data="@TableData" />
@@ -48,7 +49,6 @@
 {
     <p class="alert-danger p-2 my-2">@ErrorValue</p>
 }
-
 
 @code {
     [Parameter]

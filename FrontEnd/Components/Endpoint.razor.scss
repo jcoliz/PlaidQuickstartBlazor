@@ -9,13 +9,18 @@ $font-stack-monospace: Inconsolata, Consolas, Courier, monospace;
   border-top: 1px solid $black200;
 }
 
-.post {
-  margin: 2 * $unit 0px 2 * $unit 3 * $unit;
-  font-size: 1.4rem;
-}
-
 .endpointContents {
   margin: 3 * $unit 4 * $unit;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    margin: 2 * $unit 0px 2 * $unit 3 * $unit;
+    font-size: 1.4rem;
 }
 
 .endpointHeader {
@@ -37,11 +42,6 @@ $font-stack-monospace: Inconsolata, Consolas, Courier, monospace;
 .endpointDescription {
   font-size: 1.4rem;
   line-height: 2 * $unit;
-}
-
-.buttonsContainer {
-  display: flex;
-  flex-direction: column;
 }
 
 .sendRequest {

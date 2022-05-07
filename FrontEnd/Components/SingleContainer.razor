@@ -1,0 +1,20 @@
+﻿<div class="containerContainer">
+    @Header
+    <div class="containerContents">
+        @Contents
+    </div>
+    <div class="containerButtons">
+        @Buttons
+    </div>
+</div>
+@code {
+    [Parameter]
+    public RenderFragment? Header { get; set; }
+
+    [Parameter]
+    public RenderFragment? Contents { get; set; }
+
+    [Parameter]
+    public RenderFragment? Buttons { get; set; }
+
+}
