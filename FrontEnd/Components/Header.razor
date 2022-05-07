@@ -18,30 +18,9 @@
             to access their accounts via the Plaid API.
         </p>
 
-        @*
-            This is the blocker if we are pre-rendering. We'll wait here until 
-            the frontend is fully loaded onto the client.
-
-            It would be straightforward to skip this entirely if the context
-            already has credentials by this time. However, doing that will expose
-            Endpoint components to being run on the server, which will entail
-            injecting a loopback HttpClient so it can fill those requests.
-        *@
-        @if (context.RunningOnServer)
-        {
-            <div class="linkButton">
-                <button class="btn btn-primary" type="button" disabled>
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    Loading...
-                </button>
-            </div>
-        }
-        else
-        {
-            <div class="linkButton">
-                <Link />
-            </div>
-        }
+        <div class="linkButton">
+            <Link />
+        </div>
     }
     else
     {

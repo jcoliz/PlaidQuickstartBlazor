@@ -1,7 +1,7 @@
 @using PlaidQuickstartBlazor.Shared
 @inject ContextContainer context
-@inject HttpClient Http
-@inject IJSRuntime JS
+@inject IEnumerable<HttpClient> HttpClients
+@inject IEnumerable<IJSRuntime> JSRuntimes
 
 @*
     LINK BUTTON
@@ -9,17 +9,22 @@
     Manages the Plaid Link control
     https://plaid.com/docs/link/web/
 
-    NOTE: Don't instantiate this during server pre-rendering. It uses the JS runtime for
-    direct interop, so isn't going to prerender.
-
-    It would be possible to check for live credentials before getting here, then entirely
-    skip even coming here.
 *@
 
 <div data-test-id="Link">
-    <button type="button" class="btn btn-primary" @onclick="LaunchLink">
-      Launch Link &raquo;
-    </button>
+    @if (IsReady)
+    {
+        <button type="button" class="btn btn-primary" @onclick="LaunchLink">
+          Launch Link &raquo;
+        </button>        
+    }
+    else
+    {
+        <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>  
+    }
     @if (Error is not null)
     {
         <p class="alert-danger p-2 my-2">@Error</p>
@@ -29,13 +34,15 @@
 @code {
     private string? Error { get; set; }
 
+    private bool IsReady => JSRuntimes.Single() is Microsoft.JSInterop.WebAssembly.WebAssemblyJSRuntime;
+
     private IJSObjectReference? module;
 
     private async Task LaunchLink()
     {
         try
         {
-
+            var Http = HttpClients.Single();
             Error = null;
 
             // First, let's see if we already HAVE credentials!
@@ -90,8 +97,9 @@
     {
         try
         {
-            if (firstRender)
+            if (firstRender && JSRuntimes.Any())
             {
+                var JS = JSRuntimes.Single();
                 module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
             }
         }

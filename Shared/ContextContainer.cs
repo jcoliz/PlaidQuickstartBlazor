@@ -5,6 +5,8 @@ namespace PlaidQuickstartBlazor.Shared;
 /// </summary
 /// <remarks>
 /// Needed on server also, to support pre-rendering
+/// 
+/// TODO: No, not no more. This can be moved back into the client, and the "runningonserver" removed.
 /// </remarks>
 public class ContextContainer
 {
