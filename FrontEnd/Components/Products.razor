@@ -70,24 +70,19 @@
             Schema="/liabilities/get"
             Description="Retrieve liabilities and various details about an Item with loan or credit accounts."
         />
+        @* Let's allow this no matter what. It's a good test of errors!
         @if (context.Credentials?.Products?.Contains("transfer") ?? false)
         {
+        *@
             <Endpoint
             Api="transfer"
             Name="Transfer"
             Schema="/transfer/get/"
             Description="Retrieve information about your latest ACH Transfer."
             />
+        @*
         }
-        @if (context.Credentials?.Products?.Contains("income_verification") ?? false)
-        {
-            <Endpoint
-                Api="verification"
-                Name="Income Paystubs"
-                Schema="/income/verification/paystubs"
-                Description="(Deprecated) Retrieve information from the paystubs used for income verification"
-            />
-        }
+        *@
     </ProductTypesContainer>
 </div>
 

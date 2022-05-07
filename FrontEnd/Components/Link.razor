@@ -22,7 +22,7 @@
     </button>
     @if (Error is not null)
     {
-        <p class="alert-danger">Error</p>
+        <p class="alert-danger p-2 my-2">@Error</p>
     }
 </div>
 
@@ -43,7 +43,11 @@
             if (context.Credentials?.AccessToken is null)
             {
                 // Step 1: Get link token from server
-                var link_token = await Http.GetFromJsonAsync<string>("link/CreateLinkToken");
+                var createresponse = await Http.GetAsync("link/CreateLinkToken");
+                if (!createresponse.IsSuccessStatusCode)
+                    throw new ApplicationException(await createresponse.Content.ReadAsStringAsync());
+
+                var link_token = await createresponse.Content.ReadFromJsonAsync<string>();   
 
                 // Step 2: Get public token from Link via JS interop
                 var result = await module!.InvokeAsync<string>("launch_link",link_token);
@@ -78,7 +82,7 @@
         catch (Exception ex)
         {
             // TODO: Prettier display of error information
-            Error = $"Failed to Launch {ex.GetType().Name}: {ex.Message}";
+            Error = $"Failed to Launch: {ex.GetType().Name}: {ex.Message}";
         }
     }
 

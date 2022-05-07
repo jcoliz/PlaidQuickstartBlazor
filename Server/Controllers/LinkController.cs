@@ -40,22 +40,29 @@ public class LinkController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateLinkToken()
     {
-        var response = await _client.LinkTokenCreateAsync(
-            new LinkTokenCreateRequest()
-            {
-                User = new LinkTokenCreateRequestUser { ClientUserId = Guid.NewGuid().ToString(), },
-                ClientName = "Quickstart for .NET",
-                Products = _credentials!.Products!.Split(',').Select(p => Enum.Parse<Products>(p, true)).ToArray(),
-                Language = Language.English,
-                CountryCodes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<CountryCode>(p, true)).ToArray(),
-            });
+        try
+        {
+            var response = await _client.LinkTokenCreateAsync(
+                new LinkTokenCreateRequest()
+                {
+                    User = new LinkTokenCreateRequestUser { ClientUserId = Guid.NewGuid().ToString(), },
+                    ClientName = "Quickstart for .NET",
+                    Products = _credentials!.Products!.Split(',').Select(p => Enum.Parse<Products>(p, true)).ToArray(),
+                    Language = Language.English,
+                    CountryCodes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<CountryCode>(p, true)).ToArray(),
+                });
 
-        if (response.Error is not null)
-            return Error(response.Error);
+            if (response.Error is not null)
+                return Error(response.Error);
 
-        _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response.LinkToken)}");
+            _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response.LinkToken)}");
 
-        return Ok(response.LinkToken);
+            return Ok(response.LinkToken);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+        }
     }
 
     [HttpPost]

@@ -459,24 +459,83 @@ public class FetchController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transfer()
     {
-        var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
+        var actrequest = new Going.Plaid.Accounts.AccountsGetRequest();
+        var actresponse = await _client.AccountsGetAsync(actrequest);
 
-        var response = await _client.AccountsBalanceGetAsync(request);
+        if (actresponse.Error is not null)
+            return Error(actresponse.Error);
+
+        var accountid = actresponse.Accounts.FirstOrDefault()?.AccountId;
+        var transrequest = new Going.Plaid.Transfer.TransferAuthorizationCreateRequest()
+        {
+            AccountId = accountid!,
+            Amount = "1.34",
+            Network = TransferNetwork.Ach,
+            AchClass = AchClass.Ppd,
+            Type = TransferType.Credit,
+            User = new()
+            {
+                LegalName = "Alice Cranberry",
+                PhoneNumber = "555-123-4567",
+                EmailAddress = "alice@example.com"
+            }
+        };
+        var transresponse = await _client.TransferAuthorizationCreateAsync(transrequest);
+
+        if (transresponse.Error is not null)
+            return Error(transresponse.Error);
+
+        _logger.LogInformation($"Transfer Auth OK: {JsonSerializer.Serialize(transresponse)}");
+
+        var authid = transresponse.Authorization.Id;
+
+        var createrequest = new Going.Plaid.Transfer.TransferCreateRequest()
+        {
+            IdempotencyKey = "1223abc456xyz7890001",
+            AccountId = accountid!,
+            AuthorizationId = authid,
+            Amount = "1.34",
+            Network = TransferNetwork.Ach,
+            AchClass = AchClass.Ppd,
+            Type = TransferType.Credit,
+            User = new()
+            {
+                LegalName = "Alice Cranberry",
+                PhoneNumber = "555-123-4567",
+                EmailAddress = "alice@example.com"
+            }
+        };
+        var createresponse = await _client.TransferCreateAsync(createrequest);
+
+        if (createresponse.Error is not null)
+            return Error(createresponse.Error);
+
+        _logger.LogInformation($"Transfer Create OK: {JsonSerializer.Serialize(createresponse)}");
+
+        var transferid = createresponse.Transfer.Id;
+
+        var request = new Going.Plaid.Transfer.TransferGetRequest()
+        {
+            TransferId = transferid,
+        };
+        var response = await _client.TransferGetAsync(request);
 
         if (response.Error is not null)
             return Error(response.Error);
 
         var result = new DataTable("Transfer ID", "Amount/r", "Type", "ACH Class", "Network", "Status")
         {
-            Rows = response.Accounts
-                .Select(x =>
-                    new Row(
-                        x.Name,
-                        x.AccountId,
-                        x.Balances?.Current?.ToString("C2") ?? string.Empty
-                    )
+            Rows = new Row[]
+            {
+                new Row(
+                    transferid,
+                    response.Transfer.Amount,
+                    response.Transfer.Type.ToString(),
+                    response.Transfer.AchClass.ToString(),
+                    response.Transfer.AchClass.ToString(),
+                    response.Transfer.Status.ToString()
                 )
-                .ToArray()
+            }
         };
 
         return Ok(result);
@@ -509,9 +568,6 @@ public class FetchController : ControllerBase
 
         return Ok(result);
     }
-
-
-
 
     ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
     {

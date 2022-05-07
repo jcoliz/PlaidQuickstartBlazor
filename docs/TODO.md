@@ -2,7 +2,6 @@
 
 * Add link update flow
 * Pretty print errors
-* Stubs for back-end services I don't have access to
 * More unit tests
 * Integration tests
 * Functional tests
