@@ -1,6 +1,9 @@
-<span data-test-id="Note" class="info post">@ChildContent</span>
+<span data-test-id="Note" class="info post @((IsError == true)?"alert-danger":"")">@ChildContent</span>
 
 @code {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool? IsError { get; set; }
 }

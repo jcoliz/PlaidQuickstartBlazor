@@ -1,6 +1,46 @@
-<span data-test-id="Error">@ChildContent</span>
+@using PlaidQuickstartBlazor.Shared
+
+<div data-test-id="Error" class="errorTop"></div>
+<div class="errorContainer">
+    <Note IsError="true"> @* error className={styles.code}>*@
+        Error
+    </Note>
+    <div class="errorContents">
+        <div class="errorItem">
+            <span class="errorTitle">Error code: </span>
+            <span class="errorData">
+                <span class="errorCode">
+                    @ErrorContent?.error_code
+                </span>
+            </span>
+        </div>
+        <div class="errorItem">
+            <span class="errorTitle">Type: </span>
+            <span class="errorData">@ErrorContent?.error_type</span>
+        </div>
+        <div class="errorItem">
+            <span class="errorTitle">Message: </span>
+            <span class="errorMessage">
+                @(ErrorContent?.display_message ?? ErrorContent?.error_message)
+            </span>
+        </div>
+    </div>
+    <div class="buttonsContainer">
+        <button type="button" class="btn btn-danger learnMore">Learn more</button>
+    </div>
+</div>
 
 @code {
+    // Note that the Going.Plaid SDK converts the error_code and error_type to CamelCase 
+    // enums. Those get serialized, and come through here. In order to get the proper
+    // Plaid values, e.g. INVALID_REQUEST instead of InvalidRequest, I'm going to have
+    // to either find a way to serialize the [EnumMember(Value = "INVALID_REQUEST")]", 
+    // or map it here.
+    //
+    // So for now, no helpful URL sorry!
+    //
+    // TODO:       `https://plaid.com/docs/errors/${errorPath}/#${props.error.error_code?.toLowerCase()}`
+
     [Parameter]
-    public RenderFragment? ChildContent { get; set; }
+    public PlaidError? ErrorContent { get; set; }
 }

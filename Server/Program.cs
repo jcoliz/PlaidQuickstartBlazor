@@ -1,5 +1,6 @@
 using Going.Plaid;
 using PlaidQuickstartBlazor.Shared;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,11 @@ builder.Configuration.AddYamlFile("secrets.yaml",optional:true);
 // Add services to the container.
 
 builder.Services.AddControllersWithViews()
-    .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null;
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(namingPolicy:null));
+    });
 
 builder.Services.AddRazorPages();
 

@@ -40,10 +40,15 @@
 {
     <Table Data="@TableData" />
 }
+@if (ErrorDetails is not null)
+{
+    <Error ErrorContent="@ErrorDetails"></Error>
+}
 @if (ErrorValue is not null)
 {
-    <Error>@ErrorValue</Error>
+    <p class="alert-danger p-2 my-2">@ErrorValue</p>
 }
+
 
 @code {
     [Parameter]
@@ -60,14 +65,16 @@
 
     private bool isLoading { get; set; }
 
-    private string? ErrorValue { get; set; }
-
     private DataTable? TableData { get; set; }
+
+    private PlaidError? ErrorDetails { get; set; }
+
+    private string? ErrorValue { get; set; }
 
     private async Task GetData()
     {
         isLoading = true;
-        ErrorValue = null;
+        ErrorDetails = null;
         TableData = null;
 
         try
@@ -79,7 +86,7 @@
             }
             else
             {
-                ErrorValue = await response.Content.ReadAsStringAsync();
+                ErrorDetails = await response.Content.ReadFromJsonAsync<PlaidError>();
             }
         }
         catch (Exception ex)
