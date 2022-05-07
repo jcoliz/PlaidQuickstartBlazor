@@ -1,11 +1,13 @@
 @using PlaidQuickstartBlazor.Shared
 
 <div data-test-id="Error" class="errorTop"></div>
-<div class="errorContainer">
-    <Note IsError="true"> @* error className={styles.code}>*@
-        Error
-    </Note>
-    <div class="errorContents">
+<SingleContainer>
+    <Header>
+        <Note IsError="true"> @* error className={styles.code}>*@
+            Error
+        </Note>
+    </Header>
+    <Contents>
         <div class="errorItem">
             <span class="errorTitle">Error code: </span>
             <span class="errorData">
@@ -24,11 +26,11 @@
                 @(ErrorContent?.display_message ?? ErrorContent?.error_message)
             </span>
         </div>
-    </div>
-    <div class="buttonsContainer">
+    </Contents>
+    <Buttons>
         <button type="button" class="btn btn-danger learnMore">Learn more</button>
-    </div>
-</div>
+    </Buttons>
+</SingleContainer>
 
 @code {
     // Note that the Going.Plaid SDK converts the error_code and error_type to CamelCase 
