@@ -391,25 +391,65 @@ public class FetchController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Assets()
     {
-        var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
+        _client.AccessToken = null;
+        var createrequest = new Going.Plaid.AssetReport.AssetReportCreateRequest()
+        {
+            AccessTokens = new[] { _credentials.AccessToken! },
+            DaysRequested = 10,
+            Options = new ()
+            {
+                ClientReportId = "Custom Report ID #123",
+                User = new()
+                {
+                    ClientUserId = "Custom User ID #456",
+                    FirstName = "Alice",
+                    MiddleName = "Bobcat",
+                    LastName = "Cranberry",
+                    Ssn = "123-45-6789",
+                    PhoneNumber = "555-123-4567",
+                    Email = "alice@example.com"
+                }
+            }
+        };
+        var createresponse = await _client.AssetReportCreateAsync(createrequest);
 
-        var response = await _client.AccountsBalanceGetAsync(request);
+        if (createresponse.Error is not null)
+            return Error(createresponse.Error);
 
-        if (response.Error is not null)
+        var request = new Going.Plaid.AssetReport.AssetReportGetRequest() 
+        { 
+            AssetReportToken = createresponse.AssetReportToken            
+        };
+
+        var response = await _client.AssetReportGetAsync(request);
+        int retries = 10;
+        while (response?.Error?.ErrorCode == ErrorCode.ProductNotReady && retries-- > 0)
+        {
+            await Task.Delay(TimeSpan.FromSeconds(1));
+            response = await _client.AssetReportGetAsync(request);
+        }
+
+        if (response?.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Account", "Transactions", "Balance/r", "Days Available")
+        var result = new DataTable("Account", "Transactions/r", "Balance/r", "Days Available/r")
         {
-            Rows = response.Accounts
-                .Select(x =>
+            Rows = response!.Report.Items
+                .SelectMany(x => x.Accounts.Select( a =>
                     new Row(
-                        x.Name,
-                        x.AccountId,
-                        x.Balances?.Current?.ToString("C2") ?? string.Empty
-                    )
+                        a.Name,
+                        a.Transactions.Count.ToString(),
+                        a.Balances.Current?.ToString("C2") ?? string.Empty,
+                        a.DaysAvailable.ToString("0")
+                    ))
                 )
                 .ToArray()
         };
+
+        // This would be the time to get the PDF report, however I don't see that Going.Plaid has that
+        // ability.
+        //
+        // https://github.com/viceroypenguin/Going.Plaid/issues/63
 
         return Ok(result);
     }
