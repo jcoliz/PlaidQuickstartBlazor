@@ -1,7 +1,7 @@
 @using PlaidQuickstartBlazor.Shared
 @inject ContextContainer context
-@inject IEnumerable<HttpClient> HttpClients
-@inject IEnumerable<IJSRuntime> JSRuntimes
+@inject HttpClient Http
+@inject IJSRuntime JS
 
 @*
     LINK BUTTON
@@ -34,7 +34,7 @@
 @code {
     private string? Error { get; set; }
 
-    private bool IsReady => JSRuntimes.Single() is Microsoft.JSInterop.WebAssembly.WebAssemblyJSRuntime;
+    private bool IsReady => JS is Microsoft.JSInterop.WebAssembly.WebAssemblyJSRuntime;
 
     private IJSObjectReference? module;
 
@@ -42,7 +42,6 @@
     {
         try
         {
-            var Http = HttpClients.Single();
             Error = null;
 
             // First, let's see if we already HAVE credentials!
@@ -97,9 +96,8 @@
     {
         try
         {
-            if (firstRender && JSRuntimes.Any())
+            if (firstRender && IsReady)
             {
-                var JS = JSRuntimes.Single();
                 module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
             }
         }
