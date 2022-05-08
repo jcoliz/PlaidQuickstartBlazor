@@ -3,7 +3,7 @@
 ## How to run tests locally
 
 1. Ensure you have an access_token configured (Functional tests do not test Link, currently)
-1. Run the app in the background, e.g. using "start.bg1" from this directory
+1. Run the app in the background, e.g. using "startbg.ps1" from this directory
 2. "dotnet test" from this directory
 
 ## TODO: Run tests against deployed environment
