@@ -20,6 +20,10 @@
     }
     else
     {
+        @*
+            TODO: I would really prefer to enable this button, and hide the loading AFTER 
+            the user clicks. Sadly, I cannot get onclick to work during prerendering.
+        *@
         <button class="btn btn-primary" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Loading...
@@ -68,6 +72,7 @@
 
                 if (link_result.ok != true)
                 {
+                    // TODO: Create new PlaidErrorException which has a PlaidError as a payload
                     if (link_result.error is not null)
                         throw new ApplicationException($"{link_result.error.error_type} {link_result.error.error_code} {link_result.error.error_message} {link_result.error.display_message}");
                     else
@@ -96,7 +101,7 @@
     {
         try
         {
-            if (firstRender && IsReady)
+            if (firstRender)
             {
                 module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
             }
