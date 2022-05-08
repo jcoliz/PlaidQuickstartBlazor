@@ -31,7 +31,7 @@ public class FetchController : ControllerBase
         _client.AccessToken = _credentials.AccessToken;
     }
 
-    private DataTable SampleResult => new()
+    private static DataTable SampleResult => new()
     {
         Columns = (new[] { "A", "B", "C", "D", "E" })
             .Select(x => new Column() { Title = x })
@@ -60,7 +60,7 @@ public class FetchController : ControllerBase
 
         Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
 
-        var result = new DataTable("Name", "Balance/r", "Account #", "Routing #")
+        DataTable result = new ServerDataTable("Name", "Balance/r", "Account #", "Routing #")
         {
             Rows = response.Numbers.Ach
                 .Select(x =>
@@ -96,7 +96,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
+        DataTable result = new ServerDataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
         {
             Rows = response.Transactions
                 .Select(x =>
@@ -126,7 +126,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Names", "Emails", "Phone Numbers", "Addresses")
+        DataTable result = new ServerDataTable("Names", "Emails", "Phone Numbers", "Addresses")
         {
             Rows = response.Accounts
                 .SelectMany(a => 
@@ -160,7 +160,7 @@ public class FetchController : ControllerBase
         Security? SecurityFor(string? id) => response?.Securities.Where(x => x.SecurityId == id).SingleOrDefault();
         Account? AccountFor(string? id) => response?.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
 
-        var result = new DataTable("Mask", "Name", "Quantity/r", "Close Price/r", "Value/r")
+        DataTable result = new ServerDataTable("Mask", "Name", "Quantity/r", "Close Price/r", "Value/r")
         {
             Rows = response.Holdings
             .Select(x =>
@@ -200,7 +200,7 @@ public class FetchController : ControllerBase
 
         Security? SecurityFor(string? id) => response?.Securities.Where(x => x.SecurityId == id).SingleOrDefault();
 
-        var result = new DataTable("Name", "Amount/r", "Date/r", "Ticker")
+        DataTable result = new ServerDataTable("Name", "Amount/r", "Date/r", "Ticker")
         {
             Rows = response.InvestmentTransactions
             .Select(x =>
@@ -229,7 +229,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Name", "AccountId", "Balance/r")
+        DataTable result = new ServerDataTable("Name", "AccountId", "Balance/r")
         {
             Rows = response.Accounts
                 .Select(x =>
@@ -257,7 +257,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Name", "Balance/r", "Subtype", "Mask")
+        DataTable result = new ServerDataTable("Name", "Balance/r", "Subtype", "Mask")
         {
             Rows = response.Accounts
                 .Select(x =>
@@ -292,7 +292,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Institution Name", "Billed Products", "Available Products")
+        DataTable result = new ServerDataTable("Institution Name", "Billed Products", "Available Products")
         {
             Rows = new[] 
             {
@@ -321,7 +321,7 @@ public class FetchController : ControllerBase
 
         Account? AccountFor(string? id) => response.Accounts.Where(x => x.AccountId == id).SingleOrDefault();
 
-        var result = new DataTable("Type", "Account", "Balance/r")
+        DataTable result = new ServerDataTable("Type", "Account", "Balance/r")
         {
             Rows = response.Liabilities!.Credit!
                 .Select(x =>
@@ -375,7 +375,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Payment ID", "Amount/r", "Status", "Status Update", "Recipient ID")
+        DataTable result = new ServerDataTable("Payment ID", "Amount/r", "Status", "Status Update", "Recipient ID")
         {
             Rows = new Row[]
             {
@@ -438,7 +438,7 @@ public class FetchController : ControllerBase
         if (response?.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Account", "Transactions/r", "Balance/r", "Days Available/r")
+        DataTable result = new ServerDataTable("Account", "Transactions/r", "Balance/r", "Days Available/r")
         {
             Rows = response!.Report.Items
                 .SelectMany(x => x.Accounts.Select( a =>
@@ -529,7 +529,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Transfer ID", "Amount/r", "Type", "ACH Class", "Network", "Status")
+        DataTable result = new ServerDataTable("Transfer ID", "Amount/r", "Type", "ACH Class", "Network", "Status")
         {
             Rows = new Row[]
             {
@@ -559,7 +559,7 @@ public class FetchController : ControllerBase
         if (response.Error is not null)
             return Error(response.Error);
 
-        var result = new DataTable("Description", "Current Amount/r", "Currency")
+        DataTable result = new ServerDataTable("Description", "Current Amount/r", "Currency")
         {
             Rows = response.Accounts
                 .Select(x =>
@@ -579,5 +579,24 @@ public class FetchController : ControllerBase
     {
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
         return StatusCode(StatusCodes.Status400BadRequest, error);
+    }
+
+    /// <summary>
+    /// Server-side version of shared data table
+    /// </summary>
+    /// <remarks>
+    /// Contains code used only on server side. 
+    /// Don't want to pollute client side with needless code.
+    /// </remarks>
+    internal class ServerDataTable: DataTable
+    {
+        internal ServerDataTable(params string[] cols)
+        {
+            Columns = cols.Select(x =>
+            {
+                var split = x.Split("/");
+                return new Column() { Title = split[0], IsRight = split.Length > 1 && split[1] == "r" };
+            }).ToArray();
+        }
     }
 }
