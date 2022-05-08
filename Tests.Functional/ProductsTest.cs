@@ -15,10 +15,11 @@ public class ProductsTest: FunctionalTest
     #region Tests
 
     /// <summary>
-    /// [User Can] Access the Auth product
+    /// [User Can] Access the product {name}
     /// </summary>
-    [TestMethod]
-    public async Task Auth()
+    [DataRow("Auth", 4, 2)]
+    [DataTestMethod]
+    public async Task Product(string name, int expected_cols_count, int expected_rows_count)
     {
         // Given: On the root of the site
         await Page!.GotoAsync(TestContext?.Properties?["webAppUrl"] as string ?? throw new ApplicationException());
@@ -29,21 +30,21 @@ public class ProductsTest: FunctionalTest
         await Page!.WaitForLoadStateAsync( LoadState.DOMContentLoaded );
         await SaveScreenshotAsync("0-Ready");
 
-        // When: Clicking on "Send Request" within the "Auth" product
-        await Page!.ClickAsync("data-test-id=request-Auth");
+        // When: Clicking on "Send Request" within the "{name}}" product
+        await Page!.ClickAsync($"data-test-id=request-{name}");
 
         // Then: A table of results is populated
         await Page!.WaitForSelectorAsync("data-test-id=Table");
         await SaveScreenshotAsync("1-Loaded");
 
         // And: The shape of the table matches our expectations
-        var ths = Page!.Locator("data-test-id=Table >> thead >> th");
-        var ths_count = await ths.CountAsync();
-        Assert.AreEqual(4,ths_count);
+        var actual_cols = Page!.Locator("data-test-id=Table >> thead >> th");
+        var actual_cols_count = await actual_cols.CountAsync();
+        Assert.AreEqual(expected_cols_count,actual_cols_count);
 
-        var trs = Page!.Locator("data-test-id=Table >> tbody >> tr");
-        var trs_count = await trs.CountAsync();
-        Assert.AreEqual(2,trs_count);
+        var actual_rows = Page!.Locator("data-test-id=Table >> tbody >> tr");
+        var actual_rows_count = await actual_rows.CountAsync();
+        Assert.AreEqual(expected_rows_count,actual_rows_count);
     }
 
     #endregion

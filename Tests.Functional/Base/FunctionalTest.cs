@@ -25,20 +25,6 @@ public class FunctionalTest: PageTest
 
     #region Helpers
 
-    protected async Task WhenNavigatingToPage(string title)
-    {
-        // When: Navigating to the root of the site
-        await Page!.GotoAsync(TestContext?.Properties?["webAppUrl"] as string ?? string.Empty);
-
-        // And: Clicking "{title}" on the navbar
-        await Page.ClickAsync($"data-test-id=NavMenu >> data-test-id={title}");
-        await Page.WaitForLoadStateAsync(state:LoadState.NetworkIdle);
-
-        // Then: {title} is the page title
-        var pagetitle = await Page.TitleAsync();
-        Assert.AreEqual(title,pagetitle);
-    }
-
     protected async Task SaveScreenshotAsync(string? moment = null)
     {
         var testname = $"{TestContext!.FullyQualifiedTestClassName.Split(".").Last()}/{TestContext.TestName}";
