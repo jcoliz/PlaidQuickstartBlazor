@@ -129,6 +129,8 @@ else
             context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
             if (string.IsNullOrEmpty(context.Credentials?.AccessToken) || IsFixingToken)
             {
+                // If not, let's go get them...
+
                 // Step 1: Get link token from server
                 var createresponse = await Http.GetAsync($"link/CreateLinkToken{(IsFixingToken?"?fix=true":"")}");
                 if (!createresponse.IsSuccessStatusCode)
