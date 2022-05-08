@@ -115,6 +115,18 @@ public class LinkController : ControllerBase
         return Ok(_credentials);
     }
 
+    [HttpPost]
+    [IgnoreAntiforgeryToken(Order = 1001)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public IActionResult LinkFail(LinkResult link)
+    {
+        // We're logging failures in case you want to come back and look for them later
+
+        _logger.LogInformation($"LinkFail (): {JsonSerializer.Serialize(link)}");
+
+        return Ok();
+    }
+
     ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
     {
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");

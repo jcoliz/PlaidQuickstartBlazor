@@ -149,6 +149,8 @@ else
 
                 if (link_result.ok != true)
                 {
+                    await Http.PostAsJsonAsync<LinkResult>("link/LinkFail",link_result);
+
                     // TODO: Create new PlaidErrorException which has a PlaidError as a payload
                     if (link_result.error is not null)
                     {
