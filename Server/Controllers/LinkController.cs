@@ -42,6 +42,18 @@ public class LinkController : ControllerBase
         return Ok(_credentials);
     }
 
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public ActionResult Logout()
+    {
+        _logger.LogInformation($"Logout OK");
+
+        _credentials.AccessToken = null;
+        _credentials.ItemId = null;
+
+        return Ok();
+    }
+
     [HttpGet]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

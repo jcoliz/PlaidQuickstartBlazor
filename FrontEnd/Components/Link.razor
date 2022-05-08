@@ -11,43 +11,77 @@
 
 *@
 
-<div data-test-id="Link">
-    @if (IsReady)
-    {
-        if (IsFixingToken)
+@if (IsFixingToken)
+{
+    @* Needs to fit into a single container once we're already logged in *@
+    
+    <SingleContainer>
+        <Header>
+            <Note>Fix</Note>
+        </Header>
+        <Contents>
+            <div class="endpointDescription">If you see errors using your token, you can try fixing it here.</div>
+
+            @if (PrettyError is not null)
+            {
+                <Error ErrorContent="PrettyError"></Error>
+            }
+            else if (Error is not null)
+            {
+                <p class="alert-danger p-2 my-2">@Error</p>
+            }
+        </Contents>
+        <Buttons>
+            <button data-test-id="fix-link" type="button" class="btn btn-secondary fixButton" @onclick="LaunchLink">
+                Fix Token
+            </button>
+        </Buttons>
+    </SingleContainer>
+    <SingleContainer>
+        <Header>
+            <Note>Logout</Note>
+        </Header>
+        <Contents>
+            <div class="endpointDescription">To change which bank you're connected to, log out first.</div>
+        </Contents>
+        <Buttons>
+            <button data-test-id="fix-link" type="button" class="btn btn-outline-secondary fixButton" @onclick="Logout">
+                Logout
+            </button>
+        </Buttons>
+    </SingleContainer>
+}
+else
+{
+    <div data-test-id="Link">
+        @if (IsReady)
         {
-            <button data-test-id="fix-link" type="button" class="btn btn-outline-secondary" @onclick="LaunchLink">
-              Fix Token &raquo;
-            </button>            
+            <button data-test-id="launch-link" type="button" class="btn btn-primary" @onclick="LaunchLink">
+                Launch Link &raquo;
+            </button>
         }
         else
         {
-            <button data-test-id="launch-link" type="button" class="btn btn-primary" @onclick="LaunchLink">
-              Launch Link &raquo;
-            </button>
+            @*
+                TODO: I would really prefer to enable this button, and hide the loading AFTER 
+                the user clicks. Sadly, I cannot get onclick to work during prerendering.
+            *@
+            <button data-test-id="await-link" class="btn btn-primary" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+            </button>  
         }
-    }
-    else
-    {
-        @*
-            TODO: I would really prefer to enable this button, and hide the loading AFTER 
-            the user clicks. Sadly, I cannot get onclick to work during prerendering.
-        *@
-        <button data-test-id="await-link" class="btn btn-primary" type="button" disabled>
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            Loading...
-        </button>  
-    }
-    @if (PrettyError is not null)
-    {
-        <Error ErrorContent="PrettyError"></Error>
-    }
-    else if (Error is not null)
-    {
-        <p class="alert-danger p-2 my-2">@Error</p>
-    }
+        @if (PrettyError is not null)
+        {
+            <Error ErrorContent="PrettyError"></Error>
+        }
+        else if (Error is not null)
+        {
+            <p class="alert-danger p-2 my-2">@Error</p>
+        }
 
-</div>
+    </div>
+}
 
 @code {
 
@@ -64,6 +98,25 @@
     private bool IsReady => JS is Microsoft.JSInterop.WebAssembly.WebAssemblyJSRuntime;
 
     private IJSObjectReference? module;
+
+    private async Task Logout()
+    {
+        try
+        {
+            context.IsItemAccess = false;
+            context.LinkSuccess = false;
+            context.Credentials!.AccessToken = null;
+            context.Credentials!.ItemId = null;
+
+            var response = await Http.PostAsync("link/Logout",null);
+            if (!response.IsSuccessStatusCode)
+                throw new ApplicationException(await response.Content.ReadAsStringAsync());
+        }
+        catch (Exception ex)
+        {
+            Error = $"Failed to Logout: {ex.GetType().Name}: {ex.Message}";           
+        }
+    }
 
     private async Task LaunchLink()
     {
@@ -119,7 +172,6 @@
         }
         catch (Exception ex)
         {
-            // TODO: Prettier display of error information
             Error = $"Failed to Launch: {ex.GetType().Name}: {ex.Message}";
         }
     }
