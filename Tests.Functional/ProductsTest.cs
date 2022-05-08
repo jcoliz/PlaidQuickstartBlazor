@@ -25,6 +25,8 @@ public class ProductsTest: FunctionalTest
     [DataRow("Investments", 5, 12)]
     [DataRow("InvestmentsTransactions", 4, null)]
     [DataRow("Liabilities", 3, 3)]
+    [DataRow("itemget", 3, 1)]
+    [DataRow("accountsget", 4, 9)]
     [DataTestMethod]
     public async Task Product(string name, int expected_cols_count, int? expected_rows_count)
     {
