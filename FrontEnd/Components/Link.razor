@@ -50,7 +50,7 @@
 
             // First, let's see if we already HAVE credentials!
             context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
-            if (context.Credentials?.AccessToken is null)
+            if (string.IsNullOrEmpty(context.Credentials?.AccessToken))
             {
                 // Step 1: Get link token from server
                 var createresponse = await Http.GetAsync("link/CreateLinkToken");
