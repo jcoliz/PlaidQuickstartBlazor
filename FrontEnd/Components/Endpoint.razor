@@ -27,7 +27,7 @@
         }
         else
         {
-            var datatestid = (Name is not null) ? $"request-{Name}" : null;
+            var datatestid = (Name is not null) ? $"request-{Name.Replace(" ","")}" : null;
             <button 
                 data-test-id="@datatestid" 
                 type="button"
