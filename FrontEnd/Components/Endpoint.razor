@@ -27,7 +27,10 @@
         }
         else
         {
-            <button type="button"
+            var datatestid = (Name is not null) ? $"request-{Name}" : null;
+            <button 
+                data-test-id="@datatestid" 
+                type="button"
                 class="btn btn-primary sendRequest"
                 @onclick="GetData"
                 >

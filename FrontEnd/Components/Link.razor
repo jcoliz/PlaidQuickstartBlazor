@@ -16,13 +16,13 @@
     {
         if (IsFixingToken)
         {
-            <button type="button" class="btn btn-outline-secondary" @onclick="LaunchLink">
+            <button data-test-id="fix-link" type="button" class="btn btn-outline-secondary" @onclick="LaunchLink">
               Fix Token &raquo;
             </button>            
         }
         else
         {
-            <button type="button" class="btn btn-primary" @onclick="LaunchLink">
+            <button data-test-id="launch-link" type="button" class="btn btn-primary" @onclick="LaunchLink">
               Launch Link &raquo;
             </button>
         }
@@ -33,7 +33,7 @@
             TODO: I would really prefer to enable this button, and hide the loading AFTER 
             the user clicks. Sadly, I cannot get onclick to work during prerendering.
         *@
-        <button class="btn btn-primary" type="button" disabled>
+        <button data-test-id="await-link" class="btn btn-primary" type="button" disabled>
             <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
             Loading...
         </button>  
