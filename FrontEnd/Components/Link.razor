@@ -11,7 +11,7 @@
 
 *@
 
-<div data-test-id="Link fixButton">
+<div data-test-id="Link">
     @if (IsReady)
     {
         if (IsFixingToken)
@@ -38,10 +38,15 @@
             Loading...
         </button>  
     }
-    @if (Error is not null)
+    @if (PrettyError is not null)
+    {
+        <Error ErrorContent="PrettyError"></Error>
+    }
+    else if (Error is not null)
     {
         <p class="alert-danger p-2 my-2">@Error</p>
     }
+
 </div>
 
 @code {
@@ -51,6 +56,8 @@
     /// </summary>
     [Parameter]
     public bool IsFixingToken { get; set; }
+
+    private PlaidError? PrettyError { get; set; }
 
     private string? Error { get; set; }
 
@@ -63,6 +70,7 @@
         try
         {
             Error = null;
+            PrettyError = null;
 
             // First, let's see if we already HAVE credentials!
             context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
@@ -90,9 +98,12 @@
                 {
                     // TODO: Create new PlaidErrorException which has a PlaidError as a payload
                     if (link_result.error is not null)
-                        throw new ApplicationException($"{link_result.error.error_type} {link_result.error.error_code} {link_result.error.error_message} {link_result.error.display_message}");
+                    {
+                        PrettyError = link_result.error;
+                        throw new ApplicationException();
+                    }
                     else
-                        throw new ApplicationException("Link failed, no error given");
+                        throw new ApplicationException($"Link aborted. Status: {link_result.metadata?.status ?? "none"}");
                 }
 
                 // Step 3: Send public token back to server, which will populate credentials
