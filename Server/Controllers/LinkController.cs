@@ -45,17 +45,20 @@ public class LinkController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CreateLinkToken()
+    public async Task<IActionResult> CreateLinkToken([FromQuery] bool? fix )
     {
         try
         {
+            _logger.LogInformation($"CreateLinkToken (): {fix ?? false}");
+
             var response = await _client.LinkTokenCreateAsync(
                 new LinkTokenCreateRequest()
                 {
+                    AccessToken = fix == true ? _credentials.AccessToken : null,
                     User = new LinkTokenCreateRequestUser { ClientUserId = Guid.NewGuid().ToString(), },
                     ClientName = "Quickstart for .NET",
-                    Products = _credentials!.Products!.Split(',').Select(p => Enum.Parse<Products>(p, true)).ToArray(),
-                    Language = Language.English,
+                    Products = fix != true ? _credentials!.Products!.Split(',').Select(p => Enum.Parse<Products>(p, true)).ToArray() : Array.Empty<Products>(),
+                    Language = Language.English, // TODO: Should pick up from config
                     CountryCodes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<CountryCode>(p, true)).ToArray(),
                 });
 

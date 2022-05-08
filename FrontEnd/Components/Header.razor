@@ -30,6 +30,15 @@
             target="_blank"
             >Item</a>.
         </h4>
+
+        <p>
+            If you see errors using your token, you can try fixing it here:
+        </p>
+
+        <div>
+            <Link IsFixingToken="true" />
+        </div>
+
         <div class="itemAccessContainer">
             <p class="itemAccessRow">
                 <span class="idName">item_id</span>
@@ -40,12 +49,6 @@
                 <span class="idName">access_token</span>
                 <span class="tokenText">@context.Credentials?.AccessToken</span>
             </p>
-            <SingleContainer>
-                <Header><div></div></Header>
-                <Buttons>
-                    <button class="btn btn-outline-secondary fixButton">Update Token</button>
-                </Buttons>
-            </SingleContainer>
         </div>
 
         @if (context.IsItemAccess)

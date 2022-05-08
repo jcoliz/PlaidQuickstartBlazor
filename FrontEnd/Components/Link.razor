@@ -11,12 +11,21 @@
 
 *@
 
-<div data-test-id="Link">
+<div data-test-id="Link fixButton">
     @if (IsReady)
     {
-        <button type="button" class="btn btn-primary" @onclick="LaunchLink">
-          Launch Link &raquo;
-        </button>        
+        if (IsFixingToken)
+        {
+            <button type="button" class="btn btn-outline-secondary" @onclick="LaunchLink">
+              Fix Token &raquo;
+            </button>            
+        }
+        else
+        {
+            <button type="button" class="btn btn-primary" @onclick="LaunchLink">
+              Launch Link &raquo;
+            </button>
+        }
     }
     else
     {
@@ -36,6 +45,13 @@
 </div>
 
 @code {
+
+    /// <summary>
+    /// Set to 'true' if Link should be launched in "Fix token" mode
+    /// </summary>
+    [Parameter]
+    public bool IsFixingToken { get; set; }
+
     private string? Error { get; set; }
 
     private bool IsReady => JS is Microsoft.JSInterop.WebAssembly.WebAssemblyJSRuntime;
@@ -50,10 +66,10 @@
 
             // First, let's see if we already HAVE credentials!
             context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
-            if (string.IsNullOrEmpty(context.Credentials?.AccessToken))
+            if (string.IsNullOrEmpty(context.Credentials?.AccessToken) || IsFixingToken)
             {
                 // Step 1: Get link token from server
-                var createresponse = await Http.GetAsync("link/CreateLinkToken");
+                var createresponse = await Http.GetAsync($"link/CreateLinkToken{(IsFixingToken?"?fix=true":"")}");
                 if (!createresponse.IsSuccessStatusCode)
                     throw new ApplicationException(await createresponse.Content.ReadAsStringAsync());
 
