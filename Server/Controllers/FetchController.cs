@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlaidQuickstartBlazor.Shared;
 using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
 using System.Text.Json;
 
 namespace PlaidQuickstartBlazor.Server.Controllers;
@@ -577,8 +578,10 @@ public class FetchController : ControllerBase
 
     ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
     {
-        _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
-        return StatusCode(StatusCodes.Status400BadRequest, error);
+        var outerror = new ServerPlaidError(error);
+        _logger.LogError($"{callerName}: {JsonSerializer.Serialize(outerror)}");
+
+        return StatusCode(StatusCodes.Status400BadRequest, outerror);
     }
 
     /// <summary>
@@ -598,5 +601,62 @@ public class FetchController : ControllerBase
                 return new Column() { Title = split[0], IsRight = split.Length > 1 && split[1] == "r" };
             }).ToArray();
         }
+    }
+
+    /// <summary>
+    /// Server-side version of shared plaid error
+    /// </summary>
+    internal class ServerPlaidError: Shared.PlaidError
+    {
+        internal ServerPlaidError(Going.Plaid.Errors.PlaidError error)
+        {
+            try
+            {
+                base.error_message = error.ErrorMessage;
+                base.display_message = error.DisplayMessage;
+
+                base.error_type = ToEnumString(error.ErrorType);
+                base.error_code = ToEnumString(error.ErrorCode);
+
+                base.error_type_path = _error_type_paths.GetValueOrDefault(base.error_type);
+            }
+            catch
+            {
+                // If we run into errors here, we'll just take as much as we have converted sofar
+            }
+        }
+
+        // The problem here is that the built-in JsonStringEnumConverter only converts
+        // the enums into their C# representation, e.g. InvalidRequest. But when displaying
+        // them to the user, we need to use the Plaid standard values, e.g. INVALID_REQUEST.
+        // Those values are tied onto the Enum with an EnumMemberAttribute, so we could
+        // create a custom converter. Or we could go the faster route, and just convert them
+        // by hand here.
+
+        // https://stackoverflow.com/questions/10418651/using-enummemberattribute-and-doing-automatic-string-conversions
+        private static string ToEnumString<T>(T value)
+        {
+            var enumType = typeof(T);
+            var name = Enum.GetName(enumType, value!);
+            var enumMemberAttribute = ((EnumMemberAttribute[])enumType!.GetField(name!).GetCustomAttributes(typeof(EnumMemberAttribute), true)).Single();
+            return enumMemberAttribute!.Value!;
+        }
+
+        private readonly Dictionary<string, string> _error_type_paths = new Dictionary<string, string>()
+        {
+            { "ITEM_ERROR", "item" },
+            { "INSTITUTION_ERROR", "institution" },
+            { "API_ERROR", "api" },
+            { "ASSET_REPORT_ERROR", "assets" },
+            { "BANK_TRANSFER_ERROR", "bank-transfers" },
+            { "INVALID_INPUT", "invalid-input" },
+            { "INVALID_REQUEST", "invalid-request" },
+            { "INVALID_RESULT", "invalid-result" },
+            { "OAUTH_ERROR", "oauth" },
+            { "PAYMENT_ERROR", "payment" },
+            { "RATE_LIMIT_EXCEEDED", "rate-limit-exceeded" },
+            { "RECAPTCHA_ERROR", "recaptcha" },
+            { "SANDBOX_ERROR", "sandbox" },
+        };
     }
 }

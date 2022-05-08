@@ -27,22 +27,15 @@
             </span>
         </div>
     </Contents>
-    <Buttons>
-        <button type="button" class="btn btn-danger learnMore">Learn more</button>
-    </Buttons>
+        <Buttons>
+            @if (ErrorContent?.Url is not null)
+            {
+                <a class="btn btn-danger learnMore" href="@ErrorContent.Url" target="_blank">Learn more</a>
+            }
+        </Buttons>
 </SingleContainer>
 
 @code {
-    // Note that the Going.Plaid SDK converts the error_code and error_type to CamelCase 
-    // enums. Those get serialized, and come through here. In order to get the proper
-    // Plaid values, e.g. INVALID_REQUEST instead of InvalidRequest, I'm going to have
-    // to either find a way to serialize the [EnumMember(Value = "INVALID_REQUEST")]", 
-    // or map it here.
-    //
-    // So for now, no helpful URL sorry!
-    //
-    // TODO:       `https://plaid.com/docs/errors/${errorPath}/#${props.error.error_code?.toLowerCase()}`
-
     [Parameter]
     public PlaidError? ErrorContent { get; set; }
 }
