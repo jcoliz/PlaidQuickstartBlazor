@@ -32,24 +32,9 @@ public class FetchController : ControllerBase
         _client.AccessToken = _credentials.AccessToken;
     }
 
-    private static DataTable SampleResult => new()
-    {
-        Columns = (new[] { "A", "B", "C", "D", "E" })
-            .Select(x => new Column() { Title = x })
-            .ToArray(),
-
-        Rows = new[]
-            {
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-                new Row() { Cells = new[] { "1", "2", "3", "4", "5" } },
-            }
-    };
-
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Auth()
     {
         var request = new Going.Plaid.Auth.AuthGetRequest();
@@ -79,7 +64,7 @@ public class FetchController : ControllerBase
     }
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transactions()
     {
         var request = new Going.Plaid.Transactions.TransactionsGetRequest()
@@ -117,7 +102,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Identity()
     {
         var request = new Going.Plaid.Identity.IdentityGetRequest();
@@ -148,7 +133,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Holdings()
     {
         var request = new Going.Plaid.Investments.InvestmentsHoldingsGetRequest();
@@ -181,7 +166,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Investments_Transactions()
     {
         var request = new Going.Plaid.Investments.InvestmentsTransactionsGetRequest()
@@ -220,7 +205,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Balance()
     {
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
@@ -248,7 +233,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Accounts()
     {
         var request = new Going.Plaid.Accounts.AccountsGetRequest();
@@ -277,7 +262,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Item()
     {
         var request = new Going.Plaid.Item.ItemGetRequest();
@@ -310,7 +295,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Liabilities()
     {
         var request = new Going.Plaid.Liabilities.LiabilitiesGetRequest();
@@ -360,7 +345,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Payment()
     {
         var listrequest = new Going.Plaid.PaymentInitiation.PaymentInitiationPaymentListRequest();
@@ -395,7 +380,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Assets()
     {
         _client.AccessToken = null;
@@ -463,7 +448,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transfer()
     {
         var actrequest = new Going.Plaid.Accounts.AccountsGetRequest();
@@ -550,7 +535,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Verification()
     {
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
