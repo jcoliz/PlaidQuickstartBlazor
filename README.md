@@ -48,11 +48,6 @@ In Sandbox, you can log in to any supported institution (except Capital One) usi
 
 In Development or Production, use real-life credentials.
 
-## Current status
-
-The quickstart is functionally complete. There still cleanups and improvements to be done. And tests to write!
-Check out the [TODO List](/docs/TODO.md) for more details.
-
 ## Code of conduct
 
 We as members, contributors, and leaders pledge to make participation in our
