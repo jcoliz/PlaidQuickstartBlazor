@@ -623,7 +623,7 @@ public class FetchController : ControllerBase
         {
             var enumType = typeof(T);
             var name = Enum.GetName(enumType, value!);
-            var enumMemberAttribute = ((EnumMemberAttribute[])enumType!.GetField(name!).GetCustomAttributes(typeof(EnumMemberAttribute), true)).Single();
+            var enumMemberAttribute = ((EnumMemberAttribute[])enumType!.GetField(name!)!.GetCustomAttributes(typeof(EnumMemberAttribute), true)).Single();
             return enumMemberAttribute!.Value!;
         }
 
