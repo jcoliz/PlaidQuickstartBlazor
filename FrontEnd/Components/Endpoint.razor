@@ -1,7 +1,8 @@
 @using PlaidQuickstartBlazor.Shared
+@using System.Text.RegularExpressions
 @inject HttpClient Http
 
-<SingleContainer>
+<SingleContainer data-test-id="@TestId">
     <Header>
         <Note>
             POST
@@ -27,14 +28,8 @@
         }
         else
         {
-            string? datatestid = null;
-            if (Name is not null)
-                datatestid = $"request-{Name.Replace(" ", "")}";
-            else if (Schema is not null)
-                datatestid = $"request-{Schema.Replace("/", "")}";
-
             <button 
-                data-test-id="@datatestid" 
+                data-test-id="btn-request" 
                 type="button"
                 class="btn btn-primary sendRequest"
                 @onclick="GetData"
@@ -78,6 +73,19 @@
     private PlaidError? ErrorDetails { get; set; }
 
     private string? ErrorValue { get; set; }
+
+    private string TestId
+    {
+        get
+        {
+            var name = Name is not null ? Name : 
+                (Schema is not null ? Schema : "null");
+
+            // trim beginning and ending non-alpha
+            var regex = new Regex("\\W+");
+            return "endpoint-" + regex.Replace(name, "").ToLowerInvariant();
+        }
+    }
 
     private async Task GetData()
     {

@@ -17,14 +17,14 @@ public class ProductsTest: FunctionalTest
     /// <summary>
     /// [User Can] Access the product {name}
     /// </summary>
-    [DataRow("Auth", 4, 2)]
-    [DataRow("Transactions", 5, null)]
-    [DataRow("Identity", 4, 9)]
-    [DataRow("Assets", 4, 9)]
-    [DataRow("Balance", 3, 9)]
-    [DataRow("Investments", 5, 12)]
-    [DataRow("InvestmentsTransactions", 4, null)]
-    [DataRow("Liabilities", 3, 3)]
+    [DataRow("auth", 4, 2)]
+    [DataRow("transactions", 5, null)]
+    [DataRow("identity", 4, 9)]
+    [DataRow("assets", 4, 9)]
+    [DataRow("balance", 3, 9)]
+    [DataRow("investments", 5, 12)]
+    [DataRow("investmentstransactions", 4, null)]
+    [DataRow("liabilities", 3, 3)]
     [DataRow("itemget", 3, 1)]
     [DataRow("accountsget", 4, 9)]
     [DataTestMethod]
@@ -39,7 +39,7 @@ public class ProductsTest: FunctionalTest
         await SaveScreenshotAsync($"{name}-0-Ready");
 
         // When: Clicking on "Send Request" within the "{name}}" product
-        await Page!.ClickAsync($"data-test-id=request-{name}");
+        await Page!.ClickAsync($"data-test-id=endpoint-{name} >> data-test-id=btn-request");
 
         // Then: A table of results is populated
         await Page!.WaitForSelectorAsync("data-test-id=Table");

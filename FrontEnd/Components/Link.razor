@@ -15,7 +15,7 @@
 {
     @* Needs to fit into a single container once we're already logged in *@
     
-    <SingleContainer>
+    <SingleContainer data-test-id="link-fix">
         <Header>
             <Note>Fix</Note>
         </Header>
@@ -32,12 +32,12 @@
             }
         </Contents>
         <Buttons>
-            <button data-test-id="fix-link" type="button" class="btn btn-secondary fixButton" @onclick="LaunchLink">
+            <button data-test-id="btn-fix" type="button" class="btn btn-secondary fixButton" @onclick="LaunchLink">
                 Fix Token
             </button>
         </Buttons>
     </SingleContainer>
-    <SingleContainer>
+    <SingleContainer data-test-id="link-logout">
         <Header>
             <Note>Logout</Note>
         </Header>
@@ -45,7 +45,7 @@
             <div class="endpointDescription">To change which bank you're connected to, log out first.</div>
         </Contents>
         <Buttons>
-            <button data-test-id="fix-link" type="button" class="btn btn-outline-secondary fixButton" @onclick="Logout">
+            <button data-test-id="btn-logout" type="button" class="btn btn-outline-secondary fixButton" @onclick="Logout">
                 Logout
             </button>
         </Buttons>

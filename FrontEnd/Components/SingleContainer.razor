@@ -1,4 +1,4 @@
-﻿<div class="containerContainer">
+﻿<div @attributes="Unmatched" class="containerContainer">
     @Header
     <div class="containerContents">
         @Contents
@@ -8,6 +8,9 @@
     </div>
 </div>
 @code {
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IDictionary<string,object>? Unmatched { get; set; }
+
     [Parameter]
     public RenderFragment? Header { get; set; }
 
