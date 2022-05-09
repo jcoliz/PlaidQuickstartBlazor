@@ -54,6 +54,8 @@
 else
 {
     <div data-test-id="Link">
+        <button id="btn-initial" class="btn btn-danger btn-pr me-2" data-test-id="link-test-initial" data-pr-trigger="btn-loading">Pre-Rendering</button>
+        <button id="btn-loading" class="btn btn-danger me-2" hidden data-test-id="link-test-loading">Loading...</button>
         @if (IsRendered)
         {
             <button data-test-id="launch-link" type="button" class="btn btn-primary" @onclick="LaunchLink">
