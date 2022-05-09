@@ -1,10 +1,4 @@
-﻿$black200: #ededed;
-$unit: 0.8rem;
-$color-box-shadow: rgba(17, 17, 17, 0.08);
-$shadow-3: 0 $unit $unit 0 $color-box-shadow;
-$shadow-small: $shadow-3;
-$font-stack-monospace: Inconsolata, Consolas, Courier, monospace;
-$red200: #ffd7dc;
+﻿@import "../Styles/variables.scss";
 
 .errorTop {
     width: 90%;

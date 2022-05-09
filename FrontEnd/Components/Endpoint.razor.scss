@@ -1,6 +1,4 @@
-$black200: #ededed;
-$unit: 0.8rem;
-$font-stack-monospace: Inconsolata, Consolas, Courier, monospace;
+@import "../Styles/variables.scss";
 
 .endpointContainer {
   display: grid;
