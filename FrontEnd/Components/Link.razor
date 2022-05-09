@@ -125,50 +125,12 @@ else
             Error = null;
             PrettyError = null;
 
-            // First, let's see if we already HAVE credentials!
-            context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");
-            if (string.IsNullOrEmpty(context.Credentials?.AccessToken) || IsFixingToken)
+            await LoadCredentialsAsync();
+            if (NeedToLaunch())
             {
-                // If not, let's go get them...
-
-                // Step 1: Get link token from server
-                var createresponse = await Http.GetAsync($"link/CreateLinkToken{(IsFixingToken?"?fix=true":"")}");
-                if (!createresponse.IsSuccessStatusCode)
-                    throw new ApplicationException(await createresponse.Content.ReadAsStringAsync());
-
-                var link_token = await createresponse.Content.ReadFromJsonAsync<string>();   
-
-                // Step 2: Get public token from Link via JS interop
-                var result = await module!.InvokeAsync<string>("launch_link",link_token);
-
-                if (result is null)
-                    throw new ApplicationException("Calling link failed");
-
-                var link_result = System.Text.Json.JsonSerializer.Deserialize<LinkResult>(result);
-
-                if (link_result is null)
-                    throw new ApplicationException("Failed to serialize link result");
-
-                if (link_result.ok != true)
-                {
-                    await Http.PostAsJsonAsync<LinkResult>("link/LinkFail",link_result);
-
-                    // TODO: Create new PlaidErrorException which has a PlaidError as a payload
-                    if (link_result.error is not null)
-                    {
-                        PrettyError = link_result.error;
-                        throw new ApplicationException();
-                    }
-                    else
-                        throw new ApplicationException($"Link aborted. Status: {link_result.metadata?.status ?? "none"}");
-                }
-
-                // Step 3: Send public token back to server, which will populate credentials
-                var response = await Http.PostAsJsonAsync<LinkResult>("link/ExchangePublicToken",link_result);
-                if (!response.IsSuccessStatusCode)
-                    throw new ApplicationException(await response.Content.ReadAsStringAsync());
-
-                context.Credentials = await response.Content.ReadFromJsonAsync<PlaidCredentials>();   
+                var link_token = await CreateLinkTokenAsync();
+                var link_result = await InvokeLinkJSAsync(link_token);
+                await ExchangePublicTokenAsync(link_result);
             }
 
             context.LinkSuccess = true;
@@ -178,6 +140,68 @@ else
         {
             Error = $"Failed to Launch: {ex.GetType().Name}: {ex.Message}";
         }
+    }
+
+    private async Task LoadCredentialsAsync()
+    {
+        context.Credentials = await Http.GetFromJsonAsync<PlaidCredentials>("link/info");       
+    }
+
+    private bool NeedToLaunch()
+    {
+        return string.IsNullOrEmpty(context.Credentials?.AccessToken) || IsFixingToken;        
+    }
+
+    private async Task<string> CreateLinkTokenAsync()
+    {
+        var createresponse = await Http.GetAsync($"link/CreateLinkToken{(IsFixingToken?"?fix=true":"")}");
+        if (!createresponse.IsSuccessStatusCode)
+            throw new ApplicationException(await createresponse.Content.ReadAsStringAsync());
+
+        var link_token = await createresponse.Content.ReadFromJsonAsync<string>();
+
+        if (link_token is null)
+            throw new ApplicationException("Failed to parse CreateLinkToken result");
+
+        return link_token;
+    }
+
+    private async Task<LinkResult> InvokeLinkJSAsync(string link_token)
+    {
+        var result = await module!.InvokeAsync<string>("launch_link",link_token);
+
+        if (result is null)
+            throw new ApplicationException("Calling link failed");
+
+        var link_result = System.Text.Json.JsonSerializer.Deserialize<LinkResult>(result);
+
+        if (link_result is null)
+            throw new ApplicationException("Failed to parse link result");
+
+        if (link_result.ok != true)
+        {
+            await Http.PostAsJsonAsync<LinkResult>("link/LinkFail",link_result);
+
+            // TODO: Create new PlaidErrorException which has a PlaidError as a payload
+            if (link_result.error is not null)
+            {
+                PrettyError = link_result.error;
+                throw new ApplicationException();
+            }
+            else
+                throw new ApplicationException($"Link aborted. Status: {link_result.metadata?.status ?? "none"}");
+        }
+
+        return link_result;
+    }
+
+    private async Task ExchangePublicTokenAsync(LinkResult link_result)
+    {
+        var response = await Http.PostAsJsonAsync<LinkResult>("link/ExchangePublicToken",link_result);
+        if (!response.IsSuccessStatusCode)
+            throw new ApplicationException(await response.Content.ReadAsStringAsync());
+
+        context.Credentials = await response.Content.ReadFromJsonAsync<PlaidCredentials>();           
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
