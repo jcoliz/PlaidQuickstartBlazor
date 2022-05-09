@@ -210,9 +210,10 @@ else
         {
             if (firstRender)
             {
-                module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
                 IsRendered = true;
                 StateHasChanged();
+
+                module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
             }
         }
         catch (Exception ex)
