@@ -54,7 +54,7 @@
 else
 {
     <div data-test-id="Link">
-        @if (IsReady)
+        @if (IsRendered)
         {
             <button data-test-id="launch-link" type="button" class="btn btn-primary" @onclick="LaunchLink">
                 Launch Link &raquo;
@@ -64,7 +64,7 @@ else
         {
             @*
                 TODO: I would really prefer to enable this button, and hide the loading AFTER 
-                the user clicks. Sadly, I cannot get onclick to work during prerendering.
+                the user clicks. Sadly, it seems onclick simply doesn't work during prerendering
             *@
             <button data-test-id="await-link" class="btn btn-primary" type="button" disabled>
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
@@ -95,7 +95,7 @@ else
 
     private string? Error { get; set; }
 
-    private bool IsReady => JS is Microsoft.JSInterop.WebAssembly.WebAssemblyJSRuntime;
+    private bool IsRendered { get; set; }
 
     private IJSObjectReference? module;
 
@@ -187,6 +187,8 @@ else
             if (firstRender)
             {
                 module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
+                IsRendered = true;
+                StateHasChanged();
             }
         }
         catch (Exception ex)
