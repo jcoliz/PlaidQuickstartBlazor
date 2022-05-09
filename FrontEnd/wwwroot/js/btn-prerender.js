@@ -1,40 +1,31 @@
-﻿console.info("btn-prerender.js loaded");
+﻿console.info("btn-prerender.js: loaded");
 
 const curstate = sessionStorage.getItem('btn-prerender:clicked');
 
-console.info(`current state ${curstate ?? "null"}`);
+console.info(`btn-prerender.js: current state ${curstate ?? "null"}`);
 
 sessionStorage.setItem('btn-prerender:clicked', 'false');
 
 window.onload = function (event) {
-    const buttons = document.getElementsByClassName('btn-pr');
-    console.info(`${buttons.length}`);
-
+    const buttons = document.getElementsByClassName('btn-prerender');
     for (const element of buttons) {
-        console.info(`${element.id}`);
         element.addEventListener("click", prclick);
-        element.addEventListener("unload", prunload);
+        const test_id = element.getAttribute("data-test-id");
+        console.info(`btn-prerender.js: listening on ${test_id}`);
     }
 };
 
-window.document.onload = function (event) {
-    console.info("document onload");
-};
-
 function prclick(event) {
-    const id = event.srcElement.id;
-    const trigger = event.srcElement.getAttribute("data-pr-trigger");
-    const trelem = document.getElementById(trigger);
+    console.info(`btn-prerender.js: clicked`);
 
-    event.srcElement.hidden = true;
-    trelem.hidden = false;
+    const source_element = event.srcElement;
+    const trigger_id = source_element.getAttribute("data-prerender-trigger");
+    const trigger_element = document.getElementById(trigger_id);
+
+    source_element.hidden = true;
+    trigger_element.hidden = false;
+
+    console.info(`btn-prerender.js: triggered #${trigger_id}`);
+
     sessionStorage.setItem('btn-prerender:clicked', 'true');
-
-    console.info(`prerender clicked ${id} trigger ${trigger} found ${trelem.id}`);
-}
-
-function prunload(event) {
-    const id = event.srcElement.id;
-
-    console.info(`prerender unloaded ${id}`);
 }

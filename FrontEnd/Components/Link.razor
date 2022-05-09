@@ -54,24 +54,25 @@
 else
 {
     <div data-test-id="Link">
-        <button id="btn-initial" class="btn btn-danger btn-pr me-2" data-test-id="link-test-initial" data-pr-trigger="btn-loading">Pre-Rendering</button>
-        <button id="btn-loading" class="btn btn-danger me-2" hidden data-test-id="link-test-loading">Loading...</button>
         @if (IsRendered)
         {
-            <button data-test-id="launch-link" type="button" class="btn btn-primary" @onclick="LaunchLink">
-                Launch Link &raquo;
-            </button>
+            if (!PrerenderedLaunchClicked)
+            {
+                <button data-test-id="launch-link" type="button" class="btn btn-primary" @onclick="LaunchLink">
+                    Launch Link &raquo;
+                </button>
+            }
         }
         else
         {
-            @*
-                TODO: I would really prefer to enable this button, and hide the loading AFTER 
-                the user clicks. Sadly, it seems onclick simply doesn't work during prerendering
+            @*  This uses javascript to give the Launch Link button some interactivity during the
+                pre-rendering phase See btn-prerender.js.
             *@
-            <button data-test-id="await-link" class="btn btn-primary" type="button" disabled>
+            <button data-test-id="btn-prerender" class="btn btn-primary btn-prerender me-2" data-prerender-trigger="btn-loading">Launch Link &raquo;</button>
+            <button id="btn-loading" class="btn btn-primary me-2" hidden disabled >
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...
-            </button>  
+            </button>
         }
         @if (PrettyError is not null)
         {
@@ -98,6 +99,8 @@ else
     private string? Error { get; set; }
 
     private bool IsRendered { get; set; }
+
+    private bool PrerenderedLaunchClicked { get; set; }
 
     private IJSObjectReference? module;
 
@@ -212,10 +215,18 @@ else
         {
             if (firstRender)
             {
+                var prerender_clicked = await JS.InvokeAsync<string>("sessionStorage.getItem", "btn-prerender:clicked");
+
+                if (prerender_clicked == "true" && !IsFixingToken)
+                    PrerenderedLaunchClicked = true;
+
                 IsRendered = true;
                 StateHasChanged();
 
-                module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");                            
+                module = await JS.InvokeAsync<IJSObjectReference>("import", "./Components/Link.razor.js");
+
+                if (PrerenderedLaunchClicked)
+                    LaunchLink().Start();
             }
         }
         catch (Exception ex)
