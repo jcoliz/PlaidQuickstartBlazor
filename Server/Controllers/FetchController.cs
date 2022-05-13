@@ -46,6 +46,7 @@ public class FetchController : ControllerBase
             var request = new Plaidly.AuthGetRequest() { Access_token = _credentials.AccessToken! };
 
             // FAILS on .NET json: {"The JSON value could not be converted to System.Nullable`1[Plaidly.AccountSubtype]. Path: $.accounts[3].subtype | LineNumber: 59 | BytePositionInLine: 30."}
+            // Maybe this? https://github.com/Macross-Software/core/tree/develop/ClassLibraries/Macross.Json.Extensions
 
             var response = await _plyclient.AuthGetAsync(request);
 
@@ -195,6 +196,43 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Identity()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.IdentityGetRequest() { Access_token = _credentials.AccessToken! };
+
+            var response = await _plyclient.IdentityGetAsync(request);
+
+            DataTable result = new ServerDataTable("Names", "Emails", "Phone Numbers", "Addresses")
+            {
+                Rows = response.Accounts
+                    .SelectMany(a =>
+                        a.Owners
+                            .Select(o =>
+                                new Row(
+                                    string.Join(", ", o.Names),
+                                    string.Join(", ", o.Emails.Select(x => x.Data)),
+                                    string.Join(", ", o.Phone_numbers.Select(x => x.Data)),
+                                    string.Join(", ", o.Addresses.Select(x => x.Data.Street))
+                                )
+                            )
+                    ).ToArray()
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Other Error: {message}", ex.Message);
+
+            return StatusCode(500);
+        }
+#else
+
         var request = new Going.Plaid.Identity.IdentityGetRequest();
 
         var response = await _client.IdentityGetAsync(request);
@@ -219,6 +257,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
