@@ -38,6 +38,7 @@ public class FetchController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Auth()
     {
 #if PLAIDLY
@@ -74,9 +75,8 @@ public class FetchController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError("Other Error: {message}", ex.Message);
-
-            return StatusCode(500);
+            _logger.LogError($"Auth: {ex.GetType().Name} {ex.Message}");
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
         }
 #else
         var request = new Going.Plaid.Auth.AuthGetRequest();
@@ -108,6 +108,7 @@ public class FetchController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Transactions()
     {
 #if PLAIDLY
@@ -150,9 +151,8 @@ public class FetchController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError("Other Error: {message}", ex.Message);
-
-            return StatusCode(500);
+            _logger.LogError($"Auth: {ex.GetType().Name} {ex.Message}");
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
         }
 
 #else
@@ -194,6 +194,7 @@ public class FetchController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Identity()
     {
 #if PLAIDLY
@@ -227,9 +228,8 @@ public class FetchController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError("Other Error: {message}", ex.Message);
-
-            return StatusCode(500);
+            _logger.LogError($"Auth: {ex.GetType().Name} {ex.Message}");
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
         }
 #else
 

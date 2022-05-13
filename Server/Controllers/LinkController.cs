@@ -59,6 +59,7 @@ public class LinkController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> CreateLinkToken([FromQuery] bool? fix )
     {
         try
@@ -109,6 +110,7 @@ public class LinkController : ControllerBase
         }
         catch (Exception ex)
         {
+            _logger.LogError($"CreateLinkToken: {ex.GetType().Name} {ex.Message}");
             return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
         }
     }
@@ -117,11 +119,39 @@ public class LinkController : ControllerBase
     [IgnoreAntiforgeryToken(Order = 1001)]
     [ProducesResponseType(typeof(PlaidCredentials), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> ExchangePublicToken(LinkResult link)
     {
         // Yes, we send WAY more information than needed here. That's so we can log it!
 
         _logger.LogInformation($"ExchangePublicToken (): {JsonSerializer.Serialize(link)}");
+
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.ItemPublicTokenExchangeRequest()
+            {
+                Public_token = link.public_token
+            };
+            var response = await _plyclient.ItemPublicTokenExchangeAsync(request);
+
+            _credentials.AccessToken = response.Access_token;
+            _credentials.ItemId = response.Item_id;
+
+            _logger.LogInformation($"ExchangePublicToken OK: {JsonSerializer.Serialize(_credentials)}");
+
+            return Ok(_credentials);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"ExchangePublicToken: {ex.GetType().Name} {ex.Message}");
+            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+        }
+#else
 
         var request = new ItemPublicTokenExchangeRequest()
         {
@@ -139,6 +169,7 @@ public class LinkController : ControllerBase
         _logger.LogInformation($"ExchangePublicToken OK: {JsonSerializer.Serialize(_credentials)}");
 
         return Ok(_credentials);
+#endif
     }
 
     [HttpPost]
