@@ -1028,6 +1028,36 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Verification()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.IncomeVerificationPaystubsGetRequest() { Access_token = _credentials.AccessToken! };
+
+            var response = await _plyclient.IncomeVerificationPaystubsGetAsync(request);
+
+            DataTable result = new ServerDataTable("Description", "Current Amount/r", "Currency")
+            {
+                Rows = response.Paystubs.SelectMany(x => x.Earnings.Breakdown.Select(y =>
+                  new Row(
+                    x.Employer + " " + y.Description,
+                    y.Current_amount?.ToString("C2") ?? String.Empty,
+                    y.Iso_currency_code ?? String.Empty
+                  )
+                ))
+                .ToArray()
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
 
         var response = await _client.AccountsBalanceGetAsync(request);
@@ -1049,6 +1079,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
