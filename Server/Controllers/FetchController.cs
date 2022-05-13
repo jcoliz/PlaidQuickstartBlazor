@@ -23,13 +23,16 @@ public class FetchController : ControllerBase
     private readonly ILogger<FetchController> _logger;
     private readonly PlaidCredentials _credentials;
     private readonly PlaidClient _client;
+    private readonly Plaidly.PlaidClient _plyclient;
 
-    public FetchController(ILogger<FetchController> logger, IOptions<PlaidCredentials> credentials, PlaidClient client)
+    public FetchController(ILogger<FetchController> logger, IOptions<PlaidCredentials> credentials, PlaidClient client, Plaidly.PlaidClient plyclient)
     {
         _logger = logger;
         _credentials = credentials.Value;
         _client = client;
         _client.AccessToken = _credentials.AccessToken;
+        _plyclient = plyclient;
+        _plyclient.AccessToken = _credentials.AccessToken;
     }
 
     [HttpGet]
@@ -37,6 +40,45 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Auth()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.AuthGetRequest() { Access_token = _credentials.AccessToken! };
+
+
+            // FAILS: {"The JSON value could not be converted to System.Nullable`1[Plaidly.AccountSubtype]. Path: $.accounts[3].subtype | LineNumber: 59 | BytePositionInLine: 30."}
+
+            var response = await _plyclient.AuthGetAsync(request);
+
+            Plaidly.AccountBase? AccountFor(string? id) => response!.Accounts.Where(x => x.Account_id == id).SingleOrDefault();
+
+            DataTable result = new ServerDataTable("Name", "Balance/r", "Account #", "Routing #")
+            {
+                Rows = response.Numbers.Ach
+                    .Select(x =>
+                        new Row(
+                            AccountFor(x.Account_id)?.Name ?? String.Empty,
+                            AccountFor(x.Account_id)?.Balances?.Current?.ToString("C2") ?? string.Empty,
+                            x.Account,
+                            x.Routing
+                        )
+                    )
+                    .ToArray()
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Other Error: {message}", ex.Message);
+
+            return StatusCode(500);
+        }
+#else
         var request = new Going.Plaid.Auth.AuthGetRequest();
 
         var response = await _client.AuthGetAsync(request);
@@ -61,6 +103,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
@@ -569,6 +612,14 @@ public class FetchController : ControllerBase
         return StatusCode(StatusCodes.Status400BadRequest, outerror);
     }
 
+    ObjectResult Error(Plaidly.Error error, [CallerMemberName] string callerName = "")
+    {
+        var outerror = new ServerPlaidError(error);
+        _logger.LogError($"{callerName}: {JsonSerializer.Serialize(outerror)}");
+
+        return StatusCode(StatusCodes.Status400BadRequest, outerror);
+    }
+
     /// <summary>
     /// Server-side version of shared data table
     /// </summary>
@@ -609,6 +660,15 @@ public class FetchController : ControllerBase
             {
                 // If we run into errors here, we'll just take as much as we have converted sofar
             }
+        }
+
+        internal ServerPlaidError(Plaidly.Error error)
+        {
+            base.error_message = error.Error_message;
+            base.display_message = error.Display_message;
+            base.error_type = ToEnumString(error.Error_type);
+            base.error_code = error.Error_code;
+            base.error_type_path = _error_type_paths.GetValueOrDefault(base.error_type);
         }
 
         // The problem here is that the built-in JsonStringEnumConverter only converts

@@ -23,6 +23,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddHttpClient();
 builder.Services.Configure<PlaidCredentials>(builder.Configuration.GetSection(PlaidOptions.SectionKey));
 builder.Services.Configure<PlaidOptions>(builder.Configuration.GetSection(PlaidOptions.SectionKey));
+builder.Services.Configure<Plaidly.PlaidlyOptions>(builder.Configuration.GetSection(Plaidly.PlaidlyOptions.SectionKey));
+builder.Services.AddSingleton<Plaidly.PlaidClient>();
 builder.Services.AddSingleton<PlaidClient>();
 builder.Services.AddSingleton<ContextContainer>(new ContextContainer() { RunningOnServer = true });
 
