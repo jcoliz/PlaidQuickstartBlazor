@@ -45,8 +45,7 @@ public class FetchController : ControllerBase
         {
             var request = new Plaidly.AuthGetRequest() { Access_token = _credentials.AccessToken! };
 
-
-            // FAILS: {"The JSON value could not be converted to System.Nullable`1[Plaidly.AccountSubtype]. Path: $.accounts[3].subtype | LineNumber: 59 | BytePositionInLine: 30."}
+            // FAILS on .NET json: {"The JSON value could not be converted to System.Nullable`1[Plaidly.AccountSubtype]. Path: $.accounts[3].subtype | LineNumber: 59 | BytePositionInLine: 30."}
 
             var response = await _plyclient.AuthGetAsync(request);
 
@@ -110,6 +109,52 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transactions()
     {
+#if PLAIDLY
+
+        try
+        {
+            var request = new Plaidly.TransactionsGetRequest()
+            {
+                Access_token = _credentials.AccessToken!,
+                Options = new Plaidly.TransactionsGetRequestOptions()
+                {
+                    Count = 100
+                },
+                Start_date = DateTime.Now - TimeSpan.FromDays(30),
+                End_date = DateTime.Now
+            };
+            var response = await _plyclient.TransactionsGetAsync(request);
+
+            DataTable result = new ServerDataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
+            {
+                Rows = response.Transactions
+                    .Select(x =>
+                        new Row(
+                            x.Name,
+                            x.Amount.ToString("C2"),
+                            x.Date.ToString("MM-dd"),
+                            string.Join(':', x.Category ?? Enumerable.Empty<string>()),
+                            x.Payment_channel.ToString()
+                        )
+                    )
+                    .ToArray()
+            };
+
+            return Ok(result);
+
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Other Error: {message}", ex.Message);
+
+            return StatusCode(500);
+        }
+
+#else
         var request = new Going.Plaid.Transactions.TransactionsGetRequest()
         {
             Options = new TransactionsGetRequestOptions()
@@ -141,6 +186,8 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+
+#endif
     }
 
     [HttpGet]
