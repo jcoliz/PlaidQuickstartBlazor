@@ -70,7 +70,7 @@
 
     private DataTable? TableData { get; set; }
 
-    private PlaidError? ErrorDetails { get; set; }
+    private PlaidWireError? ErrorDetails { get; set; }
 
     private string? ErrorValue { get; set; }
 
@@ -102,7 +102,7 @@
             }
             else
             {
-                ErrorDetails = await response.Content.ReadFromJsonAsync<PlaidError>();
+                ErrorDetails = await response.Content.ReadFromJsonAsync<PlaidWireError>();
             }
         }
         catch (Exception ex)

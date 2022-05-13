@@ -1,15 +1,15 @@
 using Microsoft.Extensions.Options;
 using System.Text.Json;
 
-namespace Plaidly;
+namespace PlaidApi;
 
-public class BaseClient
+public class PlaidClientBase
 {
-    public string? AccessToken { get; set; }
+    private readonly PlaidApiOptions _options;
 
-    private readonly PlaidlyOptions _options;
+    public bool Verbose { get; set; }
 
-    public BaseClient(IOptions<PlaidlyOptions> options)
+    public PlaidClientBase(IOptions<PlaidApiOptions> options)
     {
         _options = options.Value;
     }
@@ -29,11 +29,9 @@ public class BaseClient
 
     protected string BaseUrl => _options.Environment is not null ? $"https://{_options.Environment.ToLowerInvariant()}.plaid.com" : throw new ApplicationException();
 
-
-
     protected async Task PrepareRequestAsync(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url)
     {
-        if (true)
+        if (Verbose)
         {
             Stream stream = await request!.Content!.ReadAsStreamAsync();
             using var sr = new StreamReader(stream);
@@ -49,7 +47,7 @@ public class BaseClient
 
     protected async Task ProcessResponseAsync(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response, CancellationToken token)
     {
-        if (true)
+        if (Verbose)
         {
             // Not 'using' it, as I am passing it into streamcontent below
             var stream = new MemoryStream();
@@ -73,7 +71,7 @@ public class BaseClient
 
 }
 
-public class PlaidlyOptions
+public class PlaidApiOptions
 {
     public const string SectionKey = "Plaid";
 

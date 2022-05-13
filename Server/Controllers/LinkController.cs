@@ -1,9 +1,6 @@
-﻿using Going.Plaid;
-using Going.Plaid.Entity;
-using Going.Plaid.Item;
-using Going.Plaid.Link;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using PlaidApi;
 using PlaidQuickstartBlazor.Shared;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
@@ -25,14 +22,12 @@ public class LinkController : ControllerBase
     private readonly ILogger<LinkController> _logger;
     private readonly PlaidCredentials _credentials;
     private readonly PlaidClient _client;
-    private readonly Plaidly.PlaidClient _plyclient;
 
-    public LinkController(ILogger<LinkController> logger, IOptions<PlaidCredentials> credentials, PlaidClient client, Plaidly.PlaidClient plyclient)
+    public LinkController(ILogger<LinkController> logger, IOptions<PlaidCredentials> credentials, PlaidClient client)
     {
         _logger = logger;
         _credentials = credentials.Value;
         _client = client;
-        _plyclient = plyclient;
     }
 
     [HttpGet]
@@ -66,52 +61,31 @@ public class LinkController : ControllerBase
         {
             _logger.LogInformation($"CreateLinkToken (): {fix ?? false}");
 
-#if PLAIDLY
             try
             {
-                var request = new Plaidly.LinkTokenCreateRequest()
+                var request = new LinkTokenCreateRequest()
                 {
                     Access_token = fix == true ? _credentials.AccessToken : null,
-                    User = new Plaidly.LinkTokenCreateRequestUser { Client_user_id = Guid.NewGuid().ToString(), },
+                    User = new LinkTokenCreateRequestUser { Client_user_id = Guid.NewGuid().ToString(), },
                     Client_name = "Quickstart for .NET",
-                    Products = fix != true ? _credentials!.Products!.Split(',').Select(p => Enum.Parse<Plaidly.Products>(p, true)).ToArray() : Array.Empty<Plaidly.Products>(),
+                    Products = fix != true ? _credentials!.Products!.Split(',').Select(p => Enum.Parse<Products>(p, true)).ToArray() : Array.Empty<Products>(),
                     Language = "en", // TODO: Should pick up from config
-                    Country_codes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<Plaidly.CountryCode>(p, true)).ToArray(),
+                    Country_codes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<CountryCode>(p, true)).ToArray(),
                 };
-                var response = await _plyclient.LinkTokenCreateAsync(request);
+                var response = await _client.LinkTokenCreateAsync(request);
 
                 _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response)}");
 
                 return Ok(response.Link_token);
             }
-            catch (Plaidly.ApiException<Plaidly.Error> ex)
+            catch (ApiException<Error> ex)
             {
                 return Error(ex.Result);
             }
-#else
-            var response = await _client.LinkTokenCreateAsync(
-                new LinkTokenCreateRequest()
-                {
-                    AccessToken = fix == true ? _credentials.AccessToken : null,
-                    User = new LinkTokenCreateRequestUser { ClientUserId = Guid.NewGuid().ToString(), },
-                    ClientName = "Quickstart for .NET",
-                    Products = fix != true ? _credentials!.Products!.Split(',').Select(p => Enum.Parse<Products>(p, true)).ToArray() : Array.Empty<Products>(),
-                    Language = Language.English, // TODO: Should pick up from config
-                    CountryCodes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<CountryCode>(p, true)).ToArray(),
-                });
-
-            if (response.Error is not null)
-                return Error(response.Error);
-
-            _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response.LinkToken)}");
-
-            return Ok(response.LinkToken);
-#endif
         }
         catch (Exception ex)
         {
-            _logger.LogError($"CreateLinkToken: {ex.GetType().Name} {ex.Message}");
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            return Error(ex);
         }
     }
 
@@ -126,14 +100,13 @@ public class LinkController : ControllerBase
 
         _logger.LogInformation($"ExchangePublicToken (): {JsonSerializer.Serialize(link)}");
 
-#if PLAIDLY
         try
         {
-            var request = new Plaidly.ItemPublicTokenExchangeRequest()
+            var request = new ItemPublicTokenExchangeRequest()
             {
                 Public_token = link.public_token
             };
-            var response = await _plyclient.ItemPublicTokenExchangeAsync(request);
+            var response = await _client.ItemPublicTokenExchangeAsync(request);
 
             _credentials.AccessToken = response.Access_token;
             _credentials.ItemId = response.Item_id;
@@ -142,34 +115,14 @@ public class LinkController : ControllerBase
 
             return Ok(_credentials);
         }
-        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        catch (ApiException<Error> ex)
         {
             return Error(ex.Result);
         }
         catch (Exception ex)
         {
-            _logger.LogError($"ExchangePublicToken: {ex.GetType().Name} {ex.Message}");
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            return Error(ex);
         }
-#else
-
-        var request = new ItemPublicTokenExchangeRequest()
-        {
-            PublicToken = link.public_token
-        };
-
-        var response = await _client.ItemPublicTokenExchangeAsync(request);
-
-        if (response.Error is not null)
-            return Error(response.Error);
-
-        _credentials.AccessToken = response.AccessToken;
-        _credentials.ItemId = response.ItemId;
-
-        _logger.LogInformation($"ExchangePublicToken OK: {JsonSerializer.Serialize(_credentials)}");
-
-        return Ok(_credentials);
-#endif
     }
 
     [HttpPost]
@@ -184,17 +137,18 @@ public class LinkController : ControllerBase
         return Ok();
     }
 
-    ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
-    {
-        _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
-        return StatusCode(StatusCodes.Status400BadRequest, error);
-    }
-    ObjectResult Error(Plaidly.Error error, [CallerMemberName] string callerName = "")
+    ObjectResult Error(Error error, [CallerMemberName] string callerName = "")
     {
         var outerror = new ServerPlaidError(error);
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(outerror)}");
 
         return StatusCode(StatusCodes.Status400BadRequest, outerror);
+    }
+
+    ObjectResult Error(Exception ex, [CallerMemberName] string callerName = "")
+    {
+        _logger.LogError($"{callerName}: {ex.GetType().Name} {ex.Message}");
+        return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
     }
 
 }

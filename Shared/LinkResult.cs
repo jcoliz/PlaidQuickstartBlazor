@@ -25,6 +25,6 @@ public class LinkResult
 
     public bool ok { get; set; }
     public string public_token { get; set; } = string.Empty;
-    public PlaidError? error { get; set; }
+    public PlaidWireError? error { get; set; }
     public t_metadata? metadata { get; set; }
 };

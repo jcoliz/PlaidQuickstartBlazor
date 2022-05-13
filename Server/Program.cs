@@ -1,4 +1,4 @@
-using Going.Plaid;
+using PlaidApi;
 using PlaidQuickstartBlazor.Shared;
 using System.Text.Json.Serialization;
 
@@ -19,12 +19,10 @@ builder.Services.AddControllersWithViews()
 
 builder.Services.AddRazorPages();
 
-// Add Going.Plaid services
+// Add Plaid API services
 builder.Services.AddHttpClient();
-builder.Services.Configure<PlaidCredentials>(builder.Configuration.GetSection(PlaidOptions.SectionKey));
-builder.Services.Configure<PlaidOptions>(builder.Configuration.GetSection(PlaidOptions.SectionKey));
-builder.Services.Configure<Plaidly.PlaidlyOptions>(builder.Configuration.GetSection(Plaidly.PlaidlyOptions.SectionKey));
-builder.Services.AddSingleton<Plaidly.PlaidClient>();
+builder.Services.Configure<PlaidCredentials>(builder.Configuration.GetSection(PlaidApiOptions.SectionKey));
+builder.Services.Configure<PlaidApiOptions>(builder.Configuration.GetSection(PlaidApiOptions.SectionKey));
 builder.Services.AddSingleton<PlaidClient>();
 builder.Services.AddSingleton<ContextContainer>(new ContextContainer() { RunningOnServer = true });
 

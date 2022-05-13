@@ -10204,6 +10204,7 @@ components:
         suggested_action:
           type: string
           description: Suggested steps for resolving the error
+          nullable: true
       required:
       - error_type
       - error_code

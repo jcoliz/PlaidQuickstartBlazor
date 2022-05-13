@@ -10,8 +10,8 @@
   },
   "codeGenerators": {
     "openApiToCSharpClient": {
-      "clientBaseClass": "BaseClient",
-      "configurationClass": "Microsoft.Extensions.Options.IOptions<PlaidlyOptions>",
+      "clientBaseClass": "PlaidClientBase",
+      "configurationClass": "Microsoft.Extensions.Options.IOptions<PlaidApiOptions>",
       "generateClientClasses": true,
       "generateClientInterfaces": false,
       "clientBaseInterface": null,
@@ -42,9 +42,7 @@
       "queryNullValue": "",
       "className": "PlaidClient",
       "operationGenerationMode": "SingleClientFromOperationId",
-      "additionalNamespaceUsages": [
-        "System.Text.Json"
-      ],
+      "additionalNamespaceUsages": [],
       "additionalContractNamespaceUsages": [],
       "generateOptionalParameters": true,
       "generateJsonMethods": false,
@@ -57,7 +55,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "Plaidly",
+      "namespace": "PlaidApi",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -87,7 +85,7 @@
       "inlineNamedAny": false,
       "generateDtoTypes": true,
       "generateOptionalPropertiesAsNullable": false,
-      "generateNullableReferenceTypes": true,
+      "generateNullableReferenceTypes": false,
       "templateDirectory": null,
       "typeNameGeneratorType": null,
       "propertyNameGeneratorType": null,

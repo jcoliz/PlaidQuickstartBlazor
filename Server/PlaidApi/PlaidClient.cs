@@ -4,10 +4,6 @@
 // </auto-generated>
 //----------------------
 
-#nullable enable
-
-using System.Text.Json;
-
 #pragma warning disable 108 // Disable "CS0108 '{derivedDto}.ToJson()' hides inherited member '{dtoBase}.ToJson()'. Use the new keyword if hiding was intended."
 #pragma warning disable 114 // Disable "CS0114 '{derivedDto}.RaisePropertyChanged(String)' hides inherited member 'dtoBase.RaisePropertyChanged(String)'. To make the current member override that implementation, add the override keyword. Otherwise add the new keyword."
 #pragma warning disable 472 // Disable "CS0472 The result of the expression is always 'false' since a value of type 'Int32' is never equal to 'null' of type 'Int32?'
@@ -17,17 +13,17 @@ using System.Text.Json;
 #pragma warning disable 3016 // Disable "CS3016 Arrays as attribute arguments is not CLS-compliant"
 #pragma warning disable 8603 // Disable "CS8603 Possible null reference return"
 
-namespace Plaidly
+namespace PlaidApi
 {
     using System = global::System;
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.15.10.0 (NJsonSchema v10.6.10.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class PlaidClient : BaseClient
+    public partial class PlaidClient : PlaidClientBase
     {
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
 
-        public PlaidClient(Microsoft.Extensions.Options.IOptions<PlaidlyOptions> configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public PlaidClient(Microsoft.Extensions.Options.IOptions<PlaidApiOptions> configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient;
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings);
@@ -100,8 +96,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -176,8 +172,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -252,8 +248,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -328,8 +324,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -404,8 +400,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Default error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Default error", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -480,8 +476,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -556,8 +552,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -632,8 +628,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -708,8 +704,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -784,8 +780,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -860,8 +856,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -936,8 +932,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1012,8 +1008,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1088,8 +1084,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1164,8 +1160,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1240,8 +1236,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1316,8 +1312,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1392,8 +1388,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1468,8 +1464,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -1772,8 +1768,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5424,8 +5420,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5500,8 +5496,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5576,8 +5572,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5652,8 +5648,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5728,8 +5724,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5804,8 +5800,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5880,8 +5876,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -5956,8 +5952,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6032,8 +6028,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6108,8 +6104,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6184,8 +6180,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6260,8 +6256,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6336,8 +6332,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6412,8 +6408,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6488,8 +6484,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6564,8 +6560,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6640,8 +6636,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6716,8 +6712,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6792,8 +6788,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6868,8 +6864,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -6944,8 +6940,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7020,8 +7016,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7096,8 +7092,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7172,8 +7168,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7248,8 +7244,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7324,8 +7320,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7400,8 +7396,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7476,8 +7472,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7552,8 +7548,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -7934,8 +7930,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -8011,8 +8007,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -8697,8 +8693,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -8773,8 +8769,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -8849,8 +8845,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -8925,8 +8921,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9001,8 +8997,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9077,8 +9073,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9153,8 +9149,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9229,8 +9225,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response.", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9533,8 +9529,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9609,8 +9605,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9685,8 +9681,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9761,8 +9757,8 @@ namespace Plaidly
                         }
                         else
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<Error?>(response_, headers_, cancellationToken).ConfigureAwait(false);
-                            throw new ApiException<Error?>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
+                            var objectResponse_ = await ReadObjectResponseAsync<Error>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            throw new ApiException<Error>("Error response", status_, objectResponse_.Text, headers_, objectResponse_.Object, null);
                         }
                     }
                     finally
@@ -9798,7 +9794,7 @@ namespace Plaidly
         {
             if (response == null || response.Content == null)
             {
-                return new ObjectResponseResult<T>(default(T)!, string.Empty);
+                return new ObjectResponseResult<T>(default(T), string.Empty);
             }
 
             if (ReadResponseAsString)
@@ -9807,7 +9803,7 @@ namespace Plaidly
                 try
                 {
                     var typedBody = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseText, JsonSerializerSettings);
-                    return new ObjectResponseResult<T>(typedBody!, responseText);
+                    return new ObjectResponseResult<T>(typedBody, responseText);
                 }
                 catch (Newtonsoft.Json.JsonException exception)
                 {
@@ -9825,7 +9821,7 @@ namespace Plaidly
                     {
                         var serializer = Newtonsoft.Json.JsonSerializer.Create(JsonSerializerSettings);
                         var typedBody = serializer.Deserialize<T>(jsonTextReader);
-                        return new ObjectResponseResult<T>(typedBody!, string.Empty);
+                        return new ObjectResponseResult<T>(typedBody, string.Empty);
                     }
                 }
                 catch (Newtonsoft.Json.JsonException exception)
@@ -9836,7 +9832,7 @@ namespace Plaidly
             }
         }
 
-        private string ConvertToString(object? value, System.Globalization.CultureInfo cultureInfo)
+        private string ConvertToString(object value, System.Globalization.CultureInfo cultureInfo)
         {
             if (value == null)
             {
@@ -9889,14 +9885,14 @@ namespace Plaidly
     public partial class ItemGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -9920,11 +9916,11 @@ namespace Plaidly
         public Item Item { get; set; } = new Item();
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ItemStatusNullable? Status { get; set; } = default!;
+        public ItemStatusNullable Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -9944,17 +9940,17 @@ namespace Plaidly
     public partial class AuthGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AuthGetRequestOptions Options { get; set; } = default!;
+        public AuthGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -9978,7 +9974,7 @@ namespace Plaidly
         /// <br/>Note: An error will be returned if a provided `account_id` is not associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10014,7 +10010,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10079,17 +10075,17 @@ namespace Plaidly
     public partial class TransactionsGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransactionsGetRequestOptions Options { get; set; } = default!;
+        public TransactionsGetRequestOptions Options { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The earliest date for which data should be returned. Dates should be formatted as YYYY-MM-DD.
@@ -10097,7 +10093,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// The latest date for which data should be returned. Dates should be formatted as YYYY-MM-DD.
@@ -10105,7 +10101,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset End_date { get; set; } = default!;
+        public System.DateTimeOffset End_date { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10130,7 +10126,7 @@ namespace Plaidly
         /// <br/>Note: An error will be returned if a provided `account_id` is not associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         /// <summary>
         /// The number of transactions to fetch.
@@ -10202,7 +10198,7 @@ namespace Plaidly
         /// The total number of transactions available within the date range specified. If `total_transactions` is larger than the size of the `transactions` array, more transactions are available and can be fetched via manipulating the `offset` parameter.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_transactions", Required = Newtonsoft.Json.Required.Always)]
-        public int Total_transactions { get; set; } = default!;
+        public int Total_transactions { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -10210,7 +10206,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10230,14 +10226,14 @@ namespace Plaidly
     public partial class TransactionsRefreshRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10258,7 +10254,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10278,17 +10274,17 @@ namespace Plaidly
     public partial class TransactionsRecurringGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransactionsRecurringGetRequestOptions Options { get; set; } = default!;
+        public TransactionsRecurringGetRequestOptions Options { get; set; }
 
         /// <summary>
         /// A list of `account_ids` to retrieve for the Item
@@ -10360,11 +10356,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updated_datetime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Updated_datetime { get; set; } = default!;
+        public System.DateTimeOffset Updated_datetime { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10385,15 +10381,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Personal finance detailed category.
@@ -10403,7 +10399,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("personal_finance_category", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Personal_finance_category { get; set; } = default!;
+        public string Personal_finance_category { get; set; }
 
         [Newtonsoft.Json.JsonProperty("rule_details", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -10432,7 +10428,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10453,15 +10449,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10489,7 +10485,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10510,22 +10506,22 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// A rule's unique identifier
         /// </summary>
         [Newtonsoft.Json.JsonProperty("rule_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Rule_id { get; set; } = default!;
+        public string Rule_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10546,7 +10542,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10566,14 +10562,14 @@ namespace Plaidly
     public partial class TransactionsSyncRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The cursor value represents the last update requested. Providing it will cause the response to only return changes after this update.
@@ -10581,7 +10577,7 @@ namespace Plaidly
         /// <br/>Note: The upper-bound length of this cursor is 256 characters of base64.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cursor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Cursor { get; set; } = default!;
+        public string Cursor { get; set; }
 
         /// <summary>
         /// The number of transaction updates to fetch.
@@ -10591,7 +10587,7 @@ namespace Plaidly
         public int Count { get; set; } = 100;
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransactionsSyncRequestOptions Options { get; set; } = default!;
+        public TransactionsSyncRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10667,17 +10663,17 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("next_cursor", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Next_cursor { get; set; } = default!;
+        public string Next_cursor { get; set; }
 
         /// <summary>
         /// Represents if more than requested count of transaction updates exist. If true, the additional updates can be fetched by making an additional request with `cursor` set to `next_cursor`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("has_more", Required = Newtonsoft.Json.Required.Always)]
-        public bool Has_more { get; set; } = default!;
+        public bool Has_more { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10698,15 +10694,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10730,7 +10726,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("message", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Message { get; set; } = default!;
+        public string Message { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10750,24 +10746,24 @@ namespace Plaidly
     public partial class InstitutionsGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The total number of Institutions to return.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(1, 500)]
-        public int Count { get; set; } = default!;
+        public int Count { get; set; }
 
         /// <summary>
         /// The number of Institutions to skip.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("offset", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public int Offset { get; set; } = default!;
+        public int Offset { get; set; }
 
         /// <summary>
         /// Specify an array of Plaid-supported country codes this institution supports, using the ISO-3166-1 alpha-2 country code standard.
@@ -10781,7 +10777,7 @@ namespace Plaidly
         public System.Collections.Generic.ICollection<CountryCode> Country_codes { get; set; } = new System.Collections.ObjectModel.Collection<CountryCode>();
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InstitutionsGetRequestOptions Options { get; set; } = default!;
+        public InstitutionsGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10805,19 +10801,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("products", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<Products>? Products { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Products> Products { get; set; }
 
         /// <summary>
         /// Specify an array of routing numbers to filter institutions. The response will only return institutions that match all of the routing numbers in the array. Routing number records used for this matching are not comprehensive; failure to match a given routing number to an institution does not mean that the institution is unsupported by Plaid.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("routing_numbers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string>? Routing_numbers { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Routing_numbers { get; set; }
 
         /// <summary>
         /// Limit results to institutions with or without OAuth login flows.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("oauth", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Oauth { get; set; } = default!;
+        public bool? Oauth { get; set; }
 
         /// <summary>
         /// When `true`, return the institution's homepage URL, logo and primary brand color.
@@ -10825,7 +10821,7 @@ namespace Plaidly
         /// <br/>Note that Plaid does not own any of the logos shared by the API, and that by accessing or using these logos, you agree that you are doing so at your own risk and will, if necessary, obtain all required permissions from the appropriate rights holders and adhere to any applicable usage guidelines. Plaid disclaims all express or implied warranties with respect to the logos.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("include_optional_metadata", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Include_optional_metadata { get; set; } = default!;
+        public bool Include_optional_metadata { get; set; }
 
         /// <summary>
         /// When `true`, returns metadata related to the Auth product indicating which auth methods are supported.
@@ -10867,11 +10863,11 @@ namespace Plaidly
         /// The total number of institutions available via this endpoint
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
-        public int Total { get; set; } = default!;
+        public int Total { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10891,24 +10887,24 @@ namespace Plaidly
     public partial class InstitutionsSearchRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The search query. Institutions with names matching the query are returned
         /// </summary>
         [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Query { get; set; } = default!;
+        public string Query { get; set; }
 
         /// <summary>
         /// Filter the Institutions based on whether they support all products listed in `products`. Provide `null` to get institutions regardless of supported products. Note that when `auth` is specified as a product, if you are enabled for Instant Match or Automated Micro-deposits, institutions that support those products will be returned even if `auth` is not present in their product array.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("products", Required = Newtonsoft.Json.Required.AllowNull, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
-        public System.Collections.Generic.ICollection<Products>? Products { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Products> Products { get; set; }
 
         /// <summary>
         /// Specify an array of Plaid-supported country codes this institution supports, using the ISO-3166-1 alpha-2 country code standard. In API versions 2019-05-29 and earlier, the `country_codes` parameter is an optional parameter within the `options` object and will default to `[US]` if it is not supplied.
@@ -10919,7 +10915,7 @@ namespace Plaidly
         public System.Collections.Generic.ICollection<CountryCode> Country_codes { get; set; } = new System.Collections.ObjectModel.Collection<CountryCode>();
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InstitutionsSearchRequestOptions Options { get; set; } = default!;
+        public InstitutionsSearchRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10942,13 +10938,13 @@ namespace Plaidly
         /// Limit results to institutions with or without OAuth login flows.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("oauth", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Oauth { get; set; } = default!;
+        public bool? Oauth { get; set; }
 
         /// <summary>
         /// When true, return the institution's homepage URL, logo and primary brand color.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("include_optional_metadata", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Include_optional_metadata { get; set; } = default!;
+        public bool Include_optional_metadata { get; set; }
 
         /// <summary>
         /// When `true`, returns metadata related to the Auth product indicating which auth methods are supported.
@@ -10963,7 +10959,7 @@ namespace Plaidly
         public bool? Include_payment_initiation_metadata { get; set; } = false;
 
         [Newtonsoft.Json.JsonProperty("payment_initiation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InstitutionsSearchPaymentInitiationOptions? Payment_initiation { get; set; } = default!;
+        public InstitutionsSearchPaymentInitiationOptions Payment_initiation { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -10986,13 +10982,13 @@ namespace Plaidly
         /// A unique ID identifying the payment
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         /// <summary>
         /// A unique ID identifying the payment consent
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Consent_id { get; set; } = default!;
+        public string Consent_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11020,7 +11016,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11040,17 +11036,17 @@ namespace Plaidly
     public partial class InstitutionsGetByIdRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the institution to get details about
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// Specify an array of Plaid-supported country codes this institution supports, using the ISO-3166-1 alpha-2 country code standard. In API versions 2019-05-29 and earlier, the `country_codes` parameter is an optional parameter within the `options` object and will default to `[US]` if it is not supplied.
@@ -11061,7 +11057,7 @@ namespace Plaidly
         public System.Collections.Generic.ICollection<CountryCode> Country_codes { get; set; } = new System.Collections.ObjectModel.Collection<CountryCode>();
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InstitutionsGetByIdRequestOptions Options { get; set; } = default!;
+        public InstitutionsGetByIdRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11129,7 +11125,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11149,14 +11145,14 @@ namespace Plaidly
     public partial class ItemRemoveRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11177,7 +11173,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11197,17 +11193,17 @@ namespace Plaidly
     public partial class AccountsGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountsGetRequestOptions Options { get; set; } = default!;
+        public AccountsGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11230,7 +11226,7 @@ namespace Plaidly
         /// An array of `account_ids` to retrieve for the Account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11263,7 +11259,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11309,7 +11305,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11329,20 +11325,20 @@ namespace Plaidly
     public partial class SandboxProcessorTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the institution the Item will be associated with
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SandboxProcessorTokenCreateRequestOptions Options { get; set; } = default!;
+        public SandboxProcessorTokenCreateRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11362,10 +11358,10 @@ namespace Plaidly
     public partial class SandboxProcessorTokenCreateRequestOptions
     {
         [Newtonsoft.Json.JsonProperty("override_username", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Override_username { get; set; } = default!;
+        public string Override_username { get; set; }
 
         [Newtonsoft.Json.JsonProperty("override_password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Override_password { get; set; } = default!;
+        public string Override_password { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11389,11 +11385,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("processor_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Processor_token { get; set; } = default!;
+        public string Processor_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11413,17 +11409,17 @@ namespace Plaidly
     public partial class SandboxPublicTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the institution the Item will be associated with
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// The products to initially pull for the Item. May be any products that the specified `institution_id`  supports. This array may not be empty.
@@ -11434,10 +11430,10 @@ namespace Plaidly
         public System.Collections.Generic.ICollection<Products> Initial_products { get; set; } = new System.Collections.ObjectModel.Collection<Products>();
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SandboxPublicTokenCreateRequestOptions Options { get; set; } = default!;
+        public SandboxPublicTokenCreateRequestOptions Options { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11460,16 +11456,16 @@ namespace Plaidly
         /// Specify a webhook to associate with the new Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         [Newtonsoft.Json.JsonProperty("override_username", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Override_username { get; set; } = default!;
+        public string Override_username { get; set; }
 
         [Newtonsoft.Json.JsonProperty("override_password", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Override_password { get; set; } = default!;
+        public string Override_password { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transactions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SandboxPublicTokenCreateRequestOptionsTransactions Transactions { get; set; } = default!;
+        public SandboxPublicTokenCreateRequestOptionsTransactions Transactions { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11493,14 +11489,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// The most recent date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset End_date { get; set; } = default!;
+        public System.DateTimeOffset End_date { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11524,11 +11520,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("public_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Public_token { get; set; } = default!;
+        public string Public_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11548,18 +11544,18 @@ namespace Plaidly
     public partial class SandboxItemFireWebhookRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public WebhookType Webhook_type { get; set; } = default!;
+        public WebhookType Webhook_type { get; set; }
 
         /// <summary>
         /// The following values for `webhook_code` are supported:
@@ -11571,7 +11567,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SandboxItemFireWebhookRequestWebhook_code Webhook_code { get; set; } = default!;
+        public SandboxItemFireWebhookRequestWebhook_code Webhook_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11628,11 +11624,11 @@ namespace Plaidly
         /// Value is `true`  if the test` webhook_code`  was successfully fired.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_fired", Required = Newtonsoft.Json.Required.Always)]
-        public bool Webhook_fired { get; set; } = default!;
+        public bool Webhook_fired { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11653,16 +11649,16 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountsBalanceGetRequestOptions Options { get; set; } = default!;
+        public AccountsBalanceGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11687,10 +11683,10 @@ namespace Plaidly
         /// <br/>Note: An error will be returned if a provided `account_id` is not associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         [Newtonsoft.Json.JsonProperty("min_last_updated_datetime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Min_last_updated_datetime { get; set; } = default!;
+        public System.DateTimeOffset Min_last_updated_datetime { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11710,17 +11706,17 @@ namespace Plaidly
     public partial class IdentityGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IdentityGetRequestOptions Options { get; set; } = default!;
+        public IdentityGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11744,7 +11740,7 @@ namespace Plaidly
         /// <br/>Note: An error will be returned if a provided `account_id` is not associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11776,7 +11772,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11796,14 +11792,14 @@ namespace Plaidly
     public partial class ProcessorAuthGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("processor_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Processor_token { get; set; } = default!;
+        public string Processor_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11824,7 +11820,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("numbers", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -11852,40 +11848,40 @@ namespace Plaidly
     public partial class ProcessorBankTransferCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("idempotency_key", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(50)]
-        public string Idempotency_key { get; set; } = default!;
+        public string Idempotency_key { get; set; }
 
         [Newtonsoft.Json.JsonProperty("processor_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Processor_token { get; set; } = default!;
+        public string Processor_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferType Type { get; set; } = default!;
+        public BankTransferType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferNetwork Network { get; set; } = default!;
+        public BankTransferNetwork Network { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount – should be set to "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The transfer description. Maximum of 10 characters.
@@ -11893,11 +11889,11 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(10)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -11908,16 +11904,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("custom_tag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(100)]
-        public string? Custom_tag { get; set; } = default!;
+        public string Custom_tag { get; set; }
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BankTransferMetadata? Metadata { get; set; } = default!;
+        public BankTransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11942,7 +11938,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11962,16 +11958,16 @@ namespace Plaidly
     public partial class ProcessorNumber
     {
         [Newtonsoft.Json.JsonProperty("ach", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumbersACHNullable? Ach { get; set; } = default!;
+        public NumbersACHNullable Ach { get; set; }
 
         [Newtonsoft.Json.JsonProperty("eft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumbersEFTNullable? Eft { get; set; } = default!;
+        public NumbersEFTNullable Eft { get; set; }
 
         [Newtonsoft.Json.JsonProperty("international", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumbersInternationalNullable? International { get; set; } = default!;
+        public NumbersInternationalNullable International { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public NumbersBACSNullable? Bacs { get; set; } = default!;
+        public NumbersBACSNullable Bacs { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -11991,14 +11987,14 @@ namespace Plaidly
     public partial class ProcessorIdentityGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("processor_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Processor_token { get; set; } = default!;
+        public string Processor_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12019,11 +12015,11 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("account", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public AccountIdentity Account { get; set; } = default!;
+        public AccountIdentity Account { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12043,17 +12039,17 @@ namespace Plaidly
     public partial class ProcessorBalanceGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("processor_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Processor_token { get; set; } = default!;
+        public string Processor_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProcessorBalanceGetRequestOptions Options { get; set; } = default!;
+        public ProcessorBalanceGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12073,7 +12069,7 @@ namespace Plaidly
     public partial class ProcessorBalanceGetRequestOptions
     {
         [Newtonsoft.Json.JsonProperty("min_last_updated_datetime", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Min_last_updated_datetime { get; set; } = default!;
+        public System.DateTimeOffset Min_last_updated_datetime { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12098,7 +12094,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12118,20 +12114,20 @@ namespace Plaidly
     public partial class ItemWebhookUpdateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The new webhook URL to associate with the Item. To remove a webhook from an Item, set to `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12156,7 +12152,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12176,14 +12172,14 @@ namespace Plaidly
     public partial class ItemAccessTokenInvalidateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12204,11 +12200,11 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("new_access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string New_access_token { get; set; } = default!;
+        public string New_access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12228,17 +12224,17 @@ namespace Plaidly
     public partial class WebhookVerificationKeyGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The key ID ( `kid` ) from the JWT header.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("key_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Key_id { get; set; } = default!;
+        public string Key_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12263,7 +12259,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12287,61 +12283,61 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("alg", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Alg { get; set; } = default!;
+        public string Alg { get; set; }
 
         /// <summary>
         /// The crv member identifies the cryptographic curve used with the key.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("crv", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Crv { get; set; } = default!;
+        public string Crv { get; set; }
 
         /// <summary>
         /// The kid (Key ID) member can be used to match a specific key. This can be used, for instance, to choose among a set of keys within the JWK during key rollover.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("kid", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Kid { get; set; } = default!;
+        public string Kid { get; set; }
 
         /// <summary>
         /// The kty (key type) parameter identifies the cryptographic algorithm family used with the key, such as RSA or EC.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("kty", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Kty { get; set; } = default!;
+        public string Kty { get; set; }
 
         /// <summary>
         /// The use (public key use) parameter identifies the intended use of the public key.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("use", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Use { get; set; } = default!;
+        public string Use { get; set; }
 
         /// <summary>
         /// The x member contains the x coordinate for the elliptic curve point.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string X { get; set; } = default!;
+        public string X { get; set; }
 
         /// <summary>
         /// The y member contains the y coordinate for the elliptic curve point.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Y { get; set; } = default!;
+        public string Y { get; set; }
 
         /// <summary>
         /// The timestamp when the key was created, in Unix time.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
-        public int Created_at { get; set; } = default!;
+        public int Created_at { get; set; }
 
         /// <summary>
         /// The timestamp when the key expired, in Unix time.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("expired_at", Required = Newtonsoft.Json.Required.AllowNull)]
-        public int? Expired_at { get; set; } = default!;
+        public int? Expired_at { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12361,17 +12357,17 @@ namespace Plaidly
     public partial class LiabilitiesGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LiabilitiesGetRequestOptions Options { get; set; } = default!;
+        public LiabilitiesGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12396,7 +12392,7 @@ namespace Plaidly
         /// <br/>An error will be returned if a provided `account_id` is not associated with the Item
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12432,7 +12428,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12452,30 +12448,30 @@ namespace Plaidly
     public partial class PaymentInitiationRecipientCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The name of the recipient
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The International Bank Account Number (IBAN) for the recipient. If BACS data is not provided, an IBAN is required.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iban", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(34, MinimumLength = 15)]
-        public string? Iban { get; set; } = default!;
+        public string Iban { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public RecipientBACSNullable? Bacs { get; set; } = default!;
+        public RecipientBACSNullable Bacs { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaymentInitiationAddress? Address { get; set; } = default!;
+        public PaymentInitiationAddress Address { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12499,11 +12495,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipient_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Recipient_id { get; set; } = default!;
+        public string Recipient_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12556,16 +12552,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("refund_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Refund_id { get; set; } = default!;
+        public string Refund_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationRefundStatus Status { get; set; } = default!;
+        public PaymentInitiationRefundStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12585,17 +12581,17 @@ namespace Plaidly
     public partial class PaymentInitiationRecipientGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the recipient
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipient_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Recipient_id { get; set; } = default!;
+        public string Recipient_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12615,7 +12611,7 @@ namespace Plaidly
     public partial class PaymentInitiationRecipientGetResponse : PaymentInitiationRecipient
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
     }
 
@@ -12630,32 +12626,32 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipient_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Recipient_id { get; set; } = default!;
+        public string Recipient_id { get; set; }
 
         /// <summary>
         /// The name of the recipient.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaymentInitiationAddress? Address { get; set; } = default!;
+        public PaymentInitiationAddress Address { get; set; }
 
         /// <summary>
         /// The International Bank Account Number (IBAN) for the recipient.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iban", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iban { get; set; } = default!;
+        public string Iban { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public RecipientBACSNullable? Bacs { get; set; } = default!;
+        public RecipientBACSNullable Bacs { get; set; }
 
         /// <summary>
         /// The EMI (E-Money Institution) recipient that this recipient is associated with, if any. This EMI recipient is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("emi_recipient_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Emi_recipient_id { get; set; } = default!;
+        public string Emi_recipient_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12675,10 +12671,10 @@ namespace Plaidly
     public partial class PaymentInitiationRecipientListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12706,7 +12702,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12726,17 +12722,17 @@ namespace Plaidly
     public partial class PaymentInitiationPaymentCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the recipient the payment is for.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipient_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Recipient_id { get; set; } = default!;
+        public string Recipient_id { get; set; }
 
         /// <summary>
         /// A reference for the payment. This must be an alphanumeric string with at most 18 characters and must not contain any special characters (since not all institutions support them).
@@ -12744,17 +12740,17 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(18, MinimumLength = 1)]
-        public string Reference { get; set; } = default!;
+        public string Reference { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public PaymentConsentMaxPaymentAmount Amount { get; set; } = new PaymentConsentMaxPaymentAmount();
 
         [Newtonsoft.Json.JsonProperty("schedule", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ExternalPaymentScheduleRequest Schedule { get; set; } = default!;
+        public ExternalPaymentScheduleRequest Schedule { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ExternalPaymentOptions? Options { get; set; } = default!;
+        public ExternalPaymentOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12774,17 +12770,17 @@ namespace Plaidly
     public partial class PaymentInitiationPaymentReverseRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the payment to reverse
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12822,16 +12818,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationPaymentCreateStatus Status { get; set; } = default!;
+        public PaymentInitiationPaymentCreateStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12851,14 +12847,14 @@ namespace Plaidly
     public partial class SandboxItemResetLoginRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12881,11 +12877,11 @@ namespace Plaidly
         /// `true` if the call succeeded
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reset_login", Required = Newtonsoft.Json.Required.Always)]
-        public bool Reset_login { get; set; } = default!;
+        public bool Reset_login { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12905,21 +12901,21 @@ namespace Plaidly
     public partial class SandboxItemSetVerificationStatusRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The `account_id` of the account whose verification status is to be modified
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The verification status to set the account to.
@@ -12927,7 +12923,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SandboxItemSetVerificationStatusRequestVerification_status Verification_status { get; set; } = default!;
+        public SandboxItemSetVerificationStatusRequestVerification_status Verification_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12948,7 +12944,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12968,17 +12964,17 @@ namespace Plaidly
     public partial class ItemPublicTokenExchangeRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Your `public_token`, obtained from the Link `onSuccess` callback or `/sandbox/item/public_token/create`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("public_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Public_token { get; set; } = default!;
+        public string Public_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -12999,18 +12995,18 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The `item_id` value of the Item associated with the returned `access_token`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13030,14 +13026,14 @@ namespace Plaidly
     public partial class ItemPublicTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13061,14 +13057,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("public_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Public_token { get; set; } = default!;
+        public string Public_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("expiration", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Expiration { get; set; } = default!;
+        public System.DateTimeOffset Expiration { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13088,17 +13084,17 @@ namespace Plaidly
     public partial class UserCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// A unique ID representing the end user. Typically this will be a user ID number from your application. Personally identifiable information, such as an email address or phone number, should not be used in the `client_user_id`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_user_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_user_id { get; set; } = default!;
+        public string Client_user_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13119,15 +13115,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string User_id { get; set; } = default!;
+        public string User_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13147,17 +13143,17 @@ namespace Plaidly
     public partial class PaymentInitiationPaymentGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The `payment_id` returned from `/payment_initiation/payment/create`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13177,7 +13173,7 @@ namespace Plaidly
     public partial class PaymentInitiationPaymentGetResponse : PaymentInitiationPayment
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
     }
 
@@ -13269,7 +13265,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -13278,75 +13274,75 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationPaymentStatus Status { get; set; } = default!;
+        public PaymentInitiationPaymentStatus Status { get; set; }
 
         /// <summary>
         /// The ID of the recipient
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipient_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Recipient_id { get; set; } = default!;
+        public string Recipient_id { get; set; }
 
         /// <summary>
         /// A reference for the payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Reference { get; set; } = default!;
+        public string Reference { get; set; }
 
         /// <summary>
         /// The value of the reference sent to the bank after adjustment to pass bank validation rules.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("adjusted_reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Adjusted_reference { get; set; } = default!;
+        public string Adjusted_reference { get; set; }
 
         /// <summary>
         /// The date and time of the last time the `status` was updated, in IS0 8601 format
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_status_update", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Last_status_update { get; set; } = default!;
+        public System.DateTimeOffset Last_status_update { get; set; }
 
         [Newtonsoft.Json.JsonProperty("schedule", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ExternalPaymentScheduleGet? Schedule { get; set; } = default!;
+        public ExternalPaymentScheduleGet Schedule { get; set; }
 
         [Newtonsoft.Json.JsonProperty("refund_details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ExternalPaymentRefundDetails? Refund_details { get; set; } = default!;
+        public ExternalPaymentRefundDetails Refund_details { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.AllowNull)]
-        public SenderBACSNullable? Bacs { get; set; } = default!;
+        public SenderBACSNullable Bacs { get; set; }
 
         /// <summary>
         /// The International Bank Account Number (IBAN) for the sender, if specified in the `/payment_initiation/payment/create` call.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iban", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iban { get; set; } = default!;
+        public string Iban { get; set; }
 
         /// <summary>
         /// Initiated refunds associated with the payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("initiated_refunds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PaymentInitiationRefund> Initiated_refunds { get; set; } = default!;
+        public System.Collections.Generic.ICollection<PaymentInitiationRefund> Initiated_refunds { get; set; }
 
         /// <summary>
         /// The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wallet_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Wallet_id { get; set; } = default!;
+        public string Wallet_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("scheme", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentScheme? Scheme { get; set; } = default!;
+        public PaymentScheme? Scheme { get; set; }
 
         [Newtonsoft.Json.JsonProperty("adjusted_scheme", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentScheme? Adjusted_scheme { get; set; } = default!;
+        public PaymentScheme? Adjusted_scheme { get; set; }
 
         /// <summary>
         /// The payment consent ID that this payment was initiated with. Is present only when payment was initiated using the payment consent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Consent_id { get; set; } = default!;
+        public string Consent_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13370,7 +13366,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("refund_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Refund_id { get; set; } = default!;
+        public string Refund_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -13379,14 +13375,14 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationRefundStatus Status { get; set; } = default!;
+        public PaymentInitiationRefundStatus Status { get; set; }
 
         /// <summary>
         /// The date and time of the last time the `status` was updated, in IS0 8601 format
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_status_update", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Last_status_update { get; set; } = default!;
+        public System.DateTimeOffset Last_status_update { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13406,17 +13402,17 @@ namespace Plaidly
     public partial class PaymentInitiationPaymentTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The `payment_id` returned from `/payment_initiation/payment/create`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13440,18 +13436,18 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Payment_token { get; set; } = default!;
+        public string Payment_token { get; set; }
 
         /// <summary>
         /// The date and time at which the token will expire, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format. A `payment_token` expires after 15 minutes.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_token_expiration_time", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Payment_token_expiration_time { get; set; } = default!;
+        public System.DateTimeOffset Payment_token_expiration_time { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13471,17 +13467,17 @@ namespace Plaidly
     public partial class PaymentInitiationConsentCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the recipient the payment consent is for. The created consent can be used to transfer funds to this recipient only.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipient_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Recipient_id { get; set; } = default!;
+        public string Recipient_id { get; set; }
 
         /// <summary>
         /// A reference for the payment consent. This must be an alphanumeric string with at most 18 characters and must not contain any special characters.
@@ -13489,7 +13485,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(18, MinimumLength = 1)]
-        public string Reference { get; set; } = default!;
+        public string Reference { get; set; }
 
         /// <summary>
         /// An array of payment consent scopes.
@@ -13504,7 +13500,7 @@ namespace Plaidly
         public PaymentInitiationConsentConstraints Constraints { get; set; } = new PaymentInitiationConsentConstraints();
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ExternalPaymentInitiationConsentOptions? Options { get; set; } = default!;
+        public ExternalPaymentInitiationConsentOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13528,16 +13524,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Consent_id { get; set; } = default!;
+        public string Consent_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationConsentStatus Status { get; set; } = default!;
+        public PaymentInitiationConsentStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13557,17 +13553,17 @@ namespace Plaidly
     public partial class PaymentInitiationConsentGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The `consent_id` returned from `/payment_initiation/consent/create`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Consent_id { get; set; } = default!;
+        public string Consent_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13587,7 +13583,7 @@ namespace Plaidly
     public partial class PaymentInitiationConsentGetResponse : PaymentInitiationConsent
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
     }
 
@@ -13602,33 +13598,33 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Consent_id { get; set; } = default!;
+        public string Consent_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationConsentStatus Status { get; set; } = default!;
+        public PaymentInitiationConsentStatus Status { get; set; }
 
         /// <summary>
         /// Consent creation timestamp, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created_at { get; set; } = default!;
+        public System.DateTimeOffset Created_at { get; set; }
 
         /// <summary>
         /// The ID of the recipient the payment consent is for.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recipient_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Recipient_id { get; set; } = default!;
+        public string Recipient_id { get; set; }
 
         /// <summary>
         /// A reference for the payment consent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Reference { get; set; } = default!;
+        public string Reference { get; set; }
 
         [Newtonsoft.Json.JsonProperty("constraints", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -13693,17 +13689,17 @@ namespace Plaidly
     public partial class PaymentInitiationConsentRevokeRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The consent ID.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Consent_id { get; set; } = default!;
+        public string Consent_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13723,7 +13719,7 @@ namespace Plaidly
     public partial class PaymentInitiationConsentRevokeResponse
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13743,17 +13739,17 @@ namespace Plaidly
     public partial class PaymentInitiationConsentPaymentExecuteRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The consent ID.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Consent_id { get; set; } = default!;
+        public string Consent_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -13762,7 +13758,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("idempotency_key", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(128, MinimumLength = 1)]
-        public string Idempotency_key { get; set; } = default!;
+        public string Idempotency_key { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13786,16 +13782,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationPaymentStatus Status { get; set; } = default!;
+        public PaymentInitiationPaymentStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13815,10 +13811,10 @@ namespace Plaidly
     public partial class PaymentInitiationPaymentListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The maximum number of payments to return. If `count` is not specified, a maximum of 10 payments will be returned, beginning with the most recent payment before the cursor (if specified).
@@ -13831,7 +13827,7 @@ namespace Plaidly
         /// A string in RFC 3339 format (i.e. "2019-12-06T22:35:49Z"). Only payments created before the cursor will be returned.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cursor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Cursor { get; set; } = default!;
+        public System.DateTimeOffset? Cursor { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13861,11 +13857,11 @@ namespace Plaidly
         /// The value that, when used as the optional `cursor` parameter to `/payment_initiation/payment/list`, will return the next unreturned payment as its first payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("next_cursor", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? Next_cursor { get; set; } = default!;
+        public System.DateTimeOffset? Next_cursor { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13885,10 +13881,10 @@ namespace Plaidly
     public partial class AssetReportCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// An array of access tokens corresponding to the Items that will be included in the report. The `assets` product must have been initialized for the Items during link; the Assets product cannot be added after initialization.
@@ -13904,10 +13900,10 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_requested", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, 731)]
-        public int Days_requested { get; set; } = default!;
+        public int Days_requested { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AssetReportCreateRequestOptions Options { get; set; } = default!;
+        public AssetReportCreateRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13930,16 +13926,16 @@ namespace Plaidly
         /// Client-generated identifier, which can be used by lenders to track loan applications.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_report_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Client_report_id { get; set; } = default!;
+        public string Client_report_id { get; set; }
 
         /// <summary>
         /// URL to which Plaid will send Assets webhooks, for example when the requested Asset Report is ready.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AssetReportUser User { get; set; } = default!;
+        public AssetReportUser User { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13960,15 +13956,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -13988,24 +13984,24 @@ namespace Plaidly
     public partial class AssetReportRefreshRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         /// <summary>
         /// The maximum number of days of history to include in the Asset Report. Must be an integer. If not specified, the value from the original call to `/asset_report/create` will be used.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_requested", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(0, 731)]
-        public int? Days_requested { get; set; } = default!;
+        public int? Days_requested { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AssetReportRefreshRequestOptions Options { get; set; } = default!;
+        public AssetReportRefreshRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14028,16 +14024,16 @@ namespace Plaidly
         /// Client-generated identifier, which can be used by lenders to track loan applications.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_report_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Client_report_id { get; set; } = default!;
+        public string Client_report_id { get; set; }
 
         /// <summary>
         /// URL to which Plaid will send Assets webhooks, for example when the requested Asset Report is ready.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AssetReportUser User { get; set; } = default!;
+        public AssetReportUser User { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14058,15 +14054,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14086,20 +14082,20 @@ namespace Plaidly
     public partial class AssetReportRelayRefreshRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_relay_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_relay_token { get; set; } = default!;
+        public string Asset_relay_token { get; set; }
 
         /// <summary>
         /// The URL registered to receive webhooks when the Asset Report of a Relay Token has been refreshed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14120,15 +14116,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("asset_relay_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_relay_token { get; set; } = default!;
+        public string Asset_relay_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14148,14 +14144,14 @@ namespace Plaidly
     public partial class AssetReportRemoveRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14178,11 +14174,11 @@ namespace Plaidly
         /// `true` if the Asset Report was successfully removed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Removed { get; set; } = default!;
+        public bool Removed { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14202,14 +14198,14 @@ namespace Plaidly
     public partial class AssetReportFilterRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         /// <summary>
         /// The accounts to exclude from the Asset Report, identified by `account_id`.
@@ -14237,15 +14233,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14265,14 +14261,14 @@ namespace Plaidly
     public partial class AssetReportGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         /// <summary>
         /// `true` if you would like to retrieve the Asset Report with Insights, `false` otherwise. This field defaults to `false` if omitted.
@@ -14310,7 +14306,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14330,14 +14326,14 @@ namespace Plaidly
     public partial class AssetReportPDFGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14357,21 +14353,21 @@ namespace Plaidly
     public partial class AssetReportAuditCopyCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         /// <summary>
         /// The `auditor_id` of the third party with whom you would like to share the Asset Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("auditor_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Auditor_id { get; set; } = default!;
+        public string Auditor_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14395,11 +14391,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("audit_copy_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Audit_copy_token { get; set; } = default!;
+        public string Audit_copy_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14419,17 +14415,17 @@ namespace Plaidly
     public partial class AssetReportAuditCopyRemoveRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The `audit_copy_token` granting access to the Audit Copy you would like to revoke.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("audit_copy_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Audit_copy_token { get; set; } = default!;
+        public string Audit_copy_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14452,11 +14448,11 @@ namespace Plaidly
         /// `true` if the Audit Copy was successfully removed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Removed { get; set; } = default!;
+        public bool Removed { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14476,27 +14472,27 @@ namespace Plaidly
     public partial class AssetReportRelayCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("asset_report_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_token { get; set; } = default!;
+        public string Asset_report_token { get; set; }
 
         /// <summary>
         /// The `secondary_client_id` is the client id of the third party with whom you would like to share the Asset Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("secondary_client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secondary_client_id { get; set; } = default!;
+        public string Secondary_client_id { get; set; }
 
         /// <summary>
         /// URL to which Plaid will send webhooks when the Secondary Client successfully retrieves an Asset Report by calling `asset_report/relay/get`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14520,11 +14516,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_relay_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_relay_token { get; set; } = default!;
+        public string Asset_relay_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14544,17 +14540,17 @@ namespace Plaidly
     public partial class AssetReportRelayGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The `asset_relay_token` granting access to the Asset Report you would like to get.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_relay_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_relay_token { get; set; } = default!;
+        public string Asset_relay_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14574,17 +14570,17 @@ namespace Plaidly
     public partial class AssetReportRelayRemoveRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The `asset_relay_token` you would like to revoke.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_relay_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_relay_token { get; set; } = default!;
+        public string Asset_relay_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14607,11 +14603,11 @@ namespace Plaidly
         /// `true` if the Asset Relay token was successfully removed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("removed", Required = Newtonsoft.Json.Required.Always)]
-        public bool Removed { get; set; } = default!;
+        public bool Removed { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14631,17 +14627,17 @@ namespace Plaidly
     public partial class InvestmentsHoldingsGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InvestmentHoldingsGetRequestOptions Options { get; set; } = default!;
+        public InvestmentHoldingsGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14664,7 +14660,7 @@ namespace Plaidly
         /// An array of `account_id`s to retrieve for the Item. An error will be returned if a provided `account_id` is not associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14710,7 +14706,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14730,14 +14726,14 @@ namespace Plaidly
     public partial class InvestmentsTransactionsGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The earliest date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD.
@@ -14745,7 +14741,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// The most recent date for which to fetch transaction history. Dates should be formatted as YYYY-MM-DD.
@@ -14753,10 +14749,10 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset End_date { get; set; } = default!;
+        public System.DateTimeOffset End_date { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InvestmentsTransactionsGetRequestOptions Options { get; set; } = default!;
+        public InvestmentsTransactionsGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14779,7 +14775,7 @@ namespace Plaidly
         /// An array of `account_ids` to retrieve for the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Account_ids { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Account_ids { get; set; }
 
         /// <summary>
         /// The number of transactions to fetch.
@@ -14842,11 +14838,11 @@ namespace Plaidly
         /// The total number of transactions available within the date range specified. If `total_investment_transactions` is larger than the size of the `transactions` array, more transactions are available and can be fetched via manipulating the `offset` parameter.'
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_investment_transactions", Required = Newtonsoft.Json.Required.Always)]
-        public int Total_investment_transactions { get; set; } = default!;
+        public int Total_investment_transactions { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14866,21 +14862,21 @@ namespace Plaidly
     public partial class ProcessorTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The `account_id` value obtained from the `onSuccess` callback in Link
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The processor you are integrating with.
@@ -14888,7 +14884,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("processor", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ProcessorTokenCreateRequestProcessor Processor { get; set; } = default!;
+        public ProcessorTokenCreateRequestProcessor Processor { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14912,11 +14908,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("processor_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Processor_token { get; set; } = default!;
+        public string Processor_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14936,21 +14932,21 @@ namespace Plaidly
     public partial class ProcessorStripeBankAccountTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The `account_id` value obtained from the `onSuccess` callback in Link
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14974,11 +14970,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("stripe_bank_account_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Stripe_bank_account_token { get; set; } = default!;
+        public string Stripe_bank_account_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -14998,21 +14994,21 @@ namespace Plaidly
     public partial class ProcessorApexProcessorTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The `account_id` value obtained from the `onSuccess` callback in Link
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15032,34 +15028,34 @@ namespace Plaidly
     public partial class DepositSwitchCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Access token for the target Item, typically provided in the Import Item response. 
         /// </summary>
         [Newtonsoft.Json.JsonProperty("target_access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Target_access_token { get; set; } = default!;
+        public string Target_access_token { get; set; }
 
         /// <summary>
         /// Plaid Account ID that specifies the target bank account. This account will become the recipient for a user's direct deposit.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("target_account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Target_account_id { get; set; } = default!;
+        public string Target_account_id { get; set; }
 
         /// <summary>
         /// ISO-3166-1 alpha-2 country code standard.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DepositSwitchCreateRequestCountry_code? Country_code { get; set; } = default!;
+        public DepositSwitchCreateRequestCountry_code? Country_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DepositSwitchCreateRequestOptions Options { get; set; } = default!;
+        public DepositSwitchCreateRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15083,7 +15079,7 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         /// <summary>
         /// An array of access tokens corresponding to transaction items to use when attempting to match the user to their Payroll Provider. These tokens must be created by the same client id as the one creating the switch, and have access to the transactions product.
@@ -15091,7 +15087,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("transaction_item_access_tokens", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.MinLength(1)]
         [System.ComponentModel.DataAnnotations.MaxLength(99)]
-        public System.Collections.Generic.ICollection<string> Transaction_item_access_tokens { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Transaction_item_access_tokens { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15115,11 +15111,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_id { get; set; } = default!;
+        public string Deposit_switch_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15139,10 +15135,10 @@ namespace Plaidly
     public partial class ItemImportRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Array of product strings
@@ -15157,7 +15153,7 @@ namespace Plaidly
         public ItemImportRequestUserAuth User_auth { get; set; } = new ItemImportRequestUserAuth();
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ItemImportRequestOptions Options { get; set; } = default!;
+        public ItemImportRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15181,7 +15177,7 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15205,14 +15201,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string User_id { get; set; } = default!;
+        public string User_id { get; set; }
 
         /// <summary>
         /// Authorization token Plaid will use to aggregate this user’s accounts
         /// </summary>
         [Newtonsoft.Json.JsonProperty("auth_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Auth_token { get; set; } = default!;
+        public string Auth_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15233,11 +15229,11 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15257,17 +15253,17 @@ namespace Plaidly
     public partial class DepositSwitchTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the deposit switch
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_id { get; set; } = default!;
+        public string Deposit_switch_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15291,18 +15287,18 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_token { get; set; } = default!;
+        public string Deposit_switch_token { get; set; }
 
         /// <summary>
         /// Expiration time of the token, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_token_expiration_time", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_token_expiration_time { get; set; } = default!;
+        public string Deposit_switch_token_expiration_time { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15322,17 +15318,17 @@ namespace Plaidly
     public partial class LinkTokenGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// A `link_token` from a previous invocation of `/link/token/create`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("link_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Link_token { get; set; } = default!;
+        public string Link_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15352,17 +15348,17 @@ namespace Plaidly
     public partial class LinkTokenCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The name of your application, as it should be displayed in Link. Maximum length of 30 characters. If a value longer than 30 characters is provided, Link will display "This Application" instead.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_name { get; set; } = default!;
+        public string Client_name { get; set; }
 
         /// <summary>
         /// The language that Link should be displayed in.
@@ -15378,7 +15374,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Language { get; set; } = default!;
+        public string Language { get; set; }
 
         /// <summary>
         /// Specify an array of Plaid-supported country codes using the ISO-3166-1 alpha-2 country code standard. Institutions from all listed countries will be shown.  Supported country codes are: `US`, `CA`, `DE`, `ES`, `FR`, `GB`, `IE`, `IT`, `NL`. For a complete mapping of supported products by country, see https://plaid.com/global/.
@@ -15410,76 +15406,76 @@ namespace Plaidly
         /// <br/>In Production, you will be billed for each product that you specify when initializing Link. Note that a product cannot be removed from an Item once the Item has been initialized with that product. To stop billing on an Item for subscription-based products, such as Liabilities, Investments, and Transactions, remove the Item via `/item/remove`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("products", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<Products> Products { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Products> Products { get; set; }
 
         /// <summary>
         /// The destination URL to which any webhooks should be sent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         /// <summary>
         /// The `access_token` associated with the Item to update, used when updating or modifying an existing `access_token`. Used when launching Link in update mode, when completing the Same-day (manual) Micro-deposit flow, or (optionally) when initializing Link as part of the Payment Initiation (UK and Europe) flow.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The name of the Link customization from the Plaid Dashboard to be applied to Link. If not specified, the `default` customization will be used. When using a Link customization, the language in the customization must match the language selected via the `language` parameter, and the countries in the customization should match the country codes selected via `country_codes`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("link_customization_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Link_customization_name { get; set; } = default!;
+        public string Link_customization_name { get; set; }
 
         /// <summary>
         /// A URI indicating the destination where a user should be forwarded after completing the Link flow; used to support OAuth authentication flows when launching Link in the browser or via a webview. The `redirect_uri` should not contain any query parameters. When used in Production or Development, must be an https URI. To specify any subdomain, use `*` as a wildcard character, e.g. `https://*.example.com/oauth.html`. If `android_package_name` is specified, this field should be left blank.  Note that any redirect URI must also be added to the Allowed redirect URIs list in the [developer dashboard](https://dashboard.plaid.com/team/api).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("redirect_uri", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Redirect_uri { get; set; } = default!;
+        public string Redirect_uri { get; set; }
 
         /// <summary>
         /// The name of your app's Android package. Required if using the `link_token` to initialize Link on Android. When creating a `link_token` for initializing Link on other platforms, this field must be left blank. Any package name specified here must also be added to the Allowed Android package names setting on the [developer dashboard](https://dashboard.plaid.com/team/api). 
         /// </summary>
         [Newtonsoft.Json.JsonProperty("android_package_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Android_package_name { get; set; } = default!;
+        public string Android_package_name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("institution_data", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateInstitutionData Institution_data { get; set; } = default!;
+        public LinkTokenCreateInstitutionData Institution_data { get; set; }
 
         [Newtonsoft.Json.JsonProperty("account_filters", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenAccountFilters Account_filters { get; set; } = default!;
+        public LinkTokenAccountFilters Account_filters { get; set; }
 
         [Newtonsoft.Json.JsonProperty("eu_config", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenEUConfig Eu_config { get; set; } = default!;
+        public LinkTokenEUConfig Eu_config { get; set; }
 
         /// <summary>
         /// Used for certain Europe-only configurations, as well as certain legacy use cases in other regions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("payment_initiation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestPaymentInitiation Payment_initiation { get; set; } = default!;
+        public LinkTokenCreateRequestPaymentInitiation Payment_initiation { get; set; }
 
         [Newtonsoft.Json.JsonProperty("deposit_switch", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestDepositSwitch Deposit_switch { get; set; } = default!;
+        public LinkTokenCreateRequestDepositSwitch Deposit_switch { get; set; }
 
         [Newtonsoft.Json.JsonProperty("income_verification", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestIncomeVerification Income_verification { get; set; } = default!;
+        public LinkTokenCreateRequestIncomeVerification Income_verification { get; set; }
 
         [Newtonsoft.Json.JsonProperty("auth", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestAuth Auth { get; set; } = default!;
+        public LinkTokenCreateRequestAuth Auth { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestTransfer Transfer { get; set; } = default!;
+        public LinkTokenCreateRequestTransfer Transfer { get; set; }
 
         [Newtonsoft.Json.JsonProperty("update", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestUpdate Update { get; set; } = default!;
+        public LinkTokenCreateRequestUpdate Update { get; set; }
 
         /// <summary>
         /// A user token generated using /user/create. Any item created during the link session will be associated with the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15502,16 +15498,16 @@ namespace Plaidly
     public partial class LinkTokenAccountFilters
     {
         [Newtonsoft.Json.JsonProperty("depository", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DepositoryFilter Depository { get; set; } = default!;
+        public DepositoryFilter Depository { get; set; }
 
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CreditFilter Credit { get; set; } = default!;
+        public CreditFilter Credit { get; set; }
 
         [Newtonsoft.Json.JsonProperty("loan", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LoanFilter Loan { get; set; } = default!;
+        public LoanFilter Loan { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InvestmentFilter Investment { get; set; } = default!;
+        public InvestmentFilter Investment { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15534,7 +15530,7 @@ namespace Plaidly
         /// If `true`, open Link without an initial UI. Defaults to `false`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("headless", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Headless { get; set; } = default!;
+        public bool Headless { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15558,7 +15554,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15582,7 +15578,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_id { get; set; } = default!;
+        public string Deposit_switch_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15605,7 +15601,7 @@ namespace Plaidly
         /// The `id` returned by the `/transfer/intent/create` endpoint.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("intent_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Intent_id { get; set; } = default!;
+        public string Intent_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15630,7 +15626,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("flow_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public LinkTokenCreateRequestAuthFlow_type Flow_type { get; set; } = default!;
+        public LinkTokenCreateRequestAuthFlow_type Flow_type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15653,7 +15649,7 @@ namespace Plaidly
         /// The routing number of the bank to highlight.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("routing_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Routing_number { get; set; } = default!;
+        public string Routing_number { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15677,19 +15673,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_user_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_user_id { get; set; } = default!;
+        public string Client_user_id { get; set; }
 
         /// <summary>
         /// The user's full legal name. This is an optional field used in the [returning user experience](https://plaid.com/docs/link/returning-user) to associate Items to the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Legal_name { get; set; } = default!;
+        public string Legal_name { get; set; }
 
         /// <summary>
         /// The user's phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format. This field is optional, but required to enable the [returning user experience](https://plaid.com/docs/link/returning-user).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Phone_number { get; set; } = default!;
+        public string Phone_number { get; set; }
 
         /// <summary>
         /// The date and time the phone number was verified in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDThh:mm:ssZ`). This field is optional, but required to enable any [returning user experience](https://plaid.com/docs/link/returning-user).
@@ -15700,13 +15696,13 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_number_verified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Phone_number_verified_time { get; set; } = default!;
+        public System.DateTimeOffset Phone_number_verified_time { get; set; }
 
         /// <summary>
         /// The user's email address. This field is optional, but required to enable the [pre-authenticated returning user flow](https://plaid.com/docs/link/returning-user/#enabling-the-returning-user-experience).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email_address { get; set; } = default!;
+        public string Email_address { get; set; }
 
         /// <summary>
         /// The date and time the email address was verified in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDThh:mm:ssZ`). This is an optional field used in the [returning user experience](https://plaid.com/docs/link/returning-user).
@@ -15716,20 +15712,20 @@ namespace Plaidly
         /// <br/> Example: `2020-01-01T00:00:00Z`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_address_verified_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Email_address_verified_time { get; set; } = default!;
+        public System.DateTimeOffset Email_address_verified_time { get; set; }
 
         /// <summary>
         /// To be provided in the format "ddd-dd-dddd". This field is optional and will support not-yet-implemented functionality for new products.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Ssn { get; set; } = default!;
+        public string Ssn { get; set; }
 
         /// <summary>
         /// To be provided in the format "yyyy-mm-dd". This field is optional and will support not-yet-implemented functionality for new products.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("date_of_birth", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date_of_birth { get; set; } = default!;
+        public System.DateTimeOffset Date_of_birth { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15777,16 +15773,16 @@ namespace Plaidly
     public partial class LinkTokenCreateRequestAccountSubtypes
     {
         [Newtonsoft.Json.JsonProperty("depository", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateDepositoryFilter Depository { get; set; } = default!;
+        public LinkTokenCreateDepositoryFilter Depository { get; set; }
 
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateCreditFilter Credit { get; set; } = default!;
+        public LinkTokenCreateCreditFilter Credit { get; set; }
 
         [Newtonsoft.Json.JsonProperty("loan", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateLoanFilter Loan { get; set; } = default!;
+        public LinkTokenCreateLoanFilter Loan { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateInvestmentFilter Investment { get; set; } = default!;
+        public LinkTokenCreateInvestmentFilter Investment { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15806,7 +15802,7 @@ namespace Plaidly
     public partial class LinkTokenCreateDepositoryFilter
     {
         [Newtonsoft.Json.JsonProperty("account_subtypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DepositoryAccountSubtypes Account_subtypes { get; set; } = default!;
+        public DepositoryAccountSubtypes Account_subtypes { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15826,7 +15822,7 @@ namespace Plaidly
     public partial class LinkTokenCreateCreditFilter
     {
         [Newtonsoft.Json.JsonProperty("account_subtypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditAccountSubtypes Account_subtypes { get; set; } = default!;
+        public CreditAccountSubtypes Account_subtypes { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15846,7 +15842,7 @@ namespace Plaidly
     public partial class LinkTokenCreateLoanFilter
     {
         [Newtonsoft.Json.JsonProperty("account_subtypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public LoanAccountSubtypes Account_subtypes { get; set; } = default!;
+        public LoanAccountSubtypes Account_subtypes { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15866,7 +15862,7 @@ namespace Plaidly
     public partial class LinkTokenCreateInvestmentFilter
     {
         [Newtonsoft.Json.JsonProperty("account_subtypes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public InvestmentAccountSubtypes Account_subtypes { get; set; } = default!;
+        public InvestmentAccountSubtypes Account_subtypes { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15890,19 +15886,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("link_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Link_token { get; set; } = default!;
+        public string Link_token { get; set; }
 
         /// <summary>
         /// The creation timestamp for the `link_token`, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? Created_at { get; set; } = default!;
+        public System.DateTimeOffset? Created_at { get; set; }
 
         /// <summary>
         /// The expiration timestamp for the `link_token`, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("expiration", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? Expiration { get; set; } = default!;
+        public System.DateTimeOffset? Expiration { get; set; }
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -15910,7 +15906,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15940,7 +15936,7 @@ namespace Plaidly
         /// The `webhook` specified in the `/link/token/create` call.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         /// <summary>
         /// The `country_codes` specified in the `/link/token/create` call.
@@ -15953,25 +15949,25 @@ namespace Plaidly
         /// The `language` specified in the `/link/token/create` call.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Language { get; set; } = default!;
+        public string Language { get; set; }
 
         [Newtonsoft.Json.JsonProperty("institution_data", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateInstitutionData Institution_data { get; set; } = default!;
+        public LinkTokenCreateInstitutionData Institution_data { get; set; }
 
         [Newtonsoft.Json.JsonProperty("account_filters", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountFiltersResponse Account_filters { get; set; } = default!;
+        public AccountFiltersResponse Account_filters { get; set; }
 
         /// <summary>
         /// The `redirect_uri` specified in the `/link/token/create` call.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("redirect_uri", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Redirect_uri { get; set; } = default!;
+        public string Redirect_uri { get; set; }
 
         /// <summary>
         /// The `client_name` specified in the `/link/token/create` call.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Client_name { get; set; } = default!;
+        public string Client_name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -15995,18 +15991,18 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("link_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Link_token { get; set; } = default!;
+        public string Link_token { get; set; }
 
         /// <summary>
         /// The expiration date for the `link_token`, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format. A `link_token` created to generate a `public_token` that will be exchanged for a new `access_token` expires after 4 hours. A `link_token` created for an existing Item (such as when updating an existing `access_token` by launching Link in update mode) expires after 30 minutes.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("expiration", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Expiration { get; set; } = default!;
+        public System.DateTimeOffset Expiration { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16030,22 +16026,22 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// The Plaid Institution ID associated with the Item. Field is `null` for Items created via Same Day Micro-deposits.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// The URL registered to receive webhooks for the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.AllowNull)]
-        public Error? Error { get; set; } = default!;
+        public Error Error { get; set; }
 
         /// <summary>
         /// A list of products available for the Item that have not yet been accessed. The contents of this array will be mutually exclusive with `billed_products`.
@@ -16067,14 +16063,14 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("products", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<Products> Products { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Products> Products { get; set; }
 
         /// <summary>
         /// Beta: A list of products that have gone through consent collection for the Item. Only present for those enabled in the beta.
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consented_products", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<Products> Consented_products { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Products> Consented_products { get; set; }
 
         /// <summary>
         /// The RFC 3339 timestamp after which the consent provided by the end user will expire. Upon consent expiration, the item will enter the `ITEM_LOGIN_REQUIRED` error state. To circumvent the `ITEM_LOGIN_REQUIRED` error and maintain continuous consent, the end user can reauthenticate via Link’s update mode in advance of the consent expiration time.
@@ -16083,7 +16079,7 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_expiration_time", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? Consent_expiration_time { get; set; } = default!;
+        public System.DateTimeOffset? Consent_expiration_time { get; set; }
 
         /// <summary>
         /// Indicates whether an Item requires user interaction to be updated, which can be the case for Items with some forms of two-factor authentication.
@@ -16095,7 +16091,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("update_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ItemUpdate_type Update_type { get; set; } = default!;
+        public ItemUpdate_type Update_type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16129,21 +16125,21 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("error_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Error_type Error_type { get; set; } = default!;
+        public Error_type Error_type { get; set; }
 
         /// <summary>
         /// The particular error code. Safe for programmatic use.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Error_code { get; set; } = default!;
+        public string Error_code { get; set; }
 
         /// <summary>
         /// A developer-friendly representation of the error code. This may change over time and is not safe for programmatic use.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_message", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Error_message { get; set; } = default!;
+        public string Error_message { get; set; }
 
         /// <summary>
         /// A user-friendly representation of the error code. `null` if the error is not related to user action.
@@ -16151,13 +16147,13 @@ namespace Plaidly
         /// <br/>This may change over time and is not safe for programmatic use.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("display_message", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Display_message { get; set; } = default!;
+        public string Display_message { get; set; }
 
         /// <summary>
         /// A unique ID identifying the request, to be used for troubleshooting purposes. This field will be omitted in errors provided by webhooks.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         /// <summary>
         /// In the Assets product, a request can pertain to more than one Item. If an error is returned for such a request, `causes` will return an array of errors containing a breakdown of these errors on the individual Item level, if any can be identified.
@@ -16165,25 +16161,25 @@ namespace Plaidly
         /// <br/>`causes` will only be provided for the `error_type` `ASSET_REPORT_ERROR`. `causes` will also not be populated inside an error nested within a `warning` object.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("causes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<object> Causes { get; set; } = default!;
+        public System.Collections.Generic.ICollection<object> Causes { get; set; }
 
         /// <summary>
         /// The HTTP status code associated with the error. This will only be returned in the response body when the error information is provided via a webhook.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Status { get; set; } = default!;
+        public double? Status { get; set; }
 
         /// <summary>
         /// The URL of a Plaid documentation page with more information about the error
         /// </summary>
         [Newtonsoft.Json.JsonProperty("documentation_url", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Documentation_url { get; set; } = default!;
+        public string Documentation_url { get; set; }
 
         /// <summary>
         /// Suggested steps for resolving the error
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("suggested_action", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Suggested_action { get; set; } = default!;
+        [Newtonsoft.Json.JsonProperty("suggested_action", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Suggested_action { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16215,13 +16211,13 @@ namespace Plaidly
         /// [ISO 8601](https://wikipedia.org/wiki/ISO_8601) timestamp of the last successful transactions update for the Item. The status will update each time Plaid successfully connects with the institution, regardless of whether any new data is available in the update.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_successful_update", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Last_successful_update { get; set; } = default!;
+        public System.DateTimeOffset? Last_successful_update { get; set; }
 
         /// <summary>
         /// [ISO 8601](https://wikipedia.org/wiki/ISO_8601) timestamp of the last failed transactions update for the Item. The status will update each time Plaid fails an attempt to connect with the institution, regardless of whether any new data is available in the update.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_failed_update", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Last_failed_update { get; set; } = default!;
+        public System.DateTimeOffset? Last_failed_update { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16244,13 +16240,13 @@ namespace Plaidly
         /// [ISO 8601](https://wikipedia.org/wiki/ISO_8601) timestamp of the last successful investments update for the Item. The status will update each time Plaid successfully connects with the institution, regardless of whether any new data is available in the update.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_successful_update", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Last_successful_update { get; set; } = default!;
+        public System.DateTimeOffset? Last_successful_update { get; set; }
 
         /// <summary>
         /// [ISO 8601](https://wikipedia.org/wiki/ISO_8601) timestamp of the last failed investments update for the Item. The status will update each time Plaid fails an attempt to connect with the institution, regardless of whether any new data is available in the update.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_failed_update", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Last_failed_update { get; set; } = default!;
+        public System.DateTimeOffset? Last_failed_update { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16274,13 +16270,13 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sent_at", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Sent_at { get; set; } = default!;
+        public System.DateTimeOffset? Sent_at { get; set; }
 
         /// <summary>
         /// The last webhook code sent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("code_sent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Code_sent { get; set; } = default!;
+        public string Code_sent { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16300,13 +16296,13 @@ namespace Plaidly
     public partial class ItemStatus
     {
         [Newtonsoft.Json.JsonProperty("investments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ItemStatusInvestments? Investments { get; set; } = default!;
+        public ItemStatusInvestments Investments { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transactions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ItemStatusTransactions? Transactions { get; set; } = default!;
+        public ItemStatusTransactions Transactions { get; set; }
 
         [Newtonsoft.Json.JsonProperty("last_webhook", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ItemStatusLastWebhook? Last_webhook { get; set; } = default!;
+        public ItemStatusLastWebhook Last_webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16412,7 +16408,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("balances", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -16422,29 +16418,29 @@ namespace Plaidly
         /// The last 2-4 alphanumeric characters of an account's official account number. Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mask", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Mask { get; set; } = default!;
+        public string Mask { get; set; }
 
         /// <summary>
         /// The name of the account, either assigned by the user or by the financial institution itself
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The official name of the account as given by the financial institution
         /// </summary>
         [Newtonsoft.Json.JsonProperty("official_name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Official_name { get; set; } = default!;
+        public string Official_name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public AccountType Type { get; set; } = default!;
+        public AccountType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("subtype", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public AccountSubtype? Subtype { get; set; } = default!;
+        public AccountSubtype? Subtype { get; set; }
 
         /// <summary>
         /// The current verification status of an Auth Item initiated through Automated or Manual micro-deposits.  Returned for Auth Items only.
@@ -16464,7 +16460,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public AccountBaseVerification_status Verification_status { get; set; } = default!;
+        public AccountBaseVerification_status Verification_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16499,7 +16495,7 @@ namespace Plaidly
         /// <br/>If `current` is `null` this field is guaranteed not to be `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("available", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Available { get; set; } = default!;
+        public double? Available { get; set; }
 
         /// <summary>
         /// The total amount of funds in or owed by the account.
@@ -16515,7 +16511,7 @@ namespace Plaidly
         /// <br/>When returned by `/accounts/balance/get`, this field may be `null`. When this happens, `available` is guaranteed not to be `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current { get; set; } = default!;
+        public double? Current { get; set; }
 
         /// <summary>
         /// For `credit`-type accounts, this represents the credit limit.
@@ -16525,13 +16521,13 @@ namespace Plaidly
         /// <br/>In North America, this field is typically only available for `credit`-type accounts.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Limit { get; set; } = default!;
+        public double? Limit { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the balance. Always null if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the balance. Always null if `iso_currency_code` is non-null. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -16539,7 +16535,7 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `unofficial_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (`YYYY-MM-DDTHH:mm:ssZ`) indicating the last time that the balance for the given account has been updated
@@ -16547,7 +16543,7 @@ namespace Plaidly
         /// <br/>This is currently only provided when the `min_last_updated_datetime` is passed when calling `/accounts/balance/get` for `ins_128026` (Capital One).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_updated_datetime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Last_updated_datetime { get; set; } = default!;
+        public System.DateTimeOffset? Last_updated_datetime { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16793,7 +16789,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The ACH account number for the account.
@@ -16802,20 +16798,20 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account { get; set; } = default!;
+        public string Account { get; set; }
 
         /// <summary>
         /// The ACH routing number for the account. If the institution is `ins_56`, this may be a tokenized routing number. For more information, see the description of the `account` field.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("routing", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Routing { get; set; } = default!;
+        public string Routing { get; set; }
 
         /// <summary>
         /// The wire transfer routing number for the account, if available
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wire_routing", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Wire_routing { get; set; } = default!;
+        public string Wire_routing { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16848,28 +16844,28 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The EFT account number for the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account { get; set; } = default!;
+        public string Account { get; set; }
 
         /// <summary>
         /// The EFT institution number for the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Institution { get; set; } = default!;
+        public string Institution { get; set; }
 
         /// <summary>
         /// The EFT branch number for the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("branch", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Branch { get; set; } = default!;
+        public string Branch { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16902,21 +16898,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The International Bank Account Number (IBAN) for the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iban", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iban { get; set; } = default!;
+        public string Iban { get; set; }
 
         /// <summary>
         /// The Bank Identifier Code (BIC) for the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bic", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Bic { get; set; } = default!;
+        public string Bic { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16949,21 +16945,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The BACS account number for the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account { get; set; } = default!;
+        public string Account { get; set; }
 
         /// <summary>
         /// The BACS sort code for the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sort_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sort_code { get; set; } = default!;
+        public string Sort_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -16996,14 +16992,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(10, MinimumLength = 1)]
-        public string Account { get; set; } = default!;
+        public string Account { get; set; }
 
         /// <summary>
         /// The 6-character sort code of the account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sort_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(6, MinimumLength = 6)]
-        public string Sort_code { get; set; } = default!;
+        public string Sort_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17053,7 +17049,7 @@ namespace Plaidly
         /// The ID of the removed transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Transaction_id { get; set; } = default!;
+        public string Transaction_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17075,12 +17071,12 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransactionsRuleField Field { get; set; } = default!;
+        public TransactionsRuleField Field { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransactionsRuleType Type { get; set; } = default!;
+        public TransactionsRuleType Type { get; set; }
 
         /// <summary>
         /// For TRANSACTION_ID field, provide transaction_id. For NAME field, provide a string pattern.
@@ -17088,7 +17084,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Query { get; set; } = default!;
+        public string Query { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17143,20 +17139,20 @@ namespace Plaidly
         /// A unique identifier of the rule created
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// A unique identifier of the item the rule was created for
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// Date and time when a rule was created in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DDTHH:mm:ssZ` ).
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Created_at { get; set; } = default!;
+        public System.DateTimeOffset Created_at { get; set; }
 
         /// <summary>
         /// Personal finance category unique identifier.
@@ -17165,10 +17161,10 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("personal_finance_category", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Personal_finance_category { get; set; } = default!;
+        public string Personal_finance_category { get; set; }
 
         [Newtonsoft.Json.JsonProperty("rule_details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransactionsRuleDetails Rule_details { get; set; } = default!;
+        public TransactionsRuleDetails Rule_details { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17202,13 +17198,13 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("transaction_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Obsolete]
-        public TransactionBaseTransaction_type Transaction_type { get; set; } = default!;
+        public TransactionBaseTransaction_type Transaction_type { get; set; }
 
         /// <summary>
         /// The ID of a posted transaction's associated pending transaction, where applicable.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pending_transaction_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Pending_transaction_id { get; set; } = default!;
+        public string Pending_transaction_id { get; set; }
 
         /// <summary>
         /// The ID of the category to which this transaction belongs. For a full list of categories, see [`/categories/get`](https://plaid.com/docs/api/products/transactions/#categoriesget).
@@ -17216,7 +17212,7 @@ namespace Plaidly
         /// <br/>If the `transactions` object was returned by an Assets endpoint such as `/asset_report/get/` or `/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("category_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Category_id { get; set; } = default!;
+        public string Category_id { get; set; }
 
         /// <summary>
         /// A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see [`/categories/get`](https://plaid.com/docs/api/products/transactions/#categoriesget).
@@ -17224,19 +17220,19 @@ namespace Plaidly
         /// <br/>If the `transactions` object was returned by an Assets endpoint such as `/asset_report/get/` or `/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("category", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string>? Category { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Category { get; set; }
 
         [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Location Location { get; set; } = default!;
+        public Location Location { get; set; }
 
         [Newtonsoft.Json.JsonProperty("payment_meta", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaymentMeta Payment_meta { get; set; } = default!;
+        public PaymentMeta Payment_meta { get; set; }
 
         /// <summary>
         /// The name of the account owner. This field is not typically populated and only relevant when dealing with sub-accounts.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_owner", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Account_owner { get; set; } = default!;
+        public string Account_owner { get; set; }
 
         /// <summary>
         /// The merchant name or transaction description.
@@ -17244,32 +17240,32 @@ namespace Plaidly
         /// <br/>If the `transactions` object was returned by a Transactions endpoint such as `/transactions/get`, this field will always appear. If the `transactions` object was returned by an Assets endpoint such as `/asset_report/get/` or `/asset_report/pdf/get`, this field will only appear in an Asset Report with Insights.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The string returned by the financial institution to describe the transaction. For transactions returned by `/transactions/get`, this field is in beta and will be omitted unless the client is both enrolled in the closed beta program and has set `options.include_original_description` to `true`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("original_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Original_description { get; set; } = default!;
+        public string Original_description { get; set; }
 
         /// <summary>
         /// The ID of the account in which this transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The settled value of the transaction, denominated in the account's currency, as stated in `iso_currency_code` or `unofficial_currency_code`. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the transaction. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the transaction. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -17277,7 +17273,7 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted. Both dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DD` ).
@@ -17285,32 +17281,32 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date { get; set; } = default!;
+        public System.DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// When `true`, identifies the transaction as pending or unsettled. Pending transaction details (name, type, amount, category ID) may change before they are settled.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pending", Required = Newtonsoft.Json.Required.Always)]
-        public bool Pending { get; set; } = default!;
+        public bool Pending { get; set; }
 
         /// <summary>
         /// The unique ID of the transaction. Like all Plaid identifiers, the `transaction_id` is case sensitive.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transaction_id { get; set; } = default!;
+        public string Transaction_id { get; set; }
 
         /// <summary>
         /// The merchant name, as extracted by Plaid from the `name` field.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("merchant_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Merchant_name { get; set; } = default!;
+        public string Merchant_name { get; set; }
 
         /// <summary>
         /// The check number of the transaction. This field is only populated for check transactions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("check_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Check_number { get; set; } = default!;
+        public string Check_number { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17343,14 +17339,14 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("payment_channel", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransactionPayment_channel Payment_channel { get; set; } = default!;
+        public TransactionPayment_channel Payment_channel { get; set; }
 
         /// <summary>
         /// The date that the transaction was authorized. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DD` ). The `authorized_date` field uses machine learning to determine a transaction date for transactions where the `date_transacted` is not available. If the `date_transacted` field is present and not `null`, the `authorized_date` field will have the same value as the `date_transacted` field.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("authorized_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Authorized_date { get; set; } = default!;
+        public System.DateTimeOffset? Authorized_date { get; set; }
 
         /// <summary>
         /// Date and time when a transaction was authorized in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DDTHH:mm:ssZ` ).
@@ -17358,7 +17354,7 @@ namespace Plaidly
         /// <br/>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("authorized_datetime", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? Authorized_datetime { get; set; } = default!;
+        public System.DateTimeOffset? Authorized_datetime { get; set; }
 
         /// <summary>
         /// Date and time when a transaction was posted in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ( `YYYY-MM-DDTHH:mm:ssZ` ).
@@ -17366,14 +17362,14 @@ namespace Plaidly
         /// <br/>This field is returned for select financial institutions and comes as provided by the institution. It may contain default time values (such as 00:00:00).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("datetime", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.DateTimeOffset? Datetime { get; set; } = default!;
+        public System.DateTimeOffset? Datetime { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transaction_code", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransactionCode? Transaction_code { get; set; } = default!;
+        public TransactionCode? Transaction_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("personal_finance_category", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PersonalFinanceCategory? Personal_finance_category { get; set; } = default!;
+        public PersonalFinanceCategory Personal_finance_category { get; set; }
 
     }
 
@@ -17387,49 +17383,49 @@ namespace Plaidly
         /// The street address where the transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Address { get; set; } = default!;
+        public string Address { get; set; }
 
         /// <summary>
         /// The city where the transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The region or state where the transaction occurred. In API versions 2018-05-22 and earlier, this field is called `state`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The postal code where the transaction occurred. In API versions 2018-05-22 and earlier, this field is called `zip`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code where the transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         /// <summary>
         /// The latitude where the transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("lat", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Lat { get; set; } = default!;
+        public double? Lat { get; set; }
 
         /// <summary>
         /// The longitude where the transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("lon", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Lon { get; set; } = default!;
+        public double? Lon { get; set; }
 
         /// <summary>
         /// The merchant defined store number where the transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("store_number", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Store_number { get; set; } = default!;
+        public string Store_number { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17453,21 +17449,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// A unique id for the stream
         /// </summary>
         [Newtonsoft.Json.JsonProperty("stream_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Stream_id { get; set; } = default!;
+        public string Stream_id { get; set; }
 
         /// <summary>
         /// The ID of the category to which this transaction belongs. See [Categories](https://plaid.com/docs/#category-overview).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("category_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Category_id { get; set; } = default!;
+        public string Category_id { get; set; }
 
         /// <summary>
         /// A hierarchical array of the categories to which this transaction belongs. See [Categories](https://plaid.com/docs/#category-overview).
@@ -17481,14 +17477,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The merchant associated with the transaction stream.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("merchant_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Merchant_name { get; set; } = default!;
+        public string Merchant_name { get; set; }
 
         /// <summary>
         /// The posted date of the earliest transaction in the stream.
@@ -17496,7 +17492,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("first_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset First_date { get; set; } = default!;
+        public System.DateTimeOffset First_date { get; set; }
 
         /// <summary>
         /// The posted date of the latest transaction in the stream.
@@ -17504,12 +17500,12 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("last_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Last_date { get; set; } = default!;
+        public System.DateTimeOffset Last_date { get; set; }
 
         [Newtonsoft.Json.JsonProperty("frequency", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public RecurringTransactionFrequency Frequency { get; set; } = default!;
+        public RecurringTransactionFrequency Frequency { get; set; }
 
         /// <summary>
         /// An array of Plaid transaction IDs belonging to the stream, sorted by posted date.
@@ -17530,15 +17526,15 @@ namespace Plaidly
         /// Indicates whether the transaction stream is still live.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_active", Required = Newtonsoft.Json.Required.Always)]
-        public bool Is_active { get; set; } = default!;
+        public bool Is_active { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransactionStreamStatus Status { get; set; } = default!;
+        public TransactionStreamStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("personal_finance_category", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PersonalFinanceCategory? Personal_finance_category { get; set; } = default!;
+        public PersonalFinanceCategory Personal_finance_category { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17561,7 +17557,7 @@ namespace Plaidly
         /// Represents the numerical value of an amount.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the amount. Always `null` if `unofficial_currency_code` is non-`null`.
@@ -17569,13 +17565,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code of the amount. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17652,14 +17648,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// The official name of the institution
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// A list of the Plaid products supported by the institution. Note that only institutions that support Instant Auth will return `auth` in the product array; institutions that do not list `auth` may still support other Auth methods such as Instant Match or Automated Micro-deposit Verification. To identify institutions that support those methods, use the `auth_metadata` object. For more details, see [Full Auth coverage](https://plaid.com/docs/auth/coverage/).
@@ -17679,19 +17675,19 @@ namespace Plaidly
         /// The URL for the institution's website
         /// </summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Url { get; set; } = default!;
+        public string Url { get; set; }
 
         /// <summary>
         /// Hexadecimal representation of the primary color used by the institution
         /// </summary>
         [Newtonsoft.Json.JsonProperty("primary_color", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Primary_color { get; set; } = default!;
+        public string Primary_color { get; set; }
 
         /// <summary>
         /// Base64 encoded representation of the institution's logo
         /// </summary>
         [Newtonsoft.Json.JsonProperty("logo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Logo { get; set; } = default!;
+        public string Logo { get; set; }
 
         /// <summary>
         /// A partial list of routing numbers associated with the institution. This list is provided for the purpose of looking up institutions by routing number. It is not comprehensive and should never be used as a complete list of routing numbers for an institution.
@@ -17704,16 +17700,16 @@ namespace Plaidly
         /// Indicates that the institution has an OAuth login flow.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("oauth", Required = Newtonsoft.Json.Required.Always)]
-        public bool Oauth { get; set; } = default!;
+        public bool Oauth { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InstitutionStatus? Status { get; set; } = default!;
+        public InstitutionStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("payment_initiation_metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaymentInitiationMetadata? Payment_initiation_metadata { get; set; } = default!;
+        public PaymentInitiationMetadata Payment_initiation_metadata { get; set; }
 
         [Newtonsoft.Json.JsonProperty("auth_metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AuthMetadata? Auth_metadata { get; set; } = default!;
+        public AuthMetadata Auth_metadata { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17740,31 +17736,31 @@ namespace Plaidly
         public ProductStatus Item_logins { get; set; } = new ProductStatus();
 
         [Newtonsoft.Json.JsonProperty("transactions_updates", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductStatus Transactions_updates { get; set; } = default!;
+        public ProductStatus Transactions_updates { get; set; }
 
         [Newtonsoft.Json.JsonProperty("auth", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductStatus Auth { get; set; } = default!;
+        public ProductStatus Auth { get; set; }
 
         [Newtonsoft.Json.JsonProperty("identity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductStatus Identity { get; set; } = default!;
+        public ProductStatus Identity { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investments_updates", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductStatus Investments_updates { get; set; } = default!;
+        public ProductStatus Investments_updates { get; set; }
 
         [Newtonsoft.Json.JsonProperty("liabilities_updates", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductStatus Liabilities_updates { get; set; } = default!;
+        public ProductStatus Liabilities_updates { get; set; }
 
         [Newtonsoft.Json.JsonProperty("liabilities", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductStatus Liabilities { get; set; } = default!;
+        public ProductStatus Liabilities { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investments", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductStatus Investments { get; set; } = default!;
+        public ProductStatus Investments { get; set; }
 
         /// <summary>
         /// Details of recent health incidents associated with the institution.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("health_incidents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<HealthIncident>? Health_incidents { get; set; } = default!;
+        public System.Collections.Generic.ICollection<HealthIncident> Health_incidents { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17825,49 +17821,49 @@ namespace Plaidly
         /// The transaction reference number supplied by the financial institution.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reference_number", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Reference_number { get; set; } = default!;
+        public string Reference_number { get; set; }
 
         /// <summary>
         /// The ACH PPD ID for the payer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ppd_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Ppd_id { get; set; } = default!;
+        public string Ppd_id { get; set; }
 
         /// <summary>
         /// For transfers, the party that is receiving the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payee", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Payee { get; set; } = default!;
+        public string Payee { get; set; }
 
         /// <summary>
         /// The party initiating a wire transfer. Will be `null` if the transaction is not a wire transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("by_order_of", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? By_order_of { get; set; } = default!;
+        public string By_order_of { get; set; }
 
         /// <summary>
         /// For transfers, the party that is paying the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payer", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Payer { get; set; } = default!;
+        public string Payer { get; set; }
 
         /// <summary>
         /// The type of transfer, e.g. 'ACH'
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_method", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Payment_method { get; set; } = default!;
+        public string Payment_method { get; set; }
 
         /// <summary>
         /// The name of the payment processor
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_processor", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Payment_processor { get; set; } = default!;
+        public string Payment_processor { get; set; }
 
         /// <summary>
         /// The payer-supplied description of the transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Reason { get; set; } = default!;
+        public string Reason { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -17962,14 +17958,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("category_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Category_id { get; set; } = default!;
+        public string Category_id { get; set; }
 
         /// <summary>
         /// `place` for physical transactions or `special` for other transactions such as bank charges.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("group", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Group { get; set; } = default!;
+        public string Group { get; set; }
 
         /// <summary>
         /// A hierarchical array of the categories to which this `category_id` belongs.
@@ -18002,14 +17998,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("primary", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Primary { get; set; } = default!;
+        public string Primary { get; set; }
 
         /// <summary>
         /// A granular category conveying the transaction's intent. This field can also be used as a unique identifier for the category.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("detailed", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Detailed { get; set; } = default!;
+        public string Detailed { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18033,17 +18029,17 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `TRANSACTIONS_REMOVED`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         /// <summary>
         /// An array of `transaction_ids` corresponding to the removed transactions
@@ -18054,7 +18050,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18079,30 +18075,30 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `DEFAULT_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         /// <summary>
         /// The number of new transactions detected since the last time this webhook was fired.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("new_transactions", Required = Newtonsoft.Json.Required.Always)]
-        public double New_transactions { get; set; } = default!;
+        public double New_transactions { get; set; }
 
         /// <summary>
         /// The `item_id` of the Item the webhook relates to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18126,18 +18122,18 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `DEFAULT_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("account_ids_with_updated_identity", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -18145,7 +18141,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18202,27 +18198,27 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `HISTORICAL_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         /// <summary>
         /// The number of new, unfetched transactions available
         /// </summary>
         [Newtonsoft.Json.JsonProperty("new_transactions", Required = Newtonsoft.Json.Required.Always)]
-        public double New_transactions { get; set; } = default!;
+        public double New_transactions { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18246,30 +18242,30 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `INITIAL_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         /// <summary>
         /// The error code associated with the webhook.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Error { get; set; } = default!;
+        public string Error { get; set; }
 
         /// <summary>
         /// The number of new, unfetched transactions available.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("new_transactions", Required = Newtonsoft.Json.Required.Always)]
-        public double New_transactions { get; set; } = default!;
+        public double New_transactions { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18293,13 +18289,13 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Data { get; set; } = default!;
+        public string Data { get; set; }
 
         /// <summary>
         /// When `true`, identifies the phone number as the primary number on an account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("primary", Required = Newtonsoft.Json.Required.Always)]
-        public bool Primary { get; set; } = default!;
+        public bool Primary { get; set; }
 
         /// <summary>
         /// The type of phone number.
@@ -18307,7 +18303,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PhoneNumberType Type { get; set; } = default!;
+        public PhoneNumberType Type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18331,13 +18327,13 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Data { get; set; } = default!;
+        public string Data { get; set; }
 
         /// <summary>
         /// When `true`, identifies the email address as the primary email on an account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("primary", Required = Newtonsoft.Json.Required.Always)]
-        public bool Primary { get; set; } = default!;
+        public bool Primary { get; set; }
 
         /// <summary>
         /// The type of email account as described by the financial institution.
@@ -18345,7 +18341,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EmailType Type { get; set; } = default!;
+        public EmailType Type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18372,7 +18368,7 @@ namespace Plaidly
         /// When `true`, identifies the address as the primary address on an account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("primary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Primary { get; set; } = default!;
+        public bool Primary { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18414,14 +18410,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The region or state. In API versions 2018-05-22 and earlier, this field is called `state`.
         /// <br/>Example: `"NC"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address
@@ -18429,19 +18425,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// The postal code. In API versions 2018-05-22 and earlier, this field is called `zip`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18466,7 +18462,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date { get; set; } = default!;
+        public System.DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// The total amount of funds in the account, calculated from the `current` balance in the `balance` object by subtracting inflows and adding back outflows according to the posted date of each transaction.
@@ -18474,13 +18470,13 @@ namespace Plaidly
         /// <br/>If the account has any pending transactions, historical balance amounts on or after the date of the earliest pending transaction may differ if retrieved in subsequent Asset Reports as a result of those pending transactions posting.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current", Required = Newtonsoft.Json.Required.Always)]
-        public double Current { get; set; } = default!;
+        public double Current { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the balance. Always `null` if `unofficial_currency_code` is non-`null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the balance. Always `null` if `iso_currency_code` is non-`null`.
@@ -18488,7 +18484,7 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18603,19 +18599,19 @@ namespace Plaidly
         /// The credit accounts returned.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.Collections.Generic.ICollection<CreditCardLiability>? Credit { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditCardLiability> Credit { get; set; }
 
         /// <summary>
         /// The mortgage accounts returned.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mortgage", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.Collections.Generic.ICollection<MortgageLiability>? Mortgage { get; set; } = default!;
+        public System.Collections.Generic.ICollection<MortgageLiability> Mortgage { get; set; }
 
         /// <summary>
         /// The student loan accounts returned.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("student", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.Collections.Generic.ICollection<StudentLoan>? Student { get; set; } = default!;
+        public System.Collections.Generic.ICollection<StudentLoan> Student { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18638,70 +18634,70 @@ namespace Plaidly
         /// The ID of the account that this liability belongs to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The account number of the loan. For some institutions, this may be a masked version of the number (e.g., the last 4 digits instead of the entire number).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_number", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Account_number { get; set; } = default!;
+        public string Account_number { get; set; }
 
         /// <summary>
         /// The dates on which loaned funds were disbursed or will be disbursed. These are often in the past. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("disbursement_dates", Required = Newtonsoft.Json.Required.AllowNull)]
-        public System.Collections.Generic.ICollection<System.DateTimeOffset>? Disbursement_dates { get; set; } = default!;
+        public System.Collections.Generic.ICollection<System.DateTimeOffset> Disbursement_dates { get; set; }
 
         /// <summary>
         /// The date when the student loan is expected to be paid off. Availability for this field is limited. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("expected_payoff_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Expected_payoff_date { get; set; } = default!;
+        public System.DateTimeOffset? Expected_payoff_date { get; set; }
 
         /// <summary>
         /// The guarantor of the student loan.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("guarantor", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Guarantor { get; set; } = default!;
+        public string Guarantor { get; set; }
 
         /// <summary>
         /// The interest rate on the loan as a percentage.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("interest_rate_percentage", Required = Newtonsoft.Json.Required.Always)]
-        public double Interest_rate_percentage { get; set; } = default!;
+        public double Interest_rate_percentage { get; set; }
 
         /// <summary>
         /// `true` if a payment is currently overdue. Availability for this field is limited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_overdue", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Is_overdue { get; set; } = default!;
+        public bool? Is_overdue { get; set; }
 
         /// <summary>
         /// The amount of the last payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_payment_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Last_payment_amount { get; set; } = default!;
+        public double? Last_payment_amount { get; set; }
 
         /// <summary>
         /// The date of the last payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_payment_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Last_payment_date { get; set; } = default!;
+        public System.DateTimeOffset? Last_payment_date { get; set; }
 
         /// <summary>
         /// The date of the last statement. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_statement_issue_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Last_statement_issue_date { get; set; } = default!;
+        public System.DateTimeOffset? Last_statement_issue_date { get; set; }
 
         /// <summary>
         /// The type of loan, e.g., "Consolidation Loans".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("loan_name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Loan_name { get; set; } = default!;
+        public string Loan_name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("loan_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -18713,14 +18709,14 @@ namespace Plaidly
         /// <br/>Firstmark (`ins_116295` ) and Navient (`ins_116248`) will display as $0 if there is an autopay program in effect.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("minimum_payment_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Minimum_payment_amount { get; set; } = default!;
+        public double? Minimum_payment_amount { get; set; }
 
         /// <summary>
         /// The due date for the next payment. The due date is `null` if a payment is not expected. A payment is not expected if `loan_status.type` is `deferment`, `in_school`, `consolidated`, `paid in full`, or `transferred`. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("next_payment_due_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Next_payment_due_date { get; set; } = default!;
+        public System.DateTimeOffset? Next_payment_due_date { get; set; }
 
         /// <summary>
         /// The date on which the loan was initially lent. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
@@ -18728,25 +18724,25 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Origination_date { get; set; } = default!;
+        public System.DateTimeOffset? Origination_date { get; set; }
 
         /// <summary>
         /// The original principal balance of the loan.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_principal_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Origination_principal_amount { get; set; } = default!;
+        public double? Origination_principal_amount { get; set; }
 
         /// <summary>
         /// The total dollar amount of the accrued interest balance. For Sallie Mae ( `ins_116944`), this amount is included in the current balance of the loan, so this field will return as `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("outstanding_interest_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Outstanding_interest_amount { get; set; } = default!;
+        public double? Outstanding_interest_amount { get; set; }
 
         /// <summary>
         /// The relevant account number that should be used to reference this loan for payments. In the majority of cases, `payment_reference_number` will match a`ccount_number,` but in some institutions, such as Great Lakes (`ins_116861`), it will be different.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_reference_number", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Payment_reference_number { get; set; } = default!;
+        public string Payment_reference_number { get; set; }
 
         [Newtonsoft.Json.JsonProperty("pslf_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -18760,7 +18756,7 @@ namespace Plaidly
         /// The sequence number of the student loan. Heartland ECSI (`ins_116948`) does not make this field available.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sequence_number", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Sequence_number { get; set; } = default!;
+        public string Sequence_number { get; set; }
 
         [Newtonsoft.Json.JsonProperty("servicer_address", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -18770,13 +18766,13 @@ namespace Plaidly
         /// The year to date (YTD) interest paid. Availability for this field is limited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_interest_paid", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_interest_paid { get; set; } = default!;
+        public double? Ytd_interest_paid { get; set; }
 
         /// <summary>
         /// The year to date (YTD) principal paid. Availability for this field is limited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_principal_paid", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_principal_paid { get; set; } = default!;
+        public double? Ytd_principal_paid { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18799,7 +18795,7 @@ namespace Plaidly
         /// The ID of the account that this liability belongs to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The various interest rates that apply to the account. APR information is not provided by all card issuers; if APR data is not available, this array will be empty.
@@ -18812,46 +18808,46 @@ namespace Plaidly
         /// true if a payment is currently overdue. Availability for this field is limited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_overdue", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Is_overdue { get; set; } = default!;
+        public bool? Is_overdue { get; set; }
 
         /// <summary>
         /// The amount of the last payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_payment_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Last_payment_amount { get; set; } = default!;
+        public double? Last_payment_amount { get; set; }
 
         /// <summary>
         /// The date of the last payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). Availability for this field is limited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_payment_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Last_payment_date { get; set; } = default!;
+        public System.DateTimeOffset? Last_payment_date { get; set; }
 
         /// <summary>
         /// The date of the last statement. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_statement_issue_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Last_statement_issue_date { get; set; } = default!;
+        public System.DateTimeOffset? Last_statement_issue_date { get; set; }
 
         /// <summary>
         /// The total amount owed as of the last statement issued
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_statement_balance", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Last_statement_balance { get; set; } = default!;
+        public double? Last_statement_balance { get; set; }
 
         /// <summary>
         /// The minimum payment due for the next billing cycle.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("minimum_payment_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Minimum_payment_amount { get; set; } = default!;
+        public double? Minimum_payment_amount { get; set; }
 
         /// <summary>
         /// The due date for the next payment. The due date is `null` if a payment is not expected. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("next_payment_due_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Next_payment_due_date { get; set; } = default!;
+        public System.DateTimeOffset? Next_payment_due_date { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -18875,38 +18871,38 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The account number of the loan.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_number { get; set; } = default!;
+        public string Account_number { get; set; }
 
         /// <summary>
         /// The current outstanding amount charged for late payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_late_fee", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current_late_fee { get; set; } = default!;
+        public double? Current_late_fee { get; set; }
 
         /// <summary>
         /// Total amount held in escrow to pay taxes and insurance on behalf of the borrower.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("escrow_balance", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Escrow_balance { get; set; } = default!;
+        public double? Escrow_balance { get; set; }
 
         /// <summary>
         /// Indicates whether the borrower has private mortgage insurance in effect.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("has_pmi", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Has_pmi { get; set; } = default!;
+        public bool? Has_pmi { get; set; }
 
         /// <summary>
         /// Indicates whether the borrower will pay a penalty for early payoff of mortgage.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("has_prepayment_penalty", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Has_prepayment_penalty { get; set; } = default!;
+        public bool? Has_prepayment_penalty { get; set; }
 
         [Newtonsoft.Json.JsonProperty("interest_rate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -18916,65 +18912,65 @@ namespace Plaidly
         /// The amount of the last payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_payment_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Last_payment_amount { get; set; } = default!;
+        public double? Last_payment_amount { get; set; }
 
         /// <summary>
         /// The date of the last payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_payment_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Last_payment_date { get; set; } = default!;
+        public System.DateTimeOffset? Last_payment_date { get; set; }
 
         /// <summary>
         /// Description of the type of loan, for example `conventional`, `fixed`, or `variable`. This field is provided directly from the loan servicer and does not have an enumerated set of possible values.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("loan_type_description", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Loan_type_description { get; set; } = default!;
+        public string Loan_type_description { get; set; }
 
         /// <summary>
         /// Full duration of mortgage as at origination (e.g. `10 year`).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("loan_term", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Loan_term { get; set; } = default!;
+        public string Loan_term { get; set; }
 
         /// <summary>
         /// Original date on which mortgage is due in full. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("maturity_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Maturity_date { get; set; } = default!;
+        public System.DateTimeOffset? Maturity_date { get; set; }
 
         /// <summary>
         /// The amount of the next payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("next_monthly_payment", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Next_monthly_payment { get; set; } = default!;
+        public double? Next_monthly_payment { get; set; }
 
         /// <summary>
         /// The due date for the next payment. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("next_payment_due_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Next_payment_due_date { get; set; } = default!;
+        public System.DateTimeOffset? Next_payment_due_date { get; set; }
 
         /// <summary>
         /// The date on which the loan was initially lent. Dates are returned in an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Origination_date { get; set; } = default!;
+        public System.DateTimeOffset? Origination_date { get; set; }
 
         /// <summary>
         /// The original principal balance of the mortgage.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_principal_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Origination_principal_amount { get; set; } = default!;
+        public double? Origination_principal_amount { get; set; }
 
         /// <summary>
         /// Amount of loan (principal + interest) past due for payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("past_due_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Past_due_amount { get; set; } = default!;
+        public double? Past_due_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("property_address", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -18984,13 +18980,13 @@ namespace Plaidly
         /// The year to date (YTD) interest paid.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_interest_paid", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_interest_paid { get; set; } = default!;
+        public double? Ytd_interest_paid { get; set; }
 
         /// <summary>
         /// The YTD principal paid.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_principal_paid", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_principal_paid { get; set; } = default!;
+        public double? Ytd_principal_paid { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19013,13 +19009,13 @@ namespace Plaidly
         /// Percentage value (interest rate of current mortgage, not APR) of interest payable on a loan.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("percentage", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Percentage { get; set; } = default!;
+        public double? Percentage { get; set; }
 
         /// <summary>
         /// The type of interest charged (fixed or variable).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Type { get; set; } = default!;
+        public string Type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19042,31 +19038,31 @@ namespace Plaidly
         /// The city name.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         /// <summary>
         /// The five or nine digit postal code.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The region or state (example "NC").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address (example "564 Main Street, Apt 15").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Street { get; set; } = default!;
+        public string Street { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19091,14 +19087,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// The status type of the student loan
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public StudentLoanStatusType? Type { get; set; } = default!;
+        public StudentLoanStatusType? Type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19121,14 +19117,14 @@ namespace Plaidly
         /// The description of the repayment plan as provided by the servicer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The type of the repayment plan.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public StudentRepaymentPlanType? Type { get; set; } = default!;
+        public StudentRepaymentPlanType? Type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19152,19 +19148,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("estimated_eligibility_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Estimated_eligibility_date { get; set; } = default!;
+        public System.DateTimeOffset? Estimated_eligibility_date { get; set; }
 
         /// <summary>
         /// The number of qualifying payments that have been made.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payments_made", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Payments_made { get; set; } = default!;
+        public double? Payments_made { get; set; }
 
         /// <summary>
         /// The number of qualifying payments remaining.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payments_remaining", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Payments_remaining { get; set; } = default!;
+        public double? Payments_remaining { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19187,33 +19183,33 @@ namespace Plaidly
         /// The full city name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The region or state
         /// <br/>Example: `"NC"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address
         /// <br/>Example: `"564 Main Street, APT 15"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// The postal code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19237,7 +19233,7 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("apr_percentage", Required = Newtonsoft.Json.Required.Always)]
-        public double Apr_percentage { get; set; } = default!;
+        public double Apr_percentage { get; set; }
 
         /// <summary>
         /// The type of balance to which the APR applies.
@@ -19245,19 +19241,19 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("apr_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Apr_type Apr_type { get; set; } = default!;
+        public Apr_type Apr_type { get; set; }
 
         /// <summary>
         /// Amount of money that is subjected to the APR if a balance was carried beyond payment due date. How it is calculated can vary by card issuer. It is often calculated as an average daily balance.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("balance_subject_to_apr", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Balance_subject_to_apr { get; set; } = default!;
+        public double? Balance_subject_to_apr { get; set; }
 
         /// <summary>
         /// Amount of money charged due to interest from last statement.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("interest_charge_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Interest_charge_amount { get; set; } = default!;
+        public double? Interest_charge_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19277,7 +19273,7 @@ namespace Plaidly
     public partial class AuthMetadata
     {
         [Newtonsoft.Json.JsonProperty("supported_methods", Required = Newtonsoft.Json.Required.AllowNull)]
-        public AuthSupportedMethods? Supported_methods { get; set; } = default!;
+        public AuthSupportedMethods Supported_methods { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19300,19 +19296,19 @@ namespace Plaidly
         /// Indicates if instant auth is supported.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("instant_auth", Required = Newtonsoft.Json.Required.Always)]
-        public bool Instant_auth { get; set; } = default!;
+        public bool Instant_auth { get; set; }
 
         /// <summary>
         /// Indicates if instant match is supported.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("instant_match", Required = Newtonsoft.Json.Required.Always)]
-        public bool Instant_match { get; set; } = default!;
+        public bool Instant_match { get; set; }
 
         /// <summary>
         /// Indicates if automated microdeposits are supported.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("automated_micro_deposits", Required = Newtonsoft.Json.Required.Always)]
-        public bool Automated_micro_deposits { get; set; } = default!;
+        public bool Automated_micro_deposits { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19335,7 +19331,7 @@ namespace Plaidly
         /// Indicates whether the institution supports payments from a different country.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("supports_international_payments", Required = Newtonsoft.Json.Required.Always)]
-        public bool Supports_international_payments { get; set; } = default!;
+        public bool Supports_international_payments { get; set; }
 
         [Newtonsoft.Json.JsonProperty("maximum_payment_amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -19345,10 +19341,10 @@ namespace Plaidly
         /// Indicates whether the institution supports returning refund details when initiating a payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("supports_refund_details", Required = Newtonsoft.Json.Required.Always)]
-        public bool Supports_refund_details { get; set; } = default!;
+        public bool Supports_refund_details { get; set; }
 
         [Newtonsoft.Json.JsonProperty("standing_order_metadata", Required = Newtonsoft.Json.Required.AllowNull)]
-        public PaymentInitiationStandingOrderMetadata? Standing_order_metadata { get; set; } = default!;
+        public PaymentInitiationStandingOrderMetadata Standing_order_metadata { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19383,13 +19379,13 @@ namespace Plaidly
         /// Indicates whether the institution supports closed-ended standing orders by providing an end date.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("supports_standing_order_end_date", Required = Newtonsoft.Json.Required.Always)]
-        public bool Supports_standing_order_end_date { get; set; } = default!;
+        public bool Supports_standing_order_end_date { get; set; }
 
         /// <summary>
         /// This is only applicable to `MONTHLY` standing orders. Indicates whether the institution supports negative integers (-1 to -5) for setting up a `MONTHLY` standing order relative to the end of the month.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("supports_standing_order_negative_execution_days", Required = Newtonsoft.Json.Required.Always)]
-        public bool Supports_standing_order_negative_execution_days { get; set; } = default!;
+        public bool Supports_standing_order_negative_execution_days { get; set; }
 
         /// <summary>
         /// A list of the valid standing order intervals supported by the institution.
@@ -19429,7 +19425,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(35, MinimumLength = 1)]
-        public string City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The postal code where the recipient is located. Maximum of 16 characters.
@@ -19437,7 +19433,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(16, MinimumLength = 1)]
-        public string Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code where the recipient is located.
@@ -19445,7 +19441,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(2, MinimumLength = 2)]
-        public string Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19467,7 +19463,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("interval", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(int.MaxValue, MinimumLength = 1)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentScheduleInterval Interval { get; set; } = default!;
+        public PaymentScheduleInterval Interval { get; set; }
 
         /// <summary>
         /// The day of the interval on which to schedule the payment.
@@ -19477,7 +19473,7 @@ namespace Plaidly
         /// <br/>If the payment interval is monthly, `interval_execution_day` should be an integer indicating which day of the month to make the payment on. Integers from 1 to 28 can be used to make a payment on that day of the month. Negative integers from -1 to -5 can be used to make a payment relative to the end of the month. To make a payment on the last day of the month, use -1; to make the payment on the second-to-last day, use -2, and so on.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("interval_execution_day", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Interval_execution_day { get; set; } = default!;
+        public int Interval_execution_day { get; set; }
 
         /// <summary>
         /// A date in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). Standing order payments will begin on the first `interval_execution_day` on or after the `start_date`.
@@ -19486,7 +19482,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// A date in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). Standing order payments will end on the last `interval_execution_day` on or before the `end_date`.
@@ -19494,14 +19490,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// The start date sent to the bank after adjusting for holidays or weekends.  Will be provided in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). If the start date did not require adjustment, this field will be `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("adjusted_start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Adjusted_start_date { get; set; } = default!;
+        public System.DateTimeOffset? Adjusted_start_date { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19592,13 +19588,13 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wallet_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(int.MaxValue, MinimumLength = 1)]
-        public string? Wallet_id { get; set; } = default!;
+        public string Wallet_id { get; set; }
 
         /// <summary>
         /// When `true`, Plaid will attempt to request refund details from the payee's financial institution.  Support varies between financial institutions and will not always be available.  If refund details could be retrieved, they will be available in the `/payment_initiation/payment/get` response.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("request_refund_details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Request_refund_details { get; set; } = default!;
+        public bool? Request_refund_details { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19618,16 +19614,16 @@ namespace Plaidly
     public partial class PaymentInitiationConsentConstraints
     {
         [Newtonsoft.Json.JsonProperty("valid_date_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaymentConsentValidDateTime? Valid_date_time { get; set; } = default!;
+        public PaymentConsentValidDateTime Valid_date_time { get; set; }
 
         [Newtonsoft.Json.JsonProperty("max_payment_amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaymentConsentMaxPaymentAmount Max_payment_amount { get; set; } = default!;
+        public PaymentConsentMaxPaymentAmount Max_payment_amount { get; set; }
 
         /// <summary>
         /// A list of amount limitations per period of time.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("periodic_amounts", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PaymentConsentPeriodicAmount> Periodic_amounts { get; set; } = default!;
+        public System.Collections.Generic.ICollection<PaymentConsentPeriodicAmount> Periodic_amounts { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19650,13 +19646,13 @@ namespace Plaidly
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(3, MinimumLength = 3)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentAmountCurrency Currency { get; set; } = default!;
+        public PaymentAmountCurrency Currency { get; set; }
 
         /// <summary>
         /// The amount of the payment. Must contain at most two digits of precision e.g. `1.23`. Minimum accepted value is `1`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
-        public double Value { get; set; } = default!;
+        public double Value { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19679,28 +19675,28 @@ namespace Plaidly
         /// When `true`, Plaid will attempt to request refund details from the payee's financial institution.  Support varies between financial institutions and will not always be available.  If refund details could be retrieved, they will be available in the `/payment_initiation/payment/get` response.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("request_refund_details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Request_refund_details { get; set; } = default!;
+        public bool? Request_refund_details { get; set; }
 
         /// <summary>
         /// The International Bank Account Number (IBAN) for the payer's account. If provided, the end user will be able to send payments only from the specified bank account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iban", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(34, MinimumLength = 15)]
-        public string? Iban { get; set; } = default!;
+        public string Iban { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaymentInitiationOptionalRestrictionBacs? Bacs { get; set; } = default!;
+        public PaymentInitiationOptionalRestrictionBacs Bacs { get; set; }
 
         /// <summary>
         /// The EMI (E-Money Institution) wallet that this payment is associated with, if any. This wallet is used as an intermediary account to enable Plaid to reconcile the settlement of funds for Payment Initiation requests.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wallet_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(int.MaxValue, MinimumLength = 1)]
-        public string? Wallet_id { get; set; } = default!;
+        public string Wallet_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("scheme", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentScheme? Scheme { get; set; } = default!;
+        public PaymentScheme? Scheme { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19724,16 +19720,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The International Bank Account Number (IBAN) for the account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iban", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iban { get; set; } = default!;
+        public string Iban { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.AllowNull)]
-        public RecipientBACSNullable? Bacs { get; set; } = default!;
+        public RecipientBACSNullable Bacs { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19829,7 +19825,7 @@ namespace Plaidly
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         [System.Obsolete]
-        public ProductStatusStatus Status { get; set; } = default!;
+        public ProductStatusStatus Status { get; set; }
 
         /// <summary>
         /// [ISO 8601](https://wikipedia.org/wiki/ISO_8601) formatted timestamp of the last status change for the institution.
@@ -19837,7 +19833,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_status_change", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Last_status_change { get; set; } = default!;
+        public System.DateTimeOffset Last_status_change { get; set; }
 
         [Newtonsoft.Json.JsonProperty("breakdown", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -19864,27 +19860,27 @@ namespace Plaidly
         /// The percentage of login attempts that are successful, expressed as a decimal.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Always)]
-        public double Success { get; set; } = default!;
+        public double Success { get; set; }
 
         /// <summary>
         /// The percentage of logins that are failing due to an internal Plaid issue, expressed as a decimal.
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_plaid", Required = Newtonsoft.Json.Required.Always)]
-        public double Error_plaid { get; set; } = default!;
+        public double Error_plaid { get; set; }
 
         /// <summary>
         /// The percentage of logins that are failing due to an issue in the institution's system, expressed as a decimal.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_institution", Required = Newtonsoft.Json.Required.Always)]
-        public double Error_institution { get; set; } = default!;
+        public double Error_institution { get; set; }
 
         /// <summary>
         /// The `refresh_interval` may be `DELAYED` or `STOPPED` even when the success rate is high. This value is only returned for Transactions status breakdowns.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("refresh_interval", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ProductStatusBreakdownRefresh_interval Refresh_interval { get; set; } = default!;
+        public ProductStatusBreakdownRefresh_interval Refresh_interval { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19907,7 +19903,7 @@ namespace Plaidly
         /// The version of the password schema to use, possible values are 1 or 2. The default value is 2. You should only specify 1 if you know it is necessary for your test suite.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Version { get; set; } = default!;
+        public string Version { get; set; }
 
         /// <summary>
         /// A seed, in the form of a string, that will be used to randomly generate account and transaction data, if this data is not specified using the `override_accounts` argument. If no seed is specified, the randomly generated data will be different each time.
@@ -19916,7 +19912,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("seed", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Seed { get; set; } = default!;
+        public string Seed { get; set; }
 
         /// <summary>
         /// An array of account overrides to configure the accounts for the Item. By default, if no override is specified, transactions and account data will be randomly generated based on the account type and subtype, and other products will have fixed or empty data.
@@ -19934,7 +19930,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("recaptcha", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Recaptcha { get; set; } = default!;
+        public string Recaptcha { get; set; }
 
         /// <summary>
         /// An error code to force on Item creation. Possible values are:
@@ -19955,7 +19951,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("force_error", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Force_error { get; set; } = default!;
+        public string Force_error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -19985,32 +19981,32 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// Number of rounds of questions. Required if value of `type` is `questions`. 
         /// </summary>
         [Newtonsoft.Json.JsonProperty("question_rounds", Required = Newtonsoft.Json.Required.Always)]
-        public double Question_rounds { get; set; } = default!;
+        public double Question_rounds { get; set; }
 
         /// <summary>
         /// Number of questions per round. Required if value of `type` is `questions`. If value of type is `selections`, default value is 2.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("questions_per_round", Required = Newtonsoft.Json.Required.Always)]
-        public double Questions_per_round { get; set; } = default!;
+        public double Questions_per_round { get; set; }
 
         /// <summary>
         /// Number of rounds of selections, used if `type` is `selections`. Defaults to 1.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("selection_rounds", Required = Newtonsoft.Json.Required.Always)]
-        public double Selection_rounds { get; set; } = default!;
+        public double Selection_rounds { get; set; }
 
         /// <summary>
         /// Number of available answers per question, used if `type` is `selection`. Defaults to 2.
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("selections_per_question", Required = Newtonsoft.Json.Required.Always)]
-        public double Selections_per_question { get; set; } = default!;
+        public double Selections_per_question { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20032,31 +20028,31 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public OverrideAccountType Type { get; set; } = default!;
+        public OverrideAccountType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("subtype", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public AccountSubtype? Subtype { get; set; } = default!;
+        public AccountSubtype? Subtype { get; set; }
 
         /// <summary>
         /// If provided, the account will start with this amount as the current balance.
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("starting_balance", Required = Newtonsoft.Json.Required.Always)]
-        public double Starting_balance { get; set; } = default!;
+        public double Starting_balance { get; set; }
 
         /// <summary>
         /// If provided, the account will always have this amount as its  available balance, regardless of current balance or changes in transactions over time.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("force_available_balance", Required = Newtonsoft.Json.Required.Always)]
-        public double Force_available_balance { get; set; } = default!;
+        public double Force_available_balance { get; set; }
 
         /// <summary>
         /// ISO-4217 currency code. If provided, the account will be denominated in the given currency. Transactions will also be in this currency by default.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Currency { get; set; } = default!;
+        public string Currency { get; set; }
 
         [Newtonsoft.Json.JsonProperty("meta", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20074,10 +20070,10 @@ namespace Plaidly
         public System.Collections.Generic.ICollection<TransactionOverride> Transactions { get; set; } = new System.Collections.ObjectModel.Collection<TransactionOverride>();
 
         [Newtonsoft.Json.JsonProperty("holdings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public HoldingsOverride Holdings { get; set; } = default!;
+        public HoldingsOverride Holdings { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investment_transactions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Investments_TransactionsOverride Investment_transactions { get; set; } = default!;
+        public Investments_TransactionsOverride Investment_transactions { get; set; }
 
         [Newtonsoft.Json.JsonProperty("identity", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20092,7 +20088,7 @@ namespace Plaidly
         public InflowModel Inflow_model { get; set; } = new InflowModel();
 
         [Newtonsoft.Json.JsonProperty("income", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeOverride Income { get; set; } = default!;
+        public IncomeOverride Income { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20116,20 +20112,20 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The account's official name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("official_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Official_name { get; set; } = default!;
+        public string Official_name { get; set; }
 
         /// <summary>
         /// The account's limit
         /// </summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public double Limit { get; set; } = default!;
+        public double Limit { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20152,49 +20148,49 @@ namespace Plaidly
         /// Will be used for the account number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Account { get; set; } = default!;
+        public string Account { get; set; }
 
         /// <summary>
         /// Must be a valid ACH routing number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ach_routing", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Ach_routing { get; set; } = default!;
+        public string Ach_routing { get; set; }
 
         /// <summary>
         /// Must be a valid wire transfer routing number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ach_wire_routing", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Ach_wire_routing { get; set; } = default!;
+        public string Ach_wire_routing { get; set; }
 
         /// <summary>
         /// EFT institution number. Must be specified alongside `eft_branch`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("eft_institution", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Eft_institution { get; set; } = default!;
+        public string Eft_institution { get; set; }
 
         /// <summary>
         /// EFT branch number. Must be specified alongside `eft_institution`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("eft_branch", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Eft_branch { get; set; } = default!;
+        public string Eft_branch { get; set; }
 
         /// <summary>
         /// Bank identifier code (BIC). Must be specified alongside `international_iban`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("international_bic", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string International_bic { get; set; } = default!;
+        public string International_bic { get; set; }
 
         /// <summary>
         /// International bank account number (IBAN). If no account number is specified via `account`, will also be used as the account number by default. Must be specified alongside `international_bic`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("international_iban", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string International_iban { get; set; } = default!;
+        public string International_iban { get; set; }
 
         /// <summary>
         /// BACS sort code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bacs_sort_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Bacs_sort_code { get; set; } = default!;
+        public string Bacs_sort_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20219,7 +20215,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date_transacted", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date_transacted { get; set; } = default!;
+        public System.DateTimeOffset Date_transacted { get; set; }
 
         /// <summary>
         /// The date the transaction posted, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format. Posted dates in the past or present will result in posted transactions; posted dates in the future will result in pending transactions.
@@ -20227,26 +20223,26 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date_posted", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date_posted { get; set; } = default!;
+        public System.DateTimeOffset Date_posted { get; set; }
 
         /// <summary>
         /// The transaction amount. Can be negative.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// The transaction description.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The ISO-4217 format currency code for the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Currency { get; set; } = default!;
+        public string Currency { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20269,37 +20265,37 @@ namespace Plaidly
         /// 12-character ISIN, a globally unique securities identifier.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isin", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Isin { get; set; } = default!;
+        public string Isin { get; set; }
 
         /// <summary>
         /// 9-character CUSIP, an identifier assigned to North American securities.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cusip", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Cusip { get; set; } = default!;
+        public string Cusip { get; set; }
 
         /// <summary>
         /// 7-character SEDOL, an identifier assigned to securities in the UK.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sedol", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Sedol { get; set; } = default!;
+        public string Sedol { get; set; }
 
         /// <summary>
         /// A descriptive name for the security, suitable for display.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The security’s trading symbol for publicly traded securities, and otherwise a short identifier if available.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ticker_symbol", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Ticker_symbol { get; set; } = default!;
+        public string Ticker_symbol { get; set; }
 
         /// <summary>
         /// Either a valid `iso_currency_code` or `unofficial_currency_code`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Currency { get; set; } = default!;
+        public string Currency { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20322,33 +20318,33 @@ namespace Plaidly
         /// The last price given by the institution for this security
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_price", Required = Newtonsoft.Json.Required.Always)]
-        public double Institution_price { get; set; } = default!;
+        public double Institution_price { get; set; }
 
         /// <summary>
         /// The date at which `institution_price` was current. Must be formatted as an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) date.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_price_as_of", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Institution_price_as_of { get; set; } = default!;
+        public System.DateTimeOffset Institution_price_as_of { get; set; }
 
         /// <summary>
         /// The average original value of the holding. Multiple cost basis values for the same security purchased at different prices are not supported.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cost_basis", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Cost_basis { get; set; } = default!;
+        public double Cost_basis { get; set; }
 
         /// <summary>
         /// The total quantity of the asset held, as reported by the financial institution.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("quantity", Required = Newtonsoft.Json.Required.Always)]
-        public double Quantity { get; set; } = default!;
+        public double Quantity { get; set; }
 
         /// <summary>
         /// Either a valid `iso_currency_code` or `unofficial_currency_code`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Currency { get; set; } = default!;
+        public string Currency { get; set; }
 
         [Newtonsoft.Json.JsonProperty("security", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20377,32 +20373,32 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date { get; set; } = default!;
+        public System.DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// The institution's description of the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The number of units of the security involved in this transaction. Must be positive if the type is a buy and negative if the type is a sell.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("quantity", Required = Newtonsoft.Json.Required.Always)]
-        public double Quantity { get; set; } = default!;
+        public double Quantity { get; set; }
 
         /// <summary>
         /// The price of the security at which this transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("price", Required = Newtonsoft.Json.Required.Always)]
-        public double Price { get; set; } = default!;
+        public double Price { get; set; }
 
         /// <summary>
         /// The combined value of all fees applied to this transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("fees", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Fees { get; set; } = default!;
+        public double Fees { get; set; }
 
         /// <summary>
         /// The type of the investment transaction. Possible values are:
@@ -20414,17 +20410,17 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// Either a valid `iso_currency_code` or `unofficial_currency_code`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Currency { get; set; } = default!;
+        public string Currency { get; set; }
 
         [Newtonsoft.Json.JsonProperty("security", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SecurityOverride Security { get; set; } = default!;
+        public SecurityOverride Security { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20448,49 +20444,49 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// The purchase APR percentage value. For simplicity, this is the only interest rate used to calculate interest charges. Can only be set if `type` is `credit`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("purchase_apr", Required = Newtonsoft.Json.Required.Always)]
-        public double Purchase_apr { get; set; } = default!;
+        public double Purchase_apr { get; set; }
 
         /// <summary>
         /// The cash APR percentage value. Can only be set if `type` is `credit`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cash_apr", Required = Newtonsoft.Json.Required.Always)]
-        public double Cash_apr { get; set; } = default!;
+        public double Cash_apr { get; set; }
 
         /// <summary>
         /// The balance transfer APR percentage value. Can only be set if `type` is `credit`. Can only be set if `type` is `credit`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("balance_transfer_apr", Required = Newtonsoft.Json.Required.Always)]
-        public double Balance_transfer_apr { get; set; } = default!;
+        public double Balance_transfer_apr { get; set; }
 
         /// <summary>
         /// The special APR percentage value. Can only be set if `type` is `credit`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("special_apr", Required = Newtonsoft.Json.Required.Always)]
-        public double Special_apr { get; set; } = default!;
+        public double Special_apr { get; set; }
 
         /// <summary>
         /// Override the `last_payment_amount` field. Can only be set if `type` is `credit`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_payment_amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Last_payment_amount { get; set; } = default!;
+        public double Last_payment_amount { get; set; }
 
         /// <summary>
         /// Override the `minimum_payment_amount` field. Can only be set if `type` is `credit` or `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("minimum_payment_amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Minimum_payment_amount { get; set; } = default!;
+        public double Minimum_payment_amount { get; set; }
 
         /// <summary>
         /// Override the `is_overdue` field
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_overdue", Required = Newtonsoft.Json.Required.Always)]
-        public bool Is_overdue { get; set; } = default!;
+        public bool Is_overdue { get; set; }
 
         /// <summary>
         /// The date on which the loan was initially lent, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format. Can only be set if `type` is `student`.
@@ -20498,25 +20494,25 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("origination_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Origination_date { get; set; } = default!;
+        public System.DateTimeOffset Origination_date { get; set; }
 
         /// <summary>
         /// The original loan principal. Can only be set if `type` is `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("principal", Required = Newtonsoft.Json.Required.Always)]
-        public double Principal { get; set; } = default!;
+        public double Principal { get; set; }
 
         /// <summary>
         /// The interest rate on the loan as a percentage. Can only be set if `type` is `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nominal_apr", Required = Newtonsoft.Json.Required.Always)]
-        public double Nominal_apr { get; set; } = default!;
+        public double Nominal_apr { get; set; }
 
         /// <summary>
         /// If set, interest capitalization begins at the given number of months after loan origination. By default interest is never capitalized. Can only be set if `type` is `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("interest_capitalization_grace_period_months", Required = Newtonsoft.Json.Required.Always)]
-        public double Interest_capitalization_grace_period_months { get; set; } = default!;
+        public double Interest_capitalization_grace_period_months { get; set; }
 
         [Newtonsoft.Json.JsonProperty("repayment_model", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20528,27 +20524,27 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("expected_payoff_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Expected_payoff_date { get; set; } = default!;
+        public System.DateTimeOffset Expected_payoff_date { get; set; }
 
         /// <summary>
         /// Override the `guarantor` field. Can only be set if `type` is `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("guarantor", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Guarantor { get; set; } = default!;
+        public string Guarantor { get; set; }
 
         /// <summary>
         /// Override the `is_federal` field. Can only be set if `type` is `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_federal", Required = Newtonsoft.Json.Required.Always)]
-        public bool Is_federal { get; set; } = default!;
+        public bool Is_federal { get; set; }
 
         /// <summary>
         /// Override the `loan_name` field. Can only be set if `type` is `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("loan_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Loan_name { get; set; } = default!;
+        public string Loan_name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("loan_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20559,7 +20555,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_reference_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Payment_reference_number { get; set; } = default!;
+        public string Payment_reference_number { get; set; }
 
         [Newtonsoft.Json.JsonProperty("pslf_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20570,21 +20566,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("repayment_plan_description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Repayment_plan_description { get; set; } = default!;
+        public string Repayment_plan_description { get; set; }
 
         /// <summary>
         /// Override the `repayment_plan.type` field. Can only be set if `type` is `student`. Possible values are: `"extended graduated"`, `"extended standard"`, `"graduated"`, `"income-contingent repayment"`, `"income-based repayment"`, `"interest only"`, `"other"`, `"pay as you earn"`, `"revised pay as you earn"`, or `"standard"`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("repayment_plan_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Repayment_plan_type { get; set; } = default!;
+        public string Repayment_plan_type { get; set; }
 
         /// <summary>
         /// Override the `sequence_number` field. Can only be set if `type` is `student`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sequence_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sequence_number { get; set; } = default!;
+        public string Sequence_number { get; set; }
 
         [Newtonsoft.Json.JsonProperty("servicer_address", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20612,19 +20608,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// Configures the number of months before repayment starts.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("non_repayment_months", Required = Newtonsoft.Json.Required.Always)]
-        public double Non_repayment_months { get; set; } = default!;
+        public double Non_repayment_months { get; set; }
 
         /// <summary>
         /// Configures the number of months of repayments before the loan is paid off.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("repayment_months", Required = Newtonsoft.Json.Required.Always)]
-        public double Repayment_months { get; set; } = default!;
+        public double Repayment_months { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20656,33 +20652,33 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// Amount of income per month. This value is required if `type` is `monthly-income`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Income_amount { get; set; } = default!;
+        public double Income_amount { get; set; }
 
         /// <summary>
         /// Number between 1 and 28, or `last` meaning the last day of the month. The day of the month on which the income transaction will appear. The name of the income transaction. This field is required if `type` is `monthly-income`, `monthly-balance-payment` or `monthly-interest-only-payment`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_day_of_month", Required = Newtonsoft.Json.Required.Always)]
-        public double Payment_day_of_month { get; set; } = default!;
+        public double Payment_day_of_month { get; set; }
 
         /// <summary>
         /// The name of the income transaction. This field is required if `type` is `monthly-income`, `monthly-balance-payment` or `monthly-interest-only-payment`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transaction_name { get; set; } = default!;
+        public string Transaction_name { get; set; }
 
         /// <summary>
         /// Number between 1 and 28, or `last` meaning the last day of the month. The day of the month on which the balance is calculated for the next payment. The name of the income transaction. This field is required if `type` is `monthly-balance-payment` or `monthly-interest-only-payment`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("statement_day_of_month", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Statement_day_of_month { get; set; } = default!;
+        public string Statement_day_of_month { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20705,7 +20701,7 @@ namespace Plaidly
         /// A list of paystubs associated with the account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("paystubs", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PaystubOverride> Paystubs { get; set; } = default!;
+        public System.Collections.Generic.ICollection<PaystubOverride> Paystubs { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20725,16 +20721,16 @@ namespace Plaidly
     public partial class PaystubOverride
     {
         [Newtonsoft.Json.JsonProperty("employer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaystubOverrideEmployer Employer { get; set; } = default!;
+        public PaystubOverrideEmployer Employer { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employee", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaystubOverrideEmployee Employee { get; set; } = default!;
+        public PaystubOverrideEmployee Employee { get; set; }
 
         [Newtonsoft.Json.JsonProperty("income_breakdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<IncomeBreakdown> Income_breakdown { get; set; } = default!;
+        public System.Collections.Generic.ICollection<IncomeBreakdown> Income_breakdown { get; set; }
 
         [Newtonsoft.Json.JsonProperty("pay_period_details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PayPeriodDetails Pay_period_details { get; set; } = default!;
+        public PayPeriodDetails Pay_period_details { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20757,7 +20753,7 @@ namespace Plaidly
         /// The name of the employer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20780,10 +20776,10 @@ namespace Plaidly
         /// The name of the employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaystubOverrideEmployeeAddress Address { get; set; } = default!;
+        public PaystubOverrideEmployeeAddress Address { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20806,33 +20802,33 @@ namespace Plaidly
         /// The full city name.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The region or state
         /// <br/>Example: `"NC"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address
         /// <br/>Example: `"564 Main Street, APT 15"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// 5 digit postal code.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The country of the address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20856,25 +20852,25 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `AUTOMATICALLY_VERIFIED`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         /// <summary>
         /// The `account_id` of the account associated with the webhook
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20895,7 +20891,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20919,25 +20915,25 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `VERIFICATION_EXPIRED`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// The `account_id` of the account associated with the webhook
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -20961,28 +20957,28 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `WEBHOOK_UPDATE_ACKNOWLEDGED`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// The new webhook URL
         /// </summary>
         [Newtonsoft.Json.JsonProperty("new_webhook_url", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string New_webhook_url { get; set; } = default!;
+        public string New_webhook_url { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21006,25 +21002,25 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `PENDING_EXPIRATION`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// The date and time at which the Item's access consent will expire, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format
         /// </summary>
         [Newtonsoft.Json.JsonProperty("consent_expiration_time", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Consent_expiration_time { get; set; } = default!;
+        public System.DateTimeOffset Consent_expiration_time { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21048,22 +21044,22 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `ERROR`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21087,21 +21083,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `PRODUCT_READY`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21125,39 +21121,39 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Error_type { get; set; } = default!;
+        public string Error_type { get; set; }
 
         /// <summary>
         /// RECAPTCHA_REQUIRED
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Error_code { get; set; } = default!;
+        public string Error_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("display_message", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Display_message { get; set; } = default!;
+        public string Display_message { get; set; }
 
         /// <summary>
         /// 400
         /// </summary>
         [Newtonsoft.Json.JsonProperty("http_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Http_code { get; set; } = default!;
+        public string Http_code { get; set; }
 
         /// <summary>
         /// Your user will be prompted to solve a Google reCAPTCHA challenge in the Link Recaptcha pane. If they solve the challenge successfully, the user's request is resubmitted and they are directed to the next Item creation step.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("link_user_experience", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Link_user_experience { get; set; } = default!;
+        public string Link_user_experience { get; set; }
 
         /// <summary>
         /// Plaid's fraud system detects abusive traffic and considers a variety of parameters throughout Item creation requests. When a request is considered risky or possibly fraudulent, Link presents a reCAPTCHA for the user to solve.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("common_causes", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Common_causes { get; set; } = default!;
+        public string Common_causes { get; set; }
 
         /// <summary>
         /// Link will automatically guide your user through reCAPTCHA verification. As a general rule, we recommend instrumenting basic fraud monitoring to detect and protect your website from spam and abuse.
@@ -21166,7 +21162,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("troubleshooting_steps", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Troubleshooting_steps { get; set; } = default!;
+        public string Troubleshooting_steps { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21190,14 +21186,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `BANK_TRANSFERS_EVENTS_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21221,14 +21217,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `TRANSFER_EVENTS_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21252,33 +21248,33 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `DEFAULT_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         /// <summary>
         /// The number of new transactions reported since the last time this webhook was fired.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("new_investments_transactions", Required = Newtonsoft.Json.Required.Always)]
-        public double New_investments_transactions { get; set; } = default!;
+        public double New_investments_transactions { get; set; }
 
         /// <summary>
         /// The number of canceled transactions reported since the last time this webhook was fired.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("canceled_investments_transactions", Required = Newtonsoft.Json.Required.Always)]
-        public double Canceled_investments_transactions { get; set; } = default!;
+        public double Canceled_investments_transactions { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21302,33 +21298,33 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `DEFAULT_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         /// <summary>
         /// The number of new holdings reported since the last time this webhook was fired.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("new_holdings", Required = Newtonsoft.Json.Required.Always)]
-        public double New_holdings { get; set; } = default!;
+        public double New_holdings { get; set; }
 
         /// <summary>
         /// The number of updated holdings reported since the last time this webhook was fired.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updated_holdings", Required = Newtonsoft.Json.Required.Always)]
-        public double Updated_holdings { get; set; } = default!;
+        public double Updated_holdings { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21352,22 +21348,22 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `DEFAULT_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         /// <summary>
         /// An array of `account_id`'s for accounts that contain new liabilities.'
@@ -21414,21 +21410,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `PRODUCT_READY`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         /// <summary>
         /// The `asset_report_id` that can be provided to `/asset_report/get` to retrieve the Asset Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21452,25 +21448,25 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `ERROR`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         /// <summary>
         /// The ID associated with the Asset Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21494,40 +21490,40 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `RELAY_EVENT`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("relay_event", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public RelayEvent Relay_event { get; set; } = default!;
+        public RelayEvent Relay_event { get; set; }
 
         /// <summary>
         /// The id of the client with whom the Asset Report is being shared.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("secondary_client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secondary_client_id { get; set; } = default!;
+        public string Secondary_client_id { get; set; }
 
         /// <summary>
         /// The `asset_relay_token` that was created by calling `/asset_report/relay/create.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_relay_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_relay_token { get; set; } = default!;
+        public string Asset_relay_token { get; set; }
 
         /// <summary>
         /// The `asset_report_id` that can be provided to `/asset_report/relay/get` to retrieve the Asset Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21565,7 +21561,7 @@ namespace Plaidly
     public partial class Cause : PlaidError
     {
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21589,7 +21585,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("warning_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Warning_type { get; set; } = default!;
+        public string Warning_type { get; set; }
 
         /// <summary>
         /// The warning code identifies a specific kind of warning. Currently, the only possible warning code is `OWNERS_UNAVAILABLE`, which indicates that account-owner information is not available.
@@ -21597,7 +21593,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("warning_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public Warning_code Warning_code { get; set; } = default!;
+        public Warning_code Warning_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("cause", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -21639,13 +21635,13 @@ namespace Plaidly
         /// The date and time from which the consent should be active, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? From { get; set; } = default!;
+        public System.DateTimeOffset? From { get; set; }
 
         /// <summary>
         /// The date and time at which the consent expires, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? To { get; set; } = default!;
+        public System.DateTimeOffset? To { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21671,11 +21667,11 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("interval", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentConsentPeriodicInterval Interval { get; set; } = default!;
+        public PaymentConsentPeriodicInterval Interval { get; set; }
 
         [Newtonsoft.Json.JsonProperty("alignment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentConsentPeriodicAlignment Alignment { get; set; } = default!;
+        public PaymentConsentPeriodicAlignment Alignment { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21738,25 +21734,25 @@ namespace Plaidly
         /// An identifier you determine and submit for the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_user_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Client_user_id { get; set; } = default!;
+        public string Client_user_id { get; set; }
 
         /// <summary>
         /// The user's first name. Required for the Fannie Mae Day 1 Certainty™ program.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("first_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? First_name { get; set; } = default!;
+        public string First_name { get; set; }
 
         /// <summary>
         /// The user's middle name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("middle_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Middle_name { get; set; } = default!;
+        public string Middle_name { get; set; }
 
         /// <summary>
         /// The user's last name.  Required for the Fannie Mae Day 1 Certainty™ program.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Last_name { get; set; } = default!;
+        public string Last_name { get; set; }
 
         /// <summary>
         /// The user's Social Security Number. Required for the Fannie Mae Day 1 Certainty™ program.
@@ -21764,19 +21760,19 @@ namespace Plaidly
         /// <br/>Format: "ddd-dd-dddd"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ssn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Ssn { get; set; } = default!;
+        public string Ssn { get; set; }
 
         /// <summary>
         /// The user's phone number, in E.164 format: +{countrycode}{number}. For example: "+14151234567". Phone numbers provided in other formats will be parsed on a best-effort basis.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Phone_number { get; set; } = default!;
+        public string Phone_number { get; set; }
 
         /// <summary>
         /// The user's email address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email { get; set; } = default!;
+        public string Email { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21800,11 +21796,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21825,26 +21821,26 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("depository", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Depository { get; set; } = default!;
+        public string Depository { get; set; }
 
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Credit { get; set; } = default!;
+        public string Credit { get; set; }
 
         [Newtonsoft.Json.JsonProperty("loan", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Loan { get; set; } = default!;
+        public string Loan { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investment", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Investment { get; set; } = default!;
+        public string Investment { get; set; }
 
         /// <summary>
         /// Other or unknown account type. Supported products for `other` accounts are: Balance, Transactions, Identity, and Assets.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("other", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Other { get; set; } = default!;
+        public string Other { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -21865,26 +21861,26 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         /// <summary>
         /// An identifier you determine and submit for the Asset Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_report_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Client_report_id { get; set; } = default!;
+        public string Client_report_id { get; set; }
 
         /// <summary>
         /// The date and time when the Asset Report was created, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (e.g. "2018-04-12T03:32:11Z").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("date_generated", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Date_generated { get; set; } = default!;
+        public System.DateTimeOffset Date_generated { get; set; }
 
         /// <summary>
         /// The duration of transaction history you requested
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_requested", Required = Newtonsoft.Json.Required.Always)]
-        public double Days_requested { get; set; } = default!;
+        public double Days_requested { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -21916,28 +21912,28 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// The full financial institution name associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Institution_name { get; set; } = default!;
+        public string Institution_name { get; set; }
 
         /// <summary>
         /// The id of the financial institution associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// The date and time when this Item’s data was last retrieved from the financial institution, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("date_last_updated", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Date_last_updated { get; set; } = default!;
+        public System.DateTimeOffset Date_last_updated { get; set; }
 
         /// <summary>
         /// Data about each of the accounts open on the Item.
@@ -21968,67 +21964,67 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `PAYMENT_STATUS_UPDATE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         /// <summary>
         /// The `payment_id` for the payment being updated
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Payment_id { get; set; } = default!;
+        public string Payment_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("new_payment_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationPaymentStatus New_payment_status { get; set; } = default!;
+        public PaymentInitiationPaymentStatus New_payment_status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("old_payment_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentInitiationPaymentStatus Old_payment_status { get; set; } = default!;
+        public PaymentInitiationPaymentStatus Old_payment_status { get; set; }
 
         /// <summary>
         /// The original value of the reference when creating the payment.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("original_reference", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Original_reference { get; set; } = default!;
+        public string Original_reference { get; set; }
 
         /// <summary>
         /// The value of the reference sent to the bank after adjustment to pass bank validation rules.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("adjusted_reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Adjusted_reference { get; set; } = default!;
+        public string Adjusted_reference { get; set; }
 
         /// <summary>
         /// The original value of the `start_date` provided during the creation of a standing order. If the payment is not a standing order, this field will be `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("original_start_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Original_start_date { get; set; } = default!;
+        public System.DateTimeOffset? Original_start_date { get; set; }
 
         /// <summary>
         /// The start date sent to the bank after adjusting for holidays or weekends.  Will be provided in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DD). If the start date did not require adjustment, or if the payment is not a standing order, this field will be `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("adjusted_start_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Adjusted_start_date { get; set; } = default!;
+        public System.DateTimeOffset? Adjusted_start_date { get; set; }
 
         /// <summary>
         /// The timestamp of the update, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format, e.g. `"2017-09-14T14:42:19.350Z"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Timestamp { get; set; } = default!;
+        public System.DateTimeOffset Timestamp { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22052,51 +22048,51 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The Plaid `security_id` associated with the holding.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("security_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Security_id { get; set; } = default!;
+        public string Security_id { get; set; }
 
         /// <summary>
         /// The last price given by the institution for this security.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_price", Required = Newtonsoft.Json.Required.Always)]
-        public double Institution_price { get; set; } = default!;
+        public double Institution_price { get; set; }
 
         /// <summary>
         /// The date at which `institution_price` was current.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_price_as_of", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Institution_price_as_of { get; set; } = default!;
+        public System.DateTimeOffset? Institution_price_as_of { get; set; }
 
         /// <summary>
         /// The value of the holding, as reported by the institution.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_value", Required = Newtonsoft.Json.Required.Always)]
-        public double Institution_value { get; set; } = default!;
+        public double Institution_value { get; set; }
 
         /// <summary>
         /// The cost basis of the holding.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cost_basis", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Cost_basis { get; set; } = default!;
+        public double? Cost_basis { get; set; }
 
         /// <summary>
         /// The total quantity of the asset held, as reported by the financial institution. If the security is an option, `quantity` will reflect the total number of options (typically the number of contracts multiplied by 100), not the number of contracts.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("quantity", Required = Newtonsoft.Json.Required.Always)]
-        public double Quantity { get; set; } = default!;
+        public double Quantity { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the holding. Always `null` if `unofficial_currency_code` is non-`null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the holding. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -22105,7 +22101,7 @@ namespace Plaidly
         /// <br/>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22129,61 +22125,61 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("security_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Security_id { get; set; } = default!;
+        public string Security_id { get; set; }
 
         /// <summary>
         /// 12-character ISIN, a globally unique securities identifier.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isin", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Isin { get; set; } = default!;
+        public string Isin { get; set; }
 
         /// <summary>
         /// 9-character CUSIP, an identifier assigned to North American securities.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cusip", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Cusip { get; set; } = default!;
+        public string Cusip { get; set; }
 
         /// <summary>
         /// 7-character SEDOL, an identifier assigned to securities in the UK.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sedol", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Sedol { get; set; } = default!;
+        public string Sedol { get; set; }
 
         /// <summary>
         /// An identifier given to the security by the institution
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_security_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Institution_security_id { get; set; } = default!;
+        public string Institution_security_id { get; set; }
 
         /// <summary>
         /// If `institution_security_id` is present, this field indicates the Plaid `institution_id` of the institution to whom the identifier belongs.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// In certain cases, Plaid will provide the ID of another security whose performance resembles this security, typically when the original security has low volume, or when a private security can be modeled with a publicly traded security.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("proxy_security_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Proxy_security_id { get; set; } = default!;
+        public string Proxy_security_id { get; set; }
 
         /// <summary>
         /// A descriptive name for the security, suitable for display.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The security’s trading symbol for publicly traded securities, and otherwise a short identifier if available.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ticker_symbol", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Ticker_symbol { get; set; } = default!;
+        public string Ticker_symbol { get; set; }
 
         /// <summary>
         /// Indicates that a security is a highly liquid asset and can be treated like cash.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_cash_equivalent", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Is_cash_equivalent { get; set; } = default!;
+        public bool? Is_cash_equivalent { get; set; }
 
         /// <summary>
         /// The security type of the holding. Valid security types are:
@@ -22205,26 +22201,26 @@ namespace Plaidly
         /// <br/>`other`: Unknown or other investment types
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// Price of the security at the close of the previous trading session. `null` for non-public securities. If the security is a foreign currency or a cryptocurrency this field will be updated daily and will be priced in USD.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("close_price", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Close_price { get; set; } = default!;
+        public double? Close_price { get; set; }
 
         /// <summary>
         /// Date for which `close_price` is accurate. Always `null` if `close_price` is `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("close_price_as_of", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Close_price_as_of { get; set; } = default!;
+        public System.DateTimeOffset? Close_price_as_of { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the price given. Always `null` if `unofficial_currency_code` is non-`null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the security. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -22232,7 +22228,7 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22435,27 +22431,27 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("investment_transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Investment_transaction_id { get; set; } = default!;
+        public string Investment_transaction_id { get; set; }
 
         /// <summary>
         /// A legacy field formerly used internally by Plaid to identify certain canceled transactions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cancel_transaction_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Cancel_transaction_id { get; set; } = default!;
+        public string Cancel_transaction_id { get; set; }
 
         /// <summary>
         /// The `account_id` of the account against which this transaction posted.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The `security_id` to which this transaction is related.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("security_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Security_id { get; set; } = default!;
+        public string Security_id { get; set; }
 
         /// <summary>
         /// The [ISO 8601](https://wikipedia.org/wiki/ISO_8601) posting date for the transaction.
@@ -22463,54 +22459,54 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date { get; set; } = default!;
+        public System.DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// The institution’s description of the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The number of units of the security involved in this transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("quantity", Required = Newtonsoft.Json.Required.Always)]
-        public double Quantity { get; set; } = default!;
+        public double Quantity { get; set; }
 
         /// <summary>
         /// The complete value of the transaction. Positive values when cash is debited, e.g. purchases of stock; negative values when cash is credited, e.g. sales of stock. Treatment remains the same for cash-only movements unassociated with securities.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// The price of the security at which this transaction occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("price", Required = Newtonsoft.Json.Required.Always)]
-        public double Price { get; set; } = default!;
+        public double Price { get; set; }
 
         /// <summary>
         /// The combined value of all fees applied to this transaction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("fees", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Fees { get; set; } = default!;
+        public double? Fees { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public InvestmentTransactionType Type { get; set; } = default!;
+        public InvestmentTransactionType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("subtype", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public InvestmentTransactionSubtype Subtype { get; set; } = default!;
+        public InvestmentTransactionSubtype Subtype { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the transaction. Always `null` if `unofficial_currency_code` is non-`null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the holding. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -22518,7 +22514,7 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22539,30 +22535,30 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("buy", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Buy { get; set; } = default!;
+        public string Buy { get; set; }
 
         [Newtonsoft.Json.JsonProperty("sell", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sell { get; set; } = default!;
+        public string Sell { get; set; }
 
         /// <summary>
         /// A cancellation of a pending transaction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cancel", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Cancel { get; set; } = default!;
+        public string Cancel { get; set; }
 
         [Newtonsoft.Json.JsonProperty("cash", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Cash { get; set; } = default!;
+        public string Cash { get; set; }
 
         [Newtonsoft.Json.JsonProperty("fee", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Fee { get; set; } = default!;
+        public string Fee { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer { get; set; } = default!;
+        public string Transfer { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22595,21 +22591,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `USER_PERMISSION_REVOKED`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22629,17 +22625,17 @@ namespace Plaidly
     public partial class DepositSwitchGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the deposit switch
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_id { get; set; } = default!;
+        public string Deposit_switch_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22663,19 +22659,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_id { get; set; } = default!;
+        public string Deposit_switch_id { get; set; }
 
         /// <summary>
         /// The ID of the bank account the direct deposit was switched to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("target_account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Target_account_id { get; set; } = default!;
+        public string Target_account_id { get; set; }
 
         /// <summary>
         /// The ID of the Item the direct deposit was switched to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("target_item_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Target_item_id { get; set; } = default!;
+        public string Target_item_id { get; set; }
 
         /// <summary>
         /// 
@@ -22692,7 +22688,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DepositSwitchGetResponseState State { get; set; } = default!;
+        public DepositSwitchGetResponseState State { get; set; }
 
         /// <summary>
         /// The method used to make the deposit switch.
@@ -22705,55 +22701,55 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("switch_method", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DepositSwitchGetResponseSwitch_method? Switch_method { get; set; } = default!;
+        public DepositSwitchGetResponseSwitch_method? Switch_method { get; set; }
 
         /// <summary>
         /// When `true`, user’s direct deposit goes to multiple banks. When false, user’s direct deposit only goes to the target account. Always `null` if the deposit switch has not been completed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_has_multiple_allocations", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Account_has_multiple_allocations { get; set; } = default!;
+        public bool? Account_has_multiple_allocations { get; set; }
 
         /// <summary>
         /// When `true`, the target account is allocated the remainder of direct deposit after all other allocations have been deducted. When `false`, user’s direct deposit is allocated as a percent or amount. Always `null` if the deposit switch has not been completed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_allocated_remainder", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Is_allocated_remainder { get; set; } = default!;
+        public bool? Is_allocated_remainder { get; set; }
 
         /// <summary>
         /// The percentage of direct deposit allocated to the target account. Always `null` if the target account is not allocated a percentage or if the deposit switch has not been completed or if `is_allocated_remainder` is true.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("percent_allocated", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Percent_allocated { get; set; } = default!;
+        public double? Percent_allocated { get; set; }
 
         /// <summary>
         /// The dollar amount of direct deposit allocated to the target account. Always `null` if the target account is not allocated an amount or if the deposit switch has not been completed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount_allocated", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Amount_allocated { get; set; } = default!;
+        public double? Amount_allocated { get; set; }
 
         /// <summary>
         /// The name of the employer selected by the user. If the user did not select an employer, the value returned is `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employer_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Employer_name { get; set; } = default!;
+        public string Employer_name { get; set; }
 
         /// <summary>
         /// The ID of the employer selected by the user. If the user did not select an employer, the value returned is `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employer_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Employer_id { get; set; } = default!;
+        public string Employer_id { get; set; }
 
         /// <summary>
         /// The name of the institution selected by the user. If the user did not select an institution, the value returned is `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Institution_name { get; set; } = default!;
+        public string Institution_name { get; set; }
 
         /// <summary>
         /// The ID of the institution selected by the user. If the user did not select an institution, the value returned is `null`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// [ISO 8601](https://wikipedia.org/wiki/ISO_8601) date the deposit switch was created.
@@ -22762,7 +22758,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date_created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date_created { get; set; } = default!;
+        public System.DateTimeOffset Date_created { get; set; }
 
         /// <summary>
         /// [ISO 8601](https://wikipedia.org/wiki/ISO_8601) date the deposit switch was completed. Always `null` if the deposit switch has not been completed.
@@ -22770,11 +22766,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("date_completed", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Date_completed { get; set; } = default!;
+        public System.DateTimeOffset? Date_completed { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22797,13 +22793,13 @@ namespace Plaidly
         /// `"DEPOSIT_SWITCH"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `"SWITCH_STATE_UPDATE"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         /// <summary>
         /// 
@@ -22820,13 +22816,13 @@ namespace Plaidly
         /// <br/>For more information, see the [Deposit Switch API reference](/docs/deposit-switch/reference#deposit_switchget).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string State { get; set; } = default!;
+        public string State { get; set; }
 
         /// <summary>
         /// The ID of the deposit switch.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Deposit_switch_id { get; set; } = default!;
+        public string Deposit_switch_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22846,17 +22842,17 @@ namespace Plaidly
     public partial class AssetReportAuditCopyGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The `audit_copy_token` granting access to the Audit Copy you would like to get.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("audit_copy_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Audit_copy_token { get; set; } = default!;
+        public string Audit_copy_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22876,14 +22872,14 @@ namespace Plaidly
     public partial class TransferGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer_id { get; set; } = default!;
+        public string Transfer_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22903,14 +22899,14 @@ namespace Plaidly
     public partial class BankTransferGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Bank_transfer_id { get; set; } = default!;
+        public string Bank_transfer_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22935,7 +22931,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22960,7 +22956,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -22981,24 +22977,24 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         /// <summary>
         /// The account ID that should be credited/debited for this transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferType Type { get; set; } = default!;
+        public TransferType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -23006,68 +23002,68 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The description of the transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The datetime when this transfer was created. This will be of the form `2006-01-02T15:04:05Z`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; } = default!;
+        public System.DateTimeOffset Created { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferStatus Status { get; set; } = default!;
+        public TransferStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("sweep_status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferSweepStatus? Sweep_status { get; set; } = default!;
+        public TransferSweepStatus? Sweep_status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferNetwork Network { get; set; } = default!;
+        public TransferNetwork Network { get; set; }
 
         /// <summary>
         /// When `true`, you can still cancel this transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cancellable", Required = Newtonsoft.Json.Required.Always)]
-        public bool Cancellable { get; set; } = default!;
+        public bool Cancellable { get; set; }
 
         [Newtonsoft.Json.JsonProperty("failure_reason", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferFailure? Failure_reason { get; set; } = default!;
+        public TransferFailure Failure_reason { get; set; }
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferMetadata? Metadata { get; set; } = default!;
+        public TransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account that was used for this transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("guarantee_decision", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferAuthorizationGuaranteeDecision? Guarantee_decision { get; set; } = default!;
+        public TransferAuthorizationGuaranteeDecision? Guarantee_decision { get; set; }
 
         [Newtonsoft.Json.JsonProperty("guarantee_decision_rationale", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferAuthorizationGuaranteeDecisionRationale? Guarantee_decision_rationale { get; set; } = default!;
+        public TransferAuthorizationGuaranteeDecisionRationale Guarantee_decision_rationale { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount, e.g. "USD"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23088,24 +23084,24 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         /// <summary>
         /// The account ID that should be credited/debited for this bank transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferType Type { get; set; } = default!;
+        public BankTransferType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -23113,67 +23109,67 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount, e.g. "USD"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The description of the transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The datetime when this bank transfer was created. This will be of the form `2006-01-02T15:04:05Z`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; } = default!;
+        public System.DateTimeOffset Created { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferStatus Status { get; set; } = default!;
+        public BankTransferStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferNetwork Network { get; set; } = default!;
+        public BankTransferNetwork Network { get; set; }
 
         /// <summary>
         /// When `true`, you can still cancel this bank transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cancellable", Required = Newtonsoft.Json.Required.Always)]
-        public bool Cancellable { get; set; } = default!;
+        public bool Cancellable { get; set; }
 
         [Newtonsoft.Json.JsonProperty("failure_reason", Required = Newtonsoft.Json.Required.AllowNull)]
-        public BankTransferFailure? Failure_reason { get; set; } = default!;
+        public BankTransferFailure Failure_reason { get; set; }
 
         /// <summary>
         /// A string containing the custom tag provided by the client in the create request. Will be null if not provided.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("custom_tag", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Custom_tag { get; set; } = default!;
+        public string Custom_tag { get; set; }
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.AllowNull)]
-        public BankTransferMetadata? Metadata { get; set; } = default!;
+        public BankTransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account that was used for this transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferDirection? Direction { get; set; } = default!;
+        public BankTransferDirection? Direction { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23280,7 +23276,7 @@ namespace Plaidly
         /// A broad categorization of the error.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error_type { get; set; } = default!;
+        public string Error_type { get; set; }
 
         /// <summary>
         /// A code representing the reason for a failed transfer intent (i.e., an API error or the authorization being declined).
@@ -23288,13 +23284,13 @@ namespace Plaidly
         /// <br/>For a full listing of bank transfer errors, see [Bank Transfers errors](https://plaid.com/docs/errors/bank-transfers/).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error_code { get; set; } = default!;
+        public string Error_code { get; set; }
 
         /// <summary>
         /// A human-readable description of the code associated with a failed transfer intent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error_message { get; set; } = default!;
+        public string Error_message { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23337,22 +23333,22 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Legal_name { get; set; } = default!;
+        public string Legal_name { get; set; }
 
         /// <summary>
         /// The user's phone number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Phone_number { get; set; } = default!;
+        public string Phone_number { get; set; }
 
         /// <summary>
         /// The user's email address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Email_address { get; set; } = default!;
+        public string Email_address { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransferUserAddressInRequest Address { get; set; } = default!;
+        public TransferUserAddressInRequest Address { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23376,22 +23372,22 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Legal_name { get; set; } = default!;
+        public string Legal_name { get; set; }
 
         /// <summary>
         /// The user's phone number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_number", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Phone_number { get; set; } = default!;
+        public string Phone_number { get; set; }
 
         /// <summary>
         /// The user's email address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_address", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Email_address { get; set; } = default!;
+        public string Email_address { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferUserAddressInResponse? Address { get; set; } = default!;
+        public TransferUserAddressInResponse Address { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23414,31 +23410,31 @@ namespace Plaidly
         /// The street number and name (i.e., "100 Market St.").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// Ex. "San Francisco"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The state or province (e.g., "CA").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The postal code (e.g., "94103").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// A two-letter country code (e.g., "US").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23461,31 +23457,31 @@ namespace Plaidly
         /// The street number and name (i.e., "100 Market St.").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// Ex. "San Francisco"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The state or province (e.g., "CA").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The postal code (e.g., "94103").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// A two-letter country code (e.g., "US").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23509,19 +23505,19 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Legal_name { get; set; } = default!;
+        public string Legal_name { get; set; }
 
         /// <summary>
         /// The account holder’s email.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email_address { get; set; } = default!;
+        public string Email_address { get; set; }
 
         /// <summary>
         /// The account holder's routing number. This field is only used in response data. Do not provide this field when making requests.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("routing_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Routing_number { get; set; } = default!;
+        public string Routing_number { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23577,14 +23573,14 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferAuthorizationDecisionRationaleCode Code { get; set; } = default!;
+        public TransferAuthorizationDecisionRationaleCode Code { get; set; }
 
         /// <summary>
         /// A human-readable description of the code associated with a transfer approval or transfer decline.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23650,14 +23646,14 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferAuthorizationGuaranteeDecisionRationaleCode Code { get; set; } = default!;
+        public TransferAuthorizationGuaranteeDecisionRationaleCode Code { get; set; }
 
         /// <summary>
         /// A human-readable description of why the transfer cannot be guaranteed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23679,19 +23675,19 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the account that will be debited or credited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferType Type { get; set; } = default!;
+        public TransferType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -23699,28 +23695,28 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The network or rails used for the transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Network { get; set; } = default!;
+        public string Network { get; set; }
 
         /// <summary>
         /// Plaid's unique identifier for the origination account that was used for this transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount. The default value is "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23743,13 +23739,13 @@ namespace Plaidly
         /// The IP address of the device being used to initiate the authorization.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ip_address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Ip_address { get; set; } = default!;
+        public string Ip_address { get; set; }
 
         /// <summary>
         /// The user agent of the device being used to initiate the authorization.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_agent", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string User_agent { get; set; } = default!;
+        public string User_agent { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23935,13 +23931,13 @@ namespace Plaidly
         /// The ACH return code, e.g. `R01`.  A return code will be provided if and only if the transfer status is `reversed`. For a full listing of ACH return codes, see [Transfer errors](https://plaid.com/docs/errors/transfer/#ach-return-codes).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ach_return_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Ach_return_code { get; set; } = default!;
+        public string Ach_return_code { get; set; }
 
         /// <summary>
         /// A human-readable description of the reason for the failure or reversal.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23964,13 +23960,13 @@ namespace Plaidly
         /// The ACH return code, e.g. `R01`.  A return code will be provided if and only if the transfer status is `reversed`. For a full listing of ACH return codes, see [Bank Transfers errors](https://plaid.com/docs/errors/bank-transfers/#ach-return-codes).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ach_return_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Ach_return_code { get; set; } = default!;
+        public string Ach_return_code { get; set; }
 
         /// <summary>
         /// A human-readable description of the reason for the failure or reversal.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -23990,59 +23986,59 @@ namespace Plaidly
     public partial class TransferAuthorizationCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the account that will be debited or credited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferType Type { get; set; } = default!;
+        public TransferType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferNetwork Network { get; set; } = default!;
+        public TransferNetwork Network { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public TransferUserInRequest User { get; set; } = new TransferUserInRequest();
 
         [Newtonsoft.Json.JsonProperty("device", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransferAuthorizationDevice Device { get; set; } = default!;
+        public TransferAuthorizationDevice Device { get; set; }
 
         /// <summary>
         /// Plaid's unique identifier for the origination account for this authorization. If not specified, the default account will be used.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount. The default value is "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24062,46 +24058,46 @@ namespace Plaidly
     public partial class TransferCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("idempotency_key", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(50)]
-        public string Idempotency_key { get; set; } = default!;
+        public string Idempotency_key { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the account that will be debited or credited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for a transfer authorization. This parameter also serves the purpose of acting as an idempotency identifier.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("authorization_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Authorization_id { get; set; } = default!;
+        public string Authorization_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferType Type { get; set; } = default!;
+        public TransferType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferNetwork Network { get; set; } = default!;
+        public TransferNetwork Network { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The transfer description. Maximum of 10 characters.
@@ -24109,31 +24105,31 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(10)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public TransferUserInRequest User { get; set; } = new TransferUserInRequest();
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransferMetadata? Metadata { get; set; } = default!;
+        public TransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified. Otherwise, this field should be left blank.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount. The default value is "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24153,47 +24149,47 @@ namespace Plaidly
     public partial class BankTransferCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("idempotency_key", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(50)]
-        public string Idempotency_key { get; set; } = default!;
+        public string Idempotency_key { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the account that will be debited or credited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferType Type { get; set; } = default!;
+        public BankTransferType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("network", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferNetwork Network { get; set; } = default!;
+        public BankTransferNetwork Network { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount – should be set to "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The transfer description. Maximum of 10 characters.
@@ -24201,11 +24197,11 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(10)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -24216,16 +24212,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("custom_tag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(100)]
-        public string? Custom_tag { get; set; } = default!;
+        public string Custom_tag { get; set; }
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BankTransferMetadata? Metadata { get; set; } = default!;
+        public BankTransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account for this transfer. If you have more than one origination account, this value must be specified. Otherwise, this field should be left blank.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24250,7 +24246,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24291,29 +24287,29 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// The datetime representing when the authorization was created, in the format `2006-01-02T15:04:05Z`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; } = default!;
+        public System.DateTimeOffset Created { get; set; }
 
         [Newtonsoft.Json.JsonProperty("decision", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferAuthorizationDecision Decision { get; set; } = default!;
+        public TransferAuthorizationDecision Decision { get; set; }
 
         [Newtonsoft.Json.JsonProperty("decision_rationale", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferAuthorizationDecisionRationale? Decision_rationale { get; set; } = default!;
+        public TransferAuthorizationDecisionRationale Decision_rationale { get; set; }
 
         [Newtonsoft.Json.JsonProperty("guarantee_decision", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferAuthorizationGuaranteeDecision? Guarantee_decision { get; set; } = default!;
+        public TransferAuthorizationGuaranteeDecision? Guarantee_decision { get; set; }
 
         [Newtonsoft.Json.JsonProperty("guarantee_decision_rationale", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferAuthorizationGuaranteeDecisionRationale? Guarantee_decision_rationale { get; set; } = default!;
+        public TransferAuthorizationGuaranteeDecisionRationale Guarantee_decision_rationale { get; set; }
 
         [Newtonsoft.Json.JsonProperty("proposed_transfer", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -24342,7 +24338,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24367,7 +24363,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24387,22 +24383,22 @@ namespace Plaidly
     public partial class TransferListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The start datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// The end datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// The maximum number of transfers to return.
@@ -24422,7 +24418,7 @@ namespace Plaidly
         /// Filter transfers to only those originated through the specified origination account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24442,22 +24438,22 @@ namespace Plaidly
     public partial class BankTransferListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The start datetime of bank transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// The end datetime of bank transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// The maximum number of bank transfers to return.
@@ -24477,11 +24473,11 @@ namespace Plaidly
         /// Filter bank transfers to only those originated through the specified origination account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferDirection? Direction { get; set; } = default!;
+        public BankTransferDirection? Direction { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24506,7 +24502,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24531,7 +24527,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24566,14 +24562,14 @@ namespace Plaidly
     public partial class TransferCancelRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer_id { get; set; } = default!;
+        public string Transfer_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24593,14 +24589,14 @@ namespace Plaidly
     public partial class BankTransferCancelRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Bank_transfer_id { get; set; } = default!;
+        public string Bank_transfer_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24621,7 +24617,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24642,7 +24638,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24677,50 +24673,50 @@ namespace Plaidly
     public partial class TransferEventListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The start datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// The end datetime of transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for a transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transfer_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Transfer_id { get; set; } = default!;
+        public string Transfer_id { get; set; }
 
         /// <summary>
         /// The account ID to get events for all transactions to/from an account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferEventListTransferType? Transfer_type { get; set; } = default!;
+        public TransferEventListTransferType? Transfer_type { get; set; }
 
         /// <summary>
         /// Filter events by event type.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event_types", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<TransferEventType> Event_types { get; set; } = default!;
+        public System.Collections.Generic.ICollection<TransferEventType> Event_types { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for a sweep.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sweep_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Sweep_id { get; set; } = default!;
+        public string Sweep_id { get; set; }
 
         /// <summary>
         /// The maximum number of transfer events to return. If the number of events matching the above parameters is greater than `count`, the most recent events will be returned.
@@ -24740,7 +24736,7 @@ namespace Plaidly
         /// The origination account ID to get events for transfers from a specific origination account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24791,44 +24787,44 @@ namespace Plaidly
     public partial class BankTransferEventListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The start datetime of bank transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// The end datetime of bank transfers to list. This should be in RFC 3339 format (i.e. `2019-12-06T22:35:49Z`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for a bank transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_transfer_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Bank_transfer_id { get; set; } = default!;
+        public string Bank_transfer_id { get; set; }
 
         /// <summary>
         /// The account ID to get events for all transactions to/from an account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_transfer_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferEventListBankTransferType? Bank_transfer_type { get; set; } = default!;
+        public BankTransferEventListBankTransferType? Bank_transfer_type { get; set; }
 
         /// <summary>
         /// Filter events by event type.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event_types", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<BankTransferEventType> Event_types { get; set; } = default!;
+        public System.Collections.Generic.ICollection<BankTransferEventType> Event_types { get; set; }
 
         /// <summary>
         /// The maximum number of bank transfer events to return. If the number of events matching the above parameters is greater than `count`, the most recent events will be returned.
@@ -24848,11 +24844,11 @@ namespace Plaidly
         /// The origination account ID to get events for transfers from a specific origination account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferEventListDirection? Direction { get; set; } = default!;
+        public BankTransferEventListDirection? Direction { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -24954,54 +24950,54 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public int Event_id { get; set; } = default!;
+        public int Event_id { get; set; }
 
         /// <summary>
         /// The datetime when this event occurred. This will be of the form `2006-01-02T15:04:05Z`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Timestamp { get; set; } = default!;
+        public System.DateTimeOffset Timestamp { get; set; }
 
         [Newtonsoft.Json.JsonProperty("event_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferEventType Event_type { get; set; } = default!;
+        public TransferEventType Event_type { get; set; }
 
         /// <summary>
         /// The account ID associated with the transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer_id { get; set; } = default!;
+        public string Transfer_id { get; set; }
 
         /// <summary>
         /// The ID of the origination account that this balance belongs to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferType Transfer_type { get; set; } = default!;
+        public TransferType Transfer_type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer_amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer_amount { get; set; } = default!;
+        public string Transfer_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("failure_reason", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferFailure? Failure_reason { get; set; } = default!;
+        public TransferFailure Failure_reason { get; set; }
 
         [Newtonsoft.Json.JsonProperty("sweep_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Sweep_id { get; set; } = default!;
+        public string Sweep_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("sweep_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Sweep_amount { get; set; } = default!;
+        public string Sweep_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25025,62 +25021,62 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public int Event_id { get; set; } = default!;
+        public int Event_id { get; set; }
 
         /// <summary>
         /// The datetime when this event occurred. This will be of the form `2006-01-02T15:04:05Z`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Timestamp { get; set; } = default!;
+        public System.DateTimeOffset Timestamp { get; set; }
 
         [Newtonsoft.Json.JsonProperty("event_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferEventType Event_type { get; set; } = default!;
+        public BankTransferEventType Event_type { get; set; }
 
         /// <summary>
         /// The account ID associated with the bank transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Bank_transfer_id { get; set; } = default!;
+        public string Bank_transfer_id { get; set; }
 
         /// <summary>
         /// The ID of the origination account that this balance belongs to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_transfer_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferType Bank_transfer_type { get; set; } = default!;
+        public BankTransferType Bank_transfer_type { get; set; }
 
         /// <summary>
         /// The bank transfer amount.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_transfer_amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Bank_transfer_amount { get; set; } = default!;
+        public string Bank_transfer_amount { get; set; }
 
         /// <summary>
         /// The currency of the bank transfer amount.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_transfer_iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Bank_transfer_iso_currency_code { get; set; } = default!;
+        public string Bank_transfer_iso_currency_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("failure_reason", Required = Newtonsoft.Json.Required.AllowNull)]
-        public BankTransferFailure? Failure_reason { get; set; } = default!;
+        public BankTransferFailure Failure_reason { get; set; }
 
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BankTransferDirection? Direction { get; set; } = default!;
+        public BankTransferDirection? Direction { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25105,7 +25101,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25130,7 +25126,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25150,17 +25146,17 @@ namespace Plaidly
     public partial class BankTransferEventSyncRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The latest (largest) `event_id` fetched via the sync endpoint, or 0 initially.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("after_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public int After_id { get; set; } = default!;
+        public int After_id { get; set; }
 
         /// <summary>
         /// The maximum number of bank transfer events to return.
@@ -25187,17 +25183,17 @@ namespace Plaidly
     public partial class TransferEventSyncRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The latest (largest) `event_id` fetched via the sync endpoint, or 0 initially.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("after_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public int After_id { get; set; } = default!;
+        public int After_id { get; set; }
 
         /// <summary>
         /// The maximum number of transfer events to return.
@@ -25229,7 +25225,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25254,7 +25250,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25274,17 +25270,17 @@ namespace Plaidly
     public partial class BankTransferSweepGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Identifier of the sweep.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sweep_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sweep_id { get; set; } = default!;
+        public string Sweep_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25304,17 +25300,17 @@ namespace Plaidly
     public partial class TransferSweepGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for a sweep.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("sweep_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Sweep_id { get; set; } = default!;
+        public string Sweep_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25339,7 +25335,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25364,7 +25360,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25384,28 +25380,28 @@ namespace Plaidly
     public partial class BankTransferSweepListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// If multiple origination accounts are available, `origination_account_id` must be used to specify the account that the sweeps belong to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         /// <summary>
         /// The start datetime of sweeps to return (RFC 3339 format).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Start_time { get; set; } = default!;
+        public System.DateTimeOffset? Start_time { get; set; }
 
         /// <summary>
         /// The end datetime of sweeps to return (RFC 3339 format).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_time", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? End_time { get; set; } = default!;
+        public System.DateTimeOffset? End_time { get; set; }
 
         /// <summary>
         /// The maximum number of sweeps to return.
@@ -25432,22 +25428,22 @@ namespace Plaidly
     public partial class TransferSweepListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The start datetime of sweeps to return (RFC 3339 format).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// The end datetime of sweeps to return (RFC 3339 format).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// The maximum number of sweeps to return.
@@ -25486,7 +25482,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25511,7 +25507,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25535,28 +25531,28 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// The datetime when the sweep occurred, in RFC 3339 format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created_at { get; set; } = default!;
+        public System.DateTimeOffset Created_at { get; set; }
 
         /// <summary>
         /// The amount of the sweep.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The currency of the sweep, e.g. "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25586,14 +25582,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// The datetime when the sweep occurred, in RFC 3339 format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; } = default!;
+        public System.DateTimeOffset Created { get; set; }
 
         /// <summary>
         /// Signed decimal amount of the sweep as it appears on your sweep account ledger (e.g. "-10.00")
@@ -25602,14 +25598,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The currency of the sweep, e.g. "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25639,16 +25635,16 @@ namespace Plaidly
     public partial class BankTransferBalanceGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// If multiple origination accounts are available, `origination_account_id` must be used to specify the account for which balance will be returned.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25675,11 +25671,11 @@ namespace Plaidly
         /// The ID of the origination account that this balance belongs to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25703,14 +25699,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("available", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Available { get; set; } = default!;
+        public string Available { get; set; }
 
         /// <summary>
         /// The transactable balance shows the amount in your account that you are able to use for transfers, and is essentially your available balance minus your minimum balance.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transactable", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transactable { get; set; } = default!;
+        public string Transactable { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25730,37 +25726,37 @@ namespace Plaidly
     public partial class BankTransferMigrateAccountRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The user's account number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_number { get; set; } = default!;
+        public string Account_number { get; set; }
 
         /// <summary>
         /// The user's routing number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("routing_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Routing_number { get; set; } = default!;
+        public string Routing_number { get; set; }
 
         /// <summary>
         /// The user's wire transfer routing number. This is the ABA number; for some institutions, this may differ from the ACH number used in `routing_number`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wire_routing_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Wire_routing_number { get; set; } = default!;
+        public string Wire_routing_number { get; set; }
 
         /// <summary>
         /// The type of the bank account (`checking` or `savings`).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_type { get; set; } = default!;
+        public string Account_type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25784,18 +25780,18 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the newly created Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25815,37 +25811,37 @@ namespace Plaidly
     public partial class TransferMigrateAccountRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The user's account number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_number { get; set; } = default!;
+        public string Account_number { get; set; }
 
         /// <summary>
         /// The user's routing number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("routing_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Routing_number { get; set; } = default!;
+        public string Routing_number { get; set; }
 
         /// <summary>
         /// The user's wire transfer routing number. This is the ABA number; for some institutions, this may differ from the ACH number used in `routing_number`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wire_routing_number", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Wire_routing_number { get; set; } = default!;
+        public string Wire_routing_number { get; set; }
 
         /// <summary>
         /// The type of the bank account (`checking` or `savings`).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_type { get; set; } = default!;
+        public string Account_type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25869,18 +25865,18 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the newly created Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25900,22 +25896,22 @@ namespace Plaidly
     public partial class TransferRepaymentListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The start datetime of repayments to return (RFC 3339 format).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// The end datetime of repayments to return (RFC 3339 format).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// The maximum number of repayments to return.
@@ -25954,7 +25950,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -25980,28 +25976,28 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("repayment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Repayment_id { get; set; } = default!;
+        public string Repayment_id { get; set; }
 
         /// <summary>
         /// The datetime when the repayment occurred, in RFC 3339 format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; } = default!;
+        public System.DateTimeOffset Created { get; set; }
 
         /// <summary>
         /// Decimal amount of the repayment as it appears on your account ledger.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The currency of the repayment, e.g. "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26021,17 +26017,17 @@ namespace Plaidly
     public partial class TransferRepaymentReturnListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Identifier of the repayment to query.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("repayment_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Repayment_id { get; set; } = default!;
+        public string Repayment_id { get; set; }
 
         /// <summary>
         /// The maximum number of repayments to return.
@@ -26070,7 +26066,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26094,28 +26090,28 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer_id { get; set; } = default!;
+        public string Transfer_id { get; set; }
 
         /// <summary>
         /// The unique identifier of the corresponding `reversed` transfer event.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public int Event_id { get; set; } = default!;
+        public int Event_id { get; set; }
 
         /// <summary>
         /// The value of the returned transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// The currency of the repayment, e.g. "USD".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26135,25 +26131,25 @@ namespace Plaidly
     public partial class TransferIntentCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the account that will be debited or credited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("mode", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferIntentCreateMode Mode { get; set; } = default!;
+        public TransferIntentCreateMode Mode { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         /// <summary>
         /// A description for the underlying transfer. Maximum of 8 characters.
@@ -26161,31 +26157,31 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(8, MinimumLength = 1)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account for the intent. If not provided, the default account will be used.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public TransferUserInRequest User { get; set; } = new TransferUserInRequest();
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransferMetadata? Metadata { get; set; } = default!;
+        public TransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount, e.g. "USD"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26231,46 +26227,46 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// The datetime the transfer was created. This will be of the form `2006-01-02T15:04:05Z`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; } = default!;
+        public System.DateTimeOffset Created { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferIntentStatus Status { get; set; } = default!;
+        public TransferIntentStatus Status { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the account that will be debited or credited. Returned only if `account_id` was set on intent creation.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account for the intent. If not provided, the default account will be used.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("mode", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferIntentCreateMode Mode { get; set; } = default!;
+        public TransferIntentCreateMode Mode { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -26281,17 +26277,17 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransferMetadata? Metadata { get; set; } = default!;
+        public TransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount, e.g. "USD"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26316,7 +26312,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26336,17 +26332,17 @@ namespace Plaidly
     public partial class TransferIntentGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Plaid's unique identifier for a transfer intent object.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transfer_intent_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer_intent_id { get; set; } = default!;
+        public string Transfer_intent_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26390,62 +26386,62 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// The datetime the transfer was created. This will be of the form `2006-01-02T15:04:05Z`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created { get; set; } = default!;
+        public System.DateTimeOffset Created { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferIntentStatus Status { get; set; } = default!;
+        public TransferIntentStatus Status { get; set; }
 
         /// <summary>
         /// Plaid's unique identifier for the transfer created through the UI. Returned only if the transfer was successfully created. Null value otherwise.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transfer_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Transfer_id { get; set; } = default!;
+        public string Transfer_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("failure_reason", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferIntentGetFailureReason? Failure_reason { get; set; } = default!;
+        public TransferIntentGetFailureReason Failure_reason { get; set; }
 
         [Newtonsoft.Json.JsonProperty("authorization_decision", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferIntentAuthorizationDecision? Authorization_decision { get; set; } = default!;
+        public TransferIntentAuthorizationDecision? Authorization_decision { get; set; }
 
         [Newtonsoft.Json.JsonProperty("authorization_decision_rationale", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransferAuthorizationDecisionRationale? Authorization_decision_rationale { get; set; } = default!;
+        public TransferAuthorizationDecisionRationale Authorization_decision_rationale { get; set; }
 
         /// <summary>
         /// The Plaid `account_id` for the account that will be debited or credited. Returned only if `account_id` was set on intent creation.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// Plaid’s unique identifier for the origination account used for the transfer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("origination_account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Origination_account_id { get; set; } = default!;
+        public string Origination_account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("mode", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TransferIntentCreateMode Mode { get; set; } = default!;
+        public TransferIntentCreateMode Mode { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ach_class", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ACHClass Ach_class { get; set; } = default!;
+        public ACHClass Ach_class { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -26456,17 +26452,17 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransferMetadata? Metadata { get; set; } = default!;
+        public TransferMetadata Metadata { get; set; }
 
         /// <summary>
         /// The currency of the transfer amount, e.g. "USD"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26491,7 +26487,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26511,14 +26507,14 @@ namespace Plaidly
     public partial class SandboxBankTransferSimulateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Bank_transfer_id { get; set; } = default!;
+        public string Bank_transfer_id { get; set; }
 
         /// <summary>
         /// The asynchronous event to be simulated. May be: `posted`, `failed`, or `reversed`.
@@ -26534,10 +26530,10 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Event_type { get; set; } = default!;
+        public string Event_type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("failure_reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BankTransferFailure? Failure_reason { get; set; } = default!;
+        public BankTransferFailure Failure_reason { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26557,14 +26553,14 @@ namespace Plaidly
     public partial class SandboxTransferSimulateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transfer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transfer_id { get; set; } = default!;
+        public string Transfer_id { get; set; }
 
         /// <summary>
         /// The asynchronous event to be simulated. May be: `posted`, `failed`, or `reversed`.
@@ -26580,10 +26576,10 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Event_type { get; set; } = default!;
+        public string Event_type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("failure_reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TransferFailure? Failure_reason { get; set; } = default!;
+        public TransferFailure Failure_reason { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26603,10 +26599,10 @@ namespace Plaidly
     public partial class SandboxTransferSweepSimulateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26627,7 +26623,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26648,7 +26644,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26668,11 +26664,11 @@ namespace Plaidly
     public partial class SandboxTransferSweepSimulateResponse
     {
         [Newtonsoft.Json.JsonProperty("sweep", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SimulatedTransferSweep? Sweep { get; set; } = default!;
+        public SimulatedTransferSweep Sweep { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26692,10 +26688,10 @@ namespace Plaidly
     public partial class SandboxTransferRepaymentSimulateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26716,7 +26712,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26737,16 +26733,16 @@ namespace Plaidly
     public partial class AccountFiltersResponse
     {
         [Newtonsoft.Json.JsonProperty("depository", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DepositoryFilter Depository { get; set; } = default!;
+        public DepositoryFilter Depository { get; set; }
 
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CreditFilter Credit { get; set; } = default!;
+        public CreditFilter Credit { get; set; }
 
         [Newtonsoft.Json.JsonProperty("loan", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LoanFilter Loan { get; set; } = default!;
+        public LoanFilter Loan { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public InvestmentFilter Investment { get; set; } = default!;
+        public InvestmentFilter Investment { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26766,16 +26762,16 @@ namespace Plaidly
     public partial class InstitutionsSearchAccountFilter
     {
         [Newtonsoft.Json.JsonProperty("loan", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<AccountSubtype?> Loan { get; set; } = default!;
+        public System.Collections.Generic.ICollection<AccountSubtype?> Loan { get; set; }
 
         [Newtonsoft.Json.JsonProperty("depository", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<AccountSubtype?> Depository { get; set; } = default!;
+        public System.Collections.Generic.ICollection<AccountSubtype?> Depository { get; set; }
 
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<AccountSubtype?> Credit { get; set; } = default!;
+        public System.Collections.Generic.ICollection<AccountSubtype?> Credit { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<AccountSubtype?> Investment { get; set; } = default!;
+        public System.Collections.Generic.ICollection<AccountSubtype?> Investment { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -26813,7 +26809,7 @@ namespace Plaidly
         /// The duration of transaction history available for this Item, typically defined as the time since the date of the earliest transaction in that account. Only returned by Assets endpoints.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_available", Required = Newtonsoft.Json.Required.Always)]
-        public double Days_available { get; set; } = default!;
+        public double Days_available { get; set; }
 
         /// <summary>
         /// Transaction history associated with the account. Only returned by Assets endpoints. Transaction history returned by endpoints such as `/transactions/get` or `/investments/transactions/get` will be returned in the top-level `transactions` field instead.
@@ -27220,17 +27216,17 @@ namespace Plaidly
     public partial class EmployersSearchRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The employer name to be searched for.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("query", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Query { get; set; } = default!;
+        public string Query { get; set; }
 
         /// <summary>
         /// The Plaid products the returned employers should support. Currently, this field must be set to `"deposit_switch"`.
@@ -27265,7 +27261,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27289,23 +27285,23 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Employer_id { get; set; } = default!;
+        public string Employer_id { get; set; }
 
         /// <summary>
         /// The name of the employer
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.AllowNull)]
-        public AddressDataNullable? Address { get; set; } = default!;
+        public AddressDataNullable Address { get; set; }
 
         /// <summary>
         /// A number from 0 to 1 indicating Plaid's level of confidence in the pairing between the employer and the institution (not yet implemented).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("confidence_score", Required = Newtonsoft.Json.Required.Always)]
-        public double Confidence_score { get; set; } = default!;
+        public double Confidence_score { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27325,26 +27321,26 @@ namespace Plaidly
     public partial class IncomeVerificationCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The URL endpoint to which Plaid should send webhooks related to the progress of the income verification process.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         /// <summary>
         /// The ID of a precheck created with `/income/verification/precheck`. Will be used to improve conversion of the income verification flow.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("precheck_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Precheck_id { get; set; } = default!;
+        public string Precheck_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeVerificationCreateRequestOptions Options { get; set; } = default!;
+        public IncomeVerificationCreateRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27367,7 +27363,7 @@ namespace Plaidly
         /// An array of access tokens corresponding to the Items that will be cross-referenced with the product data. Plaid will attempt to correlate transaction history from these Items with data from the user's paystub, such as date and amount. The `verification` status of the paystub as returned by `/income/verification/paystubs/get` will indicate if the verification status was successful, or, if not, why it failed. If the `transactions` product was not initialized for the Items during Link, it will be initialized after this Link session.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_tokens", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Access_tokens { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Access_tokens { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27391,11 +27387,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_verification_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Income_verification_id { get; set; } = default!;
+        public string Income_verification_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27415,29 +27411,29 @@ namespace Plaidly
     public partial class IncomeVerificationPrecheckRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeVerificationPrecheckUser? User { get; set; } = default!;
+        public IncomeVerificationPrecheckUser User { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeVerificationPrecheckEmployer? Employer { get; set; } = default!;
+        public IncomeVerificationPrecheckEmployer Employer { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transactions_access_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Transactions_access_token { get; set; } = default!;
+        public string Transactions_access_token { get; set; }
 
         /// <summary>
         /// An array of access tokens corresponding to Items belonging to the user whose eligibility is being checked. Note that if the Items specified here are not already initialized with `transactions`, providing them in this field will cause these Items to be initialized with (and billed for) the Transactions product.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transactions_access_tokens", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Transactions_access_tokens { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Transactions_access_tokens { get; set; }
 
         [Newtonsoft.Json.JsonProperty("us_military_info", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeVerificationPrecheckMilitaryInfo? Us_military_info { get; set; } = default!;
+        public IncomeVerificationPrecheckMilitaryInfo Us_military_info { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27460,22 +27456,22 @@ namespace Plaidly
         /// The employer's name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeVerificationPrecheckEmployerAddress? Address { get; set; } = default!;
+        public IncomeVerificationPrecheckEmployerAddress Address { get; set; }
 
         /// <summary>
         /// The employer's tax id
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tax_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Tax_id { get; set; } = default!;
+        public string Tax_id { get; set; }
 
         /// <summary>
         /// The URL for the employer's public website
         /// </summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Url { get; set; } = default!;
+        public string Url { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27507,33 +27503,33 @@ namespace Plaidly
         /// The full city name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Country { get; set; } = default!;
+        public string Country { get; set; }
 
         /// <summary>
         /// The postal code. In API versions 2018-05-22 and earlier, this field is called `zip`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The region or state. In API versions 2018-05-22 and earlier, this field is called `state`.
         /// <br/>Example: `"NC"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address
         /// <br/>Example: `"564 Main Street, APT 15"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Street { get; set; } = default!;
+        public string Street { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27556,14 +27552,14 @@ namespace Plaidly
         /// Is the user currently active duty in the US military
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_active_duty", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? Is_active_duty { get; set; } = default!;
+        public bool? Is_active_duty { get; set; }
 
         /// <summary>
         /// If the user is currently serving in the US military, the branch of the military in which they are serving
         /// <br/>Valid values: 'AIR FORCE', 'ARMY', 'COAST GUARD', 'MARINES', 'NAVY', 'UNKNOWN'
         /// </summary>
         [Newtonsoft.Json.JsonProperty("branch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Branch { get; set; } = default!;
+        public string Branch { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27586,22 +27582,22 @@ namespace Plaidly
         /// The user's first name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("first_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? First_name { get; set; } = default!;
+        public string First_name { get; set; }
 
         /// <summary>
         /// The user's last name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Last_name { get; set; } = default!;
+        public string Last_name { get; set; }
 
         /// <summary>
         /// The user's email address
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email_address { get; set; } = default!;
+        public string Email_address { get; set; }
 
         [Newtonsoft.Json.JsonProperty("home_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SignalAddressData? Home_address { get; set; } = default!;
+        public SignalAddressData Home_address { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27625,16 +27621,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("precheck_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Precheck_id { get; set; } = default!;
+        public string Precheck_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("confidence", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public IncomeVerificationPrecheckConfidence Confidence { get; set; } = default!;
+        public IncomeVerificationPrecheckConfidence Confidence { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27682,37 +27678,37 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_verification_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string Income_verification_id { get; set; } = default!;
+        public string Income_verification_id { get; set; }
 
         /// <summary>
         /// The `asset_report_id` of an asset report associated with the user, as provided by `/asset_report/create`. Providing an `asset_report_id` is optional and can be used to verify the user through a streamlined flow. If provided, the bank linking flow will be skipped.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("asset_report_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Asset_report_id { get; set; } = default!;
+        public string Asset_report_id { get; set; }
 
         /// <summary>
         /// The ID of a precheck created with `/income/verification/precheck`. Will be used to improve conversion of the income verification flow by streamlining the Link interface presented to the end user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("precheck_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Precheck_id { get; set; } = default!;
+        public string Precheck_id { get; set; }
 
         /// <summary>
         /// An array of access tokens corresponding to the Items that will be cross-referenced with the product data. If the `transactions` product was not initialized for the Items during link, it will be initialized after this Link session.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_tokens", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Access_tokens { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Access_tokens { get; set; }
 
         /// <summary>
         /// The types of source income data that users will be permitted to share. Options include `bank` and `payroll`. Currently you can only specify one of these options.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_source_types", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<IncomeVerificationSourceType> Income_source_types { get; set; } = default!;
+        public System.Collections.Generic.ICollection<IncomeVerificationSourceType> Income_source_types { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_income", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestIncomeVerificationBankIncome Bank_income { get; set; } = default!;
+        public LinkTokenCreateRequestIncomeVerificationBankIncome Bank_income { get; set; }
 
         [Newtonsoft.Json.JsonProperty("payroll_income", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LinkTokenCreateRequestIncomeVerificationPayrollIncome Payroll_income { get; set; } = default!;
+        public LinkTokenCreateRequestIncomeVerificationPayrollIncome Payroll_income { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27750,7 +27746,7 @@ namespace Plaidly
         /// The number of days of data to request for the Bank Income product
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_requested", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Days_requested { get; set; } = default!;
+        public int Days_requested { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27773,7 +27769,7 @@ namespace Plaidly
         /// The types of payroll income verification to enable for the link session. If none are specified, then users will see both document and digital payroll income.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("flow_types", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<IncomeVerificationPayrollFlowType>? Flow_types { get; set; } = default!;
+        public System.Collections.Generic.ICollection<IncomeVerificationPayrollFlowType> Flow_types { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27812,21 +27808,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `INCOME_VERIFICATION`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         /// <summary>
         /// The Item ID associated with the verification.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// `VERIFICATION_STATUS_PROCESSING_COMPLETE`: The income verification status processing has completed. If the user uploaded multiple documents, this webhook will fire when all documents have finished processing. Call the `/income/verification/paystubs/get` endpoint and check the document metadata to see which documents were successfully parsed.
@@ -27837,7 +27833,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Verification_status { get; set; } = default!;
+        public string Verification_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27857,20 +27853,20 @@ namespace Plaidly
     public partial class IncomeVerificationRefreshRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the verification.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_verification_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Income_verification_id { get; set; } = default!;
+        public string Income_verification_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27891,12 +27887,12 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification_refresh_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public VerificationRefreshStatus Verification_refresh_status { get; set; } = default!;
+        public VerificationRefreshStatus Verification_refresh_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27917,29 +27913,29 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("employer_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public EmployerIncomeSummaryFieldString Employer_name { get; set; } = default!;
+        public EmployerIncomeSummaryFieldString Employer_name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employee_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public EmployeeIncomeSummaryFieldString Employee_name { get; set; } = default!;
+        public EmployeeIncomeSummaryFieldString Employee_name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ytd_gross_income", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public YTDGrossIncomeSummaryFieldNumber Ytd_gross_income { get; set; } = default!;
+        public YTDGrossIncomeSummaryFieldNumber Ytd_gross_income { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ytd_net_income", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public YTDNetIncomeSummaryFieldNumber Ytd_net_income { get; set; } = default!;
+        public YTDNetIncomeSummaryFieldNumber Ytd_net_income { get; set; }
 
         [Newtonsoft.Json.JsonProperty("pay_frequency", Required = Newtonsoft.Json.Required.AllowNull)]
-        public PayFrequency? Pay_frequency { get; set; } = default!;
+        public PayFrequency Pay_frequency { get; set; }
 
         [Newtonsoft.Json.JsonProperty("projected_wage", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public ProjectedIncomeSummaryFieldNumber Projected_wage { get; set; } = default!;
+        public ProjectedIncomeSummaryFieldNumber Projected_wage { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verified_transaction", Required = Newtonsoft.Json.Required.AllowNull)]
-        public TransactionData? Verified_transaction { get; set; } = default!;
+        public TransactionData Verified_transaction { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -27963,13 +27959,13 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The amount of the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// The date of the transaction, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ("yyyy-mm-dd").
@@ -27977,21 +27973,21 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date { get; set; } = default!;
+        public System.DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// A unique identifier for the end user's account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// A unique identifier for the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transaction_id { get; set; } = default!;
+        public string Transaction_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28015,12 +28011,12 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Value { get; set; } = default!;
+        public string Value { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public VerificationStatus Verification_status { get; set; } = default!;
+        public VerificationStatus Verification_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28061,12 +28057,12 @@ namespace Plaidly
         /// The value of the field.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
-        public double Value { get; set; } = default!;
+        public double Value { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public VerificationStatus Verification_status { get; set; } = default!;
+        public VerificationStatus Verification_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28114,12 +28110,12 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PayFrequencyValue? Value { get; set; } = default!;
+        public PayFrequencyValue? Value { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public VerificationStatus Verification_status { get; set; } = default!;
+        public VerificationStatus Verification_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28219,20 +28215,20 @@ namespace Plaidly
     public partial class IncomeVerificationPaystubsGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the verification for which to get paystub information.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_verification_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Income_verification_id { get; set; } = default!;
+        public string Income_verification_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28255,18 +28251,18 @@ namespace Plaidly
         /// Metadata for an income document.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("document_metadata", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DocumentMetadata> Document_metadata { get; set; } = default!;
+        public System.Collections.Generic.ICollection<DocumentMetadata> Document_metadata { get; set; }
 
         [Newtonsoft.Json.JsonProperty("paystubs", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Paystub> Paystubs { get; set; } = new System.Collections.ObjectModel.Collection<Paystub>();
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28289,23 +28285,23 @@ namespace Plaidly
         /// The name of the document.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The processing status of the document.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Status { get; set; } = default!;
+        public string Status { get; set; }
 
         /// <summary>
         /// An identifier of the document that is also present in the paystub response.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("doc_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Doc_id { get; set; } = default!;
+        public string Doc_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("doc_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DocType Doc_type { get; set; } = default!;
+        public DocType Doc_type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28387,7 +28383,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("doc_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Doc_id { get; set; } = default!;
+        public string Doc_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("earnings", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -28402,7 +28398,7 @@ namespace Plaidly
         public PaystubEmployer Employer { get; set; } = new PaystubEmployer();
 
         [Newtonsoft.Json.JsonProperty("employment_details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EmploymentDetails Employment_details { get; set; } = default!;
+        public EmploymentDetails Employment_details { get; set; }
 
         [Newtonsoft.Json.JsonProperty("net_pay", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -28413,17 +28409,17 @@ namespace Plaidly
         public PayPeriodDetails Pay_period_details { get; set; } = new PayPeriodDetails();
 
         [Newtonsoft.Json.JsonProperty("paystub_details", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaystubDetails Paystub_details { get; set; } = default!;
+        public PaystubDetails Paystub_details { get; set; }
 
         [Newtonsoft.Json.JsonProperty("income_breakdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public System.Collections.Generic.ICollection<IncomeBreakdown> Income_breakdown { get; set; } = default!;
+        public System.Collections.Generic.ICollection<IncomeBreakdown> Income_breakdown { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ytd_earnings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaystubYTDDetails Ytd_earnings { get; set; } = default!;
+        public PaystubYTDDetails Ytd_earnings { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification", Required = Newtonsoft.Json.Required.AllowNull)]
-        public PaystubVerification? Verification { get; set; } = default!;
+        public PaystubVerification Verification { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28444,7 +28440,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("subtotals", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public System.Collections.Generic.ICollection<Total> Subtotals { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Total> Subtotals { get; set; }
 
         [Newtonsoft.Json.JsonProperty("breakdown", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -28452,7 +28448,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("totals", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public System.Collections.Generic.ICollection<Total> Totals { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Total> Totals { get; set; }
 
         [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -28479,19 +28475,19 @@ namespace Plaidly
         /// Raw amount of the deduction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// Description of the deduction line item
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the line item. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -28499,13 +28495,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date amount of the deduction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28528,13 +28524,13 @@ namespace Plaidly
         /// Raw amount of the deduction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the line item. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -28542,13 +28538,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date total amount of the deductions
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28570,19 +28566,19 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("canonical_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TotalCanonicalDescription? Canonical_description { get; set; } = default!;
+        public TotalCanonicalDescription? Canonical_description { get; set; }
 
         /// <summary>
         /// Text of the line item as printed on the paystub.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("current_pay", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pay Current_pay { get; set; } = default!;
+        public Pay Current_pay { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ytd_pay", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pay Ytd_pay { get; set; } = default!;
+        public Pay Ytd_pay { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28663,13 +28659,13 @@ namespace Plaidly
         /// A numerical amount of a specific currency.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Amount { get; set; } = default!;
+        public double? Amount { get; set; }
 
         /// <summary>
         /// Currency code, e.g. USD
         /// </summary>
         [Newtonsoft.Json.JsonProperty("currency", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Currency { get; set; } = default!;
+        public string Currency { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28690,17 +28686,17 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("subtotals", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public System.Collections.Generic.ICollection<EarningsTotal> Subtotals { get; set; } = default!;
+        public System.Collections.Generic.ICollection<EarningsTotal> Subtotals { get; set; }
 
         [Newtonsoft.Json.JsonProperty("totals", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public System.Collections.Generic.ICollection<EarningsTotal> Totals { get; set; } = default!;
+        public System.Collections.Generic.ICollection<EarningsTotal> Totals { get; set; }
 
         [Newtonsoft.Json.JsonProperty("breakdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<EarningsBreakdown> Breakdown { get; set; } = default!;
+        public System.Collections.Generic.ICollection<EarningsBreakdown> Breakdown { get; set; }
 
         [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EarningsTotal Total { get; set; } = default!;
+        public EarningsTotal Total { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28721,37 +28717,37 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("canonical_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EarningsBreakdownCanonicalDescription? Canonical_description { get; set; } = default!;
+        public EarningsBreakdownCanonicalDescription? Canonical_description { get; set; }
 
         /// <summary>
         /// Raw amount of the earning line item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// Description of the earning line item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// Number of hours applicable for this earning.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("hours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Hours { get; set; } = default!;
+        public double? Hours { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// Hourly rate applicable for this earning.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("rate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Rate { get; set; } = default!;
+        public double? Rate { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the line item. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -28759,13 +28755,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date amount of the deduction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28824,25 +28820,25 @@ namespace Plaidly
         /// Total amount of the earnings for this pay period
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("current_pay", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pay Current_pay { get; set; } = default!;
+        public Pay Current_pay { get; set; }
 
         [Newtonsoft.Json.JsonProperty("ytd_pay", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pay Ytd_pay { get; set; } = default!;
+        public Pay Ytd_pay { get; set; }
 
         /// <summary>
         /// Total number of hours worked for this pay period
         /// </summary>
         [Newtonsoft.Json.JsonProperty("hours", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Hours { get; set; } = default!;
+        public double? Hours { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the security. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -28850,13 +28846,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The total year-to-date amount of the earnings
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28877,14 +28873,14 @@ namespace Plaidly
     public partial class EmploymentDetails
     {
         [Newtonsoft.Json.JsonProperty("annual_salary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pay Annual_salary { get; set; } = default!;
+        public Pay Annual_salary { get; set; }
 
         /// <summary>
         /// Date on which the employee was hired, in the YYYY-MM-DD format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("hire_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Hire_date { get; set; } = default!;
+        public System.DateTimeOffset? Hire_date { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28907,19 +28903,19 @@ namespace Plaidly
         /// Raw amount of the net pay for the pay period
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// Description of the net pay
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the net pay. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the net pay. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -28927,16 +28923,16 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date amount of the net pay
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Total Total { get; set; } = default!;
+        public Total Total { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -28961,31 +28957,31 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_period_start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Pay_period_start_date { get; set; } = default!;
+        public System.DateTimeOffset? Pay_period_start_date { get; set; }
 
         /// <summary>
         /// Ending date of the pay period on the paystub in the 'YYYY-MM-DD' format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_period_end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Pay_period_end_date { get; set; } = default!;
+        public System.DateTimeOffset? Pay_period_end_date { get; set; }
 
         /// <summary>
         /// Pay date on the paystub in the 'YYYY-MM-DD' format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Pay_date { get; set; } = default!;
+        public System.DateTimeOffset? Pay_date { get; set; }
 
         /// <summary>
         /// The name of the payroll provider that generated the paystub, e.g. ADP
         /// </summary>
         [Newtonsoft.Json.JsonProperty("paystub_provider", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Paystub_provider { get; set; } = default!;
+        public string Paystub_provider { get; set; }
 
         [Newtonsoft.Json.JsonProperty("pay_frequency", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaystubPayFrequency? Pay_frequency { get; set; } = default!;
+        public PaystubPayFrequency? Pay_frequency { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29028,25 +29024,25 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public IncomeBreakdownType? Type { get; set; } = default!;
+        public IncomeBreakdownType? Type { get; set; }
 
         /// <summary>
         /// The hourly rate at which the income is paid.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("rate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Rate { get; set; } = default!;
+        public double? Rate { get; set; }
 
         /// <summary>
         /// The number of hours logged for this income for this pay period.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("hours", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Hours { get; set; } = default!;
+        public double? Hours { get; set; }
 
         /// <summary>
         /// The total pay for this pay period.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Total { get; set; } = default!;
+        public double? Total { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29094,16 +29090,16 @@ namespace Plaidly
         /// The name of the employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// Marital status of the employee - either `single` or `married`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("marital_status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Marital_status { get; set; } = default!;
+        public string Marital_status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("taxpayer_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TaxpayerID Taxpayer_id { get; set; } = default!;
+        public TaxpayerID Taxpayer_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29126,13 +29122,13 @@ namespace Plaidly
         /// Type of ID, e.g. 'SSN'
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id_type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Id_type { get; set; } = default!;
+        public string Id_type { get; set; }
 
         /// <summary>
         /// ID mask; i.e. last 4 digits of the taxpayer ID
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id_mask", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Id_mask { get; set; } = default!;
+        public string Id_mask { get; set; }
 
         /// <summary>
         /// Last 4 digits of unique number of ID.
@@ -29140,7 +29136,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("last_4_digits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(4, MinimumLength = 4)]
         [System.Obsolete]
-        public string? Last_4_digits { get; set; } = default!;
+        public string Last_4_digits { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29160,13 +29156,13 @@ namespace Plaidly
     public partial class PaystubEmployer
     {
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaystubAddress Address { get; set; } = default!;
+        public PaystubAddress Address { get; set; }
 
         /// <summary>
         /// The name of the employer on the paystub.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29189,46 +29185,46 @@ namespace Plaidly
         /// The full city name.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         /// <summary>
         /// The postal code of the address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The region or state
         /// <br/>Example: `"NC"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// Street address line 1.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("line1", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Line1 { get; set; } = default!;
+        public string Line1 { get; set; }
 
         /// <summary>
         /// Street address line 2.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("line2", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Line2 { get; set; } = default!;
+        public string Line2 { get; set; }
 
         /// <summary>
         /// The region or state
@@ -29236,7 +29232,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("state_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? State_code { get; set; } = default!;
+        public string State_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29259,37 +29255,37 @@ namespace Plaidly
         /// The amount of the paycheck.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("check_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Check_amount { get; set; } = default!;
+        public double? Check_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("distribution_breakdown", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DistributionBreakdown> Distribution_breakdown { get; set; } = default!;
+        public System.Collections.Generic.ICollection<DistributionBreakdown> Distribution_breakdown { get; set; }
 
         /// <summary>
         /// The pay period end date, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format: "yyyy-mm-dd".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// Total earnings before tax/deductions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gross_earnings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Gross_earnings { get; set; } = default!;
+        public double? Gross_earnings { get; set; }
 
         /// <summary>
         /// The date on which the paystub was issued, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ("yyyy-mm-dd").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Pay_date { get; set; } = default!;
+        public System.DateTimeOffset? Pay_date { get; set; }
 
         /// <summary>
         /// The frequency at which an individual is paid.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_frequency", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PayPeriodDetailsPay_frequency? Pay_frequency { get; set; } = default!;
+        public PayPeriodDetailsPay_frequency? Pay_frequency { get; set; }
 
         /// <summary>
         /// The date on which the paystub was issued, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ("yyyy-mm-dd").
@@ -29297,14 +29293,14 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("pay_day", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
         [System.Obsolete]
-        public System.DateTimeOffset? Pay_day { get; set; } = default!;
+        public System.DateTimeOffset? Pay_day { get; set; }
 
         /// <summary>
         /// The pay period start date, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format: "yyyy-mm-dd".
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29327,37 +29323,37 @@ namespace Plaidly
         /// Name of the account for the given distribution.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Account_name { get; set; } = default!;
+        public string Account_name { get; set; }
 
         /// <summary>
         /// The name of the bank that the payment is being deposited to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Bank_name { get; set; } = default!;
+        public string Bank_name { get; set; }
 
         /// <summary>
         /// The amount distributed to this account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the net pay. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The last 2-4 alphanumeric characters of an account's official account number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mask", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Mask { get; set; } = default!;
+        public string Mask { get; set; }
 
         /// <summary>
         /// Type of the account that the paystub was sent to (e.g. 'checking').
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the net pay. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -29365,10 +29361,10 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("current_pay", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Pay Current_pay { get; set; } = default!;
+        public Pay Current_pay { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29391,19 +29387,19 @@ namespace Plaidly
         /// The description of the deduction, as provided on the paystub. For example: `"401(k)"`, `"FICA MED TAX"`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// `true` if the deduction is pre-tax; `false` otherwise.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_pretax", Required = Newtonsoft.Json.Required.AllowNull)]
-        public bool? Is_pretax { get; set; } = default!;
+        public bool? Is_pretax { get; set; }
 
         /// <summary>
         /// The amount of the deduction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Total { get; set; } = default!;
+        public double? Total { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29427,13 +29423,13 @@ namespace Plaidly
         /// Year-to-date gross earnings.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gross_earnings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Gross_earnings { get; set; } = default!;
+        public double? Gross_earnings { get; set; }
 
         /// <summary>
         /// Year-to-date net (take home) earnings.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("net_earnings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Net_earnings { get; set; } = default!;
+        public double? Net_earnings { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29454,11 +29450,11 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaystubVerificationStatus? Verification_status { get; set; } = default!;
+        public PaystubVerificationStatus? Verification_status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification_attributes", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<VerificationAttribute?> Verification_attributes { get; set; } = new System.Collections.ObjectModel.Collection<VerificationAttribute?>();
+        public System.Collections.Generic.ICollection<VerificationAttribute> Verification_attributes { get; set; } = new System.Collections.ObjectModel.Collection<VerificationAttribute>();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29500,7 +29496,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public VerificationAttributeType? Type { get; set; } = default!;
+        public VerificationAttributeType? Type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29520,26 +29516,26 @@ namespace Plaidly
     public partial class IncomeVerificationDocumentsDownloadRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the verification.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_verification_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Income_verification_id { get; set; } = default!;
+        public string Income_verification_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The document ID to download. If passed, a single document will be returned in the resulting zip file, rather than all document
         /// </summary>
         [Newtonsoft.Json.JsonProperty("document_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Document_id { get; set; } = default!;
+        public string Document_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29559,20 +29555,20 @@ namespace Plaidly
     public partial class IncomeVerificationTaxformsGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the verification.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_verification_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.Obsolete]
-        public string? Income_verification_id { get; set; } = default!;
+        public string Income_verification_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29592,7 +29588,7 @@ namespace Plaidly
     public partial class IncomeVerificationTaxformsGetResponse
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("document_metadata", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -29606,7 +29602,7 @@ namespace Plaidly
         public System.Collections.Generic.ICollection<Taxform> Taxforms { get; set; } = new System.Collections.ObjectModel.Collection<Taxform>();
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29629,17 +29625,17 @@ namespace Plaidly
         /// An identifier of the document referenced by the document metadata.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("doc_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Doc_id { get; set; } = default!;
+        public string Doc_id { get; set; }
 
         /// <summary>
         /// The type of tax document. Currently, the only supported value is `w2`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("document_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Document_type { get; set; } = default!;
+        public string Document_type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("w2", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public W2 W2 { get; set; } = default!;
+        public W2 W2 { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29659,118 +29655,118 @@ namespace Plaidly
     public partial class W2
     {
         [Newtonsoft.Json.JsonProperty("employer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PaystubEmployer Employer { get; set; } = default!;
+        public PaystubEmployer Employer { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employee", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public Employee Employee { get; set; } = default!;
+        public Employee Employee { get; set; }
 
         /// <summary>
         /// The tax year of the W2 document.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tax_year", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Tax_year { get; set; } = default!;
+        public string Tax_year { get; set; }
 
         /// <summary>
         /// An employee identification number or EIN.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employer_id_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Employer_id_number { get; set; } = default!;
+        public string Employer_id_number { get; set; }
 
         /// <summary>
         /// Wages from tips and other compensation.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wages_tips_other_comp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Wages_tips_other_comp { get; set; } = default!;
+        public string Wages_tips_other_comp { get; set; }
 
         /// <summary>
         /// Federal income tax withheld for the tax year.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("federal_income_tax_withheld", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Federal_income_tax_withheld { get; set; } = default!;
+        public string Federal_income_tax_withheld { get; set; }
 
         /// <summary>
         /// Wages from social security.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("social_security_wages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Social_security_wages { get; set; } = default!;
+        public string Social_security_wages { get; set; }
 
         /// <summary>
         /// Social security tax withheld for the tax year.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("social_security_tax_withheld", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Social_security_tax_withheld { get; set; } = default!;
+        public string Social_security_tax_withheld { get; set; }
 
         /// <summary>
         /// Wages and tips from medicare.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("medicare_wages_and_tips", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Medicare_wages_and_tips { get; set; } = default!;
+        public string Medicare_wages_and_tips { get; set; }
 
         /// <summary>
         /// Medicare tax withheld for the tax year.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("medicare_tax_withheld", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Medicare_tax_withheld { get; set; } = default!;
+        public string Medicare_tax_withheld { get; set; }
 
         /// <summary>
         /// Tips from social security.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("social_security_tips", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Social_security_tips { get; set; } = default!;
+        public string Social_security_tips { get; set; }
 
         /// <summary>
         /// Allocated tips.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("allocated_tips", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Allocated_tips { get; set; } = default!;
+        public string Allocated_tips { get; set; }
 
         /// <summary>
         /// Contents from box 9 on the W2.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("box_9", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Box_9 { get; set; } = default!;
+        public string Box_9 { get; set; }
 
         /// <summary>
         /// Dependent care benefits.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dependent_care_benefits", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Dependent_care_benefits { get; set; } = default!;
+        public string Dependent_care_benefits { get; set; }
 
         /// <summary>
         /// Nonqualified plans.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nonqualified_plans", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Nonqualified_plans { get; set; } = default!;
+        public string Nonqualified_plans { get; set; }
 
         [Newtonsoft.Json.JsonProperty("box_12", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<W2Box12> Box_12 { get; set; } = default!;
+        public System.Collections.Generic.ICollection<W2Box12> Box_12 { get; set; }
 
         /// <summary>
         /// Statutory employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("statutory_employee", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Statutory_employee { get; set; } = default!;
+        public string Statutory_employee { get; set; }
 
         /// <summary>
         /// Retirement plan.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("retirement_plan", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Retirement_plan { get; set; } = default!;
+        public string Retirement_plan { get; set; }
 
         /// <summary>
         /// Third party sick pay.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("third_party_sick_pay", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Third_party_sick_pay { get; set; } = default!;
+        public string Third_party_sick_pay { get; set; }
 
         /// <summary>
         /// Other.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("other", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Other { get; set; } = default!;
+        public string Other { get; set; }
 
         [Newtonsoft.Json.JsonProperty("state_and_local_wages", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<W2StateAndLocalWages> State_and_local_wages { get; set; } = default!;
+        public System.Collections.Generic.ICollection<W2StateAndLocalWages> State_and_local_wages { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29793,13 +29789,13 @@ namespace Plaidly
         /// W2 Box 12 code.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Code { get; set; } = default!;
+        public string Code { get; set; }
 
         /// <summary>
         /// W2 Box 12 amount.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Amount { get; set; } = default!;
+        public string Amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29822,43 +29818,43 @@ namespace Plaidly
         /// State associated with the wage.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? State { get; set; } = default!;
+        public string State { get; set; }
 
         /// <summary>
         /// State identification number of the employer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employer_state_id_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Employer_state_id_number { get; set; } = default!;
+        public string Employer_state_id_number { get; set; }
 
         /// <summary>
         /// Wages and tips from the specified state.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("state_wages_tips", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? State_wages_tips { get; set; } = default!;
+        public string State_wages_tips { get; set; }
 
         /// <summary>
         /// Income tax from the specified state.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("state_income_tax", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? State_income_tax { get; set; } = default!;
+        public string State_income_tax { get; set; }
 
         /// <summary>
         /// Wages and tips from the locality.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("local_wages_tips", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Local_wages_tips { get; set; } = default!;
+        public string Local_wages_tips { get; set; }
 
         /// <summary>
         /// Income tax from the locality.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("local_income_tax", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Local_income_tax { get; set; } = default!;
+        public string Local_income_tax { get; set; }
 
         /// <summary>
         /// Name of the locality.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("locality_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Locality_name { get; set; } = default!;
+        public string Locality_name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29879,7 +29875,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29899,14 +29895,14 @@ namespace Plaidly
     public partial class EmploymentVerificationGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29934,7 +29930,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -29955,33 +29951,33 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public EmploymentVerificationStatus? Status { get; set; } = default!;
+        public EmploymentVerificationStatus? Status { get; set; }
 
         /// <summary>
         /// Start of employment in ISO 8601 format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// End of employment, if applicable. Provided in ISO 8601 format (YYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employer", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public EmployerVerification Employer { get; set; } = default!;
+        public EmployerVerification Employer { get; set; }
 
         /// <summary>
         /// Current title of employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Title { get; set; } = default!;
+        public string Title { get; set; }
 
         [Newtonsoft.Json.JsonProperty("platform_ids", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlatformIds Platform_ids { get; set; } = default!;
+        public PlatformIds Platform_ids { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30019,7 +30015,7 @@ namespace Plaidly
         /// Name of employer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30042,19 +30038,19 @@ namespace Plaidly
         /// The ID of an employee as given by their employer
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employee_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Employee_id { get; set; } = default!;
+        public string Employee_id { get; set; }
 
         /// <summary>
         /// The ID of an employee as given by their payroll
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payroll_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Payroll_id { get; set; } = default!;
+        public string Payroll_id { get; set; }
 
         /// <summary>
         /// The ID of the position of the employee
         /// </summary>
         [Newtonsoft.Json.JsonProperty("position_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Position_id { get; set; } = default!;
+        public string Position_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30077,7 +30073,7 @@ namespace Plaidly
         /// The date on which the transaction took place, in IS0 8601 format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("date_transacted", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Date_transacted { get; set; } = default!;
+        public string Date_transacted { get; set; }
 
     }
 
@@ -30092,20 +30088,20 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// The end date of the incident, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format, e.g. `"2020-10-30T15:26:48Z"`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset End_date { get; set; } = default!;
+        public System.DateTimeOffset End_date { get; set; }
 
         /// <summary>
         /// The title of the incident
         /// </summary>
         [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Title { get; set; } = default!;
+        public string Title { get; set; }
 
         /// <summary>
         /// Updates on the health incident.
@@ -30135,20 +30131,20 @@ namespace Plaidly
         /// The content of the update.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The status of the incident.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public IncidentUpdateStatus Status { get; set; } = default!;
+        public IncidentUpdateStatus Status { get; set; }
 
         /// <summary>
         /// The date when the update was published, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format, e.g. `"2020-10-30T15:26:48Z"`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("updated_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Updated_date { get; set; } = default!;
+        public System.DateTimeOffset Updated_date { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30168,10 +30164,10 @@ namespace Plaidly
     public partial class DepositSwitchAltCreateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("target_account", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -30182,14 +30178,14 @@ namespace Plaidly
         public DepositSwitchTargetUser Target_user { get; set; } = new DepositSwitchTargetUser();
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DepositSwitchCreateRequestOptions Options { get; set; } = default!;
+        public DepositSwitchCreateRequestOptions Options { get; set; }
 
         /// <summary>
         /// ISO-3166-1 alpha-2 country code standard.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DepositSwitchAltCreateRequestCountry_code? Country_code { get; set; } = default!;
+        public DepositSwitchAltCreateRequestCountry_code? Country_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30213,11 +30209,11 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("deposit_switch_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Deposit_switch_id { get; set; } = default!;
+        public string Deposit_switch_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30241,21 +30237,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_number { get; set; } = default!;
+        public string Account_number { get; set; }
 
         /// <summary>
         /// Routing number for deposit switch destination
         /// </summary>
         [Newtonsoft.Json.JsonProperty("routing_number", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Routing_number { get; set; } = default!;
+        public string Routing_number { get; set; }
 
         /// <summary>
         /// The name of the deposit switch destination account, as it will be displayed to the end user in the Deposit Switch interface. It is not required to match the name used in online banking.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_name { get; set; } = default!;
+        public string Account_name { get; set; }
 
         /// <summary>
         /// The account subtype of the account, either `checking` or `savings`.
@@ -30263,7 +30259,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("account_subtype", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DepositSwitchTargetAccountAccount_subtype Account_subtype { get; set; } = default!;
+        public DepositSwitchTargetAccountAccount_subtype Account_subtype { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30287,37 +30283,37 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("given_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Given_name { get; set; } = default!;
+        public string Given_name { get; set; }
 
         /// <summary>
         /// The family name (last name) of the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("family_name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Family_name { get; set; } = default!;
+        public string Family_name { get; set; }
 
         /// <summary>
         /// The phone number of the user. The endpoint can accept a variety of phone number formats, including E.164.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Phone { get; set; } = default!;
+        public string Phone { get; set; }
 
         /// <summary>
         /// The email address of the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Email { get; set; } = default!;
+        public string Email { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DepositSwitchAddressData Address { get; set; } = default!;
+        public DepositSwitchAddressData Address { get; set; }
 
         /// <summary>
         /// The taxpayer ID of the user, generally their SSN, EIN, or TIN.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tax_payer_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Tax_payer_id { get; set; } = default!;
+        public string Tax_payer_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30341,7 +30337,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The region or state
@@ -30349,7 +30345,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address
@@ -30357,21 +30353,21 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// The postal code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30391,16 +30387,16 @@ namespace Plaidly
     public partial class CreditBankIncomeGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CreditBankIncomeGetRequestOptions Options { get; set; } = default!;
+        public CreditBankIncomeGetRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30443,11 +30439,11 @@ namespace Plaidly
     public partial class CreditBankIncomeGetResponse
     {
         [Newtonsoft.Json.JsonProperty("bank_income", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncome> Bank_income { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncome> Bank_income { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30470,34 +30466,34 @@ namespace Plaidly
         /// The unique identifier associated with the Bank Income Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_income_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Bank_income_id { get; set; } = default!;
+        public string Bank_income_id { get; set; }
 
         /// <summary>
         /// The time when the Bank Income Report was generated.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("generated_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Generated_time { get; set; } = default!;
+        public System.DateTimeOffset Generated_time { get; set; }
 
         /// <summary>
         /// The number of days requested by the customer for the Bank Income Report.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_requested", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Days_requested { get; set; } = default!;
+        public int Days_requested { get; set; }
 
         /// <summary>
         /// The list of Items in the report along with the associated metadata about the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncomeItem> Items { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncomeItem> Items { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_income_summary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CreditBankIncomeSummary Bank_income_summary { get; set; } = default!;
+        public CreditBankIncomeSummary Bank_income_summary { get; set; }
 
         /// <summary>
         /// If data from the Bank Income report was unable to be retrieved, the warnings will contain information about the error that caused the data to be incomplete.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("warnings", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncomeWarning> Warnings { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncomeWarning> Warnings { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30520,37 +30516,37 @@ namespace Plaidly
         /// The Item's accounts that have Bank Income data.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_income_accounts", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncomeAccount> Bank_income_accounts { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncomeAccount> Bank_income_accounts { get; set; }
 
         /// <summary>
         /// The income sources for this Item. Each entry in the array is a single income source.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_income_sources", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncomeSource> Bank_income_sources { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncomeSource> Bank_income_sources { get; set; }
 
         /// <summary>
         /// The time when this Item's data was last retrieved from the financial institution.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("last_updated_time", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset Last_updated_time { get; set; } = default!;
+        public System.DateTimeOffset Last_updated_time { get; set; }
 
         /// <summary>
         /// The unique identifier of the institution associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("institution_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Institution_id { get; set; } = default!;
+        public string Institution_id { get; set; }
 
         /// <summary>
         /// The name of the institution associated with the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("insitution_name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Insitution_name { get; set; } = default!;
+        public string Insitution_name { get; set; }
 
         /// <summary>
         /// The unique identifier for the Item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30573,37 +30569,37 @@ namespace Plaidly
         /// Plaid's unique identifier for the account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The last 2-4 alphanumeric characters of an account's official account number.
         /// <br/>Note that the mask may be non-unique between an Item's accounts, and it may also not match the mask that the bank displays to the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mask", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Mask { get; set; } = default!;
+        public string Mask { get; set; }
 
         /// <summary>
         /// The name of the bank account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The official name of the bank account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("official_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Official_name { get; set; } = default!;
+        public string Official_name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("subtype", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DepositoryAccountSubtype Subtype { get; set; } = default!;
+        public DepositoryAccountSubtype Subtype { get; set; }
 
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditBankIncomeAccountType Type { get; set; } = default!;
+        public CreditBankIncomeAccountType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("owners", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Owner> Owners { get; set; } = default!;
+        public System.Collections.Generic.ICollection<Owner> Owners { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30638,23 +30634,23 @@ namespace Plaidly
         /// A unique identifier for an income source.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_source_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Income_source_id { get; set; } = default!;
+        public string Income_source_id { get; set; }
 
         /// <summary>
         /// The most common name or original description for the underlying income transactions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_description", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Income_description { get; set; } = default!;
+        public string Income_description { get; set; }
 
         [Newtonsoft.Json.JsonProperty("income_category", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditBankIncomeCategory Income_category { get; set; } = default!;
+        public CreditBankIncomeCategory Income_category { get; set; }
 
         /// <summary>
         /// Plaid's unique idenfier for the account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// Minimum of all dates within the specific income sources in the user's bank account for days requested by the client.
@@ -30662,7 +30658,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// Maximum of all dates within the specific income sources in the user’s bank account for days requested by the client.
@@ -30670,26 +30666,26 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset End_date { get; set; } = default!;
+        public System.DateTimeOffset End_date { get; set; }
 
         [Newtonsoft.Json.JsonProperty("pay_frequency", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditBankIncomePayFrequency Pay_frequency { get; set; } = default!;
+        public CreditBankIncomePayFrequency Pay_frequency { get; set; }
 
         /// <summary>
         /// Total amount of earnings in the user’s bank account for the specific income source for days requested by the client.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Total_amount { get; set; } = default!;
+        public double Total_amount { get; set; }
 
         /// <summary>
         /// Number of transactions for the income source within the start and end date.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Transaction_count { get; set; } = default!;
+        public int Transaction_count { get; set; }
 
         [Newtonsoft.Json.JsonProperty("historical_summary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncomeHistoricalSummary> Historical_summary { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncomeHistoricalSummary> Historical_summary { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30778,13 +30774,13 @@ namespace Plaidly
         /// Total amount of earnings across all the income sources in the end user's Items for the days requested by the client.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Total_amount { get; set; } = default!;
+        public double Total_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The earliest date within the days requested in which all income sources identified by Plaid appear in a user's account.
@@ -30792,7 +30788,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// The latest date in which all income sources identified by Plaid appear in the user's account.
@@ -30800,28 +30796,28 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset End_date { get; set; } = default!;
+        public System.DateTimeOffset End_date { get; set; }
 
         /// <summary>
         /// Number of income sources per end user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_sources_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Income_sources_count { get; set; } = default!;
+        public int Income_sources_count { get; set; }
 
         /// <summary>
         /// Number of income categories per end user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_categories_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Income_categories_count { get; set; } = default!;
+        public int Income_categories_count { get; set; }
 
         /// <summary>
         /// Number of income transactions per end user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("income_transactions_count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Income_transactions_count { get; set; } = default!;
+        public int Income_transactions_count { get; set; }
 
         [Newtonsoft.Json.JsonProperty("historical_summary", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncomeHistoricalSummary> Historical_summary { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncomeHistoricalSummary> Historical_summary { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30844,13 +30840,13 @@ namespace Plaidly
         /// Total amount of earnings for the income source(s) of the user for the month in the summary.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Total_amount { get; set; } = default!;
+        public double Total_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The start date of the period covered in this monthly summary.
@@ -30859,7 +30855,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Start_date { get; set; } = default!;
+        public System.DateTimeOffset Start_date { get; set; }
 
         /// <summary>
         /// The end date of the period included in this monthly summary.
@@ -30868,10 +30864,10 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset End_date { get; set; } = default!;
+        public System.DateTimeOffset End_date { get; set; }
 
         [Newtonsoft.Json.JsonProperty("transactions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CreditBankIncomeTransaction> Transactions { get; set; } = default!;
+        public System.Collections.Generic.ICollection<CreditBankIncomeTransaction> Transactions { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30896,7 +30892,7 @@ namespace Plaidly
         /// <br/>For example, credit card purchases are positive; credit card payment, direct deposits, and refunds are negative.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// For pending transactions, the date that the transaction occurred; for posted transactions, the date that the transaction posted.
@@ -30904,44 +30900,44 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("date", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Date { get; set; } = default!;
+        public System.DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// The merchant name or transaction description.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The string returned by the financial institution to describe the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("original_description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Original_description { get; set; } = default!;
+        public string Original_description { get; set; }
 
         /// <summary>
         /// When true, identifies the transaction as pending or unsettled.
         /// <br/>Pending transaction details (name, type, amount, category ID) may change before they are settled.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pending", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Pending { get; set; } = default!;
+        public bool Pending { get; set; }
 
         /// <summary>
         /// The unique ID of the transaction. Like all Plaid identifiers, the `transaction_id` is case sensitive.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Transaction_id { get; set; } = default!;
+        public string Transaction_id { get; set; }
 
         /// <summary>
         /// The check number of the transaction. This field is only populated for check transactions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("check_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Check_number { get; set; } = default!;
+        public string Check_number { get; set; }
 
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30962,18 +30958,18 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CreditBankIncomeRefreshRequestOptions Options { get; set; } = default!;
+        public CreditBankIncomeRefreshRequestOptions Options { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -30996,13 +30992,13 @@ namespace Plaidly
         /// How many days of data to include in the refresh. If not specified, this will default to the days requested in the most recently generated bank income report for the user.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_requested", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Days_requested { get; set; } = default!;
+        public int Days_requested { get; set; }
 
         /// <summary>
         /// The URL where Plaid will send the bank income webhook.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31023,7 +31019,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31043,13 +31039,13 @@ namespace Plaidly
     public partial class CreditPayrollIncomeGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31076,11 +31072,11 @@ namespace Plaidly
         public System.Collections.Generic.ICollection<PayrollItem> Items { get; set; } = new System.Collections.ObjectModel.Collection<PayrollItem>();
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31104,22 +31100,22 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("document_type", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Document_type { get; set; } = default!;
+        public string Document_type { get; set; }
 
         /// <summary>
         /// Signed URL to retrieve the underlying file.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("download_url", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Download_url { get; set; } = default!;
+        public string Download_url { get; set; }
 
         /// <summary>
         /// The processing status of the document.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Status { get; set; } = default!;
+        public string Status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31140,14 +31136,14 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("payroll_income", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<PayrollIncomeObject> Payroll_income { get; set; } = new System.Collections.ObjectModel.Collection<PayrollIncomeObject>();
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.AllowNull)]
-        public PayrollItemStatus? Status { get; set; } = default!;
+        public PayrollItemStatus Status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31170,7 +31166,7 @@ namespace Plaidly
         /// ID of the payroll provider account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// Array of pay stubs for the user.
@@ -31211,7 +31207,7 @@ namespace Plaidly
         /// An identifier of the document referenced by the document metadata.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("document_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Document_id { get; set; } = default!;
+        public string Document_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("document_metadata", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -31238,7 +31234,7 @@ namespace Plaidly
         public PayStubPayPeriodDetails Pay_period_details { get; set; } = new PayStubPayPeriodDetails();
 
         [Newtonsoft.Json.JsonProperty("verification", Required = Newtonsoft.Json.Required.AllowNull)]
-        public CreditPayStubVerification? Verification { get; set; } = default!;
+        public CreditPayStubVerification Verification { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31286,19 +31282,19 @@ namespace Plaidly
         /// Raw amount of the deduction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// Description of the deduction line item
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the line item. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -31306,13 +31302,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date amount of the deduction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31335,13 +31331,13 @@ namespace Plaidly
         /// Raw amount of the deduction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the line item. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -31349,13 +31345,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date total amount of the deductions
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31400,37 +31396,37 @@ namespace Plaidly
     public partial class PayStubEarningsBreakdown
     {
         [Newtonsoft.Json.JsonProperty("canonical_description", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Canonical_description { get; set; } = default!;
+        public string Canonical_description { get; set; }
 
         /// <summary>
         /// Raw amount of the earning line item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// Description of the earning line item.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// Number of hours applicable for this earning.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("hours", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Hours { get; set; } = default!;
+        public double? Hours { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// Hourly rate applicable for this earning.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("rate", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Rate { get; set; } = default!;
+        public double? Rate { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the line item. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -31438,13 +31434,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date amount of the deduction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31467,19 +31463,19 @@ namespace Plaidly
         /// Total amount of the earnings for this pay period.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// Total number of hours worked for this pay period.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("hours", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Hours { get; set; } = default!;
+        public double? Hours { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the line item. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the security. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -31487,13 +31483,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The total year-to-date amount of the earnings.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31520,13 +31516,13 @@ namespace Plaidly
         /// The name of the employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// Marital status of the employee - either `SINGLE` or `MARRIED`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("marital_status", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Marital_status { get; set; } = default!;
+        public string Marital_status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("taxpayer_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -31553,32 +31549,32 @@ namespace Plaidly
         /// The full city name.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         /// <summary>
         /// The postal code of the address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The region or state.
         /// <br/>Example: `"NC"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Street { get; set; } = default!;
+        public string Street { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31601,13 +31597,13 @@ namespace Plaidly
         /// Type of ID, e.g. 'SSN'.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id_type", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Id_type { get; set; } = default!;
+        public string Id_type { get; set; }
 
         /// <summary>
         /// ID mask; i.e. last 4 digits of the taxpayer ID.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id_mask", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Id_mask { get; set; } = default!;
+        public string Id_mask { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31634,7 +31630,7 @@ namespace Plaidly
         /// The name of the employer on the pay stub.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31657,19 +31653,19 @@ namespace Plaidly
         /// Raw amount of the net pay for the pay period.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// Description of the net pay.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the net pay. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the net pay. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -31677,13 +31673,13 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         /// <summary>
         /// The year-to-date amount of the net pay.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ytd_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Ytd_amount { get; set; } = default!;
+        public double? Ytd_amount { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31706,7 +31702,7 @@ namespace Plaidly
         /// The amount of the paycheck.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Pay_amount { get; set; } = default!;
+        public double? Pay_amount { get; set; }
 
         [Newtonsoft.Json.JsonProperty("distribution_breakdown", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -31717,39 +31713,39 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         /// <summary>
         /// Total earnings before tax/deductions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("gross_earnings", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Gross_earnings { get; set; } = default!;
+        public double? Gross_earnings { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the net pay. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The date on which the pay stub was issued, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ("yyyy-mm-dd").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Pay_date { get; set; } = default!;
+        public System.DateTimeOffset? Pay_date { get; set; }
 
         /// <summary>
         /// The frequency at which an individual is paid.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pay_frequency", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Pay_frequency { get; set; } = default!;
+        public string Pay_frequency { get; set; }
 
         /// <summary>
         /// The date on which the pay period started, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format ("yyyy-mm-dd").
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the net pay. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -31757,7 +31753,7 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31780,37 +31776,37 @@ namespace Plaidly
         /// Name of the account for the given distribution.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Account_name { get; set; } = default!;
+        public string Account_name { get; set; }
 
         /// <summary>
         /// The name of the bank that the payment is being deposited to.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Bank_name { get; set; } = default!;
+        public string Bank_name { get; set; }
 
         /// <summary>
         /// The amount distributed to this account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_amount", Required = Newtonsoft.Json.Required.AllowNull)]
-        public double? Current_amount { get; set; } = default!;
+        public double? Current_amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the net pay. Always `null` if `unofficial_currency_code` is non-null.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The last 2-4 alphanumeric characters of an account's official account number.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mask", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Mask { get; set; } = default!;
+        public string Mask { get; set; }
 
         /// <summary>
         /// Type of the account that the paystub was sent to (e.g. 'checking').
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Type { get; set; } = default!;
+        public string Type { get; set; }
 
         /// <summary>
         /// The unofficial currency code associated with the net pay. Always `null` if `iso_currency_code` is non-`null`. Unofficial currency codes are used for currencies that do not have official ISO currency codes, such as cryptocurrencies and the currencies of certain countries.
@@ -31818,7 +31814,7 @@ namespace Plaidly
         /// <br/>See the [currency code schema](https://plaid.com/docs/api/accounts#currency-code-schema) for a full listing of supported `iso_currency_code`s.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unofficial_currency_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Unofficial_currency_code { get; set; } = default!;
+        public string Unofficial_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31838,11 +31834,11 @@ namespace Plaidly
     public partial class CreditPayStubVerification
     {
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Verification_status { get; set; } = default!;
+        public string Verification_status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification_attributes", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<PayStubVerificationAttribute?> Verification_attributes { get; set; } = new System.Collections.ObjectModel.Collection<PayStubVerificationAttribute?>();
+        public System.Collections.Generic.ICollection<PayStubVerificationAttribute> Verification_attributes { get; set; } = new System.Collections.ObjectModel.Collection<PayStubVerificationAttribute>();
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31865,7 +31861,7 @@ namespace Plaidly
         /// Message indicating the reason as to why the verification failed.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Type { get; set; } = default!;
+        public string Type { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31904,7 +31900,7 @@ namespace Plaidly
         /// <br/>`APPROVAL_STATUS_APPROVED`: The user has approved the sharing of the data.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("processing_status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Processing_status { get; set; } = default!;
+        public string Processing_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -31932,7 +31928,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("document_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Document_id { get; set; } = default!;
+        public string Document_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employer", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -31946,79 +31942,79 @@ namespace Plaidly
         /// The tax year of the W2 document.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tax_year", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Tax_year { get; set; } = default!;
+        public string Tax_year { get; set; }
 
         /// <summary>
         /// An employee identification number or EIN.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employer_id_number", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Employer_id_number { get; set; } = default!;
+        public string Employer_id_number { get; set; }
 
         /// <summary>
         /// Wages from tips and other compensation.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wages_tips_other_comp", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Wages_tips_other_comp { get; set; } = default!;
+        public string Wages_tips_other_comp { get; set; }
 
         /// <summary>
         /// Federal income tax withheld for the tax year.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("federal_income_tax_withheld", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Federal_income_tax_withheld { get; set; } = default!;
+        public string Federal_income_tax_withheld { get; set; }
 
         /// <summary>
         /// Wages from social security.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("social_security_wages", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Social_security_wages { get; set; } = default!;
+        public string Social_security_wages { get; set; }
 
         /// <summary>
         /// Social security tax withheld for the tax year.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("social_security_tax_withheld", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Social_security_tax_withheld { get; set; } = default!;
+        public string Social_security_tax_withheld { get; set; }
 
         /// <summary>
         /// Wages and tips from medicare.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("medicare_wages_and_tips", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Medicare_wages_and_tips { get; set; } = default!;
+        public string Medicare_wages_and_tips { get; set; }
 
         /// <summary>
         /// Medicare tax withheld for the tax year.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("medicare_tax_withheld", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Medicare_tax_withheld { get; set; } = default!;
+        public string Medicare_tax_withheld { get; set; }
 
         /// <summary>
         /// Tips from social security.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("social_security_tips", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Social_security_tips { get; set; } = default!;
+        public string Social_security_tips { get; set; }
 
         /// <summary>
         /// Allocated tips.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("allocated_tips", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Allocated_tips { get; set; } = default!;
+        public string Allocated_tips { get; set; }
 
         /// <summary>
         /// Contents from box 9 on the W2.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("box_9", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Box_9 { get; set; } = default!;
+        public string Box_9 { get; set; }
 
         /// <summary>
         /// Dependent care benefits.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dependent_care_benefits", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Dependent_care_benefits { get; set; } = default!;
+        public string Dependent_care_benefits { get; set; }
 
         /// <summary>
         /// Nonqualified plans.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nonqualified_plans", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Nonqualified_plans { get; set; } = default!;
+        public string Nonqualified_plans { get; set; }
 
         [Newtonsoft.Json.JsonProperty("box_12", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -32028,25 +32024,25 @@ namespace Plaidly
         /// Statutory employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("statutory_employee", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Statutory_employee { get; set; } = default!;
+        public string Statutory_employee { get; set; }
 
         /// <summary>
         /// Retirement plan.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("retirement_plan", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Retirement_plan { get; set; } = default!;
+        public string Retirement_plan { get; set; }
 
         /// <summary>
         /// Third party sick pay.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("third_party_sick_pay", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Third_party_sick_pay { get; set; } = default!;
+        public string Third_party_sick_pay { get; set; }
 
         /// <summary>
         /// Other.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("other", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Other { get; set; } = default!;
+        public string Other { get; set; }
 
         [Newtonsoft.Json.JsonProperty("state_and_local_wages", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -32070,25 +32066,25 @@ namespace Plaidly
     public partial class CreditPayrollIncomePrecheckRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         /// <summary>
         /// An array of access tokens corresponding to Items belonging to the user whose eligibility is being checked. Note that if the Items specified here are not already initialized with `transactions`, providing them in this field will cause these Items to be initialized with (and billed for) the Transactions product.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_tokens", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Access_tokens { get; set; } = default!;
+        public System.Collections.Generic.ICollection<string> Access_tokens { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employer", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeVerificationPrecheckEmployer? Employer { get; set; } = default!;
+        public IncomeVerificationPrecheckEmployer Employer { get; set; }
 
         [Newtonsoft.Json.JsonProperty("us_military_info", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public IncomeVerificationPrecheckMilitaryInfo? Us_military_info { get; set; } = default!;
+        public IncomeVerificationPrecheckMilitaryInfo Us_military_info { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32109,12 +32105,12 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("confidence", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public IncomeVerificationPrecheckConfidence Confidence { get; set; } = default!;
+        public IncomeVerificationPrecheckConfidence Confidence { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32134,13 +32130,13 @@ namespace Plaidly
     public partial class CreditPayrollIncomeRefreshRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32161,11 +32157,11 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("verification_refresh_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Verification_refresh_status { get; set; } = default!;
+        public string Verification_refresh_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32186,15 +32182,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string User_token { get; set; } = default!;
+        public string User_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32222,7 +32218,7 @@ namespace Plaidly
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32243,7 +32239,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employments", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -32270,24 +32266,24 @@ namespace Plaidly
         /// ID of the payroll provider account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Status { get; set; } = default!;
+        public string Status { get; set; }
 
         /// <summary>
         /// Start of employment in ISO 8601 format (YYYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("start_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? Start_date { get; set; } = default!;
+        public System.DateTimeOffset? Start_date { get; set; }
 
         /// <summary>
         /// End of employment, if applicable. Provided in ISO 8601 format (YYY-MM-DD).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("end_date", Required = Newtonsoft.Json.Required.AllowNull)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset? End_date { get; set; } = default!;
+        public System.DateTimeOffset? End_date { get; set; }
 
         [Newtonsoft.Json.JsonProperty("employer", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -32297,7 +32293,7 @@ namespace Plaidly
         /// Current title of employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Title { get; set; } = default!;
+        public string Title { get; set; }
 
         [Newtonsoft.Json.JsonProperty("platform_ids", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -32324,7 +32320,7 @@ namespace Plaidly
         /// Name of employer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Name { get; set; } = default!;
+        public string Name { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32347,19 +32343,19 @@ namespace Plaidly
         /// The ID of an employee as given by their employer.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("employee_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Employee_id { get; set; } = default!;
+        public string Employee_id { get; set; }
 
         /// <summary>
         /// The ID of an employee as given by their payroll.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("payroll_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Payroll_id { get; set; } = default!;
+        public string Payroll_id { get; set; }
 
         /// <summary>
         /// The ID of the position of the employee.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("position_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Position_id { get; set; } = default!;
+        public string Position_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32380,14 +32376,14 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("warning_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditBankIncomeWarningType Warning_type { get; set; } = default!;
+        public CreditBankIncomeWarningType Warning_type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("warning_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditBankIncomeWarningCode Warning_code { get; set; } = default!;
+        public CreditBankIncomeWarningCode Warning_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("cause", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CreditBankIncomeCause Cause { get; set; } = default!;
+        public CreditBankIncomeCause Cause { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32445,32 +32441,32 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("error_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public CreditBankIncomeErrorType Error_type { get; set; } = default!;
+        public CreditBankIncomeErrorType Error_type { get; set; }
 
         /// <summary>
         /// We use standard HTTP response codes for success and failure notifications, and our errors are further classified by `error_type`. In general, 200 HTTP codes correspond to success, 40X codes are for developer- or user-related failures, and 50X codes are for Plaid-related issues. Error fields will be `null` if no error has occurred.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error_code { get; set; } = default!;
+        public string Error_code { get; set; }
 
         /// <summary>
         /// A developer-friendly representation of the error code. This may change over time and is not safe for programmatic use.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("error_message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error_message { get; set; } = default!;
+        public string Error_message { get; set; }
 
         /// <summary>
         /// A user-friendly representation of the error code. null if the error is not related to user action.
         /// <br/>This may change over time and is not safe for programmatic use.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("display_message", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Display_message { get; set; } = default!;
+        public string Display_message { get; set; }
 
         /// <summary>
         /// The `item_id` of the Item associated with this warning.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32547,17 +32543,17 @@ namespace Plaidly
     public partial class SandboxBankTransferFireWebhookRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The URL to which the webhook should be sent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32578,7 +32574,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32598,17 +32594,17 @@ namespace Plaidly
     public partial class SandboxTransferFireWebhookRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The URL to which the webhook should be sent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32629,7 +32625,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32650,14 +32646,14 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("application_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Application_id { get; set; } = default!;
+        public string Application_id { get; set; }
 
         /// <summary>
         /// The name of the application
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// The date this application was linked in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format in UTC.
@@ -32665,7 +32661,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
         [System.Obsolete]
-        public System.DateTimeOffset Created_at { get; set; } = default!;
+        public System.DateTimeOffset Created_at { get; set; }
 
         /// <summary>
         /// The date this application was granted production access at Plaid in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format in UTC.
@@ -32673,61 +32669,61 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("join_date", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Join_date { get; set; } = default!;
+        public System.DateTimeOffset Join_date { get; set; }
 
         /// <summary>
         /// A URL that links to the application logo image.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("logo_url", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Logo_url { get; set; } = default!;
+        public string Logo_url { get; set; }
 
         /// <summary>
         /// The URL for the application's website
         /// </summary>
         [Newtonsoft.Json.JsonProperty("application_url", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Application_url { get; set; } = default!;
+        public string Application_url { get; set; }
 
         /// <summary>
         /// A string provided by the connected app stating why they use their respective enabled products.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reason_for_access", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Reason_for_access { get; set; } = default!;
+        public string Reason_for_access { get; set; }
 
         /// <summary>
         /// A string representing client’s broad use case as assessed by Plaid.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("use_case", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Use_case { get; set; } = default!;
+        public string Use_case { get; set; }
 
         /// <summary>
         /// A string representing the name of client’s legal entity.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("company_legal_name", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Company_legal_name { get; set; } = default!;
+        public string Company_legal_name { get; set; }
 
         /// <summary>
         /// A string representing the city of the client’s headquarters.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// A string representing the region of the client’s headquarters.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// A string representing the postal code of the client’s headquarters.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// A string representing the country code of the client’s headquarters.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country_code", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Country_code { get; set; } = default!;
+        public string Country_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32748,15 +32744,15 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("application_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Application_id { get; set; } = default!;
+        public string Application_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32777,7 +32773,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("application", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -32876,7 +32872,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unique_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Unique_id { get; set; } = default!;
+        public string Unique_id { get; set; }
 
         /// <summary>
         /// Allow the application to see this account (and associated details, including balance) in the list of accounts  If unset, defaults to `true`.
@@ -32885,7 +32881,7 @@ namespace Plaidly
         public bool? Authorized { get; set; } = true;
 
         [Newtonsoft.Json.JsonProperty("account_product_access", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountProductAccessNullable? Account_product_access { get; set; } = default!;
+        public AccountProductAccessNullable Account_product_access { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -32958,10 +32954,10 @@ namespace Plaidly
     public partial class Scopes
     {
         [Newtonsoft.Json.JsonProperty("product_access", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ProductAccess Product_access { get; set; } = default!;
+        public ProductAccess Product_access { get; set; }
 
         [Newtonsoft.Json.JsonProperty("accounts", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AccountAccess> Accounts { get; set; } = default!;
+        public System.Collections.Generic.ICollection<AccountAccess> Accounts { get; set; }
 
         /// <summary>
         /// Allow access to newly opened accounts as they are opened. If unset, defaults to `true`.
@@ -33002,30 +32998,30 @@ namespace Plaidly
     public partial class ItemApplicationScopesUpdateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         [Newtonsoft.Json.JsonProperty("application_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Application_id { get; set; } = default!;
+        public string Application_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("scopes", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public Scopes Scopes { get; set; } = new Scopes();
 
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string State { get; set; } = default!;
+        public string State { get; set; }
 
         [Newtonsoft.Json.JsonProperty("context", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ScopesContext Context { get; set; } = default!;
+        public ScopesContext Context { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33046,7 +33042,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33066,13 +33062,13 @@ namespace Plaidly
     public partial class ItemApplicationListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33092,7 +33088,7 @@ namespace Plaidly
     public partial class ItemApplicationListResponse
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         /// <summary>
         /// A list of connected applications.
@@ -33120,32 +33116,32 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("application_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Application_id { get; set; } = default!;
+        public string Application_id { get; set; }
 
         /// <summary>
         /// The name of the application
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         /// <summary>
         /// A URL that links to the application logo image.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("logo_url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Logo_url { get; set; } = default!;
+        public string Logo_url { get; set; }
 
         /// <summary>
         /// The URL for the application's website
         /// </summary>
         [Newtonsoft.Json.JsonProperty("application_url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Application_url { get; set; } = default!;
+        public string Application_url { get; set; }
 
         /// <summary>
         /// A string provided by the connected app stating why they use their respective enabled products.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reason_for_access", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Reason_for_access { get; set; } = default!;
+        public string Reason_for_access { get; set; }
 
         /// <summary>
         /// The date this application was linked in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) (YYYY-MM-DD) format in UTC.
@@ -33153,10 +33149,10 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(DateFormatConverter))]
-        public System.DateTimeOffset Created_at { get; set; } = default!;
+        public System.DateTimeOffset Created_at { get; set; }
 
         [Newtonsoft.Json.JsonProperty("scopes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ScopesNullable? Scopes { get; set; } = default!;
+        public ScopesNullable Scopes { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33197,16 +33193,16 @@ namespace Plaidly
     public partial class AccountFilter
     {
         [Newtonsoft.Json.JsonProperty("depository", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountFilterSubtypes Depository { get; set; } = default!;
+        public AccountFilterSubtypes Depository { get; set; }
 
         [Newtonsoft.Json.JsonProperty("credit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountFilterSubtypes Credit { get; set; } = default!;
+        public AccountFilterSubtypes Credit { get; set; }
 
         [Newtonsoft.Json.JsonProperty("loan", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountFilterSubtypes Loan { get; set; } = default!;
+        public AccountFilterSubtypes Loan { get; set; }
 
         [Newtonsoft.Json.JsonProperty("investment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AccountFilterSubtypes Investment { get; set; } = default!;
+        public AccountFilterSubtypes Investment { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33235,24 +33231,24 @@ namespace Plaidly
     public partial class SandboxIncomeFireWebhookRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The Item ID associated with the verification.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         /// <summary>
         /// The URL to which the webhook should be sent.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Webhook { get; set; } = default!;
+        public string Webhook { get; set; }
 
         /// <summary>
         /// `VERIFICATION_STATUS_PROCESSING_COMPLETE`: The income verification status processing has completed. If the user uploaded multiple documents, this webhook will fire when all documents have finished processing. Call the `/income/verification/paystubs/get` endpoint and check the document metadata to see which documents were successfully parsed.
@@ -33264,7 +33260,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("verification_status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SandboxIncomeFireWebhookRequestVerification_status Verification_status { get; set; } = default!;
+        public SandboxIncomeFireWebhookRequestVerification_status Verification_status { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33285,7 +33281,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33308,13 +33304,13 @@ namespace Plaidly
         /// Account username.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? User_id { get; set; } = default!;
+        public string User_id { get; set; }
 
         /// <summary>
         /// Account username hashed by FI.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("fi_username_hash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Fi_username_hash { get; set; } = default!;
+        public string Fi_username_hash { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33334,21 +33330,21 @@ namespace Plaidly
     public partial class SignalEvaluateRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         /// <summary>
         /// The `account_id` of the account whose verification status is to be modified
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_id { get; set; } = default!;
+        public string Account_id { get; set; }
 
         /// <summary>
         /// The unique ID that you would like to use to refer to this transaction. For your convenience mapping your internal data, you could use your internal ID/identifier for this transaction. The max length for this field is 36 characters.
@@ -33356,32 +33352,32 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("client_transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Client_transaction_id { get; set; } = default!;
+        public string Client_transaction_id { get; set; }
 
         /// <summary>
         /// The transaction amount, in USD (e.g. `102.05`)
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// `true` if the end user is present while initiating the ACH transfer and the endpoint is being called; `false` otherwise (for example, when the ACH transfer is scheduled and the end user is not present, or you call this endpoint after the ACH transfer but before submitting the Nacha file for ACH processing).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_present", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool? User_present { get; set; } = default!;
+        public bool? User_present { get; set; }
 
         /// <summary>
         /// A unique ID that identifies the end user in your system. This ID is used to correlate requests by a user with multiple Items. The max length for this field is 36 characters.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("client_user_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(36)]
-        public string Client_user_id { get; set; } = default!;
+        public string Client_user_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SignalUser User { get; set; } = default!;
+        public SignalUser User { get; set; }
 
         [Newtonsoft.Json.JsonProperty("device", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SignalDevice Device { get; set; } = default!;
+        public SignalDevice Device { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33401,22 +33397,22 @@ namespace Plaidly
     public partial class SignalUser
     {
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SignalPersonName? Name { get; set; } = default!;
+        public SignalPersonName Name { get; set; }
 
         /// <summary>
         /// The user's phone number, in E.164 format: +{countrycode}{number}. For example: "+14151234567"
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Phone_number { get; set; } = default!;
+        public string Phone_number { get; set; }
 
         /// <summary>
         /// The user's email address.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Email_address { get; set; } = default!;
+        public string Email_address { get; set; }
 
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SignalAddressData? Address { get; set; } = default!;
+        public SignalAddressData Address { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33439,31 +33435,31 @@ namespace Plaidly
         /// The user's name prefix (e.g. "Mr.")
         /// </summary>
         [Newtonsoft.Json.JsonProperty("prefix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Prefix { get; set; } = default!;
+        public string Prefix { get; set; }
 
         /// <summary>
         /// The user's given name. If the user has a one-word name, it should be provided in this field.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("given_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Given_name { get; set; } = default!;
+        public string Given_name { get; set; }
 
         /// <summary>
         /// The user's middle name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("middle_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Middle_name { get; set; } = default!;
+        public string Middle_name { get; set; }
 
         /// <summary>
         /// The user's family name / surname
         /// </summary>
         [Newtonsoft.Json.JsonProperty("family_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Family_name { get; set; } = default!;
+        public string Family_name { get; set; }
 
         /// <summary>
         /// The user's name suffix (e.g. "II")
         /// </summary>
         [Newtonsoft.Json.JsonProperty("suffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Suffix { get; set; } = default!;
+        public string Suffix { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33486,33 +33482,33 @@ namespace Plaidly
         /// The full city name
         /// </summary>
         [Newtonsoft.Json.JsonProperty("city", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string City { get; set; } = default!;
+        public string City { get; set; }
 
         /// <summary>
         /// The region or state
         /// <br/>Example: `"NC"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("region", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Region { get; set; } = default!;
+        public string Region { get; set; }
 
         /// <summary>
         /// The full street address
         /// <br/>Example: `"564 Main Street, APT 15"`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("street", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Street { get; set; } = default!;
+        public string Street { get; set; }
 
         /// <summary>
         /// The postal code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("postal_code", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Postal_code { get; set; } = default!;
+        public string Postal_code { get; set; }
 
         /// <summary>
         /// The ISO 3166-1 alpha-2 country code
         /// </summary>
         [Newtonsoft.Json.JsonProperty("country", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Country { get; set; } = default!;
+        public string Country { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33535,13 +33531,13 @@ namespace Plaidly
         /// The IP address of the device that initiated the transaction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ip_address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Ip_address { get; set; } = default!;
+        public string Ip_address { get; set; }
 
         /// <summary>
         /// The user agent of the device that initiated the transaction (e.g. "Mozilla/5.0")
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_agent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? User_agent { get; set; } = default!;
+        public string User_agent { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33562,14 +33558,14 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("scores", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public SignalScores Scores { get; set; } = new SignalScores();
 
         [Newtonsoft.Json.JsonProperty("core_attributes", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SignalEvaluateCoreAttributes Core_attributes { get; set; } = default!;
+        public SignalEvaluateCoreAttributes Core_attributes { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33589,10 +33585,10 @@ namespace Plaidly
     public partial class SignalScores
     {
         [Newtonsoft.Json.JsonProperty("customer_initiated_return_risk", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public CustomerInitiatedReturnRisk Customer_initiated_return_risk { get; set; } = default!;
+        public CustomerInitiatedReturnRisk Customer_initiated_return_risk { get; set; }
 
         [Newtonsoft.Json.JsonProperty("bank_initiated_return_risk", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BankInitiatedReturnRisk Bank_initiated_return_risk { get; set; } = default!;
+        public BankInitiatedReturnRisk Bank_initiated_return_risk { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33613,11 +33609,11 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, 100)]
-        public int Score { get; set; } = default!;
+        public int Score { get; set; }
 
         [Newtonsoft.Json.JsonProperty("risk_tier", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(1, 5)]
-        public int Risk_tier { get; set; } = default!;
+        public int Risk_tier { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33638,11 +33634,11 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("score", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(0, 100)]
-        public int Score { get; set; } = default!;
+        public int Score { get; set; }
 
         [Newtonsoft.Json.JsonProperty("risk_tier", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(1, 8)]
-        public int Risk_tier { get; set; } = default!;
+        public int Risk_tier { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -33673,385 +33669,385 @@ namespace Plaidly
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 7 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unauthorized_transactions_count_7d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Unauthorized_transactions_count_7d { get; set; } = default!;
+        public int Unauthorized_transactions_count_7d { get; set; }
 
         /// <summary>
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 30 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unauthorized_transactions_count_30d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Unauthorized_transactions_count_30d { get; set; } = default!;
+        public int Unauthorized_transactions_count_30d { get; set; }
 
         /// <summary>
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 60 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unauthorized_transactions_count_60d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Unauthorized_transactions_count_60d { get; set; } = default!;
+        public int Unauthorized_transactions_count_60d { get; set; }
 
         /// <summary>
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to unauthorized transactions over the past 90 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("unauthorized_transactions_count_90d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Unauthorized_transactions_count_90d { get; set; } = default!;
+        public int Unauthorized_transactions_count_90d { get; set; }
 
         /// <summary>
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 7 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nsf_overdraft_transactions_count_7d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nsf_overdraft_transactions_count_7d { get; set; } = default!;
+        public int Nsf_overdraft_transactions_count_7d { get; set; }
 
         /// <summary>
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 30 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nsf_overdraft_transactions_count_30d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nsf_overdraft_transactions_count_30d { get; set; } = default!;
+        public int Nsf_overdraft_transactions_count_30d { get; set; }
 
         /// <summary>
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 60 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nsf_overdraft_transactions_count_60d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nsf_overdraft_transactions_count_60d { get; set; } = default!;
+        public int Nsf_overdraft_transactions_count_60d { get; set; }
 
         /// <summary>
         /// We parse and analyze historical transaction metadata to identify the number of possible past returns due to non-sufficient funds/overdrafts over the past 90 days from the account that will be debited.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("nsf_overdraft_transactions_count_90d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Nsf_overdraft_transactions_count_90d { get; set; } = default!;
+        public int Nsf_overdraft_transactions_count_90d { get; set; }
 
         /// <summary>
         /// The number of days since the first time the Item was connected to an application via Plaid
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_since_first_plaid_connection", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Days_since_first_plaid_connection { get; set; } = default!;
+        public int? Days_since_first_plaid_connection { get; set; }
 
         /// <summary>
         /// The number of times the Item has been connected to applications via Plaid over the past 7 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("plaid_connections_count_7d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Plaid_connections_count_7d { get; set; } = default!;
+        public int? Plaid_connections_count_7d { get; set; }
 
         /// <summary>
         /// The number of times the Item has been connected to applications via Plaid over the past 30 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("plaid_connections_count_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Plaid_connections_count_30d { get; set; } = default!;
+        public int? Plaid_connections_count_30d { get; set; }
 
         /// <summary>
         /// The total number of times the Item has been connected to applications via Plaid
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_plaid_connections_count", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Total_plaid_connections_count { get; set; } = default!;
+        public int? Total_plaid_connections_count { get; set; }
 
         /// <summary>
         /// Indicates if the ACH transaction funding account is a savings/money market account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("is_savings_or_money_market_account", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Is_savings_or_money_market_account { get; set; } = default!;
+        public bool Is_savings_or_money_market_account { get; set; }
 
         /// <summary>
         /// The total credit (inflow) transaction amount over the past 10 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_credit_transactions_amount_10d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Total_credit_transactions_amount_10d { get; set; } = default!;
+        public double Total_credit_transactions_amount_10d { get; set; }
 
         /// <summary>
         /// The total debit (outflow) transaction amount over the past 10 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_debit_transactions_amount_10d", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double Total_debit_transactions_amount_10d { get; set; } = default!;
+        public double Total_debit_transactions_amount_10d { get; set; }
 
         /// <summary>
         /// The 50th percentile of all credit (inflow) transaction amounts over the past 28 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p50_credit_transactions_amount_28d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P50_credit_transactions_amount_28d { get; set; } = default!;
+        public double? P50_credit_transactions_amount_28d { get; set; }
 
         /// <summary>
         /// The 50th percentile of all debit (outflow) transaction amounts over the past 28 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p50_debit_transactions_amount_28d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P50_debit_transactions_amount_28d { get; set; } = default!;
+        public double? P50_debit_transactions_amount_28d { get; set; }
 
         /// <summary>
         /// The 95th percentile of all credit (inflow) transaction amounts over the past 28 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p95_credit_transactions_amount_28d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P95_credit_transactions_amount_28d { get; set; } = default!;
+        public double? P95_credit_transactions_amount_28d { get; set; }
 
         /// <summary>
         /// The 95th percentile of all debit (outflow) transaction amounts over the past 28 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p95_debit_transactions_amount_28d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P95_debit_transactions_amount_28d { get; set; } = default!;
+        public double? P95_debit_transactions_amount_28d { get; set; }
 
         /// <summary>
         /// The number of days within the past 90 days when the account that will be debited had a negative end-of-day available balance
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_with_negative_balance_count_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Days_with_negative_balance_count_90d { get; set; } = default!;
+        public int? Days_with_negative_balance_count_90d { get; set; }
 
         /// <summary>
         /// The 90th percentile of the end-of-day available balance over the past 30 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p90_eod_balance_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P90_eod_balance_30d { get; set; } = default!;
+        public double? P90_eod_balance_30d { get; set; }
 
         /// <summary>
         /// The 90th percentile of the end-of-day available balance over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p90_eod_balance_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P90_eod_balance_60d { get; set; } = default!;
+        public double? P90_eod_balance_60d { get; set; }
 
         /// <summary>
         /// The 90th percentile of the end-of-day available balance over the past 90 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p90_eod_balance_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P90_eod_balance_90d { get; set; } = default!;
+        public double? P90_eod_balance_90d { get; set; }
 
         /// <summary>
         /// The 10th percentile of the end-of-day available balance over the past 30 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p10_eod_balance_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P10_eod_balance_30d { get; set; } = default!;
+        public double? P10_eod_balance_30d { get; set; }
 
         /// <summary>
         /// The 10th percentile of the end-of-day available balance over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p10_eod_balance_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P10_eod_balance_60d { get; set; } = default!;
+        public double? P10_eod_balance_60d { get; set; }
 
         /// <summary>
         /// The 10th percentile of the end-of-day available balance over the past 90 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p10_eod_balance_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P10_eod_balance_90d { get; set; } = default!;
+        public double? P10_eod_balance_90d { get; set; }
 
         /// <summary>
         /// Available balance, as of the `balance_last_updated` time. The available balance is the current balance less any outstanding holds or debits that have not yet posted to the account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("available_balance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Available_balance { get; set; } = default!;
+        public double? Available_balance { get; set; }
 
         /// <summary>
         /// Current balance, as of the `balance_last_updated` time. The current balance is the total amount of funds in the account.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current_balance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Current_balance { get; set; } = default!;
+        public double? Current_balance { get; set; }
 
         /// <summary>
         /// Timestamp in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format (YYYY-MM-DDTHH:mm:ssZ) indicating the last time that the balance for the given account has been updated.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("balance_last_updated", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTimeOffset? Balance_last_updated { get; set; } = default!;
+        public System.DateTimeOffset? Balance_last_updated { get; set; }
 
         /// <summary>
         /// The number of times the account's phone numbers on file have changed over the past 28 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_change_count_28d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Phone_change_count_28d { get; set; } = default!;
+        public int? Phone_change_count_28d { get; set; }
 
         /// <summary>
         /// The number of times the account's phone numbers on file have changed over the past 90 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("phone_change_count_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Phone_change_count_90d { get; set; } = default!;
+        public int? Phone_change_count_90d { get; set; }
 
         /// <summary>
         /// The number of times the account's email addresses on file have changed over the past 28 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_change_count_28d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Email_change_count_28d { get; set; } = default!;
+        public int? Email_change_count_28d { get; set; }
 
         /// <summary>
         /// The number of times the account's email addresses on file have changed over the past 90 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("email_change_count_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Email_change_count_90d { get; set; } = default!;
+        public int? Email_change_count_90d { get; set; }
 
         /// <summary>
         /// The number of times the account's addresses on file have changed over the past 28 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("address_change_count_28d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Address_change_count_28d { get; set; } = default!;
+        public int? Address_change_count_28d { get; set; }
 
         /// <summary>
         /// The number of times the account's addresses on file have changed over the past 90 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("address_change_count_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Address_change_count_90d { get; set; } = default!;
+        public int? Address_change_count_90d { get; set; }
 
         /// <summary>
         /// The number of non-OAuth authentication attempts via Plaid for this bank account over the past 3 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("plaid_non_oauth_authentication_attempts_count_3d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Plaid_non_oauth_authentication_attempts_count_3d { get; set; } = default!;
+        public int? Plaid_non_oauth_authentication_attempts_count_3d { get; set; }
 
         /// <summary>
         /// The number of non-OAuth authentication attempts via Plaid for this bank account over the past 7 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("plaid_non_oauth_authentication_attempts_count_7d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Plaid_non_oauth_authentication_attempts_count_7d { get; set; } = default!;
+        public int? Plaid_non_oauth_authentication_attempts_count_7d { get; set; }
 
         /// <summary>
         /// The number of non-OAuth authentication attempts via Plaid for this bank account over the past 30 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("plaid_non_oauth_authentication_attempts_count_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Plaid_non_oauth_authentication_attempts_count_30d { get; set; } = default!;
+        public int? Plaid_non_oauth_authentication_attempts_count_30d { get; set; }
 
         /// <summary>
         /// The number of failed non-OAuth authentication attempts via Plaid for this bank account over the past 3 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("failed_plaid_non_oauth_authentication_attempts_count_3d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Failed_plaid_non_oauth_authentication_attempts_count_3d { get; set; } = default!;
+        public int? Failed_plaid_non_oauth_authentication_attempts_count_3d { get; set; }
 
         /// <summary>
         /// The number of failed non-OAuth authentication attempts via Plaid for this bank account over the past 7 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("failed_plaid_non_oauth_authentication_attempts_count_7d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Failed_plaid_non_oauth_authentication_attempts_count_7d { get; set; } = default!;
+        public int? Failed_plaid_non_oauth_authentication_attempts_count_7d { get; set; }
 
         /// <summary>
         /// The number of failed non-OAuth authentication attempts via Plaid for this bank account over the past 30 days
         /// </summary>
         [Newtonsoft.Json.JsonProperty("failed_plaid_non_oauth_authentication_attempts_count_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Failed_plaid_non_oauth_authentication_attempts_count_30d { get; set; } = default!;
+        public int? Failed_plaid_non_oauth_authentication_attempts_count_30d { get; set; }
 
         /// <summary>
         /// The total number of debit (outflow) transactions over the past 10 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("debit_transactions_count_10d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Debit_transactions_count_10d { get; set; } = default!;
+        public int? Debit_transactions_count_10d { get; set; }
 
         /// <summary>
         /// The total number of credit (inflow) transactions over the past 10 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("credit_transactions_count_10d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Credit_transactions_count_10d { get; set; } = default!;
+        public int? Credit_transactions_count_10d { get; set; }
 
         /// <summary>
         /// The total number of debit (outflow) transactions over the past 30 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("debit_transactions_count_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Debit_transactions_count_30d { get; set; } = default!;
+        public int? Debit_transactions_count_30d { get; set; }
 
         /// <summary>
         /// The total number of credit (inflow) transactions over the past 30 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("credit_transactions_count_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Credit_transactions_count_30d { get; set; } = default!;
+        public int? Credit_transactions_count_30d { get; set; }
 
         /// <summary>
         /// The total number of debit (outflow) transactions over the past 60 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("debit_transactions_count_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Debit_transactions_count_60d { get; set; } = default!;
+        public int? Debit_transactions_count_60d { get; set; }
 
         /// <summary>
         /// The total number of credit (inflow) transactions over the past 60 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("credit_transactions_count_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Credit_transactions_count_60d { get; set; } = default!;
+        public int? Credit_transactions_count_60d { get; set; }
 
         /// <summary>
         /// The total number of debit (outflow) transactions over the past 90 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("debit_transactions_count_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Debit_transactions_count_90d { get; set; } = default!;
+        public int? Debit_transactions_count_90d { get; set; }
 
         /// <summary>
         /// The total number of credit (inflow) transactions over the past 90 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("credit_transactions_count_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Credit_transactions_count_90d { get; set; } = default!;
+        public int? Credit_transactions_count_90d { get; set; }
 
         /// <summary>
         /// The total debit (outflow) transaction amount over the past 30 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_debit_transactions_amount_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Total_debit_transactions_amount_30d { get; set; } = default!;
+        public double? Total_debit_transactions_amount_30d { get; set; }
 
         /// <summary>
         /// The total credit (inflow) transaction amount over the past 30 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_credit_transactions_amount_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Total_credit_transactions_amount_30d { get; set; } = default!;
+        public double? Total_credit_transactions_amount_30d { get; set; }
 
         /// <summary>
         /// The total debit (outflow) transaction amount over the past 60 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_debit_transactions_amount_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Total_debit_transactions_amount_60d { get; set; } = default!;
+        public double? Total_debit_transactions_amount_60d { get; set; }
 
         /// <summary>
         /// The total credit (inflow) transaction amount over the past 60 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_credit_transactions_amount_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Total_credit_transactions_amount_60d { get; set; } = default!;
+        public double? Total_credit_transactions_amount_60d { get; set; }
 
         /// <summary>
         /// The total debit (outflow) transaction amount over the past 90 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_debit_transactions_amount_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Total_debit_transactions_amount_90d { get; set; } = default!;
+        public double? Total_debit_transactions_amount_90d { get; set; }
 
         /// <summary>
         /// The total credit (inflow) transaction amount over the past 90 days from the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("total_credit_transactions_amount_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? Total_credit_transactions_amount_90d { get; set; } = default!;
+        public double? Total_credit_transactions_amount_90d { get; set; }
 
         /// <summary>
         /// The 50th percentile of the end-of-day available balance over the past 30 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p50_eod_balance_30d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P50_eod_balance_30d { get; set; } = default!;
+        public double? P50_eod_balance_30d { get; set; }
 
         /// <summary>
         /// The 50th percentile of the end-of-day available balance over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p50_eod_balance_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P50_eod_balance_60d { get; set; } = default!;
+        public double? P50_eod_balance_60d { get; set; }
 
         /// <summary>
         /// The 50th percentile of the end-of-day available balance over the past 90 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p50_eod_balance_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P50_eod_balance_90d { get; set; } = default!;
+        public double? P50_eod_balance_90d { get; set; }
 
         /// <summary>
         /// The 50th percentile of the end-of-day available balance between day 31 and day 60 over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p50_eod_balance_31d_to_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P50_eod_balance_31d_to_60d { get; set; } = default!;
+        public double? P50_eod_balance_31d_to_60d { get; set; }
 
         /// <summary>
         /// The 50th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p50_eod_balance_61d_to_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P50_eod_balance_61d_to_90d { get; set; } = default!;
+        public double? P50_eod_balance_61d_to_90d { get; set; }
 
         /// <summary>
         /// The 90th percentile of the end-of-day available balance between day 31 and day 60 over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p90_eod_balance_31d_to_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P90_eod_balance_31d_to_60d { get; set; } = default!;
+        public double? P90_eod_balance_31d_to_60d { get; set; }
 
         /// <summary>
         /// The 90th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p90_eod_balance_61d_to_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P90_eod_balance_61d_to_90d { get; set; } = default!;
+        public double? P90_eod_balance_61d_to_90d { get; set; }
 
         /// <summary>
         /// The 10th percentile of the end-of-day available balance between day 31 and day 60 over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p10_eod_balance_31d_to_60d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P10_eod_balance_31d_to_60d { get; set; } = default!;
+        public double? P10_eod_balance_31d_to_60d { get; set; }
 
         /// <summary>
         /// The 10th percentile of the end-of-day available balance between day 61 and day 90 over the past 60 days of the account that will be debited
         /// </summary>
         [Newtonsoft.Json.JsonProperty("p10_eod_balance_61d_to_90d", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? P10_eod_balance_61d_to_90d { get; set; } = default!;
+        public double? P10_eod_balance_61d_to_90d { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34071,10 +34067,10 @@ namespace Plaidly
     public partial class SignalDecisionReportRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Must be the same as the `client_transaction_id` supplied when calling `/signal/evaluate`
@@ -34082,20 +34078,20 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("client_transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Client_transaction_id { get; set; } = default!;
+        public string Client_transaction_id { get; set; }
 
         /// <summary>
         /// `true` if the ACH transaction was initiated, `false` otherwise.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("initiated", Required = Newtonsoft.Json.Required.Always)]
-        public bool Initiated { get; set; } = default!;
+        public bool Initiated { get; set; }
 
         /// <summary>
         /// The actual number of days (hold time) since the ACH debit transaction that you wait before making funds available to your customers. The holding time could affect the ACH return rate. For example, use 0 if you make funds available to your customers instantly or the same day following the debit transaction, or 1 if you make funds available the next day following the debit initialization.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("days_funds_on_hold", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.Range(0, int.MaxValue)]
-        public int? Days_funds_on_hold { get; set; } = default!;
+        public int? Days_funds_on_hold { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34116,7 +34112,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34136,10 +34132,10 @@ namespace Plaidly
     public partial class SignalReturnReportRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// Must be the same as the `client_transaction_id` supplied when calling `/signal/evaluate`
@@ -34147,14 +34143,14 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("client_transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(36, MinimumLength = 1)]
-        public string Client_transaction_id { get; set; } = default!;
+        public string Client_transaction_id { get; set; }
 
         /// <summary>
         /// Must be a valid ACH return code (e.g. "R01")
         /// </summary>
         [Newtonsoft.Json.JsonProperty("return_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Return_code { get; set; } = default!;
+        public string Return_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34175,7 +34171,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34195,14 +34191,14 @@ namespace Plaidly
     public partial class SignalPrepareRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("access_token", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Access_token { get; set; } = default!;
+        public string Access_token { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34223,7 +34219,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34244,7 +34240,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("oauth_state_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Oauth_state_id { get; set; } = default!;
+        public string Oauth_state_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("accounts", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -34289,19 +34285,19 @@ namespace Plaidly
         /// `ITEM`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook_type { get; set; } = default!;
+        public string Webhook_type { get; set; }
 
         /// <summary>
         /// `NEW_ACCOUNTS_AVAILABLE`
         /// </summary>
         [Newtonsoft.Json.JsonProperty("webhook_code", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Webhook_code { get; set; } = default!;
+        public string Webhook_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("item_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Item_id { get; set; } = default!;
+        public string Item_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PlaidError Error { get; set; } = default!;
+        public PlaidError Error { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34321,17 +34317,17 @@ namespace Plaidly
     public partial class WalletGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the e-wallet
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wallet_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Wallet_id { get; set; } = default!;
+        public string Wallet_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34355,17 +34351,17 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wallet_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Wallet_id { get; set; } = default!;
+        public string Wallet_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("balance", Required = Newtonsoft.Json.Required.AllowNull)]
-        public WalletBalance? Balance { get; set; } = default!;
+        public WalletBalance Balance { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("numbers", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public WalletNumbers Numbers { get; set; } = default!;
+        public WalletNumbers Numbers { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34385,7 +34381,7 @@ namespace Plaidly
     public partial class WalletNumbers
     {
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public RecipientBACS? Bacs { get; set; } = default!;
+        public RecipientBACS Bacs { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34409,13 +34405,13 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         /// <summary>
         /// The total amount of funds in the account
         /// </summary>
         [Newtonsoft.Json.JsonProperty("current", Required = Newtonsoft.Json.Required.Always)]
-        public double Current { get; set; } = default!;
+        public double Current { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34435,22 +34431,22 @@ namespace Plaidly
     public partial class WalletTransactionExecuteRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         [Newtonsoft.Json.JsonProperty("idempotency_key", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [System.ComponentModel.DataAnnotations.StringLength(128, MinimumLength = 1)]
-        public string Idempotency_key { get; set; } = default!;
+        public string Idempotency_key { get; set; }
 
         /// <summary>
         /// The ID of the e-wallet to debit from
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wallet_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Wallet_id { get; set; } = default!;
+        public string Wallet_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("counterparty", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -34466,7 +34462,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(18, MinimumLength = 1)]
-        public string Reference { get; set; } = default!;
+        public string Reference { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34490,7 +34486,7 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Name { get; set; } = default!;
+        public string Name { get; set; }
 
         [Newtonsoft.Json.JsonProperty("numbers", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -34515,7 +34511,7 @@ namespace Plaidly
     {
         [Newtonsoft.Json.JsonProperty("bacs", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public WalletTransactionCounterpartyBACS Bacs { get; set; } = default!;
+        public WalletTransactionCounterpartyBACS Bacs { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34550,14 +34546,14 @@ namespace Plaidly
         [System.ComponentModel.DataAnnotations.Required]
         [System.ComponentModel.DataAnnotations.StringLength(3, MinimumLength = 3)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public WalletTransactionAmountIso_currency_code Iso_currency_code { get; set; } = default!;
+        public WalletTransactionAmountIso_currency_code Iso_currency_code { get; set; }
 
         /// <summary>
         /// The amount of the transaction. Must contain at most two digits of precision e.g. `1.23`.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Range(1D, double.MaxValue)]
-        public double Value { get; set; } = default!;
+        public double Value { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34581,16 +34577,16 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transaction_id { get; set; } = default!;
+        public string Transaction_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public WalletTransactionStatus Status { get; set; } = default!;
+        public WalletTransactionStatus Status { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34639,24 +34635,24 @@ namespace Plaidly
     public partial class WalletTransactionsListRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The ID of the e-wallet to fetch transactions from
         /// </summary>
         [Newtonsoft.Json.JsonProperty("wallet_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Wallet_id { get; set; } = default!;
+        public string Wallet_id { get; set; }
 
         /// <summary>
         /// A base64 value representing the latest transaction that has already been requested. Set this to `next_cursor` received from the previous `/wallet/transactions/list` request. If provided, the response will only contain transactions created before that transaction. If omitted, the response will contain transactions starting from the most recent, and in descending order by the `created_at` time.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cursor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [System.ComponentModel.DataAnnotations.StringLength(256)]
-        public string Cursor { get; set; } = default!;
+        public string Cursor { get; set; }
 
         /// <summary>
         /// The number of transactions to fetch
@@ -34693,11 +34689,11 @@ namespace Plaidly
         /// Cursor used for fetching transactions created before the latest transaction provided in this response
         /// </summary>
         [Newtonsoft.Json.JsonProperty("next_cursor", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Next_cursor { get; set; } = default!;
+        public string Next_cursor { get; set; }
 
         [Newtonsoft.Json.JsonProperty("request_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Request_id { get; set; } = default!;
+        public string Request_id { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34721,14 +34717,14 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("transaction_id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Transaction_id { get; set; } = default!;
+        public string Transaction_id { get; set; }
 
         /// <summary>
         /// A reference for the transaction
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Reference { get; set; } = default!;
+        public string Reference { get; set; }
 
         /// <summary>
         /// The type of of the transaction. Currently, only `"PAYOUT"` is supported.
@@ -34736,7 +34732,7 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public WalletTransactionType Type { get; set; } = default!;
+        public WalletTransactionType Type { get; set; }
 
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -34749,14 +34745,14 @@ namespace Plaidly
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public WalletTransactionStatus Status { get; set; } = default!;
+        public WalletTransactionStatus Status { get; set; }
 
         /// <summary>
         /// Timestamp when the transaction was created, in [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("created_at", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTimeOffset Created_at { get; set; } = default!;
+        public System.DateTimeOffset Created_at { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34776,17 +34772,17 @@ namespace Plaidly
     public partial class TransactionsEnhanceGetRequest
     {
         [Newtonsoft.Json.JsonProperty("client_id", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Client_id { get; set; } = default!;
+        public string Client_id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("secret", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Secret { get; set; } = default!;
+        public string Secret { get; set; }
 
         /// <summary>
         /// The type of account for the requested transactions (`depository` or `credit`).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("account_type", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Account_type { get; set; } = default!;
+        public string Account_type { get; set; }
 
         /// <summary>
         /// An array of raw transactions to be enhanced.
@@ -34817,27 +34813,27 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// The raw description of the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The value of the transaction, denominated in the account's currency, as stated in `iso_currency_code`. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -34885,27 +34881,27 @@ namespace Plaidly
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Id { get; set; } = default!;
+        public string Id { get; set; }
 
         /// <summary>
         /// The raw description of the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Description { get; set; } = default!;
+        public string Description { get; set; }
 
         /// <summary>
         /// The value of the transaction, denominated in the account's currency, as stated in `iso_currency_code`. Positive values when money moves out of the account; negative values when money moves in. For example, debit card purchases are positive; credit card payments, direct deposits, and refunds are negative.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
-        public double Amount { get; set; } = default!;
+        public double Amount { get; set; }
 
         /// <summary>
         /// The ISO-4217 currency code of the transaction.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("iso_currency_code", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public string Iso_currency_code { get; set; } = default!;
+        public string Iso_currency_code { get; set; }
 
         [Newtonsoft.Json.JsonProperty("enhancements", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -34955,24 +34951,24 @@ namespace Plaidly
         /// The merchant name, as extracted by Plaid from the raw description.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("merchant_name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Merchant_name { get; set; } = default!;
+        public string Merchant_name { get; set; }
 
         /// <summary>
         /// The check number of the transaction. This field is only populated for check transactions.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("check_number", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string? Check_number { get; set; } = default!;
+        public string Check_number { get; set; }
 
         [Newtonsoft.Json.JsonProperty("payment_channel", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public PaymentChannel Payment_channel { get; set; } = default!;
+        public PaymentChannel Payment_channel { get; set; }
 
         /// <summary>
         /// The ID of the category to which this transaction belongs. For a full list of categories, see [`/categories/get`](https://plaid.com/docs/api/products/transactions/#categoriesget).
         /// </summary>
         [Newtonsoft.Json.JsonProperty("category_id", Required = Newtonsoft.Json.Required.AllowNull)]
-        public string? Category_id { get; set; } = default!;
+        public string Category_id { get; set; }
 
         /// <summary>
         /// A hierarchical array of the categories to which this transaction belongs. For a full list of categories, see [`/categories/get`](https://plaid.com/docs/api/products/transactions/#categoriesget).
@@ -34986,7 +34982,7 @@ namespace Plaidly
         public Location Location { get; set; } = new Location();
 
         [Newtonsoft.Json.JsonProperty("personal_finance_category", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PersonalFinanceCategory? Personal_finance_category { get; set; } = default!;
+        public PersonalFinanceCategory Personal_finance_category { get; set; }
 
         private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
 
@@ -35626,8 +35622,8 @@ namespace Plaidly
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.15.10.0 (NJsonSchema v10.6.10.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class FileResponse : System.IDisposable
     {
-        private System.IDisposable? _client;
-        private System.IDisposable? _response;
+        private System.IDisposable _client;
+        private System.IDisposable _response;
 
         public int StatusCode { get; private set; }
 
@@ -35640,7 +35636,7 @@ namespace Plaidly
             get { return StatusCode == 206; }
         }
 
-        public FileResponse(int statusCode, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.IO.Stream stream, System.IDisposable? client, System.IDisposable? response)
+        public FileResponse(int statusCode, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.IO.Stream stream, System.IDisposable client, System.IDisposable response)
         {
             StatusCode = statusCode;
             Headers = headers;
@@ -35665,11 +35661,11 @@ namespace Plaidly
     {
         public int StatusCode { get; private set; }
 
-        public string? Response { get; private set; }
+        public string Response { get; private set; }
 
         public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public ApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception? innerException)
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + ((response == null) ? "(null)" : response.Substring(0, response.Length >= 512 ? 512 : response.Length)), innerException)
         {
             StatusCode = statusCode;
@@ -35688,7 +35684,7 @@ namespace Plaidly
     {
         public TResult Result { get; private set; }
 
-        public ApiException(string message, int statusCode, string? response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception? innerException)
+        public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException)
             : base(message, statusCode, response, headers, innerException)
         {
             Result = result;
