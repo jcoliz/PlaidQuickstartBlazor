@@ -25,12 +25,14 @@ public class LinkController : ControllerBase
     private readonly ILogger<LinkController> _logger;
     private readonly PlaidCredentials _credentials;
     private readonly PlaidClient _client;
+    private readonly Plaidly.PlaidClient _plyclient;
 
-    public LinkController(ILogger<LinkController> logger, IOptions<PlaidCredentials> credentials, PlaidClient client)
+    public LinkController(ILogger<LinkController> logger, IOptions<PlaidCredentials> credentials, PlaidClient client, Plaidly.PlaidClient plyclient)
     {
         _logger = logger;
         _credentials = credentials.Value;
         _client = client;
+        _plyclient = plyclient;
     }
 
     [HttpGet]
@@ -63,6 +65,29 @@ public class LinkController : ControllerBase
         {
             _logger.LogInformation($"CreateLinkToken (): {fix ?? false}");
 
+#if PLAIDLY
+            try
+            {
+                var request = new Plaidly.LinkTokenCreateRequest()
+                {
+                    Access_token = fix == true ? _credentials.AccessToken : null,
+                    User = new Plaidly.LinkTokenCreateRequestUser { Client_user_id = Guid.NewGuid().ToString(), },
+                    Client_name = "Quickstart for .NET",
+                    Products = fix != true ? _credentials!.Products!.Split(',').Select(p => Enum.Parse<Plaidly.Products>(p, true)).ToArray() : Array.Empty<Plaidly.Products>(),
+                    Language = "en", // TODO: Should pick up from config
+                    Country_codes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<Plaidly.CountryCode>(p, true)).ToArray(),
+                };
+                var response = await _plyclient.LinkTokenCreateAsync(request);
+
+                _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response)}");
+
+                return Ok(response.Link_token);
+            }
+            catch (Plaidly.ApiException<Plaidly.Error> ex)
+            {
+                return Error(ex.Result);
+            }
+#else
             var response = await _client.LinkTokenCreateAsync(
                 new LinkTokenCreateRequest()
                 {
@@ -80,6 +105,7 @@ public class LinkController : ControllerBase
             _logger.LogInformation($"CreateLinkToken OK: {JsonSerializer.Serialize(response.LinkToken)}");
 
             return Ok(response.LinkToken);
+#endif
         }
         catch (Exception ex)
         {
@@ -132,4 +158,13 @@ public class LinkController : ControllerBase
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
         return StatusCode(StatusCodes.Status400BadRequest, error);
     }
+    ObjectResult Error(Plaidly.Error error, [CallerMemberName] string callerName = "")
+    {
+        var outerror = new ServerPlaidError(error);
+        _logger.LogError($"{callerName}: {JsonSerializer.Serialize(outerror)}");
+
+        return StatusCode(StatusCodes.Status400BadRequest, outerror);
+    }
+
 }
+
