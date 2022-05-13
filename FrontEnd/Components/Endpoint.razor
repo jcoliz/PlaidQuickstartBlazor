@@ -91,6 +91,7 @@
     {
         isLoading = true;
         ErrorDetails = null;
+        ErrorValue = null;
         TableData = null;
 
         try
@@ -100,9 +101,13 @@
             {
                 TableData = await response.Content.ReadFromJsonAsync<DataTable>();             
             }
-            else
+            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
             {
                 ErrorDetails = await response.Content.ReadFromJsonAsync<PlaidWireError>();
+            }
+            else
+            {
+                ErrorValue = await response.Content.ReadAsStringAsync();
             }
         }
         catch (Exception ex)
