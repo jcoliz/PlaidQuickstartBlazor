@@ -710,6 +710,44 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Payment()
     {
+#if PLAIDLY
+        try
+        {
+            var listrequest = new Plaidly.PaymentInitiationPaymentListRequest();
+            var listresponse = await _plyclient.PaymentInitiationPaymentListAsync(listrequest);
+
+            var paymentid = listresponse.Payments.First().Payment_id;
+            var request = new Plaidly.PaymentInitiationPaymentGetRequest() 
+            { 
+                Payment_id = paymentid 
+            };
+            var response = await _plyclient.PaymentInitiationPaymentGetAsync(request);
+
+            DataTable result = new ServerDataTable("Payment ID", "Amount/r", "Status", "Status Update", "Recipient ID")
+            {
+                Rows = new Row[]
+                {
+                new Row(
+                    paymentid,
+                    response.Amount?.Value.ToString("C2") ?? string.Empty,
+                    response.Status.ToString(),
+                    response.Last_status_update.ToString("MM-dd"),
+                    response.Recipient_id
+                )
+                }
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var listrequest = new Going.Plaid.PaymentInitiation.PaymentInitiationPaymentListRequest();
         var listresponse = await _client.PaymentInitiationPaymentListAsync(listrequest);
 
@@ -738,6 +776,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
@@ -745,6 +784,94 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Assets()
     {
+#if PLAIDLY
+        try
+        {
+            var createrequest = new Plaidly.AssetReportCreateRequest()
+            {
+                Access_tokens = new[] { _credentials.AccessToken! },
+                Days_requested = 10,
+                Options = new()
+                {
+                    Client_report_id = "Custom Report ID #123",
+                    User = new()
+                    {
+                        Client_user_id = "Custom User ID #456",
+                        First_name = "Alice",
+                        Middle_name = "Bobcat",
+                        Last_name = "Cranberry",
+                        Ssn = "123-45-6789",
+                        Phone_number = "555-123-4567",
+                        Email = "alice@example.com"
+                    }
+                }
+            };
+            var createresponse = await _plyclient.AssetReportCreateAsync(createrequest);
+
+            var request = new Plaidly.AssetReportGetRequest()
+            {
+                Asset_report_token = createresponse.Asset_report_token
+            };
+
+            Plaidly.AssetReportGetResponse? response = null;
+            int retries = 10;
+            while (retries-- > 0)
+            {
+                try
+                {
+                    response = await _plyclient.AssetReportGetAsync(request);
+                }
+                catch (Plaidly.ApiException ex)
+                {
+                    try
+                    {                       
+                        var error = JsonSerializer.Deserialize<Plaidly.PlaidError>(ex.Response!, new JsonSerializerOptions()
+                        {
+                            PropertyNameCaseInsensitive = true,
+                            Converters = { new System.Text.Json.Serialization.JsonStringEnumConverter() }
+                        })!;
+
+                        if (error.Error_code != "PRODUCT_NOT_READY")
+                            return Error(error);
+                        else
+                            // Wait a bit and try again
+                            await Task.Delay(TimeSpan.FromSeconds(1));
+                    }
+                    catch
+                    {
+                        // Can't resolve. Re-throw the original exception
+                        throw ex;
+                    }
+                }
+            }
+
+            if (response is null)
+                throw new ApplicationException("Report unavailable after many retries");
+
+            DataTable result = new ServerDataTable("Account", "Transactions/r", "Balance/r", "Days Available/r")
+            {
+                Rows = response.Report.Items
+                    .SelectMany(x => x.Accounts.Select(a =>
+                       new Row(
+                           a.Name,
+                           a.Transactions.Count.ToString(),
+                           a.Balances.Current?.ToString("C2") ?? string.Empty,
+                           a.Days_available.ToString("0")
+                       ))
+                    )
+                    .ToArray()
+            };
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         _client.AccessToken = null;
         var createrequest = new Going.Plaid.AssetReport.AssetReportCreateRequest()
         {
@@ -806,6 +933,7 @@ public class FetchController : ControllerBase
         // https://github.com/viceroypenguin/Going.Plaid/issues/63
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
