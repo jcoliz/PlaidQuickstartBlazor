@@ -539,6 +539,38 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Item()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.ItemGetRequest() { Access_token = _credentials.AccessToken! };
+            var response = await _plyclient.ItemGetAsync(request);
+
+            var intstrequest = new Plaidly.InstitutionsGetByIdRequest() { Institution_id = response.Item!.Institution_id!, Country_codes= new[] { Plaidly.CountryCode.US } };
+            var instresponse = await _plyclient.InstitutionsGetByIdAsync(intstrequest);
+
+            DataTable result = new ServerDataTable("Institution Name", "Billed Products", "Available Products")
+            {
+                Rows = new[]
+                {
+                    new Row(
+                        instresponse.Institution.Name,
+                        string.Join(",",response.Item.Billed_products.Select(x=>x.ToString())),
+                        string.Join(",",response.Item.Available_products.Select(x=>x.ToString()))
+                    )
+                }
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var request = new Going.Plaid.Item.ItemGetRequest();
         var response = await _client.ItemGetAsync(request);
 
@@ -565,6 +597,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
@@ -572,6 +605,60 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Liabilities()
     {
+
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.LiabilitiesGetRequest() { Access_token = _credentials.AccessToken! };
+
+            var response = await _plyclient.LiabilitiesGetAsync(request);
+
+            Plaidly.AccountBase? AccountFor(string? id) => response.Accounts.Where(x => x.Account_id == id).SingleOrDefault();
+
+            DataTable result = new ServerDataTable("Type", "Account", "Balance/r")
+            {
+                Rows = response.Liabilities!.Credit!
+                    .Select(x =>
+                        new Row(
+                            "Credit",
+                            AccountFor(x.Account_id)?.Name ?? string.Empty,
+                            x.Last_statement_balance?.ToString("C2") ?? string.Empty
+                        )
+                    )
+                    .Concat(
+                        response.Liabilities!.Student!
+                            .Select(x =>
+                                new Row(
+                                    "Student Loan",
+                                    AccountFor(x.Account_id)?.Name ?? string.Empty,
+                                    AccountFor(x.Account_id)?.Balances?.Current?.ToString("C2") ?? string.Empty
+                                )
+                            )
+                    )
+                    .Concat(
+                        response.Liabilities!.Mortgage!
+                            .Select(x =>
+                                new Row(
+                                    "Mortgage",
+                                    AccountFor(x.Account_id)?.Name ?? string.Empty,
+                                    AccountFor(x.Account_id)?.Balances?.Current?.ToString("C2") ?? string.Empty
+                                )
+                            )
+                    )
+                    .ToArray()
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var request = new Going.Plaid.Liabilities.LiabilitiesGetRequest();
 
         var response = await _client.LiabilitiesGetAsync(request);
@@ -615,6 +702,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
