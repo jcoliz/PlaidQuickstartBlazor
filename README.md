@@ -1,3 +1,11 @@
+# * * * BRANCH NOTES * * *
+
+For: topic/open-api
+
+This is an experiment to understand the differences between Going.Plaid and the NSwag-generated library.
+
+This is an experimental TOPIC BRANCH. If you see this in Main, please file an issue, there has been a merge error.
+
 # Plaid quickstart for .NET
 
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md) 
