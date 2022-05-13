@@ -941,6 +941,87 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transfer()
     {
+#if PLAIDLY
+        try
+        {
+            var actrequest = new Plaidly.AccountsGetRequest() { Access_token = _credentials.AccessToken! };
+            var actresponse = await _plyclient.AccountsGetAsync(actrequest);
+
+            var accountid = actresponse.Accounts.FirstOrDefault()?.Account_id;
+            var transrequest = new Plaidly.TransferAuthorizationCreateRequest()
+            {
+                Access_token = _credentials.AccessToken!,
+                Account_id = accountid!,
+                Amount = "1.34",
+                Network = Plaidly.TransferNetwork.Ach,
+                Ach_class = Plaidly.ACHClass.Ppd,
+                Type = Plaidly.TransferType.Credit,
+                User = new()
+                {
+                    Legal_name = "Alice Cranberry",
+                    Phone_number = "555-123-4567",
+                    Email_address = "alice@example.com"
+                }
+            };
+            var transresponse = await _plyclient.TransferAuthorizationCreateAsync(transrequest);
+
+            _logger.LogInformation($"Transfer Auth OK: {JsonSerializer.Serialize(transresponse)}");
+
+            var authid = transresponse.Authorization.Id;
+            var createrequest = new Plaidly.TransferCreateRequest()
+            {
+                Access_token = _credentials.AccessToken!,
+                Idempotency_key = "1223abc456xyz7890001",
+                Account_id = accountid!,
+                Authorization_id = authid,
+                Amount = "1.34",
+                Network = Plaidly.TransferNetwork.Ach,
+                Ach_class = Plaidly.ACHClass.Ppd,
+                Type = Plaidly.TransferType.Credit,
+                User = new()
+                {
+                    Legal_name = "Alice Cranberry",
+                    Phone_number = "555-123-4567",
+                    Email_address = "alice@example.com"
+                }
+            };
+            var createresponse = await _plyclient.TransferCreateAsync(createrequest);
+
+            _logger.LogInformation($"Transfer Create OK: {JsonSerializer.Serialize(createresponse)}");
+
+            var transferid = createresponse.Transfer.Id;
+            var request = new Plaidly.TransferGetRequest()
+            {
+                Transfer_id = transferid,
+            };
+            var response = await _plyclient.TransferGetAsync(request);
+
+            DataTable result = new ServerDataTable("Transfer ID", "Amount/r", "Type", "ACH Class", "Network", "Status")
+            {
+                Rows = new Row[]
+                {
+                    new Row(
+                        transferid,
+                        response.Transfer.Amount,
+                        response.Transfer.Type.ToString(),
+                        response.Transfer.Ach_class.ToString(),
+                        response.Transfer.Network.ToString(),
+                        response.Transfer.Status.ToString()
+                    )
+                }
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var actrequest = new Going.Plaid.Accounts.AccountsGetRequest();
         var actresponse = await _client.AccountsGetAsync(actrequest);
 
@@ -1021,6 +1102,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
