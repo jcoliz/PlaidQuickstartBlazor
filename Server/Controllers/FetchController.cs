@@ -75,8 +75,7 @@ public class FetchController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Auth: {ex.GetType().Name} {ex.Message}");
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            return Error(ex);
         }
 #else
         var request = new Going.Plaid.Auth.AuthGetRequest();
@@ -151,8 +150,7 @@ public class FetchController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Auth: {ex.GetType().Name} {ex.Message}");
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            return Error(ex);
         }
 
 #else
@@ -228,8 +226,7 @@ public class FetchController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Auth: {ex.GetType().Name} {ex.Message}");
-            return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            return Error(ex);
         }
 #else
 
@@ -263,8 +260,47 @@ public class FetchController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
     public async Task<IActionResult> Holdings()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.InvestmentsHoldingsGetRequest() { Access_token = _credentials.AccessToken! };
+
+            var response = await _plyclient.InvestmentsHoldingsGetAsync(request);
+
+            Plaidly.Security? SecurityFor(string? id) => response?.Securities.Where(x => x.Security_id == id).SingleOrDefault();
+            Plaidly.AccountBase? AccountFor(string? id) => response?.Accounts.Where(x => x.Account_id == id).SingleOrDefault();
+
+            DataTable result = new ServerDataTable("Mask", "Name", "Quantity/r", "Close Price/r", "Value/r")
+            {
+                Rows = response.Holdings
+                .Select(x =>
+                    new Row(
+                        AccountFor(x.Account_id)?.Mask ?? string.Empty,
+                        SecurityFor(x.Security_id)?.Name ?? string.Empty,
+                        x.Quantity.ToString("0.000"),
+                        x.Institution_price.ToString("C2"),
+                        x.Institution_price.ToString("C2")
+                    )
+                )
+                .ToArray()
+            };
+
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
+
         var request = new Going.Plaid.Investments.InvestmentsHoldingsGetRequest();
 
         var response = await _client.InvestmentsHoldingsGetAsync(request);
@@ -291,6 +327,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
@@ -298,6 +335,49 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Investments_Transactions()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.InvestmentsTransactionsGetRequest()
+            {
+                Access_token = _credentials.AccessToken!,
+                Options = new Plaidly.InvestmentsTransactionsGetRequestOptions()
+                {
+                    Count = 100
+                },
+                Start_date = DateTime.Now - TimeSpan.FromDays(30),
+                End_date = DateTime.Now
+            };
+
+            var response = await _plyclient.InvestmentsTransactionsGetAsync(request);
+
+            Plaidly.Security? SecurityFor(string? id) => response?.Securities.Where(x => x.Security_id == id).SingleOrDefault();
+
+            DataTable result = new ServerDataTable("Name", "Amount/r", "Date/r", "Ticker")
+            {
+                Rows = response.Investment_transactions
+                .Select(x =>
+                    new Row(
+                        x.Name,
+                        x.Amount.ToString("C2"),
+                        x.Date.ToString("MM-dd"),
+                        SecurityFor(x.Security_id)?.Ticker_symbol ?? string.Empty
+                    )
+                )
+                .ToArray()
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var request = new Going.Plaid.Investments.InvestmentsTransactionsGetRequest()
         {
             Options = new InvestmentsTransactionsGetRequestOptions()
@@ -330,6 +410,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
@@ -337,6 +418,36 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Balance()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.AccountsBalanceGetRequest() { Access_token = _credentials.AccessToken! };
+
+            var response = await _plyclient.AccountsBalanceGetAsync(request);
+
+            DataTable result = new ServerDataTable("Name", "AccountId", "Balance/r")
+            {
+                Rows = response.Accounts
+                    .Select(x =>
+                        new Row(
+                            x.Name,
+                            x.Account_id,
+                            x.Balances?.Current?.ToString("C2") ?? string.Empty
+                        )
+                    )
+                    .ToArray()
+            };
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
 
         var response = await _client.AccountsBalanceGetAsync(request);
@@ -358,6 +469,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
@@ -365,6 +477,38 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Accounts()
     {
+#if PLAIDLY
+        try
+        {
+            var request = new Plaidly.AccountsGetRequest() { Access_token = _credentials.AccessToken! };
+
+            var response = await _plyclient.AccountsGetAsync(request);
+
+            DataTable result = new ServerDataTable("Name", "Balance/r", "Subtype", "Mask")
+            {
+                Rows = response.Accounts
+                    .Select(x =>
+                        new Row(
+                            x.Name,
+                            x.Balances?.Current?.ToString("C2") ?? string.Empty,
+                            x.Subtype?.ToString() ?? string.Empty,
+                            x.Mask ?? string.Empty
+                        )
+                    )
+                    .ToArray()
+            };
+
+            return Ok(result);
+        }
+        catch (Plaidly.ApiException<Plaidly.Error> ex)
+        {
+            return Error(ex.Result);
+        }
+        catch (Exception ex)
+        {
+            return Error(ex);
+        }
+#else
         var request = new Going.Plaid.Accounts.AccountsGetRequest();
 
         var response = await _client.AccountsGetAsync(request);
@@ -387,6 +531,7 @@ public class FetchController : ControllerBase
         };
 
         return Ok(result);
+#endif
     }
 
     [HttpGet]
@@ -704,6 +849,12 @@ public class FetchController : ControllerBase
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(outerror)}");
 
         return StatusCode(StatusCodes.Status400BadRequest, outerror);
+    }
+
+    ObjectResult Error(Exception ex, [CallerMemberName] string callerName = "")
+    {
+        _logger.LogError($"{callerName}: {ex.GetType().Name} {ex.Message}");
+        return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
     }
 
     /// <summary>
