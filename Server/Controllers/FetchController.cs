@@ -502,6 +502,8 @@ public class FetchController : ControllerBase
                 Asset_report_token = createresponse.Asset_report_token
             };
 
+            _logger.LogInformation($"Assets: Token {createresponse.Asset_report_token}");
+
             AssetReportGetResponse? response = null;
             int retries = 10;
             while (retries-- > 0)
