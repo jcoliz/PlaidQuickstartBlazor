@@ -8,7 +8,7 @@
 
 ## TODO: Run tests against deployed environment
 
-This is not complete yet. Ween it's done, it will look something like...
+This is not complete yet. When it's done, it will look something like...
 
 1. Deploy ARM template as in Deploy.md
 2. "dotnet test -s appservice.runsettings"

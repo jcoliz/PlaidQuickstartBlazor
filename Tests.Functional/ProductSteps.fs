@@ -32,9 +32,16 @@ let [<Then>] ``a table of results is populated`` (page: IPage) =
     page.WaitForSelectorAsync("data-test-id=Table")  |> Async.AwaitTask |> Async.RunSynchronously
 
 let [<Then>] ``the table has (.*) columns and (.*) rows`` (columns:int) (rows:int) (page: IPage) =
-    page.Locator("data-test-id=Table >> thead >> th").CountAsync() |> Async.AwaitTask |> Async.RunSynchronously |> should equal columns
+    page.Locator("data-test-id=Table >> thead >> th").CountAsync() 
+        |> Async.AwaitTask 
+        |> Async.RunSynchronously 
+        |> should equal columns
+    
     if (rows > 0) then
-        page.Locator("data-test-id=Table >> tbody >> tr").CountAsync() |> Async.AwaitTask |> Async.RunSynchronously |> should equal rows
+        page.Locator("data-test-id=Table >> tbody >> tr").CountAsync() 
+            |> Async.AwaitTask 
+            |> Async.RunSynchronously 
+            |> should equal rows
     
 let [<Then>] ``save a screenshot named "(.*)"`` (name:string) (page:IPage) =
     let filename = $"Screenshot/{name}.png";
