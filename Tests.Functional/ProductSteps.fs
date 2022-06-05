@@ -52,5 +52,6 @@ let [<Then>] ``it has (.*) columns and (.*) rows`` (columns:int) (rows:int) (tab
 let [<Then>] ``save a screenshot named "(.*)"`` (name:string) (page:IPage) =
     let filename = $"Screenshot/{name}.png";
     let options = new PageScreenshotOptions ( Path = filename, FullPage = true, OmitBackground = true )
-    page.ScreenshotAsync(options) |> Async.AwaitTask |> Async.RunSynchronously |> ignore
+    let bytes = page.ScreenshotAsync(options) |> Async.AwaitTask |> Async.RunSynchronously
+    bytes.Length |> should be (greaterThan 10000)
     TestContext.AddTestAttachment(filename)
