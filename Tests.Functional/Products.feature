@@ -3,9 +3,9 @@ Feature: All products provide correctly-sized results
 Scenario Outline: Product loads correctly-sized results
     Given user launched site
     And link flow complete
-    When clicking send request for the <Product> product
-    Then a table of results is populated
-    And the table has <Columns> columns and <Rows> rows
+    When clicking btn-request in the <Product> endpoint
+    Then a Table is returned
+    And it has <Columns> columns and <Rows> rows
     And save a screenshot named "<Product>"
 
 Examples:

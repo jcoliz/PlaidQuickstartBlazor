@@ -21,24 +21,30 @@ let [<Given>] ``link flow complete`` (page: IPage) =
 // WHEN
 //
 
-let [<When>] ``clicking send request for the (.*) product`` (product:string) (page: IPage) =
-    page.ClickAsync($"data-test-id=endpoint-{product} >> data-test-id=btn-request") |> Async.AwaitTask |> Async.RunSynchronously
+let [<When>] ``clicking (.*) in the (.*) endpoint`` (element:string) (product:string) (page: IPage) =
+    page.ClickAsync($"data-test-id=endpoint-{product} >> data-test-id={element}") |> Async.AwaitTask |> Async.RunSynchronously
 
 //
 // THEN
 //
 
-let [<Then>] ``a table of results is populated`` (page: IPage) =
-    page.WaitForSelectorAsync("data-test-id=Table")  |> Async.AwaitTask |> Async.RunSynchronously
+let [<Then>] ``a (.*) is returned`` (element:string) (page: IPage) =
+    let table = page.Locator($"data-test-id={element}")
+    table.WaitForAsync() |> Async.AwaitTask |> Async.RunSynchronously
+    table.CountAsync() 
+        |> Async.AwaitTask 
+        |> Async.RunSynchronously 
+        |> should equal 1
+    table
 
-let [<Then>] ``the table has (.*) columns and (.*) rows`` (columns:int) (rows:int) (page: IPage) =
-    page.Locator("data-test-id=Table >> thead >> th").CountAsync() 
+let [<Then>] ``it has (.*) columns and (.*) rows`` (columns:int) (rows:int) (table: ILocator) =
+    table.Locator("thead >> th").CountAsync() 
         |> Async.AwaitTask 
         |> Async.RunSynchronously 
         |> should equal columns
     
     if (rows > 0) then
-        page.Locator("data-test-id=Table >> tbody >> tr").CountAsync() 
+        table.Locator("tbody >> tr").CountAsync() 
             |> Async.AwaitTask 
             |> Async.RunSynchronously 
             |> should equal rows
