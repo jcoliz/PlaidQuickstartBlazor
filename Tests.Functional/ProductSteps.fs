@@ -28,14 +28,14 @@ let [<When>] ``clicking (.*) in the (.*) endpoint`` (element:string) (product:st
 // THEN
 //
 
-let [<Then>] ``a (.*) is returned`` (element:string) (page: IPage) =
-    let table = page.Locator($"data-test-id={element}")
-    table.WaitForAsync() |> Async.AwaitTask |> Async.RunSynchronously
-    table.CountAsync() 
+let [<Then>] ``a (.*) is returned`` (testid:string) (page: IPage) =
+    let locator = page.Locator($"data-test-id={testid}")
+    locator.WaitForAsync() |> Async.AwaitTask |> Async.RunSynchronously
+    locator.CountAsync() 
         |> Async.AwaitTask 
         |> Async.RunSynchronously 
         |> should equal 1
-    table
+    locator
 
 let [<Then>] ``it has (.*) columns and (.*) rows`` (columns:int) (rows:int) (table: ILocator) =
     table.Locator("thead >> th").CountAsync() 
