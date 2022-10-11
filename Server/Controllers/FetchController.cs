@@ -487,9 +487,9 @@ public class FetchController : ControllerBase
             AccountId = accountid!,
             AuthorizationId = authid,
             Amount = "1.34",
-            Network = TransferNetwork.Ach,
-            AchClass = AchClass.Ppd,
-            Type = TransferType.Credit,
+            Network = "ach",
+            AchClass = "ppd",
+            Type = "credit",
             User = new()
             {
                 LegalName = "Alice Cranberry",
