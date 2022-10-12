@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="AspNetCore.SassCompiler" Version="1.55.0" />
     <PackageReference Include="Going.Plaid" Version="4.15.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.10" />
     <PackageReference Include="NetEscapades.Configuration.Yaml" Version="2.2.0" />
   </ItemGroup>
 
