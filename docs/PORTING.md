@@ -2,6 +2,9 @@
 
 ## Going.Plaid
 
+Most porting updates are caused by changes to the underlying Plaid API, which is surfaced
+to the QuickStart by the Going.Plaid library.
+
 For reference, have the latest Going.Plaid libraries on the local machine. 
 BE SURE to include the latest Plaid API by recursing submodules when pulling:
 
