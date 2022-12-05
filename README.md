@@ -48,6 +48,10 @@ In Sandbox, you can log in to any supported institution (except Capital One) usi
 
 In Development or Production, use real-life credentials.
 
+## Porting guide
+
+For details on how to keep the port up-to-date, please see the [Porting Guide](/docs/PORTING.md).
+
 ## Code of conduct
 
 We as members, contributors, and leaders pledge to make participation in our
