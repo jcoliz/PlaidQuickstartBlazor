@@ -122,7 +122,9 @@ public class FetchController : ControllerBase
                                 string.Join(", ", o.Names),
                                 string.Join(", ", o.Emails.Select(x => x.Data)),
                                 string.Join(", ", o.PhoneNumbers.Select(x => x.Data)),
-                                string.Join(", ", o.Addresses.Select(x => x.Data.Street))
+                                string.Empty
+                                // Working around Going.Plaid Issue #113 
+                                // string.Join(", ", o.Addresses.Select(x => x.Data.Street))
                             )
                         )
                 ).ToArray()
