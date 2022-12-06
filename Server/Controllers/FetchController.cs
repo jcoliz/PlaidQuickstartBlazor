@@ -67,24 +67,42 @@ public class FetchController : ControllerBase
     [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transactions()
     {
-        var request = new Going.Plaid.Transactions.TransactionsGetRequest()
+        // Set cursor to empty to receive all historical updates
+        string cursor = String.Empty;
+       
+        // New transaction updates since "cursor"
+        var added = new List<Transaction>();
+        var modified = new List<Transaction>();
+        var removed = new List<RemovedTransaction>();
+        var hasMore = true;
+
+        while (hasMore)
         {
-            Options = new TransactionsGetRequestOptions()
+            const int numrequested = 100;
+            var request = new Going.Plaid.Transactions.TransactionsSyncRequest()
             {
-                Count = 100
-            },
-            StartDate = DateOnly.FromDateTime( DateTime.Now - TimeSpan.FromDays(30) ),
-            EndDate = DateOnly.FromDateTime(DateTime.Now)
-        };
+                Cursor = cursor,
+                Count = numrequested
+            };
 
-        var response = await _client.TransactionsGetAsync(request);
+            var response = await _client.TransactionsSyncAsync(request);
 
-        if (response.Error is not null)
-            return Error(response.Error);
+            if (response.Error is not null)
+                return Error(response.Error);
 
+            added.AddRange(response!.Added);
+            modified.AddRange(response.Modified);
+            removed.AddRange(response.Removed);
+            hasMore = response.HasMore;
+            cursor = response.NextCursor;
+        }
+
+        const int numresults = 8;
         DataTable result = new ServerDataTable("Name", "Amount/r", "Date/r", "Category", "Channel")
         {
-            Rows = response.Transactions
+            Rows = added
+                .OrderBy(x => x.Date)
+                .TakeLast(numresults)
                 .Select(x =>
                     new Row(
                         x.Name,
