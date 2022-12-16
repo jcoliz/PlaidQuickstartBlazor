@@ -3,7 +3,7 @@
 ## Plaid API Changes
 
 Most porting updates are caused by changes to the underlying Plaid API, which is surfaced
-to the QuickStart by the Going.Plaid library.
+through the QuickStart by the Going.Plaid library.
 
 For reference, have the latest Going.Plaid libraries on the local machine. 
 BE SURE to include the latest Plaid API by recursing submodules when pulling:
@@ -18,8 +18,7 @@ https://github.com/plaid/quickstart/blob/master/frontend/src/Components/ProductT
 
 The primary reference file for the frontend is Products.tsx, e.g.
 
-``` TS
-{products.includes("assets") && (
+``` xml
 <Endpoint
     endpoint="assets"
     name="Assets"
@@ -28,7 +27,6 @@ The primary reference file for the frontend is Products.tsx, e.g.
     description="Create and retrieve assets information an asset report"
     transformData={transformAssetsData}
 />
-)}
 ```
 
 ...becomes this in FrontEnd/Components/Products.razor:
@@ -136,7 +134,7 @@ export const transformBalanceData = (data: AccountsGetResponse) => {
 
 ...is reflected in the C# `Accounts()` endpoint as:
 
-```
+```c#
 DataTable result = new ServerDataTable("Name", "Balance/r", "Subtype", "Mask")
 {
     Rows = response.Accounts
