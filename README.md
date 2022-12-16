@@ -29,9 +29,9 @@ the [Plaid dashboard](https://dashboard.plaid.com/account/keys)
 
 > NOTE: The `secrets.yaml` files is included as a convenient local development tool. In fact, you can use any of the many methods of getting configuration settings into ASP.NET. Please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&tabs=linux).
 
-## 3. Install .NET 6.0 SDK
+## 3. Install .NET 7.0 SDK
 
-If you don't already have the .NET 6.0 SDK installed, be sure to get a copy first from the [Download .NET](https://dotnet.microsoft.com/en-us/download) page.
+If you don't already have the .NET 7.0 SDK installed, be sure to get a copy first from the [Download .NET](https://dotnet.microsoft.com/en-us/download) page.
 
 ## 4. Run it!
 
