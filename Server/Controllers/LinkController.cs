@@ -127,7 +127,7 @@ public class LinkController : ControllerBase
         return Ok();
     }
 
-    ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
+    ObjectResult Error(Going.Plaid.Entity.PlaidError error, [CallerMemberName] string callerName = "")
     {
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(error)}");
         return StatusCode(StatusCodes.Status400BadRequest, error);

@@ -34,7 +34,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Auth()
     {
         var request = new Going.Plaid.Auth.AuthGetRequest();
@@ -64,7 +64,7 @@ public class FetchController : ControllerBase
     }
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transactions()
     {
         // Set cursor to empty to receive all historical updates
@@ -120,7 +120,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Identity()
     {
         var request = new Going.Plaid.Identity.IdentityGetRequest();
@@ -151,7 +151,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Holdings()
     {
         var request = new Going.Plaid.Investments.InvestmentsHoldingsGetRequest();
@@ -184,7 +184,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Investments_Transactions()
     {
         var request = new Going.Plaid.Investments.InvestmentsTransactionsGetRequest()
@@ -223,7 +223,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Balance()
     {
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
@@ -251,7 +251,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Accounts()
     {
         var request = new Going.Plaid.Accounts.AccountsGetRequest();
@@ -280,7 +280,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Item()
     {
         var request = new Going.Plaid.Item.ItemGetRequest();
@@ -313,7 +313,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Liabilities()
     {
         var request = new Going.Plaid.Liabilities.LiabilitiesGetRequest();
@@ -363,7 +363,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Payment()
     {
         var listrequest = new Going.Plaid.PaymentInitiation.PaymentInitiationPaymentListRequest();
@@ -398,7 +398,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Assets()
     {
         _client.AccessToken = null;
@@ -433,7 +433,7 @@ public class FetchController : ControllerBase
 
         var response = await _client.AssetReportGetAsync(request);
         int retries = 10;
-        while (response?.Error?.ErrorCode == ErrorCode.ProductNotReady && retries-- > 0)
+        while (response?.Error?.ErrorCode == "PRODUCT_NOT_READY" && retries-- > 0)
         {
             await Task.Delay(TimeSpan.FromSeconds(1));
             response = await _client.AssetReportGetAsync(request);
@@ -466,7 +466,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Transfer()
     {
         var actrequest = new Going.Plaid.Accounts.AccountsGetRequest();
@@ -550,7 +550,7 @@ public class FetchController : ControllerBase
 
     [HttpGet]
     [ProducesResponseType(typeof(DataTable), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(PlaidError), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(Shared.PlaidError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Verification()
     {
         var request = new Going.Plaid.Accounts.AccountsBalanceGetRequest();
@@ -576,7 +576,7 @@ public class FetchController : ControllerBase
         return Ok(result);
     }
 
-    ObjectResult Error(Going.Plaid.Errors.PlaidError error, [CallerMemberName] string callerName = "")
+    ObjectResult Error(Going.Plaid.Entity.PlaidError error, [CallerMemberName] string callerName = "")
     {
         var outerror = new ServerPlaidError(error);
         _logger.LogError($"{callerName}: {JsonSerializer.Serialize(outerror)}");
@@ -606,17 +606,23 @@ public class FetchController : ControllerBase
     /// <summary>
     /// Server-side version of shared plaid error
     /// </summary>
+    /// <remarks>
+    /// TODO: Consider refactoring out this class
+    /// Now that Going.Plaid 5.0.0 no longer uses enums for error type and error code,
+    /// this class may not be needed anymore. May be able simply use the Going.Plaid
+    /// error class directly when communicating with the client.
+    /// </remarks>
     internal class ServerPlaidError: Shared.PlaidError
     {
-        internal ServerPlaidError(Going.Plaid.Errors.PlaidError error)
+        internal ServerPlaidError(Going.Plaid.Entity.PlaidError error)
         {
             try
             {
                 base.error_message = error.ErrorMessage;
                 base.display_message = error.DisplayMessage;
 
-                base.error_type = ToEnumString(error.ErrorType);
-                base.error_code = ToEnumString(error.ErrorCode);
+                base.error_type = error.ErrorType;
+                base.error_code = error.ErrorCode;
 
                 base.error_type_path = _error_type_paths.GetValueOrDefault(base.error_type);
             }
@@ -624,22 +630,6 @@ public class FetchController : ControllerBase
             {
                 // If we run into errors here, we'll just take as much as we have converted sofar
             }
-        }
-
-        // The problem here is that the built-in JsonStringEnumConverter only converts
-        // the enums into their C# representation, e.g. InvalidRequest. But when displaying
-        // them to the user, we need to use the Plaid standard values, e.g. INVALID_REQUEST.
-        // Those values are tied onto the Enum with an EnumMemberAttribute, so we could
-        // create a custom converter. Or we could go the faster route, and just convert them
-        // by hand here.
-
-        // https://stackoverflow.com/questions/10418651/using-enummemberattribute-and-doing-automatic-string-conversions
-        private static string ToEnumString<T>(T value)
-        {
-            var enumType = typeof(T);
-            var name = Enum.GetName(enumType, value!);
-            var enumMemberAttribute = ((EnumMemberAttribute[])enumType!.GetField(name!)!.GetCustomAttributes(typeof(EnumMemberAttribute), true)).Single();
-            return enumMemberAttribute!.Value!;
         }
 
         private readonly Dictionary<string, string> _error_type_paths = new Dictionary<string, string>()
