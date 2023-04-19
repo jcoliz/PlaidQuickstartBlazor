@@ -105,11 +105,11 @@ public class FetchController : ControllerBase
                 .TakeLast(numresults)
                 .Select(x =>
                     new Row(
-                        x.Name,
-                        x.Amount.ToString("C2"),
-                        x.Date.ToShortDateString(),
+                        x.Name ?? string.Empty,
+                        x.Amount?.ToString("C2") ?? string.Empty,
+                        x.Date?.ToShortDateString() ?? string.Empty,
                         string.Join(':',x.Category ?? Enumerable.Empty<string>() ),
-                        x.PaymentChannel.ToString()
+                        x.PaymentChannel.ToString() ?? string.Empty
                     )
                 )
                 .ToArray()
@@ -134,7 +134,7 @@ public class FetchController : ControllerBase
         {
             Rows = response.Accounts
                 .SelectMany(a => 
-                    a.Owners
+                    a.Owners?
                         .Select(o => 
                             new Row(
                                 string.Join(", ", o.Names),
@@ -143,6 +143,7 @@ public class FetchController : ControllerBase
                                 string.Join(", ", o.Addresses.Select(x => x.Data.Street))
                             )
                         )
+                        ?? Enumerable.Empty<Row>()
                 ).ToArray()
         };
 
@@ -447,9 +448,9 @@ public class FetchController : ControllerBase
             Rows = response!.Report.Items
                 .SelectMany(x => x.Accounts.Select( a =>
                     new Row(
-                        a.Name,
+                        a.Name ?? string.Empty,
                         a.Transactions.Count.ToString(),
-                        a.Balances.Current?.ToString("C2") ?? string.Empty,
+                        a.Balances?.Current?.ToString("C2") ?? string.Empty,
                         a.DaysAvailable.ToString("0")
                     ))
                 )
@@ -538,8 +539,8 @@ public class FetchController : ControllerBase
                     transferid,
                     response.Transfer.Amount,
                     response.Transfer.Type.ToString(),
-                    response.Transfer.AchClass.ToString(),
-                    response.Transfer.AchClass.ToString(),
+                    response.Transfer.AchClass?.ToString() ?? string.Empty,
+                    response.Transfer.AchClass?.ToString() ?? string.Empty,
                     response.Transfer.Status.ToString()
                 )
             }
