@@ -48,13 +48,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 // https://andrewlock.net/enabling-prerendering-for-blazor-webassembly-apps/
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapRazorPages();
-    endpoints.MapFallbackToPage("/_Host");
-});
-
-//app.MapRazorPages();
+// https://learn.microsoft.com/en-us/aspnet/core/diagnostics/asp0014
+app.MapRazorPages();
+app.MapFallbackToPage("/_Host");
 app.MapControllers();
 
 app.Run();
