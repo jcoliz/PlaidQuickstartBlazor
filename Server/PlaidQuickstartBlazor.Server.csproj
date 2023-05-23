@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.SassCompiler" Version="1.60.0" />
-    <PackageReference Include="Going.Plaid" Version="5.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0-preview.3.23177.8" />
-    <PackageReference Include="NetEscapades.Configuration.Yaml" Version="3.0.0" />
+    <PackageReference Include="AspNetCore.SassCompiler" Version="1.62.1" />
+    <PackageReference Include="Going.Plaid" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0-preview.4.23260.4" />
+    <PackageReference Include="NetEscapades.Configuration.Yaml" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
