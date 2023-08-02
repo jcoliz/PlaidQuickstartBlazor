@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.SassCompiler" Version="1.64.1" />
+    <PackageReference Include="AspNetCore.SassCompiler" Version="1.64.2" />
     <PackageReference Include="Going.Plaid" Version="6.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.9" />
     <PackageReference Include="NetEscapades.Configuration.Yaml" Version="3.1.0" />
