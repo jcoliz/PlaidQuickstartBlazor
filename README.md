@@ -31,7 +31,7 @@ the [Plaid dashboard](https://dashboard.plaid.com/account/keys)
 
 ## 3. Install .NET 8.0 SDK
 
-If you don't already have the latest .NET 8.0 preview SDK installed, be sure to get a copy first from the [Download .NET](https://dotnet.microsoft.com/en-us/download) page.
+If you don't already have the latest .NET 8.0 SDK installed, be sure to get a copy first from the [Download .NET](https://dotnet.microsoft.com/en-us/download) page.
 
 ## 4. Run it!
 
