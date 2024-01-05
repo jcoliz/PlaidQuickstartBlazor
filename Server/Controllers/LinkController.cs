@@ -5,6 +5,7 @@ using Going.Plaid.Link;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using PlaidQuickstartBlazor.Shared;
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 
@@ -70,7 +71,7 @@ public class LinkController : ControllerBase
                     User = new LinkTokenCreateRequestUser { ClientUserId = Guid.NewGuid().ToString(), },
                     ClientName = "Quickstart for .NET",
                     Products = fix != true ? _credentials!.Products!.Split(',').Select(p => Enum.Parse<Products>(p, true)).ToArray() : Array.Empty<Products>(),
-                    Language = Language.English, // TODO: Should pick up from config
+                    Language = CultureInfo.CurrentCulture.TwoLetterISOLanguageName ?? "en",
                     CountryCodes = _credentials!.CountryCodes!.Split(',').Select(p => Enum.Parse<CountryCode>(p, true)).ToArray(),
                 });
 
