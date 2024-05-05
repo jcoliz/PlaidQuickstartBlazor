@@ -25,7 +25,7 @@ PS Server> cp .\secrets.example.yaml .\secrets.yaml
 
 Copy `secrets.example.yaml` to a new file called `secrets.yaml`, then fill out the configuration variables inside. At
 minimum `ClientID` and `Secret` must be filled out. Get your Client ID and secrets from
-the [Plaid dashboard](https://dashboard.plaid.com/account/keys)
+the [Plaid dashboard](https://dashboard.plaid.com/developers/keys)
 
 > NOTE: The `secrets.yaml` files is included as a convenient local development tool. In fact, you can use any of the many methods of getting configuration settings into ASP.NET. Please see [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-6.0&tabs=linux).
 
